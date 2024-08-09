@@ -1,5 +1,8 @@
 import { useState } from 'react'
-import equivs from '../services/equivalents.json'
+import DbServices from '../services/db.js'
+
+
+const equivs = DbServices.getStudyAwayEquivalents();
 
 const programs = [...new Set(equivs.map(datum =>
   datum.program

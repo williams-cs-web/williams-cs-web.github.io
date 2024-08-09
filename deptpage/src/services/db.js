@@ -1,8 +1,10 @@
-import data from './data.json'
-import people from './people.json'
-import courses from './courses.json'
-import colloquiumData from './colloquium.json'
-import studentData from './students.json'
+import major from '../../data/major.json'
+import people from '../../data/people.json'
+import courses from '../../data/courses.json'
+import colloquiumData from '../../data/colloquium.json'
+import studentData from '../../data/students.json'
+import equivs from '../../data/equivalents.json'
+
 
 const getCatalog = () => {
   return courses.catalog
@@ -22,61 +24,68 @@ const getUpcomingColloquia = () => {
 }
 
 
-  const getCourseSections = (semester) => {
-    return courses.sections.filter(course => course.semester === semester)
-  }
 
-  const getCourseById = courseId => {
-    return courses.catalog.find(course => course.id === courseId)
-  }
+const getCourseSections = (semester) => {
+  return courses.sections.filter(course => course.semester === semester)
+}
 
-  const getAllCourses = () => { //todo: change function name
-    return data.courses
-  }
+const getCourseById = courseId => {
+  return courses.catalog.find(course => course.id === courseId)
+}
 
-  const getCourse = courseId => { //todo: change function name
-    return data.courses.find((datum) => datum.id === courseId)
-  }
+const getAllCourses = () => { //todo: change function name
+  return major.courses
+}
 
-  const getSchedules = () => {
-    return data.schedules
-  }
+const getCourse = courseId => { //todo: change function name
+  return major.courses.find((datum) => datum.id === courseId)
+}
 
-  const getLastName = (name) => {
-    const fields = name.split(' ')
-    const first = fields[0]
-    const last = fields.slice(1, fields.length).join(' ')
-    return last.length > 0 ? last : first
-  }
+const getSchedules = () => {
+  return major.schedules
+}
 
-  const getPeople = () => {
-    return people.people.toSorted((a, b) => {
-      const nameA = getLastName(a.id.toUpperCase())
-      const nameB = getLastName(b.id.toUpperCase())
-      return nameA < nameB ? -1 : (nameA > nameB ? 1 : 0)
-    });
-  }
+const getLastName = (name) => {
+  const fields = name.split(' ')
+  const first = fields[0]
+  const last = fields.slice(1, fields.length).join(' ')
+  return last.length > 0 ? last : first
+}
 
-  const getPeopleByRole = (role) => {
-    return getPeople().filter(person =>
-      person.role === role
-    )
-  }
+const getPeople = () => {
+  return people.people.toSorted((a, b) => {
+    const nameA = getLastName(a.id.toUpperCase())
+    const nameB = getLastName(b.id.toUpperCase())
+    return nameA < nameB ? -1 : (nameA > nameB ? 1 : 0)
+  });
+}
 
-  const getStudentGroups = () => {
-    return studentData.groups
-  }
+const getPeopleByRole = (role) => {
+  return getPeople().filter(person =>
+    person.role === role
+  )
+}
+
+const getStudentGroups = () => {
+  return studentData.groups
+}
 
 
-  export default {
-    getAllCourses,
-    getCourse,
-    getSchedules,
-    getPeople,
-    getPeopleByRole,
-    getCatalog,
-    getCourseSections,
-    getCourseById,
-    getUpcomingColloquia,
-    getStudentGroups
-  }
+const getStudyAwayEquivalents = () => {
+  return equivs
+}
+
+
+export default {
+  getAllCourses,
+  getCourse,
+  getSchedules,
+  getPeople,
+  getPeopleByRole,
+  getCatalog,
+  getCourseSections,
+  getCourseById,
+  getUpcomingColloquia,
+  getStudentGroups,
+  getStudyAwayEquivalents
+}
