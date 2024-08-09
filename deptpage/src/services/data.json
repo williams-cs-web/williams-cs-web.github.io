@@ -1,0 +1,254 @@
+{
+    "courses": [
+        {
+            "id": "CSCI 134",
+            "title": "Introduction to Computer Science",
+            "prereqs": [],
+            "info": "CSCI 134 (Introduction to Computer Science) is traditionally the first course taken for the CS major. It is for students with little or no experience with computer science.",
+            "warning": ""
+        },
+        {
+            "id": "CSCI 136",
+            "title": "Data Structures and Advanced Programming",
+            "prereqs": [
+                "CSCI 134"
+            ],
+            "info": "CSCI 136 (Data Structures and Advanced Programming) is traditionally the second course taken for the CS major.",
+            "warning": "CSCI 136 has CSCI 134 as a prerequisite."
+        },
+        {
+            "id": "MATH 200",
+            "title": "Discrete Mathematics",
+            "prereqs": [],
+            "info": "Students must demonstrate proficiency in discrete mathematics by earning a grade of C- or better in MATH 200. Advanced mathematics students may replace MATH 200 with any of the following courses: MATH 328, MATH 334, MATH 341.",
+            "warning": ""
+        },
+        {
+            "id": "CSCI 237",
+            "title": "Computer Organization",
+            "prereqs": [
+                "CSCI 136"
+            ],
+            "info": "CSCI 237 (Computer Organization) is a core course. Majors are encouraged to complete all core courses by the end of their junior year in order to ensure that they have the appropriate prerequisites for the electives.",
+            "warning": "CSCI 237 has CSCI 136 as a prerequisite."
+        },
+        {
+            "id": "CSCI 256",
+            "title": "Algorithm Design and Analysis",
+            "prereqs": [
+                "CSCI 136",
+                "MATH 200"
+            ],
+            "info": "CSCI 256 (Algorithm Design and Analysis) is a core course. Majors are encouraged to complete all core courses by the end of their junior year in order to ensure that they have the appropriate prerequisites for the electives.",
+            "warning": "CSCI 256 has both CSCI 136 and CSCI 200 as prerequisites."
+        },
+        {
+            "id": "CSCI 334/361",
+            "title": "Principles of Programming Languages/Theory of Computation",
+            "prereqs": [
+                "CSCI 256"
+            ],
+            "info": "You must take at least one of CSCI 334 or CSCI 361. Note that CSCI 256 is a prerequisite for CSCI 361.",
+            "warning": "CSCI 361 has CSCI 256 as a prerequisite."
+        },
+        {
+            "id": "MATH 2xx",
+            "title": "Math Elective",
+            "prereqs": [],
+            "info": "This can be any Mathematics or Statistics course at the 200-level or higher, except for MATH 200.",
+            "warning": ""
+        },
+        {
+            "id": "CSCI 3xx(1)",
+            "title": "Computer Science Elective 1",
+            "prereqs": [
+                "CSCI 136"
+            ],
+            "info": "A course chosen from 300- or 400-level courses in Computer Science. Important note: Computer Science courses with 9 as the middle digit (reading, research, and thesis courses) normally cannot be used to satisfy the elective requirements.",
+            "warning": "Most electives have either 237 or 256 as a prerequisite."
+        },
+        {
+            "id": "CSCI 3xx(2)",
+            "title": "Computer Science Elective 2",
+            "prereqs": [
+                "CSCI 136"
+            ],
+            "info": "A course chosen from 300- or 400-level courses in Computer Science. Important note: Computer Science courses with 9 as the middle digit (reading, research, and thesis courses) normally cannot be used to satisfy the elective requirements.",
+            "warning": "Most electives have either 237 or 256 as a prerequisite."
+        },
+        {
+            "id": "CSCI 3xx(3)",
+            "title": "Computer Science Elective 3",
+            "prereqs": [
+                "CSCI 136"
+            ],
+            "info": "A course chosen from 300- or 400-level courses in Computer Science. Important note: Computer Science courses with 9 as the middle digit (reading, research, and thesis courses) normally cannot be used to satisfy the elective requirements.",
+            "warning": "Most electives have either 237 or 256 as a prerequisite."
+        },
+        {
+            "id": "CSCI 3xx(4)",
+            "title": "Computer Science Elective 4",
+            "prereqs": [
+                "CSCI 136"
+            ],
+            "info": "A course chosen from 300- or 400-level courses in Computer Science. Important note: Computer Science courses with 9 as the middle digit (reading, research, and thesis courses) normally cannot be used to satisfy the elective requirements.",
+            "warning": "Most electives have either 237 or 256 as a prerequisite."
+        }
+    ],
+    "schedules": {
+        "dayone": [
+            {
+                "semester": "1a",
+                "courses": [
+                    "CSCI 134"
+                ]
+            },
+            {
+                "semester": "1b",
+                "courses": [
+                    "CSCI 136",
+                    "MATH 200"
+                ]
+            },
+            {
+                "semester": "2a",
+                "courses": [
+                    "CSCI 237",
+                    "MATH 2xx"
+                ]
+            },
+            {
+                "semester": "2b",
+                "courses": [
+                    "CSCI 256"
+                ]
+            },
+            {
+                "semester": "3a",
+                "courses": [
+                    "CSCI 334/361"
+                ]
+            },
+            {
+                "semester": "3b",
+                "courses": [
+                    "CSCI 3xx(1)"
+                ]
+            },
+            {
+                "semester": "4a",
+                "courses": [
+                    "CSCI 3xx(2)"
+                ]
+            },
+            {
+                "semester": "4b",
+                "courses": [
+                    "CSCI 3xx(3)"
+                ]
+            }
+        ],
+        "discovery": [
+            {
+                "semester": "1a",
+                "courses": []
+            },
+            {
+                "semester": "1b",
+                "courses": []
+            },
+            {
+                "semester": "2a",
+                "courses": [
+                    "CSCI 134",
+                    "MATH 200"
+                ]
+            },
+            {
+                "semester": "2b",
+                "courses": [
+                    "CSCI 136"
+                ]
+            },
+            {
+                "semester": "3a",
+                "courses": [
+                    "CSCI 237",
+                    "MATH 2xx"
+                ]
+            },
+            {
+                "semester": "3b",
+                "courses": [
+                    "CSCI 256",
+                    "CSCI 3xx(1)"
+                ]
+            },
+            {
+                "semester": "4a",
+                "courses": [
+                    "CSCI 334/361",
+                    "CSCI 3xx(2)"
+                ]
+            },
+            {
+                "semester": "4b",
+                "courses": [
+                    "CSCI 3xx(3)"
+                ]
+            }
+        ],
+        "accelerated": [
+            {
+                "semester": "1a",
+                "courses": [
+                    "CSCI 136",
+                    "MATH 200"
+                ]
+            },
+            {
+                "semester": "1b",
+                "courses": [
+                    "CSCI 237"
+                ]
+            },
+            {
+                "semester": "2a",
+                "courses": [
+                    "CSCI 256",
+                    "MATH 2xx"
+                ]
+            },
+            {
+                "semester": "2b",
+                "courses": [
+                    "CSCI 3xx(1)"
+                ]
+            },
+            {
+                "semester": "3a",
+                "courses": [
+                    "CSCI 334/361"
+                ]
+            },
+            {
+                "semester": "3b",
+                "courses": [
+                    "CSCI 3xx(2)"
+                ]
+            },
+            {
+                "semester": "4a",
+                "courses": [
+                    "CSCI 3xx(3)"
+                ]
+            },
+            {
+                "semester": "4b",
+                "courses": [
+                    "CSCI 3xx(4)"
+                ]
+            }
+        ]
+    }
+}

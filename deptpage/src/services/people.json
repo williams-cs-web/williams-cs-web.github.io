@@ -1,0 +1,164 @@
+{
+    "people": [
+        {
+            "id": "Jeannie Albrecht",
+            "photo": "images/people/jeannie.jpg",
+            "role": "faculty",
+            "title": "Professor and Chair",
+            "webpage": "http://cs.williams.edu/~jeannie/",
+            "interests": "Distributed systems and computer networks, particularly focusing on reliability, scalability, and extensibility achieved over the wide-area, sensor networks, operating systems."
+        },
+        {
+            "id": "Daniel Barowy",
+            "photo": "images/people/dan.jpg",
+            "role": "faculty",
+            "title": "Associate Professor",
+            "webpage": "http://cs.williams.edu/~dbarowy/",
+            "interests": "End-user programming, crowdsourcing, program synthesis, debugging techniques, nonparametric statistical methods."  
+        },
+        {
+            "id": "James Bern",
+            "photo": "images/people/jim.jpg",
+            "role": "faculty",
+            "title": "Assistant Professor",
+            "webpage": "",
+            "interests": "Soft and rigid robotics, computational design, numerical simulation, computer graphics, toys & games, robotic art."  
+        },
+        {
+            "id": "Rohit Bhattacharya",
+            "photo": "images/people/rohit.jpg",
+            "role": "faculty",
+            "title": "Assistant Professor",
+            "webpage": "https://rohit-bhattacharya.com/",
+            "interests": "Causal inference, graphical models, missing data, oncogenomics."  
+        },
+        {
+            "id": "Stephen N. Freund",
+            "photo": "images/people/steve.jpg",
+            "role": "faculty",
+            "title": "A. Barton Hepburn Professor of Computer Science",
+            "webpage": "http://cs.williams.edu/~freund/",
+            "interests": "Design and implementation of programming languages and virtual machines, type based program analysis, verification of multithreaded programs, programming environments and tools."  
+        },
+        {
+            "id": "Mark Hopkins",
+            "photo": "images/people/mark.jpg",
+            "role": "faculty",
+            "title": "Assistant Professor",
+            "webpage": "https://markandrewhopkins.com/",
+            "interests": "Machine learning, machine translation, low-resource natural language processing"  
+        },
+        {
+            "id": "Iris Howley",
+            "photo": "images/people/iris.jpg",
+            "role": "faculty",
+            "title": "Assistant Professor",
+            "webpage": "http://cs.williams.edu/~iris/",
+            "interests": "Human-Computer Interaction, technology enhanced learning environments, computer-supported collaborative learning, information visualization, automated linguistic analysis for education."  
+        },
+        {
+            "id": "William Jannen",
+            "photo": "images/people/bill.jpg",
+            "role": "faculty",
+            "title": "Associate Professor",
+            "webpage": "https://www.cs.williams.edu/~jannen/",
+            "interests": "File system design and analysis, media-specific storage optimizations, data structures, write optimization."  
+        },
+        {
+            "id": "Katie Keith",
+            "photo": "images/people/katie.jpg",
+            "role": "faculty",
+            "title": "Assistant Professor",
+            "webpage": "https://kakeith.github.io/",
+            "interests": "Natural language processing, computational social science, machine learning, data science, causal inference."  
+        },
+        {
+            "id": "Samuel McCauley",
+            "photo": "images/people/sam.jpg",
+            "role": "faculty",
+            "title": "Assistant Professor",
+            "webpage": "http://dept.cs.williams.edu/~sam/",
+            "interests": "Algorithms and data structures, hashing and randomization, similarity search, I/O-efficient algorithms, and scheduling."  
+        },
+        {
+            "id": "Kelly Shaw",
+            "photo": "images/people/kelly.jpg",
+            "role": "faculty",
+            "title": "Professor",
+            "webpage": "http://cs.williams.edu/~kshaw/",
+            "interests": "Parallel architectures, including heterogeneous architectures, Internet of Things, particularly with respect to data consistency correctness, memory systems, workload characterization of emerging applications."  
+        },
+        {
+            "id": "Shikha Singh",
+            "photo": "images/people/shikha.jpg",
+            "role": "faculty",
+            "title": "Assistant Professor",
+            "webpage": "",
+            "interests": "Algorithmic game theory, algorithms & data structures, combinatorial optimization, complexity theory."  
+        },
+        {
+            "id": "Aaron Williams",
+            "photo": "images/people/aaron.jpg",
+            "role": "faculty",
+            "title": "Associate Professor",
+            "webpage": "https://sites.google.com/williams.edu/aaron",
+            "interests": "Algorithms, combinatorics, computational complexity, puzzles and games, history of video games."  
+        },
+        {
+            "id": "Lida Doret",
+            "photo": "images/people/lida.jpg",
+            "role": "staff",
+            "title": "Administrative and Instructional Support Specialist",
+            "webpage": "",
+            "interests": ""
+        },
+        {
+            "id": "Kelsey Gura",
+            "photo": "images/people/kelsey.jpg",
+            "role": "staff",
+            "title": "Systems Administrator",
+            "webpage": "",
+            "interests": ""
+        },
+        {
+            "id": "Lauren Vining-Barsotti",
+            "photo": "images/people/lauren.jpg",
+            "role": "staff",
+            "title": "Administrative Coordinator",
+            "webpage": "",
+            "interests": ""
+        },
+        {
+            "id": "Duane Bailey",
+            "photo": "images/people/duane.jpg",
+            "role": "emeriti",
+            "title": "Professor Emeritus",
+            "webpage": "https://anyblueidea.org/duane/",
+            "interests": "High performance architecture, parallel programming environments, aperiodic tiling, puzzle design & complexity"
+        },
+        {
+            "id": "Andrea Danyluk",
+            "photo": "images/people/andrea.jpg",
+            "role": "emeriti",
+            "title": "Professor Emerita",
+            "webpage": "https://csci.williams.edu/memorial-minute-for-andrea-danyluk/",
+            "interests": "Machine learning applications, systematic data error and its effects on inductive learning, cost-sensitive learning, evaluation and comparison of learning algorithms, theory revision."   
+        },
+        {
+            "id": "William Lenhart",
+            "photo": "images/people/lenhart.gif",
+            "role": "emeriti",
+            "title": "Professor Emeritus",
+            "webpage": "http://dept.cs.williams.edu/~lenhart/",
+            "interests": "Graph theory, graph drawing, computational geometry, graph and combinatorial algorithms."   
+        },
+        {
+            "id": "Tom Murtagh",
+            "photo": "images/people/tom.jpg",
+            "role": "emeriti",
+            "title": "Professor Emeritus",
+            "webpage": "",
+            "interests": "Programming language implementations, communications networks."   
+        }
+    ]    
+}

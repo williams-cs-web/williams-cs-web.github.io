@@ -1,0 +1,127 @@
+{
+    "groups": [
+        {
+            "abbreviation": "CoSSAC",
+            "name": "Computer Science Student Activities/Advisory Committee",
+            "description": "CoSSAC (Computer Science Student Activities/Advisory Committee) organizes activities, brings issues of importance to students to the department, and provides student input to the department on hiring and other issues.  CoSSAC organizes and hosts the Monday night snacks, as well as other social (e.g. departmental T-shirt design) and educational activities (e.g. mini-tutorials for students during WSP on technology-related topics).  During years when the department is hiring, CoSSAC meets with candidates and provides student input to the department about candidates.  CoSSAC is limited only by their own imaginations (and available department funds!).",
+            "webpage": "https://sites.google.com/williams.edu/cossac/home",
+            "leadership": [
+                {
+                    "name": "Ye Shu",
+                    "year": "2024",
+                    "photo": "images/students/shu.jpeg"
+                },
+                {
+                    "name": "Emma Caruso",
+                    "year": "2024",
+                    "photo": "images/students/caruso.jpeg"
+                },
+                {
+                    "name": "Aiden Pham",
+                    "year": "2024",
+                    "photo": "images/students/pham.jpeg"
+                },
+                {
+                    "name": "Maddy Anderson",
+                    "year": "2025",
+                    "photo": "images/students/anderson.jpeg"
+                },
+                {
+                    "name": "Himal Pandey",
+                    "year": "2025",
+                    "photo": "images/students/pandey.jpeg"
+                },
+                {
+                    "name": "Jess Hu",
+                    "year": "2025",
+                    "photo": "images/students/hu.jpeg"
+                },
+                {
+                    "name": "Timothy Kim",
+                    "year": "2026",
+                    "photo": "images/students/kim.jpeg"
+                },
+                {
+                    "name": "Tanatswa Manyakara",
+                    "year": "2026",
+                    "photo": "images/students/manyakara.jpeg"
+                },
+                {
+                    "name": "Sam Wexler",
+                    "year": "2026",
+                    "photo": "images/students/wexler.jpeg"
+                }
+            ]
+        },
+        {
+            "abbreviation": "UnICS",
+            "name": "Underrepresented Identities in Computer Science",
+            "description": "The mission of Underrepresented Identities in Computer Science (UnICS) is to strengthen the bonds between students and professors in the CS department and raise awareness of students’ experiences, especially those of underrepresented identities. UnICS wants action, and seeks active participation from students and staff, in order to reach out to underclassmen and to provide the safe environment UnICS envisions.",
+            "webpage": "https://wso.williams.edu/mailman/listinfo/unics_wso.williams.edu",
+            "details": [
+                "Underrepresented Identities in Computer Science (UnICS) seeks to create a safe, reliable, and productive environment within Williams College’s Computer Science department for all current and prospective majors, but especially for underrepresented identities. UnICS recognizes that everyone’s experiences are unique. For this reason, UnICS provides a comfortable environment for students to freely discuss their concerns about the department with each other. Moreover, through dinners, talks, and campus events, UnICS seeks to raise awareness of the problems that currently face minorities in the field of Computer Science and encourages discussion and action to solve them.",
+                "UnICS has embarked on various initiatives to accomplish this goal. Many students have participated in, attended, and/or helped organize UnICS programming. UnICS launched a mentoring program called C-blings, in order to guide and encourage prospective majors to study Computer Science. By joining the program, mentors agree to facilitate their mentee’s introduction to the department, to give them advice on classes, and to provide their peers with a place to talk about their experiences.",
+                "UnICS also holds weekly dinners (open to everyone) to talk critically about the experiences of underrepresented identities in the major and department. The focus of these dinners is to understand the challenges students face, and pursue tangible solutions to improve students’ experiences."
+            ],
+            "leadership": [
+                {
+                    "name": "Minh Phan",
+                    "year": "2023",
+                    "photo": "images/students/phan.jpeg"
+                },
+                {
+                    "name": "Kary Chen",
+                    "year": "2023",
+                    "photo": "images/students/chen.jpg"
+                },
+                {
+                    "name": "Emma Neil",
+                    "year": "2023",
+                    "photo": "images/students/neil.jpeg"
+                },
+                {
+                    "name": "Joanna Tan",
+                    "year": "2023",
+                    "photo": "images/students/tan.jpeg"
+                },
+                {
+                    "name": "Kelly McCarthy",
+                    "year": "2023",
+                    "photo": "images/students/mccarthy.jpeg"
+                },
+                {
+                    "name": "Alisha Naidu",
+                    "year": "2024",
+                    "photo": "images/students/naidu.jpeg"
+                },
+                {
+                    "name": "Soren Campbell",
+                    "year": "2024",
+                    "photo": "images/students/campbell.jpeg"
+                },
+                {
+                    "name": "Angela Gui",
+                    "year": "2024",
+                    "photo": "images/students/gui.jpeg"
+                },
+                {
+                    "name": "Alessa Somer",
+                    "year": "2025",
+                    "photo": "images/students/somer.jpeg"
+                }
+            ]
+        },
+        {
+            "abbreviation": "WiCS",
+            "name": "Women in Computer Science",
+            "description": "All women currently enrolled in Computer Science courses, working as TAs, or declared majors are invited to attend “Women in CS” events. Watch your email for notices!",
+            "leadership": [],
+            "gallery": [
+                "images/wics/ghc2016.jpg",
+                "images/wics/ghc2015.jpg",
+                "images/wics/ghc2013.jpg",
+                "images/wics/ghc2017.jpg"
+            ]
+        }
+    ]
+}

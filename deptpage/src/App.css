@@ -1,0 +1,337 @@
+#root {
+  margin: 0 0;
+  text-align: center;
+}
+
+img {
+  vertical-align: middle;
+}
+
+li:before {
+  content: '💿';
+  margin-left: -20px;
+  margin-right: 10px;
+}
+
+ul {
+  font-family: Eph Octic;
+  font-weight: lighter;
+}
+
+.williams-link {
+  color: white;
+}
+
+.williams-link:hover {
+  color: #FFBE0A;
+}
+
+.link {
+  color: #500082;
+}
+
+.link:hover {
+  color: magenta;
+}
+
+.fakelink {
+  color: #500082;
+  font-weight: normal;
+}
+
+.linkbox {
+  color: inherit;
+}
+
+.linkbox:hover {
+  background-color: #500082;
+  color: white;
+  transition: color 1000ms;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.plaintext {
+  font-family: Eph Gothic, Avenir;
+  font-size: 20px;
+  font-weight: lighter;
+  cursor: default;
+}
+
+.title {
+  font-family: Eph Slab, Rockwell;
+}
+
+.tile {
+  font-family: Eph Slab, Rockwell;
+  font-size: 28px;
+  margin: 1px;
+  cursor: default;
+}
+
+.centered {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.semester {
+  font-size: 90px;
+  font-family: Eph Slab, Rockwell;
+}
+
+
+.heading {
+  font-family: Eph Slab, Rockwell;
+  font-size: 20px;
+  font-weight: normal;
+  background-color: black;
+  color: white;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px 5px 5px 10px;
+  cursor: default;
+}
+
+.subheading {
+  font-family: Eph Slab, Rockwell;
+  font-size: 14px;
+  background-color: black;
+  color: white;
+  margin-bottom: 10px;
+  padding: 10px 5px 5px 10px;
+  cursor: default;
+}
+
+.topmenu {
+  font-family: Eph Slab, Rockwell;
+  border: solid 1px whitesmoke;
+  padding-top: 3px;
+  cursor: default;
+}
+
+.topmenu-highlight {
+  background-color: #FFBE0A;
+  color: black;
+}
+
+.topmenu-hover {
+  background-color: gold;
+  color: black;
+}
+
+.topmenu-nohighlight {
+  background-color: lightgray;
+  color: black;
+}
+
+.welcome-tile {
+  font-size: 22px;
+  font-family: Eph Octic, 'Courier New', Courier, monospace;
+  font-weight: lighter;
+  background-color: black;
+  color: chartreuse;
+  text-align: center;
+  margin: 1px;
+  cursor: default;
+}
+
+
+
+.sidebar-plan-your-major,
+.frontpage-plan-your-major {
+  background-color: #500082;
+  color: white;
+  margin: 1px;
+}
+
+.frontpage-plan-your-major:hover {
+  background-color: orchid;
+  color: black;
+}
+
+.sidebar-course-offerings,
+.frontpage-course-offerings {
+  background-color: #C86914;
+  color: white;
+}
+
+.frontpage-course-offerings:hover {
+  background-color: rgb(230, 53, 53);
+  color: white;
+}
+
+.sidebar-about-us,
+.frontpage-about-us {
+  background-color: #FFBE0A;
+  color: black;
+}
+
+.frontpage-about-us:hover {
+  background-color: goldenrod;
+  color: white
+}
+
+.sidebar-student-life,
+.frontpage-student-life {
+  background-color: #FF7800;
+  color: black;
+}
+
+.frontpage-student-life:hover {
+  background-color: orangered;
+  color: white;
+}
+
+
+.frontpage-research-opportunities {
+  background-color: #280050;
+  color: white;
+}
+
+.sidebar-research-opportunities {
+  background-color: #280050;
+  color: white;
+  font-size: 22px;
+}
+
+.frontpage-research-opportunities:hover {
+  background-color: blue;
+  color: white;
+}
+
+.sidebar-non-majors,
+.frontpage-non-majors {
+  background-color: #B1008E;
+  color: white;
+}
+
+.frontpage-non-majors:hover {
+  background-color: magenta;
+  color: black;
+}
+
+.frontpage-recowsion {
+  background-color: lightpink;
+  margin: 1px;
+}
+
+.frontpage-colloquium-speaker {
+  font-family: Eph Octic;
+  font-weight: bold;
+  cursor: default;
+}
+
+.frontpage-colloquium-affiliation {
+  font-family: Eph Octic;
+  font-weight: lighter;
+  margin-top: '-3px'; 
+  cursor: default;
+}
+
+.frontpage-colloquium-title {
+  font-family: Eph Octic;
+  font-weight: bold;
+  cursor: default;
+}
+
+.colloquium-title {
+  font-family: Eph Octic;
+  font-weight: lighter;
+  cursor: default;
+}
+
+.colloquium-speaker {
+  font-family: Eph Octic;
+  font-weight: bold;
+  cursor: default;
+}
+
+.sidebar-colloquium {
+  background-color: lightpink;
+  color: black
+}
+
+.colloquium {
+  background-color: lightpink;
+  margin: 1px;
+}
+
+.colloquium:hover {
+  background-color: #cd5c5c;
+  color: white
+}
+
+.course {
+  font-family: Eph Gothic;
+}
+
+.program {
+  font-size: 10pt;
+  font-family: Eph Gothic;
+}
+
+.program:hover {
+  background-color: coral;
+  transition: background-color 200ms;
+}
+
+.plan-your-major-choose-your-path {
+  font-family: Eph Gothic;
+  font-weight: bold;
+  cursor: default;
+}
+
+.plan-your-major-infobox {
+  margin: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  border: solid 2px chartreuse;
+  font-family: Eph Octic;
+  font-weight: lighter;
+  background-color: black;
+  color: chartreuse;
+  height: 200px;
+  cursor: default;
+}
+
+.plan-your-major-infobox-warning {
+  margin: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  border: solid 2px crimson;
+  font-family: Eph Octic;
+  font-weight: lighter;
+  background-color: black;
+  color: white;
+  height: 200px;
+  cursor: default;
+}
+
+.plan-your-major-dept {
+  font-family: Eph Gothic;
+  font-weight: bold;
+  cursor: default;
+}
+
+.plan-your-major-course-number {
+  font-family: Eph Gothic;
+  font-weight: normal;
+  cursor: default;
+}
+
+.studyaway-heading {
+  background-color: #500082;
+}
+
+
+.selected {
+  background-color: #FF7800;
+}
