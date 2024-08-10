@@ -90,15 +90,7 @@ function App() {
 
 
   const renderHeader = () => (
-    <div
-      style={{
-        height: '180px',
-        backgroundColor: '#500082',
-        textAlign: 'left',
-        fontFamily: 'Eph Slab, Rockwell',
-        fontSize: '64px',
-        color: 'white'
-      }}>
+    <div className="header">
       <div style={{
         margin: '0px',
         padding: '30px 0px 0px 32px',
@@ -122,15 +114,7 @@ function App() {
       <div style={{ height: '10px', backgroundColor: 'white' }} />
       <div style={{ height: '10px', backgroundColor: '#FFBE0A' }} />
       <div style={{ height: '10px', backgroundColor: '#280050' }} />
-      <div
-        style={{
-          height: '80px',
-          backgroundColor: '#500082',
-          textAlign: 'left',
-          fontFamily: 'Eph Slab, Rockwell',
-          fontSize: '30px',
-          color: 'white'
-        }}>
+      <div className="footer">
         <div style={{
           margin: '0px',
           padding: '20px 0px 0px 20px',

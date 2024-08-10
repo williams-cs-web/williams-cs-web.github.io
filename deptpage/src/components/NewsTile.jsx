@@ -15,8 +15,6 @@ const NewsTile = ({ onClick, style }) => {
     const news = newsItems.length > 0 ? newsItems[0] : null
     const teaser = news.teaser ? news.teaser : news.title
 
-    console.log('onclick', onClick)
-
     return (
         <div onClick={() => onClick("news")} className="frontpage-news" style={{ ...style }}>
             <div
