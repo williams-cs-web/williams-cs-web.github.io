@@ -1,11 +1,8 @@
 import Schedule from './Schedule'
 import Sidebar from './Sidebar'
 import StudyAway from './StudyAway'
+import Spacer from './Spacer'
 
-
-const Spacer = ({ height }) => (
-  <div style={{ height: height }} />
-)
 
 
 const PlanYourMajor = ({ style, layout, onClick }) => {

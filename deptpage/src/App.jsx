@@ -9,6 +9,7 @@ import StudentLife from './components/StudentLife'
 import ResearchOpportunities from './components/ResearchOpportunities'
 import NonMajors from './components/NonMajors'
 import News from './components/News'
+import Spacer from './components/Spacer'
 
 const MenuItem = ({ id, text, highlight, onClick, width }) => {
   const [hovering, setHovering] = useState(false)
@@ -258,6 +259,7 @@ function App() {
           {renderHeader()}
           {renderTopMenu()}
           {renderHub()}
+          <Spacer height="30px" />
           {renderFooter()}
         </div>)
     }

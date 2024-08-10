@@ -1,9 +1,5 @@
 import Sidebar from './Sidebar'
-
-const Spacer = ({ height }) => (
-  <div style={{ height: height }} />
-)
-
+import Spacer from './Spacer'
 
 const NonMajors = ({ style, layout, onClick }) => {
 

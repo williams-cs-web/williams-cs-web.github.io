@@ -29,14 +29,11 @@ const NewsItem = ({ date, title, photo, article }) => {
       <div className="news-article-title">{title}</div>
       {photo ?
         <div className="news-article-photo">
-        <img
-          
-          width="100%"
-          src={photo}
-          alt={`photo associated with news article`}
-        /> </div> : null}
-       
-      
+          <img
+            width="100%"
+            src={photo}
+            alt={`photo associated with news article`}
+          /> </div> : null}
       <Markdown children={content} />
     </div>
   )
@@ -57,7 +54,7 @@ const News = ({ style, layout, howMany, date, onClick }) => {
 
 
   const renderNewsItem = item => (
-    <>
+    <div key={item.id}>
       <NewsItem
         date={item.date}
         title={item.title}
@@ -65,7 +62,7 @@ const News = ({ style, layout, howMany, date, onClick }) => {
         article={item.article}
       />
       <div style={{ height: '20px' }} />
-    </>
+    </div>
   )
 
   return (

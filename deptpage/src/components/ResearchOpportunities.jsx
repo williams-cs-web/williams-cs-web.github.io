@@ -27,11 +27,12 @@ const Opportunity = ({ name, photo, article }) => {
     }}>
       {renderHeading(name)}
       {photo ?
-        <img
-          width="100%"
-          src={photo}
-          alt={`photo of research event`}
-        /> : null}
+        <div className="news-article-photo">
+          <img
+            width="100%"
+            src={photo}
+            alt={`photo associated with news article`}
+          /> </div> : null}
       <Markdown children={content} />
     </div>
   )
@@ -44,6 +45,7 @@ const ResearchOpportunities = ({ style, layout, onClick }) => {
 
   const renderOpportunity = opportunity => (
     <Opportunity
+      key={opportunity.name}
       name={opportunity.name}
       photo={opportunity.photo}
       article={opportunity.article}

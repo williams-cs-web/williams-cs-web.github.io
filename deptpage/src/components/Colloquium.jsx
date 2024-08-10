@@ -114,7 +114,7 @@ const Colloquium = ({ style, layout, onClick }) => {
         gap: '20px'
       }}>
         {events.map((event, i) =>
-          <div style={{ flexGrow: 1, flexShrink: 1 }}>{renderPreview(event, i)}</div>
+          <div key={`preview-${i}`} style={{ flexGrow: 1, flexShrink: 1 }}>{renderPreview(event, i)}</div>
         )}
 
       </div>
