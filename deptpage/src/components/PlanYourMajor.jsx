@@ -8,7 +8,7 @@ const Spacer = ({ height }) => (
 )
 
 
-const PlanYourMajor = ({ style, layout }) => {
+const PlanYourMajor = ({ style, layout, onClick }) => {
 
   const showSidebar = (layout === "wide")
 
@@ -24,7 +24,7 @@ const PlanYourMajor = ({ style, layout }) => {
         display: 'flex',
         flexFlow: 'row nowrap'
       }}>
-        {showSidebar ? <Sidebar title="plan your major" className="sidebar-plan-your-major" /> : <div style={{ width: '20px' }} />}
+        {showSidebar ? <Sidebar title="plan your major" className="sidebar-plan-your-major" onClick={onClick} /> : <div style={{ width: '20px' }} />}
         <div>
           <div>
             <Spacer height="30px" />

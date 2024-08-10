@@ -8,12 +8,13 @@ import Colloquium from './components/Colloquium'
 import StudentLife from './components/StudentLife'
 import ResearchOpportunities from './components/ResearchOpportunities'
 import NonMajors from './components/NonMajors'
+import News from './components/News'
 
 const MenuItem = ({ id, text, highlight, onClick, width }) => {
   const [hovering, setHovering] = useState(false)
   return (
     <div
-      className={highlight ? "topmenu topmenu-highlight" : 
+      className={highlight ? "topmenu topmenu-highlight" :
         (hovering ? "topmenu topmenu-hover" : "topmenu topmenu-nohighlight")}
       onClick={() => onClick(id)}
       onMouseEnter={() => setHovering(true)}
@@ -33,7 +34,6 @@ function App() {
 
   const [currentPage, setCurrentPage] = useState('computer science')
 
-
   const pages = [
     "computer science",
     "about-us",
@@ -42,11 +42,19 @@ function App() {
     "colloquium",
     "student-life",
     "research",
-    "non-majors"
+    "non-majors",
+    "news"
   ]
 
-  const handleClick = (page) => {
-    setCurrentPage(page)
+
+  const handleHubClick = (who) => {
+    if (pages.includes(who)) {
+      setCurrentPage(who)
+    }
+    else if (who.id && who.id === "Andrea Danyluk") {
+      setCurrentPage("andrea")
+      window.scrollTo(0, 0)
+    }
   }
 
   const [windowSize, setWindowSize] = useState({
@@ -139,11 +147,11 @@ function App() {
 
   const menuItemsPerLine = () => {
     if (windowSize.width >= 910) {
-      return 8
-    } else if (windowSize.width >= 500) {
-      return 4
+      return 9
+    } else if (windowSize.width >= 600) {
+      return 5
     } else {
-      return 2
+      return 3
     }
   }
 
@@ -182,6 +190,7 @@ function App() {
       return (
         <PlanYourMajor
           layout={getLayout()}
+          onClick={handleHubClick}
           style={contentStyle}
         />
       )
@@ -189,36 +198,60 @@ function App() {
       return (
         <AboutUs
           showSidebar={showSidebar}
+          onClick={handleHubClick}
           style={contentStyle} />
       )
     } else if (currentPage === 'courses') {
       return (
         <CourseOfferings
           showSidebar={showSidebar}
+          onClick={handleHubClick}
           style={contentStyle} />
       )
     } else if (currentPage === 'colloquium') {
       return (
         <Colloquium
           layout={getLayout()}
+          onClick={handleHubClick}
           style={contentStyle} />
       )
     } else if (currentPage === 'student-life') {
       return (
         <StudentLife
+          onClick={handleHubClick}
           showSidebar={showSidebar}
           style={contentStyle} />
       )
     } else if (currentPage === 'research') {
       return (
         <ResearchOpportunities
+          onClick={handleHubClick}
           layout={getLayout()}
           style={contentStyle} />
       )
     } else if (currentPage === 'non-majors') {
       return (
         <NonMajors
+          onClick={handleHubClick}
           layout={getLayout()}
+          style={contentStyle} />
+      )
+    } else if (currentPage === 'news') {
+      return (
+        <News
+          onClick={handleHubClick}
+          layout={getLayout()}
+          howMany={3}
+          date={Date.now()}
+          style={contentStyle} />
+      )
+    } else if (currentPage === 'andrea') {
+      return (
+        <News
+          onClick={handleHubClick}
+          layout={getLayout()}
+          howMany={1}
+          date={Date.parse("April 13, 2022")}
           style={contentStyle} />
       )
     } else {
@@ -233,7 +266,7 @@ function App() {
       return (
         <div>
           {renderHeader()}
-          <FrontPage onChange={handleClick} />
+          <FrontPage onClick={handleHubClick} />
           {renderFooter()}
         </div>
       )

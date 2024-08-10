@@ -3,6 +3,11 @@
   text-align: center;
 }
 
+p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 img {
   vertical-align: middle;
 }
@@ -30,6 +35,8 @@ ul {
   color: #500082;
 }
 
+
+
 .link:hover {
   color: magenta;
 }
@@ -46,7 +53,6 @@ ul {
 .linkbox:hover {
   background-color: #500082;
   color: white;
-  transition: color 1000ms;
 }
 
 .left {
@@ -87,7 +93,7 @@ ul {
   font-family: Eph Slab, Rockwell;
 }
 
-
+h1,
 .heading {
   font-family: Eph Slab, Rockwell;
   font-size: 20px;
@@ -157,13 +163,13 @@ ul {
   color: black;
 }
 
-.sidebar-course-offerings,
-.frontpage-course-offerings {
+.sidebar-student-life,
+.frontpage-student-life {
   background-color: #C86914;
   color: white;
 }
 
-.frontpage-course-offerings:hover {
+.frontpage-student-life:hover {
   background-color: rgb(230, 53, 53);
   color: white;
 }
@@ -179,13 +185,13 @@ ul {
   color: white
 }
 
-.sidebar-student-life,
-.frontpage-student-life {
+.sidebar-course-offerings,
+.frontpage-course-offerings {
   background-color: #FF7800;
   color: black;
 }
 
-.frontpage-student-life:hover {
+.frontpage-course-offerings:hover {
   background-color: orangered;
   color: white;
 }
@@ -232,7 +238,7 @@ ul {
 .frontpage-colloquium-affiliation {
   font-family: Eph Octic;
   font-weight: lighter;
-  margin-top: '-3px'; 
+  margin-top: '-3px';
   cursor: default;
 }
 
@@ -259,6 +265,25 @@ ul {
   color: black
 }
 
+.frontpage-news {
+  background-color: whitesmoke;
+  color: black;
+  margin: 1px;
+  font-family: Eph Octic;
+  font-size: 13px;
+}
+
+.frontpage-news:hover {
+  background-color: #280050;
+  color: white;
+}
+
+.sidebar-news {
+  background-color: darkgray;
+  color: black;
+  margin: 1px;
+}
+
 .colloquium {
   background-color: lightpink;
   margin: 1px;
@@ -276,6 +301,12 @@ ul {
 .program {
   font-size: 10pt;
   font-family: Eph Gothic;
+}
+
+.news-article-title {
+  font-family: Eph Gothic;
+  font-size: 30pt;
+  font-weight: bold;
 }
 
 .program:hover {

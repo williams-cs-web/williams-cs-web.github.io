@@ -5,7 +5,7 @@ const Spacer = ({ height }) => (
 )
 
 
-const NonMajors = ({ style, layout }) => {
+const NonMajors = ({ style, layout, onClick }) => {
 
   const showSidebar = (layout === "wide")
 
@@ -21,7 +21,7 @@ const NonMajors = ({ style, layout }) => {
         display: 'flex',
         flexFlow: 'row nowrap'
       }}>
-        {showSidebar ? <Sidebar title="non-majors" className="sidebar-non-majors" /> : <div style={{ width: '20px' }} />}
+        {showSidebar ? <Sidebar title="non-majors" className="sidebar-non-majors" onClick={onClick} /> : <div style={{ width: '20px' }} />}
         <div>
           <div>
             <Spacer height="30px" />

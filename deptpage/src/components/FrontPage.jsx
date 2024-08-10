@@ -1,12 +1,13 @@
 import DbServices from '../services/db.js'
 import { useState, useEffect } from 'react'
+import NewsTile from './NewsTile.jsx'
 
-const ColloquiumTile = ({ layout, onChange }) => {
+const ColloquiumTile = ({ layout, onClick }) => {
 
   const events = DbServices.getUpcomingColloquia()
 
   const renderColloquiumTilePortrait = (event) => (
-    <div onClick={() => onChange("colloquium")} id="colloquium" className="colloquium" style={{
+    <div onClick={() => onClick("colloquium")} id="colloquium" className="colloquium" style={{
       flexGrow: 1,
       flexShrink: 1,
       fontSize: "20px",
@@ -54,7 +55,7 @@ const ColloquiumTile = ({ layout, onChange }) => {
 
   const renderColloquiumTileLandscape = (event, style) => (
     <div
-      onClick={() => onChange("colloquium")}
+      onClick={() => onClick("colloquium")}
       id="colloquium"
       className="colloquium"
       style={{
@@ -101,11 +102,11 @@ const ColloquiumTile = ({ layout, onChange }) => {
 
   const renderRecowsionTile = (layout) => (
     <div className="frontpage-recowsion" style={{
-      height: layout==="wide" ? '55%' : 'auto',
+      height: layout === "wide" ? '55%' : 'auto',
       display: 'flex',
-      flexFlow: 'column nowrap',      
+      flexFlow: 'column nowrap',
       backgroundColor: 'lightpink',
-      marginLeft: layout==="standard" ? '3px' : 'inherit' // TODO: maybe fix this bandage
+      marginLeft: layout === "standard" ? '3px' : 'inherit' // TODO: maybe fix this bandage
     }}>
       <div style={{ flexGrow: 1, flexShrink: 1 }}></div>
       <div className="plaintext">powered by</div>
@@ -135,7 +136,9 @@ const ColloquiumTile = ({ layout, onChange }) => {
   return renderColloquiumTile()
 }
 
-const FrontPage = ({ onChange }) => {
+
+
+const FrontPage = ({ onClick }) => {
 
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
@@ -169,7 +172,7 @@ const FrontPage = ({ onChange }) => {
     <div
       id={className}
       className={`tile ${className}`}
-      onClick={() => onChange(key)}
+      onClick={() => onClick(key)}
       style={style}
     >
       <div className="centered">
@@ -250,23 +253,12 @@ const FrontPage = ({ onChange }) => {
     </div>
   )
 
-  const news = (
-    <><span style={{ fontWeight: 'bold' }}>We are hiring!</span> Two tenure-track faculty positions are available, starting in Summer 2025. Apply on <a className="link" href="https://apply.interfolio.com/148956" target="_blank">Interfolio</a> by Nov 8, 2024 for full consideration.</>
-  )
-
   const renderNewsTile = (style) => (
-    <div style={{...style, flexGrow: 1}}>
-      <div className="plaintext centered" style={{
-        padding: '15px',
-        fontSize: '12px'
-      }}>
-        {news}
-      </div>
-    </div>
+    <NewsTile onClick={onClick} layout={getLayout()} style={style} />    
   )
 
   const renderColloquiumTile = (style) => (
-    <ColloquiumTile onChange={onChange} layout={getLayout()} style={style} />
+    <ColloquiumTile onClick={onClick} layout={getLayout()} style={style} />
   )
 
   const renderPhotoTile = (style) => (
@@ -325,11 +317,7 @@ const FrontPage = ({ onChange }) => {
           height: '20%'
         })}
         {renderNewsTile({
-          height: '25%',
-          backgroundColor: "whitesmoke",
-          color: "black",
-          margin: '1px',
-          fontSize: "13px"
+          height: '25%'
         })}
         {renderColloquiumTile()}
 
@@ -378,11 +366,7 @@ const FrontPage = ({ onChange }) => {
             height: 'inherit'
           })}
           {renderNewsTile({
-            height: '25%',
-            backgroundColor: "whitesmoke",
-            color: "black",
-            margin: '1px',
-            fontSize: "13px"
+            height: '25%'
           })}
         </div>
         <div style={{
@@ -390,8 +374,8 @@ const FrontPage = ({ onChange }) => {
           flexFlow: 'column nowrap',
           justifyContent: 'center'
         }}>
-          {renderPhotoTile({  })}
-          {renderCaptionTile({ padding: '10px'})}
+          {renderPhotoTile({})}
+          {renderCaptionTile({ padding: '10px' })}
         </div>
       </div>
       <div style={{
@@ -461,11 +445,7 @@ const FrontPage = ({ onChange }) => {
 
           {renderWelcomeTile('inherit')}
           {renderNewsTile({
-            height: '25%',
-            backgroundColor: "whitesmoke",
-            color: "black",
-            margin: '1px',
-            fontSize: "13px"
+            height: '25%'
           })}
           {renderPhotoTile({ width: windowSize.width })}
           {renderCaptionTile({ width: windowSize.width })}

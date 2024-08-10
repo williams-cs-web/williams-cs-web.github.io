@@ -4,13 +4,17 @@ import courses from '../../data/courses.json'
 import colloquiumData from '../../data/colloquium.json'
 import studentData from '../../data/students.json'
 import equivs from '../../data/equivalents.json'
+import researchData from '../../data/research.json'
+import newsData from '../../data/news.json'
+
+
+const sixMonthsAgo = Date.parse("Feb 20, 2024")
+const maxColloquiaToShow = 3;
 
 
 const getCatalog = () => {
   return courses.catalog
 }
-
-const sixMonthsAgo = Date.parse("Feb 20, 2024")
 
 const getUpcomingColloquia = () => {
   return (
@@ -19,8 +23,15 @@ const getUpcomingColloquia = () => {
         Date.parse(event.date) > sixMonthsAgo
       )).toSorted((event1, event2) => (
         Date.parse(event1.date) - Date.parse(event2.date)
-      ))
+      )).slice(0, maxColloquiaToShow)
   )
+}
+
+
+const fetchExternalTextFile = filename => {
+  return fetch(filename).then(
+    response => response.text()
+  )      
 }
 
 
@@ -75,6 +86,15 @@ const getStudyAwayEquivalents = () => {
   return equivs
 }
 
+const getResearchOpportunities = () => {
+  return researchData.opportunities
+}
+
+
+const getNewsItems = () => {
+  return newsData.articles     
+}
+
 
 export default {
   getAllCourses,
@@ -87,5 +107,8 @@ export default {
   getCourseById,
   getUpcomingColloquia,
   getStudentGroups,
-  getStudyAwayEquivalents
+  getStudyAwayEquivalents,
+  getResearchOpportunities,
+  getNewsItems,
+  fetchExternalTextFile
 }

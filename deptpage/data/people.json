@@ -141,7 +141,7 @@
             "photo": "images/people/andrea.jpg",
             "role": "emeriti",
             "title": "Professor Emerita",
-            "webpage": "https://csci.williams.edu/memorial-minute-for-andrea-danyluk/",
+            "webpage": "special",
             "interests": "Machine learning applications, systematic data error and its effects on inductive learning, cost-sensitive learning, evaluation and comparison of learning algorithms, theory revision."   
         },
         {
@@ -159,6 +159,14 @@
             "title": "Professor Emeritus",
             "webpage": "",
             "interests": "Programming language implementations, communications networks."   
+        },
+        {
+            "id": "Laura South",
+            "photo": "images/people/laura.jpg",
+            "role": "faculty",
+            "title": "Visiting Assistant Professor",
+            "webpage": "",
+            "interests": "Human-computer interaction, human-centered design, accessibility."  
         }
     ]    
 }

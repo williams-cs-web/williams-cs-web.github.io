@@ -187,7 +187,6 @@ const Courses = ({ program }) => {
 function StudyAway({ layout }) {
   const [currentProgram, setCurrentProgram] = useState("AIT Budapest")
 
-  console.log('studyaway', layout)
 
   const handleClick = (name) => {
     setCurrentProgram(name)

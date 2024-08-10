@@ -2,7 +2,7 @@ import DbServices from '../services/db.js'
 import { useState } from 'react'
 import Sidebar from './Sidebar'
 
-const Colloquium = ({ style, layout }) => {
+const Colloquium = ({ style, layout, onClick }) => {
 
   const [spotlight, setSpotlight] = useState(0)
 
@@ -117,6 +117,40 @@ const Colloquium = ({ style, layout }) => {
     </div>
   )
 
+  const renderContent = () => {
+    if (events.length > 0) {
+      return (
+        <div>
+          {events.length > 1 && showSidebar ? renderPreviews() : null}
+          <div style={{ height: '20px' }}></div>
+          {showSidebar ? (
+            events.length > 0 ?
+              renderSpotlightEvent(spotlight ? events[spotlight] : events[0])
+              : null) : events.map(event => renderSpotlightEvent(event))}
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <div style={{
+            border: "solid 5px #FFBE0A",
+            marginBottom: "10px"
+          }}>
+          <img src="images/misc/hiatus.png" width="100%" />
+          </div>
+          <div className="plaintext" style={{
+            display: 'flex',
+          }}>
+            Our colloquium is currently on hiatus, but
+            come back for updates when we approach the start of the semester!
+            The Computer Science Colloquium at Williams College takes place
+            most Fridays from 2:35pm to 3:50pm in Wege Auditorium (TCL 123).
+          </div>
+        </div>
+      )
+    }
+  }
+
   return (
     <div
       id="colloquium"
@@ -130,19 +164,14 @@ const Colloquium = ({ style, layout }) => {
         flexFlow: 'row nowrap'
       }}>
         {showSidebar ?
-          <Sidebar title="colloquium" className="sidebar-colloquium" />
+          <Sidebar title="colloquium" className="sidebar-colloquium" onClick={onClick} />
           : <div style={{ width: '20px' }} />}
         <div style={{
           width: '95%',
           paddingTop: '30px',
           textAlign: 'left'
         }}>
-          {events.length > 1 && showSidebar ? renderPreviews() : null}
-          <div style={{ height: '20px' }}></div>
-          {showSidebar ? (
-            events.length > 0 ?
-              renderSpotlightEvent(spotlight ? events[spotlight] : events[0])
-              : null) : events.map(event => renderSpotlightEvent(event))}
+          {renderContent()}
         </div>
       </div>
 

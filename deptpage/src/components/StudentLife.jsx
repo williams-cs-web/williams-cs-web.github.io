@@ -37,7 +37,7 @@ const Student = ({ name, year, photo }) => {
 
 
 
-const StudentLife = ({ style, showSidebar }) => {
+const StudentLife = ({ style, onClick, showSidebar }) => {
 
 
   const renderHeading = heading => (
@@ -152,7 +152,7 @@ const StudentLife = ({ style, showSidebar }) => {
         display: 'flex',
         flexFlow: 'row nowrap'
       }}>
-        {showSidebar ? <Sidebar title="student life" className="sidebar-student-life" /> : <div style={{ width: '20px' }} />}
+        {showSidebar ? <Sidebar onClick={onClick} title="student life" className="sidebar-student-life" /> : <div style={{ width: '20px' }} />}
 
         <div style={{
           width: `${contentPct * 100}%`,

@@ -1,0 +1,15 @@
+{
+    "opportunities": [
+        {
+            "id": "opportunity-ssr",
+            "name": "Summer Science Research",
+            "photo": "images/misc/kayaking.jpg",
+            "article": "articles/ssr.md"
+        },
+        {
+            "id": "opportunity-thesis",
+            "name": "Honors Thesis",
+            "article": "articles/thesis.md"
+        }
+    ]
+}

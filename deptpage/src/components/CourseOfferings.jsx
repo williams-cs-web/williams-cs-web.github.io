@@ -72,7 +72,7 @@ const CourseOffering = ({ course, instructors, lecture, webpage, width }) => {
   )
 }
 
-const CourseOfferings = ({ style, showSidebar }) => {
+const CourseOfferings = ({ style, showSidebar, onClick }) => {
 
   const [trigger, setTrigger] = useState(false)
   const headingRef = useRef()
@@ -130,7 +130,7 @@ const CourseOfferings = ({ style, showSidebar }) => {
         display: 'flex',
         flexFlow: 'row nowrap'
       }}>
-        {showSidebar ? <Sidebar title="current course offerings" className="sidebar-course-offerings" /> : <div style={{ width: '20px' }} />}
+        {showSidebar ? <Sidebar title="current course offerings" className="sidebar-course-offerings" onClick={onClick} /> : <div style={{ width: '20px' }} />}
         <div style={{
           width: '95%',
           paddingTop: '30px',

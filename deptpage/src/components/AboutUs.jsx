@@ -4,45 +4,55 @@ import Sidebar from './Sidebar'
 
 const Person = (props) => {
   const content = (
-  <div style={{
-    display: 'flex',
-    flexFlow: 'row nowrap'
-  }}>
-    <img width="80" height="80" src={props.photo} alt={`Photo of ${props.id}`} />
-    <div style={{
-      padding: '5px'
+    <div onClick={() => props.onClick(props)} style={{
+      display: 'flex',
+      flexFlow: 'row nowrap'
     }}>
-      <div className="title" style={{
-        fontSize: '22px'
+      <img width="80" height="80" src={props.photo} alt={`Photo of ${props.id}`} />
+      <div style={{
+        padding: '5px'
       }}>
-        {props.id}
-      </div>
-      <div className="plaintext" style={{
-        fontSize: '16px'
-      }}>
-        {props.title}
-      </div>
-      <div className="plaintext" style={{
-        fontSize: '12px'
-      }}>
-        {props.interests}
+        <div className="title" style={{
+          fontSize: '22px'
+        }}>
+          {props.id}
+        </div>
+        <div className="plaintext" style={{
+          fontSize: '16px'
+        }}>
+          {props.title}
+        </div>
+        <div className="plaintext" style={{
+          fontSize: '12px'
+        }}>
+          {props.interests}
+        </div>
       </div>
     </div>
-  </div>
   )
-  
 
-  if (props.webpage && props.webpage.length > 0) {
+  if (props.webpage && props.webpage === "special") {  // then override hyperlink
+    return (
+    <div className="linkbox" style={{
+      borderStyle: 'solid',
+      textAlign: 'left',
+      flexGrow: 1,
+      width: '300px',
+    }}>
+      {content}
+    </div>
+    )
+  } else if (props.webpage && props.webpage.length > 0) {
     return (
       <div className="linkbox" style={{
         borderStyle: 'solid',
         textAlign: 'left',
         flexGrow: 1,
-        width: '300px',      
+        width: '300px',
       }}>
         <a className="linkbox" href={props.webpage} target="_blank">{content}</a>
       </div>
-      
+
     )
   } else {
     return (
@@ -51,16 +61,16 @@ const Person = (props) => {
         textAlign: 'left',
         width: '300px',
         flexGrow: 1,
-        backgroundColor: 'whitesmoke',      
+        backgroundColor: 'whitesmoke',
       }}>
         {content}
       </div>
-      
+
     )
   }
 }
 
-const AboutUs = ({ style, showSidebar }) => {
+const AboutUs = ({ style, showSidebar, onClick }) => {
 
   const renderHeading = heading => (
     <div className="heading">{heading.toLowerCase()}</div>
@@ -85,6 +95,7 @@ const AboutUs = ({ style, showSidebar }) => {
             title={person.title}
             webpage={person.webpage}
             interests={person.interests}
+            onClick={onClick}
           />
         )}
       </div>
@@ -104,7 +115,7 @@ const AboutUs = ({ style, showSidebar }) => {
         display: 'flex',
         flexFlow: 'row nowrap'
       }}>
-        {showSidebar ? <Sidebar title="about us" className="sidebar-about-us" /> : <div style={{ width: '20px' }} />}
+        {showSidebar ? <Sidebar onClick={onClick} title="about us" className="sidebar-about-us" /> : <div style={{ width: '20px' }} />}
         <div style={{
           width: '100%',
           paddingTop: '30px',
