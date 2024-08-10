@@ -10,6 +10,104 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Eph Octic';
+  src: url('/fonts/EphOctic-Light.otf') format('opentype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eph Octic';
+  src: url('/fonts/EphOctic-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eph Gothic';
+  src: url('/fonts/EphGothic-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eph Gothic';
+  src: url('/fonts/EphGothic-Light.otf') format('opentype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eph Gothic';
+  src: url('/fonts/EphGothic-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eph Serif';
+  src: url('/fonts/EphSerif-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eph Serif';
+  src: url('/fonts/EphSerif-Light.otf') format('opentype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eph Serif';
+  src: url('/fonts/EphSerif-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eph Serif';
+  src: url('/fonts/EphSerif-RegularItalic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Eph Serif';
+  src: url('/fonts/EphSerif-LightItalic.otf') format('opentype');
+  font-weight: lighter;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Eph Serif';
+  src: url('/fonts/EphSerif-BoldItalic.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Eph Slab';
+  src: url('/fonts/EphSlab-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eph Slab';
+  src: url('/fonts/EphSlab-Light.otf') format('opentype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eph Serif';
+  src: url('/fonts/EphSlab-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 
 p {
   margin-top: 10px;
