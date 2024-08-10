@@ -128,12 +128,13 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
     >
       <div style={{
         display: 'flex',
-        flexFlow: 'row nowrap'
+        flexFlow: 'row nowrap',
+        paddingRight: '40px'
       }}>
-        {showSidebar ? <Sidebar title="current course offerings" className="sidebar-course-offerings" onClick={onClick} /> : <div style={{ width: '20px' }} />}
+        {showSidebar ? <Sidebar title="current course offerings" className="sidebar-course-offerings" onClick={onClick} /> : <div style={{ flexGrow: 0, flexShrink: 0, width: '40px' }} />}
         <div style={{
           width: '95%',
-          paddingTop: '30px',
+          paddingTop: '35px',
           textAlign: 'left'
         }}>
 

@@ -71,9 +71,10 @@ const News = ({ style, layout, howMany, date, onClick }) => {
     >
       <div style={{
         display: 'flex',
-        flexFlow: 'row nowrap'
+        flexFlow: 'row nowrap',
+        paddingRight: "40px"
       }}>
-        {layout === "wide" ? <Sidebar title="news" className="sidebar-news" onClick={onClick} /> : <div style={{ width: '20px' }} />}
+        {layout === "wide" ? <Sidebar title="news" className="sidebar-news" onClick={onClick} /> : <div style={{ flexGrow: 0, flexShrink: 0, width: '40px' }} />}
         <div style={{
           width: layout === "wide" ? '70%' : '100%',
           paddingTop: '30px',

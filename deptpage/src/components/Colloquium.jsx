@@ -85,11 +85,11 @@ const Colloquium = ({ style, layout, onClick }) => {
 
   const renderPreview = (event, i) => (
     <div onClick={() => setSpotlight(i)} style={{
-      margin: '10px',
       display: 'flex',
       flexFlow: 'row nowrap',
       alignItems: 'flex-start',
       alignContent: 'flex-start',
+      justifyContent: 'space-between',
       gap: '3px',
       backgroundColor: i == spotlight ? '#eaeaea' : 'inherit'
     }}>
@@ -106,15 +106,20 @@ const Colloquium = ({ style, layout, onClick }) => {
   )
 
   const renderPreviews = () => (
-    <div style={{
-      display: 'flex',
-      flexFlow: 'row nowrap',
-      gap: '20px'
-    }}>
-      {events.map((event, i) =>
-        <div style={{ flexGrow: 1, flexShrink: 1 }}>{renderPreview(event, i)}</div>
-      )}
-    </div>
+    <>
+      <div style={{
+        display: 'flex',
+        flexFlow: 'row nowrap',
+        justifyContent: 'space-between',
+        gap: '20px'
+      }}>
+        {events.map((event, i) =>
+          <div style={{ flexGrow: 1, flexShrink: 1 }}>{renderPreview(event, i)}</div>
+        )}
+
+      </div>
+      <div style={{ height: '20px' }}></div>
+    </>
   )
 
   const renderContent = () => {
@@ -122,7 +127,6 @@ const Colloquium = ({ style, layout, onClick }) => {
       return (
         <div>
           {events.length > 1 && showSidebar ? renderPreviews() : null}
-          <div style={{ height: '20px' }}></div>
           {showSidebar ? (
             events.length > 0 ?
               renderSpotlightEvent(spotlight ? events[spotlight] : events[0])
@@ -136,7 +140,7 @@ const Colloquium = ({ style, layout, onClick }) => {
             border: "solid 5px #FFBE0A",
             marginBottom: "10px"
           }}>
-          <img src="images/misc/hiatus.png" width="100%" />
+            <img src="images/misc/hiatus.png" width="100%" />
           </div>
           <div className="plaintext" style={{
             display: 'flex',
@@ -161,14 +165,15 @@ const Colloquium = ({ style, layout, onClick }) => {
     >
       <div style={{
         display: 'flex',
-        flexFlow: 'row nowrap'
+        flexFlow: 'row nowrap',
+        paddingRight: "40px"
       }}>
         {showSidebar ?
           <Sidebar title="colloquium" className="sidebar-colloquium" onClick={onClick} />
-          : <div style={{ width: '20px' }} />}
+          : <div style={{ flexGrow: 0, flexShrink: 0, width: '40px' }} />}
         <div style={{
           width: '95%',
-          paddingTop: '30px',
+          paddingTop: '40px',
           textAlign: 'left'
         }}>
           {renderContent()}

@@ -2,7 +2,9 @@ import NewsTile from "./NewsTile";
 
 const Sidebar = ({title, onClick, className}) => (
   <div style={{
-    width: '30%'
+    width: '30%',
+    flexGrow: 0,
+    flexShrink: 0
   }}>
     <div className={`${className} tile`} style={{
       margin: '40px',

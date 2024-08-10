@@ -22,9 +22,10 @@ const PlanYourMajor = ({ style, layout, onClick }) => {
     >
       <div style={{
         display: 'flex',
-        flexFlow: 'row nowrap'
+        flexFlow: 'row nowrap',
+        paddingRight: "40px"
       }}>
-        {showSidebar ? <Sidebar title="plan your major" className="sidebar-plan-your-major" onClick={onClick} /> : <div style={{ width: '20px' }} />}
+        {showSidebar ? <Sidebar title="plan your major" className="sidebar-plan-your-major" onClick={onClick} /> : <div style={{ flexGrow: 0, flexShrink: 0, width: '40px' }} />}
         <div>
           <div>
             <Spacer height="30px" />
@@ -55,7 +56,7 @@ const PlanYourMajor = ({ style, layout, onClick }) => {
             }}>major planning assistant</div>
             <Schedule
               style={{
-                width: showSidebar ? style.width - 200 : style.width
+                width: showSidebar ? 0.7 * style.width - 40 : style.width - 80
               }}
             />
 

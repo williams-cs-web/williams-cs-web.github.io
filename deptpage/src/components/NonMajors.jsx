@@ -19,9 +19,10 @@ const NonMajors = ({ style, layout, onClick }) => {
     >
       <div style={{
         display: 'flex',
-        flexFlow: 'row nowrap'
+        flexFlow: 'row nowrap',
+        paddingRight: "40px"
       }}>
-        {showSidebar ? <Sidebar title="non-majors" className="sidebar-non-majors" onClick={onClick} /> : <div style={{ width: '20px' }} />}
+        {showSidebar ? <Sidebar title="non-majors" className="sidebar-non-majors" onClick={onClick} /> : <div style={{ flexGrow: 0, flexShrink: 0, width: '40px' }} />}
         <div>
           <div>
             <Spacer height="30px" />

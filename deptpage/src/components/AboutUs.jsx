@@ -113,9 +113,10 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
     >
       <div style={{
         display: 'flex',
-        flexFlow: 'row nowrap'
+        flexFlow: 'row nowrap',
+        paddingRight: "40px"
       }}>
-        {showSidebar ? <Sidebar onClick={onClick} title="about us" className="sidebar-about-us" /> : <div style={{ width: '20px' }} />}
+        {showSidebar ? <Sidebar onClick={onClick} title="about us" className="sidebar-about-us" /> : <div style={{ width: '40px' }} />}
         <div style={{
           width: '100%',
           paddingTop: '30px',

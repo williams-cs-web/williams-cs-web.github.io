@@ -178,11 +178,9 @@ function App() {
 
   const showSidebar = (getLayout() === "wide")
 
-  const paddingPixels = 20;
-  const contentPct = .99;
+  const contentPct = 1.0;
   const contentStyle = {
-    width: contentPct * (windowSize.width - 2 * paddingPixels),
-    padding: `${paddingPixels}px`
+    width: contentPct * (windowSize.width),    
   }
 
   const renderHub = () => {

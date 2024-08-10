@@ -120,7 +120,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
     }}>
       {photos.map(photo =>
         <div key={photo}>
-          <img style={{ 'margin': '1px' }} width={width / photos.length} src={photo}></img>
+          <img style={{ 'margin': '1px' }} width={(width / photos.length) - 2} src={photo}></img>
         </div>
       )}
     </div>
@@ -137,7 +137,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
     )
   }
 
-  const contentPct = showSidebar ? .8 : .95
+  const contentPct = showSidebar ? .7 : 1.0
 
 
   return (
@@ -150,16 +150,17 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
     >
       <div style={{
         display: 'flex',
-        flexFlow: 'row nowrap'
+        flexFlow: 'row nowrap',
+        paddingRight: '40px'
       }}>
-        {showSidebar ? <Sidebar onClick={onClick} title="student life" className="sidebar-student-life" /> : <div style={{ width: '20px' }} />}
+        {showSidebar ? <Sidebar onClick={onClick} title="student life" className="sidebar-student-life" /> : <div style={{ flexGrow: 0, flexShrink: 0, width: '40px' }} />}
 
         <div style={{
           width: `${contentPct * 100}%`,
           paddingTop: '30px',
           textAlign: 'left'
         }}>
-          {groups.map(group => renderGroup(group, contentPct * style.width))}
+          {groups.map(group => renderGroup(group, contentPct * style.width - 80))}
 
 
         </div>
