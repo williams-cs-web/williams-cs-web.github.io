@@ -1,0 +1,3 @@
+Tanatswa Manyakara ’26, Milton Vento ’26, and Lee Mabhena ’25 won the northeast regional competition and placed 3rd out of 72 undergraduate finalist teams in the national competition of the second annual [Data 4 Good Case Competition](https://business.purdue.edu/events/data4good/) at Purdue University.
+
+The competition asked participants to build a software system that assists healthcare workers in extracting structured medical information from transcribed informal conversations between patients and professionals.  Competitors were judged on the accuracy achieved by their software.  Tanatswa, Milton, and Lee will share a $4000 prize for their results.
