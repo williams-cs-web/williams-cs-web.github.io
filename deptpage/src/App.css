@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: 'Eph Octic';
-  src: url('/fonts/EphOctic-Regular.otf') format('otf');
+  src: url('/fonts/EphOctic-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
