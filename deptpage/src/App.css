@@ -309,6 +309,10 @@ h1,
   font-weight: bold;
 }
 
+.news-article-photo {
+  border: solid 3px #FFBE0A;
+}
+
 .program:hover {
   background-color: coral;
   transition: background-color 200ms;

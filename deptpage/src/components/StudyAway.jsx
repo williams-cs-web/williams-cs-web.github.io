@@ -14,7 +14,7 @@ const BoxTitle = ({ title, color }) => {
     <div className="title" style={{
       fontSize: "30px",
       color: color,
-      padding: "30px"
+      padding: "5px 5px 10px 5px"
     }}>
       {title}
     </div>

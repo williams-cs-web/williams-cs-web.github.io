@@ -28,11 +28,15 @@ const NewsItem = ({ date, title, photo, article }) => {
       {renderHeading(date)}
       <div className="news-article-title">{title}</div>
       {photo ?
+        <div className="news-article-photo">
         <img
+          
           width="100%"
           src={photo}
           alt={`photo associated with news article`}
-        /> : null}
+        /> </div> : null}
+       
+      
       <Markdown children={content} />
     </div>
   )

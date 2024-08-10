@@ -86,7 +86,7 @@ const PlanYourMajor = ({ style, layout, onClick }) => {
             </div>
             <Spacer height="20px" />
 
-            <StudyAway layout={layout}/>
+            <StudyAway layout="narrow"/>
             <Spacer height="20px" />
             <div className="plaintext left">
               If a particular course does not appear above, and you would like to use that course to satisfy a CS major requirement, then you must get pre-approval from the department before attending your study away program.
