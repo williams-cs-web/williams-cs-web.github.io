@@ -65,6 +65,7 @@ If there is no icon (Iris made all the original icons), then just create some ar
 
 2. Add a new item to the `events` field of `deptpage/data/colloquium.json`. Here is an example:
 
+```
 {
     "date": "May 3, 2024",
     "speaker": "Melanie Subbiah",
@@ -73,6 +74,7 @@ If there is no icon (Iris made all the original icons), then just create some ar
     "photo": "images/colloquium/subbiah.jpeg",
     "abstract": "Large Language Models (LLMs) have permeated almost every field..."
 }
+```
 
 All fields are mandatory. The `date` field needs to be automatically parsed, so make sure there are no typos.  The path to the `photo` file is relative to the `deptpage` directory.
 
