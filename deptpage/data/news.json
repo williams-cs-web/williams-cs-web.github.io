@@ -2,7 +2,7 @@
     "articles": [
         {
             "id": "article-job-opening-fall-2024",
-            "date": "August 10, 2024",
+            "date": "August 8, 2024",
             "title": "Assistant Professor and Open-Rank Positions in Computer Science",
             "article": "articles/job-opening-fall-2024.md",
             "teaser": "We are hiring! Two tenure-track faculty positions are available, starting in Summer 2025."
@@ -19,7 +19,8 @@
             "date": "December 5, 2023",
             "title": "Williams CS Majors Place 3rd in Purdue Data 4 Good Competition",
             "photo": "images/misc/purdue-data.jpg",
-            "article": "articles/purdue-data.md"
+            "article": "articles/purdue-data.md",
+            "teaser": "Williams CS Majors get third place in a data science competition held at Purdue University"            
         },
         {
             "id": "article-andrea-memorial-minute",
