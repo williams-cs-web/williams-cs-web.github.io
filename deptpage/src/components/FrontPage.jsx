@@ -267,7 +267,7 @@ const FrontPage = ({ onClick }) => {
       margin: '1px',
       backgroundColor: "white",
     }}>
-      <img src="images/misc/mounthope.png" width="100%" alt="mount hope event" />
+      <img src={DbServices.getFrontPageSpotlightInfo().photo} width="100%" alt="spotlight photo" />
 
 
     </div>
@@ -285,7 +285,7 @@ const FrontPage = ({ onClick }) => {
       fontWeight: 'normal',
       cursor: 'default'
     }}>
-      <div className="centered">graduation event at mount hope, may 29 2024</div>
+      <div className="centered">{DbServices.getFrontPageSpotlightInfo().caption.toLowerCase()}</div>
     </div>
   )
 

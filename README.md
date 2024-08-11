@@ -7,6 +7,14 @@ This repository provides code for updating and deploying the homepage for the Wi
 
 To make the webpage easier to update and maintain, much of the content is separated from the Javascript code. Here's how to add various types of content to the webpage:
 
+### Modifying the spotlight photo on the front page:
+
+1. Put a **landscape photo with a 4:3 aspect ratio** in the `deptpage/images/misc/` directory.
+
+2. Update the `photo` field in `deptpage/data/frontpage.json` to point to the file. The path should be relative to the `deptpage` directory.
+
+3. Update the `caption` field in `deptpage/data/frontpage.json` with an appropriate caption.
+
 ### Adding a person to the About Us page:
 
 1. Put a square photo (any format, but typically JPG or PNG) of the person in the `deptpage/images/people/` directory.
@@ -192,34 +200,40 @@ The `math_equiv` should be either `1` (if the course satisfies the Math elective
 
 ```
 {
-    "id": "day one",
-    "icon": "🏫",
-    "description": "you arrive at williams with an interest in becoming a CS major",
+    "id": "accelerated",
+    "icon": "🚀",
+    "description": "you want to major in CS and you have prior experience",
     "path": [
         {
-            "semester": "1a",
+            "semester": "0",
             "courses": [
                 "CSCI 134"
             ]
         },
         {
-            "semester": "1b",
+            "semester": "1a",
             "courses": [
                 "CSCI 136",
                 "MATH 200"
             ]
         },
         {
+            "semester": "1b",
+            "courses": [
+                "CSCI 237"
+            ]
+        },
+        {
             "semester": "2a",
             "courses": [
-                "CSCI 237",
+                "CSCI 256",
                 "MATH 2xx"
             ]
         },
         {
             "semester": "2b",
             "courses": [
-                "CSCI 256"
+                "CSCI 3xx(1)"
             ]
         },
         {
@@ -231,29 +245,29 @@ The `math_equiv` should be either `1` (if the course satisfies the Math elective
         {
             "semester": "3b",
             "courses": [
-                "CSCI 3xx(1)"
+                "CSCI 3xx(2)"
             ]
         },
         {
             "semester": "4a",
             "courses": [
-                "CSCI 3xx(2)"
+                "CSCI 3xx(3)"
             ]
         },
         {
             "semester": "4b",
             "courses": [
-                "CSCI 3xx(3)"
+                "CSCI 3xx(4)"
             ]
         }
-    ]
+    ]        
 }
 ```
 
 * The `id` field should be a human-friendly name for the major path.
 * The `icon` field should be a single emoji that visually represents the major path.
 * The `description` field should be a short description of the major path.
-* The `path` field is a list of 8 semesters and the major requirements taken during each of them. The requirements should be specified using the value of the requirement's `id` field.
+* The `path` field is a list of 9 semesters and the major requirements taken during each of them. Semester 0 is not displayed to the user -- it is used to specify requirements that a student has satisfied prior to coming to Williams. The requirements should be specified using the value of the requirement's `id` field.
 
 All fields are mandatory.
 

@@ -463,7 +463,7 @@ h1,
   margin: 5px;
   margin-top: 10px;
   padding: 10px;
-  border: solid 2px gold;
+  border: solid 2px #FFBE0A;
   font-family: Eph Octic;
   font-weight: lighter;
   background-color: black;
@@ -471,6 +471,12 @@ h1,
   height: 200px;
   cursor: default;
 }
+
+.plan-your-major-infobox-warning-text {
+  color: #FFBE0A;
+  font-weight: normal;
+}
+
 
 .plan-your-major-infobox-error {
   margin: 5px;
@@ -485,6 +491,11 @@ h1,
   cursor: default;
 }
 
+.plan-your-major-infobox-error-text {
+  color: crimson;
+  font-weight: normal;
+}
+
 .plan-your-major-dept {
   font-family: Eph Gothic;
   font-weight: bold;
@@ -495,6 +506,38 @@ h1,
   font-family: Eph Gothic;
   font-weight: normal;
   cursor: default;
+}
+
+.major-req-highlight-error {
+  background-color: crimson;
+  border: solid 1px black;
+  color: white;
+}
+
+.major-req-highlight-warning {
+  background-color: #FFBE0A;
+  border: solid 1px black;
+  color: black;
+}
+
+.major-req-highlight {
+  background-color: chartreuse;
+  color: black;
+}
+
+.major-req-error {
+  background-color: pink;
+  color: black;
+}
+
+.major-req-warning {
+  background-color: palegoldenrod;
+  color: black;
+}
+
+.major-req {
+  background-color: whitesmoke;
+  color: black;
 }
 
 .studyaway-heading {

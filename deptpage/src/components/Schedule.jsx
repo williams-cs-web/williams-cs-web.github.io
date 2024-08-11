@@ -19,7 +19,7 @@ const ScheduleChooser = ({ onClick, largeFontSize, smallFontSize }) => {
   }, [current])
 
   const renderPathDescription = (pathIndex) => (
-    <div onClick={() => setCurrent(pathIndex)} style={{ borderStyle: current == pathIndex ? 'solid' : 'none', flexGrow: 1, flexShrink: 1 }}>
+    <div key={`major-path-${pathIndex}`} onClick={() => setCurrent(pathIndex)} style={{ borderStyle: current == pathIndex ? 'solid' : 'none', flexGrow: 1, flexShrink: 1 }}>
       <div>{paths[pathIndex].icon}</div>
       <div>{paths[pathIndex].id}</div>
       <div style={{ fontSize: smallFontSize }}>{paths[pathIndex].description}</div>
@@ -55,7 +55,7 @@ function Year({ number, style, largeFontSize, smallFontSize }) {
 }
 
 
-function Course(props) {
+function MajorRequirement(props) {
 
   const dept = props.id.split(' ')[0]
   const number = props.id.split(' ')[1].split('(')[0]
@@ -74,8 +74,6 @@ function Course(props) {
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     alignContent: 'flex-start',
-    color: props.color,
-    backgroundColor: props.backgroundColor,
     textAlign: 'center',
   };
 
@@ -88,7 +86,7 @@ function Course(props) {
 
   return (
     <div ref={containerRef}>
-      <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
+      <div className={props.className} ref={setNodeRef} style={style} {...listeners} {...attributes}>
         <div onMouseDown={() => props.onClick(props.id)} style={{
           flexGrow: 1,
           flexShrink: 1,
@@ -144,13 +142,13 @@ const InfoBox = ({ info, warning, error, fontSize }) => {
 
   const renderWarning = () => (
     warning ?
-      <span style={{ fontWeight: 'normal', color: 'gold' }}>{warning}
+      <span className="plan-your-major-infobox-warning-text">{warning}
       </span> : null
   )
 
   const renderError = () => (
     error ?
-      <span style={{ fontWeight: 'normal', color: 'crimson' }}>{error}
+      <span className="plan-your-major-infobox-error-text">{error}
       </span> : null
   )
 
@@ -174,6 +172,7 @@ const Schedule = (props) => {
   const [violations, setViolations] = useState([])
   const [warnings, setWarnings] = useState([])
   const [highlight, setHighlight] = useState(null)
+
 
   const containerRef = useRef()
 
@@ -201,45 +200,37 @@ const Schedule = (props) => {
   function handleDragMove(event) {
     const { active, over } = event;
     if (over) {
-      moveCourse(active.id, over.id)
+      moveMajorRequirement(active.id, over.id)
     }
   }
 
-  const courseBackgroundColor = (courseId) => {
+  const getRequirementClassName = (courseId) => {
     if (highlight === courseId) {
       if (violations.includes(courseId)) {
-        return "crimson"
+        return "major-req-highlight-error"
       } else if (warnings.includes(courseId)) {
-        return "yellow"
+        return "major-req-highlight-warning"
       } else {
-        return "chartreuse"
+        return "major-req-highlight"
       }
     } else {
       if (violations.includes(courseId)) {
-        return "pink"
+        return "major-req-error"
       } else if (warnings.includes(courseId)) {
-        return "goldenrod"
+        return "major-req-warning"
       } else {
-        return "whitesmoke"
+        return "major-req"
       }
     }
   }
 
-  const courseColor = (courseId) => {
-    if (highlight === courseId) {
-      return violations.includes(courseId) ? "white" : "black"
-    } else {
-      return violations.includes(courseId) ? "crimson" : "black"
-    }
+  const addMajorRequirement = (sem, courseId) => {
+    let nextMajorRequirements = [...new Set(sem.courses.concat([courseId]))]
+    nextMajorRequirements.sort()
+    return { ...sem, courses: nextMajorRequirements }
   }
 
-  const addCourse = (sem, courseId) => {
-    let nextCourses = [...new Set(sem.courses.concat([courseId]))]
-    nextCourses.sort()
-    return { ...sem, courses: nextCourses }
-  }
-
-  const removeCourse = (sem, courseId) => {
+  const removeMajorRequirement = (sem, courseId) => {
     let result = { ...sem, courses: sem.courses.filter(course => course != courseId) }
     return result
   }
@@ -278,11 +269,11 @@ const Schedule = (props) => {
     setViolations([...errors])
   }
 
-  const moveCourse = (courseId, newSemester) => {
+  const moveMajorRequirement = (courseId, newSemester) => {
     let revised =
       schedule
         .map(sem =>
-          sem.semester === newSemester ? addCourse(sem, courseId) : removeCourse(sem, courseId)
+          sem.semester === newSemester ? addMajorRequirement(sem, courseId) : removeMajorRequirement(sem, courseId)
         )
     // TODO: experiment to get rid of drag flicker
     //setMoving(true)
@@ -310,13 +301,12 @@ const Schedule = (props) => {
       }}>
       {sem.courses.map(course => (
         <div key={course}>
-          <Course
+          <MajorRequirement
             key={course}
             id={course}
             largeFontSize={largeFontSize}
             smallFontSize={smallFontSize}
-            color={courseColor(course)}
-            backgroundColor={courseBackgroundColor(course)}
+            className={getRequirementClassName(course)}
             issue={violations.includes(course)}
             onClick={courseId => setHighlight(courseId)}
           />
@@ -388,23 +378,23 @@ const Schedule = (props) => {
           <div className="title" style={seasonStyle}>
             <div style={academicYearStyle}>
               {renderYear(1)}
-              {renderSemester(schedule[0])}
               {renderSemester(schedule[1])}
+              {renderSemester(schedule[2])}
             </div>
             <div style={academicYearStyle}>
               {renderYear(2)}
-              {renderSemester(schedule[2])}
               {renderSemester(schedule[3])}
+              {renderSemester(schedule[4])}
             </div>
             <div style={academicYearStyle}>
               {renderYear(3)}
-              {renderSemester(schedule[4])}
               {renderSemester(schedule[5])}
+              {renderSemester(schedule[6])}
             </div>
             <div style={academicYearStyle}>
               {renderYear(4)}
-              {renderSemester(schedule[6])}
               {renderSemester(schedule[7])}
+              {renderSemester(schedule[8])}
             </div>
           </div>
         </DndContext>

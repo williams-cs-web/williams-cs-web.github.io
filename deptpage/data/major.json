@@ -50,7 +50,7 @@
             "recommended": [
                 "CSCI 256"
             ],
-            "info": "You must take at least one of CSCI 334 or CSCI 361.",
+            "info": "You must take at least one of CSCI 334 (Principles of Programming Languages) or CSCI 361 (Theory of Computation).",
             "warning": "Note: CSCI 361 has CSCI 256 as a prerequisite.",
             "error": "Both courses have CSCI 136 and MATH 200 as prerequisites."
         },
@@ -125,6 +125,10 @@
             "description": "you arrive at williams with an interest in becoming a CS major",
             "path": [
                 {
+                    "semester": "0",
+                    "courses": []
+                },
+                {
                     "semester": "1a",
                     "courses": [
                         "CSCI 134"
@@ -182,6 +186,10 @@
             "description": "during your first year, you become interested in majoring in CS",
             "path": [
                 {
+                    "semester": "0",
+                    "courses": []
+                },
+                {
                     "semester": "1a",
                     "courses": []
                 },
@@ -236,6 +244,12 @@
             "icon": "🚀",
             "description": "you want to major in CS and you have prior experience",
             "path": [
+                {
+                    "semester": "0",
+                    "courses": [
+                        "CSCI 134"
+                    ]
+                },
                 {
                     "semester": "1a",
                     "courses": [

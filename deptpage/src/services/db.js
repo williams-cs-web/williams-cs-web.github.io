@@ -6,11 +6,17 @@ import studentData from '../../data/students.json'
 import studyAwayData from '../../data/studyaway.json'
 import researchData from '../../data/research.json'
 import newsData from '../../data/news.json'
+import frontPageData from '../../data/frontpage.json'
 
 
 const sixMonthsAgo = Date.parse("Feb 20, 2024")
 const maxColloquiaToShow = 3;
 
+
+
+const getFrontPageSpotlightInfo = () => {
+  return frontPageData.spotlight
+}
 
 const getCatalog = () => {
   return courses.catalog
@@ -93,7 +99,9 @@ const getNewsItems = () => {
 }
 
 
+
 export default {
+  getFrontPageSpotlightInfo,
   getMajorRequirement,
   getMajorPaths,
   getPeople,
