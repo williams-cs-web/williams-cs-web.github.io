@@ -100,6 +100,60 @@ All fields are mandatory. The `date` field needs to be automatically parsed, so 
 The `id`s of all articles should be unique. The `teaser` is what shows up when this article is advertised on the main homepage. You can omit the `teaser` if you want to just use the `title` as the `teaser`. The `photo` can also be omitted. All other fields are mandatory. All paths are relative to the `deptpage` directory.
 
 
+### Modifying information on the Student Life page:
+
+1. To update the board members of the various student organizations, first add a **square** photo of the board member to the `deptpage/images/students` directory. Then add a new item to the `leadership` field of the relevant group in `deptpage/data/students.json`. Here is an example:
+
+```
+{
+    "name": "Ye Shu",
+    "year": "2024",
+    "photo": "images/students/shu.jpeg"
+}
+```
+
+The path to the photo is relative to the `deptpage` directory.
+
+2. Other information can also be changed by modifying `deptpage/data/students.json`, like the webpage or description of a student group.
 
 
+### Adding information to the Research Opportunities page:
+
+1. Create a Markdown file in the `deptpage/articles/` directory that contains the main text of the research opportunity (see `deptpage/articles/ssr.md` for an example).
+
+2. If the research opportunity has an associated photo, then put this photo in the `deptpage/images/misc/` directory.
+
+3. Add a new item to the `opportunities` field of `deptpage/data/research.json`. Here is an example:
+
+```
+    {
+        "id": "opportunity-ssr",
+        "name": "Summer Science Research",
+        "photo": "images/misc/kayaking.jpg",
+        "article": "articles/ssr.md"
+    }
+```
+
+The `id`s of all research opportunities should be unique. The `photo` can be omitted. All other fields are mandatory. All paths are relative to the `deptpage` directory.
+
+### Adding pre-approved study away courses to the Plan Your Major page:
+
+1. Add a new item to the `equivalents` field of `deptpage/data/studyaway.json`. Here is an example:
+
+```
+{
+    "program": "AIT Budapest",
+    "course": "Algorithms and Data Structures",
+    "cs_equiv": "256",
+    "math_equiv": 0
+}
+```
+
+All fields are mandatory. The `cs_equiv` field should have one of the following values: 
+
+* `"no"` (if the course does not satisfy any CSCI major requirement) 
+* `"3xx"` (if the course counts as a CSCI elective but there is no exact correspondent at Williams)
+* the Williams CSCI course number (e.g. `"256"` in the above example) that corresponds to the study away course.
+
+The `math_equiv` should be either `1` (if the course satisfies the Math elective requirement of the CS major) or `0` (if not).
 

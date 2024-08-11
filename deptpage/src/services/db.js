@@ -3,7 +3,7 @@ import people from '../../data/people.json'
 import courses from '../../data/courses.json'
 import colloquiumData from '../../data/colloquium.json'
 import studentData from '../../data/students.json'
-import equivs from '../../data/equivalents.json'
+import studyAwayData from '../../data/studyaway.json'
 import researchData from '../../data/research.json'
 import newsData from '../../data/news.json'
 
@@ -83,7 +83,7 @@ const getStudentGroups = () => {
 
 
 const getStudyAwayEquivalents = () => {
-  return equivs
+  return studyAwayData.equivalents
 }
 
 const getResearchOpportunities = () => {

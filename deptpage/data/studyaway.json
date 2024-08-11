@@ -1,0 +1,826 @@
+{
+    "equivalents": [
+        {
+            "program": "AIT Budapest",
+            "course": "Algorithms and Data Structures",
+            "cs_equiv": "256",
+            "math_equiv": 0
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Combinatorial Optimization",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Computer Graphics",
+            "cs_equiv": "371",
+            "math_equiv": 0
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Data Science 1: Models & Algorithms",
+            "cs_equiv": "3xx",
+            "math_equiv": 1
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Graph Theory",
+            "cs_equiv": "3xx",
+            "math_equiv": 1
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Quantum Probability and Quantum Logic",
+            "cs_equiv": "no",
+            "math_equiv": 1
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Semantic and Declarative Technologies",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Theory of Computing",
+            "cs_equiv": "361",
+            "math_equiv": 0
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Applied Cryptography",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Deep Learning",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Intro to Computational Biology",
+            "cs_equiv": "no",
+            "math_equiv": 1
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Mobile Software Development",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Structure and Dynamics of Complex Networks",
+            "cs_equiv": "no",
+            "math_equiv": 1
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "User Experience Design",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Scalable Systems and Development Processes",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "AIT Budapest",
+            "course": "Design Workshop",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Computational Linguistics",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Quantum Processes and Computation",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Quantum Software",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Artificial Intelligence",
+            "cs_equiv": "373",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Deep Learning in Healthcare",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Computational Biology",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Models of Computation",
+            "cs_equiv": "361",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Machine Learning",
+            "cs_equiv": "374",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Computer-Aided Formal Verification",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Databases",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Concurrency",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Distributed Processes, Types, and Programming",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Combinatorial Optimization",
+            "cs_equiv": "3xx",
+            "math_equiv": 1
+        },
+        {
+            "program": "Oxford University (WEPO)",
+            "course": "Compilers",
+            "cs_equiv": "434",
+            "math_equiv": 0
+        },
+        {
+            "program": "DIS Copenhagen",
+            "course": "Artificial Intelligence",
+            "cs_equiv": "373",
+            "math_equiv": 0
+        },
+        {
+            "program": "DIS Copenhagen",
+            "course": "Artificial Neural Networks and Deep Learning",
+            "cs_equiv": "381",
+            "math_equiv": 0
+        },
+        {
+            "program": "DIS Copenhagen",
+            "course": "Computational Analysis of Big Data",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "DIS Copenhagen",
+            "course": "Game Development: Programming and Practice",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "DIS Copenhagen",
+            "course": "Computer Graphics Programming 3D Applications",
+            "cs_equiv": "371",
+            "math_equiv": 0
+        },
+        {
+            "program": "DIS Copenhagen",
+            "course": "Machine Learning",
+            "cs_equiv": "374",
+            "math_equiv": 0
+        },
+        {
+            "program": "DIS Copenhagen",
+            "course": "App Development",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Queen Mary University of London",
+            "course": "Computer Graphics",
+            "cs_equiv": "371",
+            "math_equiv": 0
+        },
+        {
+            "program": "Queen Mary University of London",
+            "course": "Computability, Complexity, and Algorihtms",
+            "cs_equiv": "361",
+            "math_equiv": 0
+        },
+        {
+            "program": "Queen Mary University of London",
+            "course": "Creating Interactive Objects",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "Queen Mary University of London",
+            "course": "Multi-platform Game Development",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Queen Mary University of London",
+            "course": "Software Development and Quality",
+            "cs_equiv": "326",
+            "math_equiv": 0
+        },
+        {
+            "program": "Queen Mary University of London",
+            "course": "Business Information Systems",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Queen Mary University of London",
+            "course": "Algorithms and Data Structures",
+            "cs_equiv": "136",
+            "math_equiv": 0
+        },
+        {
+            "program": "Queen Mary University of London",
+            "course": "Database Systems",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Southern New Hampshire University",
+            "course": "Data Structures and Algorithms",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "Southern New Hampshire University",
+            "course": "Software Security",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "Southern New Hampshire University",
+            "course": "UX/UI Design and Development",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "Southern New Hampshire University",
+            "course": "Computational Graphics and Visualization",
+            "cs_equiv": "371",
+            "math_equiv": 0
+        },
+        {
+            "program": "Southern New Hampshire University",
+            "course": "Secure Coding",
+            "cs_equiv": "331",
+            "math_equiv": 0
+        },
+        {
+            "program": "NYU Paris",
+            "course": "Algorithms",
+            "cs_equiv": "256",
+            "math_equiv": 0
+        },
+        {
+            "program": "NYU Paris",
+            "course": "Introduction to Machine Learning",
+            "cs_equiv": "374",
+            "math_equiv": 0
+        },
+        {
+            "program": "NYU Paris",
+            "course": "Artificial Intelligence",
+            "cs_equiv": "374",
+            "math_equiv": 0
+        },
+        {
+            "program": "NYU Paris",
+            "course": "Linear Algebra",
+            "cs_equiv": "no",
+            "math_equiv": 1
+        },
+        {
+            "program": "NYU Paris",
+            "course": "Computer Networking",
+            "cs_equiv": "336",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Software Engineering Fundamentals",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Software Construction: Techniques and Tools",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Object-Oriented Design & Programming",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Algorithms and Programming Techniques",
+            "cs_equiv": "256",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Digital Circuits and Systems",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Database Systems",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Artificial Intelligence",
+            "cs_equiv": "373",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Computer Graphics",
+            "cs_equiv": "371",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Robotic Software Architecture",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Advanced Algorithms",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Theory of Computation",
+            "cs_equiv": "361",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Web Front-End Programming",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Big Data Management",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of New South Wales",
+            "course": "Computer Vision",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Columbia",
+            "course": "Analysis of Algorithms",
+            "cs_equiv": "256",
+            "math_equiv": 0
+        },
+        {
+            "program": "Columbia",
+            "course": "Programming Languages",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "Columbia",
+            "course": "Programming Languages and Translators",
+            "cs_equiv": "334",
+            "math_equiv": 0
+        },
+        {
+            "program": "Harvard",
+            "course": "Introduction to Algorithms and Their Limitations",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "Harvard",
+            "course": "Data Structures and Algorithms",
+            "cs_equiv": "256",
+            "math_equiv": 0
+        },
+        {
+            "program": "Harvard",
+            "course": "Computing Hardware",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Sydney",
+            "course": "Introduction to Programming",
+            "cs_equiv": "134",
+            "math_equiv": 0
+        },
+        {
+            "program": "University College London",
+            "course": "Computer Architecture and Concurrency",
+            "cs_equiv": "237",
+            "math_equiv": 0
+        },
+        {
+            "program": "University College London",
+            "course": "Logic",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University College London",
+            "course": "Theory of Computation",
+            "cs_equiv": "361",
+            "math_equiv": 0
+        },
+        {
+            "program": "University College London",
+            "course": "Combinatorial Optimization",
+            "cs_equiv": "3xx",
+            "math_equiv": 1
+        },
+        {
+            "program": "University of St. Andrews",
+            "course": "Computer Systems",
+            "cs_equiv": "237",
+            "math_equiv": 0
+        },
+        {
+            "program": "Trinity College Dublin",
+            "course": "Computer Networks",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Trinity College Dublin",
+            "course": "Introduction to Computing I",
+            "cs_equiv": "237",
+            "math_equiv": 0
+        },
+        {
+            "program": "Trinity College Dublin",
+            "course": "Computers and Society",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "Trinity College Dublin",
+            "course": "Computer Architecture",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Trinity College Dublin",
+            "course": "Fuzzy Logic and Control Systems",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Trinity College Dublin",
+            "course": "Computer Graphics",
+            "cs_equiv": "371",
+            "math_equiv": 0
+        },
+        {
+            "program": "Trinity College Dublin",
+            "course": "Microprocessor Systems",
+            "cs_equiv": "237",
+            "math_equiv": 0
+        },
+        {
+            "program": "Trinity College Dublin",
+            "course": "Information Management",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Trinity College Dublin",
+            "course": "Software Engineering",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "London School of Economics",
+            "course": "Algorithms and Data Structures",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "London School of Economics",
+            "course": "Machine Learning",
+            "cs_equiv": "374",
+            "math_equiv": 0
+        },
+        {
+            "program": "London School of Economics",
+            "course": "Artificial Intelligence",
+            "cs_equiv": "374",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Edinburgh",
+            "course": "Computer Architecture and Design",
+            "cs_equiv": "337",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Edinburgh",
+            "course": "Informatics 2C - Introduction to Computer Systems",
+            "cs_equiv": "237",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Edinburgh",
+            "course": "Human-Computer Interaction",
+            "cs_equiv": "376",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Virginia",
+            "course": "Computer Systems and Organization 2",
+            "cs_equiv": "472",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Virginia",
+            "course": "Computer Systems and Organization 1",
+            "cs_equiv": "237",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Virginia",
+            "course": "Artificial Intelligence",
+            "cs_equiv": "373",
+            "math_equiv": 0
+        },
+        {
+            "program": "CET Siena",
+            "course": "Discrete Mathematics and Theory 2",
+            "cs_equiv": "361",
+            "math_equiv": 0
+        },
+        {
+            "program": "CET Siena",
+            "course": "Computer Systems and Organization 2",
+            "cs_equiv": "373",
+            "math_equiv": 0
+        },
+        {
+            "program": "Goldsmiths, University of London",
+            "course": "Machine Learning",
+            "cs_equiv": "374",
+            "math_equiv": 0
+        },
+        {
+            "program": "Goldsmiths, University of London",
+            "course": "How Computers Work",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "Goldsmiths, University of London",
+            "course": "Front-End Web",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Goldsmiths, University of London",
+            "course": "Artificial Intelligence",
+            "cs_equiv": "373",
+            "math_equiv": 0
+        },
+        {
+            "program": "Goldsmiths, University of London",
+            "course": "Games Design and Development",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Vrije Universiteit Amsterdam",
+            "course": "Software Design",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "Vrije Universiteit Amsterdam",
+            "course": "Computational Intelligence",
+            "cs_equiv": "374",
+            "math_equiv": 0
+        },
+        {
+            "program": "Vrije Universiteit Amsterdam",
+            "course": "Information Management for CS",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Auckland",
+            "course": "Data Communications and Security",
+            "cs_equiv": "336",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Auckland",
+            "course": "Human-Computer Interaction",
+            "cs_equiv": "376",
+            "math_equiv": 0
+        },
+        {
+            "program": "Victoria University of Wellington",
+            "course": "Algorithms and Data Structures",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "Korea University",
+            "course": "Theory of Computation",
+            "cs_equiv": "361",
+            "math_equiv": 0
+        },
+        {
+            "program": "Korea University",
+            "course": "Computer Architecture",
+            "cs_equiv": "237",
+            "math_equiv": 0
+        },
+        {
+            "program": "Korea University",
+            "course": "Human Computer Interaction",
+            "cs_equiv": "376",
+            "math_equiv": 0
+        },
+        {
+            "program": "Korea University",
+            "course": "Deep Learning",
+            "cs_equiv": "381",
+            "math_equiv": 0
+        },
+        {
+            "program": "Korea University",
+            "course": "Artificial Intelligence",
+            "cs_equiv": "373",
+            "math_equiv": 0
+        },
+        {
+            "program": "Korea University",
+            "course": "Interactive Visualization",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Melbourne",
+            "course": "Design of Algorithms",
+            "cs_equiv": "256",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Melbourne",
+            "course": "Database Systems",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Melbourne",
+            "course": "Software Processes and Management",
+            "cs_equiv": "326",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Melbourne",
+            "course": "Graphics and Interaction",
+            "cs_equiv": "371",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Galway",
+            "course": "Games Programming",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Galway",
+            "course": "Object-Oriented Programming",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Galway",
+            "course": "Machine Learning",
+            "cs_equiv": "374",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Galway",
+            "course": "Information Retrieval",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Galway",
+            "course": "Human Computer Interaction",
+            "cs_equiv": "376",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of Galway",
+            "course": "Systems Modeling and Simulation",
+            "cs_equiv": "no",
+            "math_equiv": 1
+        },
+        {
+            "program": "University of Galway",
+            "course": "Graphics and Image Processing",
+            "cs_equiv": "371",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of California, Berkeley",
+            "course": "Software Engineering Team Project",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of California, Berkeley",
+            "course": "Introduction to Software Engineering",
+            "cs_equiv": "326",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of California, Berkeley",
+            "course": "Back-End Web Architecture",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of California, Berkeley",
+            "course": "Software Security",
+            "cs_equiv": "331",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of California, Berkeley",
+            "course": "Introduction to Machine Learning",
+            "cs_equiv": "374",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of California, Berkeley",
+            "course": "Introduction to Competitive Programming",
+            "cs_equiv": "no",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of California, Berkeley",
+            "course": "Introduction to Artificial Intelligence",
+            "cs_equiv": "373",
+            "math_equiv": 0
+        },
+        {
+            "program": "University of California, Berkeley",
+            "course": "Introduction to Database Systems",
+            "cs_equiv": "3xx",
+            "math_equiv": 0
+        }
+    ]
+}
