@@ -9,12 +9,12 @@
             "component": "MajorPlanningAssistant"
         },
         {
-            "title": "advanced placement",
-            "article": "articles/advanced-placement.md"
-        },
-        {
             "title": "declaring the major",
             "article": "articles/declaring-the-major.md"
+        },
+        {
+            "title": "advanced placement",
+            "article": "articles/advanced-placement.md"
         },
         {
             "title": "study away",
