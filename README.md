@@ -24,7 +24,7 @@ To make the webpage easier to update and maintain, much of the content is separa
 }
 ```
 
-The id is just the person's name. The role should be ```faculty```, ```staff```, or ```emeriti```. You can omit the webpage field or interests field if not applicable. All other fields are mandatory. All paths are relative to the `deptpage` directory.
+The `id` is just the person's name. The `role` should be `faculty`, `staff`, or `emeriti`. You can omit the `webpage` field or `interests` field if not applicable. All other fields are mandatory. All paths are relative to the `deptpage` directory.
 
 
 ### Adding a course offering to the Courses page:
@@ -57,7 +57,7 @@ The ids of all articles should be unique (one way to do this is to follow the fo
 }
 ```
 
-If there is no icon (Iris made all the original icons), then just create some arbitrary square image, preferably a circular logo with a transparent background.
+If there is no icon (Iris made all the original icons), then just create some arbitrary square image, preferably a circular logo with a transparent background, then add it to the `deptpage/images/courseicons` directory.
 
 ### Adding an event to the Colloquium page:
 
@@ -70,7 +70,7 @@ If there is no icon (Iris made all the original icons), then just create some ar
     "date": "May 3, 2024",
     "speaker": "Melanie Subbiah",
     "affiliation": "Columbia University",
-    "title": "How did we get here?: The Rise of Large Language Models and the Problem of Evaluation",
+    "title": "How did we get here? The Rise of Large Language Models and the Problem of Evaluation",
     "photo": "images/colloquium/subbiah.jpeg",
     "abstract": "Large Language Models (LLMs) have permeated almost every field..."
 }
