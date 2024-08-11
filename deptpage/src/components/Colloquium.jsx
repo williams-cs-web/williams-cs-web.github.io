@@ -30,6 +30,10 @@ const Colloquium = ({ style, layout, onClick }) => {
 
   const renderSpotlightEventWide = (event) => {
 
+    const location = event.location ? event.location : "TCL 123"
+    const time = event.time ? event.time : "2:35pm"
+
+
     return (
       <div>
         <div style={{
@@ -42,7 +46,7 @@ const Colloquium = ({ style, layout, onClick }) => {
             flexGrow: 1,
             flexShrink: 1
           }}>
-            {renderHeading(event.date)}
+            {renderHeading(`${event.date} (${location}, ${time})`)}
             <div className="colloquium-title" style={{ fontSize: '20px' }}>{event.title}</div>
             <div className="colloquium-speaker" style={{ fontSize: '17px' }}>{event.speaker}, {event.affiliation}</div>
             <div className="plaintext" style={{ fontSize: '14px' }}>{event.abstract}</div>
@@ -56,6 +60,9 @@ const Colloquium = ({ style, layout, onClick }) => {
 
   const renderSpotlightEventNarrow = (event) => {
 
+    const location = event.location ? event.location : "TCL 123"
+    const time = event.time ? event.time : "2:35pm"
+
     return (
       <div>
         <div style={{
@@ -68,7 +75,7 @@ const Colloquium = ({ style, layout, onClick }) => {
             flexGrow: 1,
             flexShrink: 1
           }}>
-            {renderHeading(event.date)}
+            {renderHeading(`${event.date} (${location}, ${time})`)}
             <div className="colloquium-title" style={{ fontSize: '20px' }}>{event.title}</div>
             <div className="colloquium-speaker" style={{ fontSize: '17px' }}>{event.speaker}, {event.affiliation}</div>
             <div style={{ backgroundColor: 'whitesmoke', padding: '10px', textAlign: 'center' }}>

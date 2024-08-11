@@ -13,6 +13,8 @@
             "date": "April 12, 2024",
             "speaker": "Christine Bassem",
             "affiliation": "Wellesley College",
+            "location": "Bronfman Auditorium",
+            "time": "1pm",
             "title": "Towards Mobility Coordination in Participatory Crowdsensing Platforms",
             "photo": "images/colloquium/bassem.png",
             "abstract": "With the recent advances in mobile crowdsensing, participating self-motivated crowds already roaming in a mobility field can assist in the collection of sensing data. One of the main challenging aspects of participatory crowdsensing is that crowd participation is voluntary and unpredictable. In our work, we aim to develop solutions that coordinate the participation of crowds in such platforms; in terms of their mobility, reliability, and privacy, with an objective of incentivizing crowds to reliably participate in the sensing process. Thus, leveraging their collective efforts to optimize the performance of the system as a whole. In this talk, I will present an overview of the solutions developed, in the CrowdNets lab, towards mobility coordination and the evaluation of participatory crowdsensing mechanisms.",
@@ -26,15 +28,6 @@
             "photo": "images/colloquium/vanhattum.png",
             "abstract": "Language-level system guarantees—like runtime isolation for WebAssembly modules—are only as strong as the compiler that produces a native-machine-specific executable. Subtle wrong-code bugs in the compiler can introduce serious security flaws. In this talk, I’ll describe Crocus, our system for lightweight, modular verification of instruction-lowering rules in Cranelift, an industry WebAssembly compiler. Crocus reproduces known bugs (including a 9.9/10 severity security bug) and identifies previously-unknown bugs and underspecified compiler invariants. More broadly, I’ll discuss how integrating lightweight formal methods can free systems engineers from having to choose between prioritizing efficiency and correctness.",
             "bio": "Alexa VanHattum is an Assistant Professor of Computer Science at Wellesley College. Her research sits at the intersection of programming languages and systems, with a focus on applying lightweight formal methods to the compiler stack. She recently received her PhD from Cornell University, where she was an NSF Graduate Research Fellow. She holds a BS from Brown University and has previously worked on Rust verification at AWS and health software at Apple."        
-        },
-        {
-            "date": "Feb 3, 2024",
-            "speaker": "",
-            "affiliation": "",
-            "title": "",
-            "photo": "images/colloquium/",
-            "abstract": "",
-            "bio": ""        
         }
     ]
 }

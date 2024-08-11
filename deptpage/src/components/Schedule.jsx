@@ -12,11 +12,19 @@ import DbServices from '../services/db.js'
 const ScheduleChooser = ({ onClick, largeFontSize, smallFontSize }) => {
 
   const [current, setCurrent] = useState(0)
-
+  const paths = DbServices.getMajorPaths()
 
   useEffect(() => {
     onClick(current)
   }, [current])
+
+  const renderPathDescription = (pathIndex) => (
+    <div onClick={() => setCurrent(pathIndex)} style={{ borderStyle: current == pathIndex ? 'solid' : 'none', flexGrow: 1, flexShrink: 1 }}>
+      <div>{paths[pathIndex].icon}</div>
+      <div>{paths[pathIndex].id}</div>
+      <div style={{ fontSize: smallFontSize }}>{paths[pathIndex].description}</div>
+    </div>
+  )
 
   return (<>
     <div className="plaintext" style={{
@@ -28,28 +36,12 @@ const ScheduleChooser = ({ onClick, largeFontSize, smallFontSize }) => {
       <div className="plan-your-major-choose-your-path" style={{ flexShrink: 1, alignSelf: 'center', width: '25%' }}>
         choose your path:
       </div>
-      <div onClick={() => setCurrent(0)} style={{ borderStyle: current == 0 ? 'solid' : 'none', flexGrow: 1, flexShrink: 1 }}>
-        <div>🏫</div>
-        <div>day one</div>
-        <div style={{ fontSize: smallFontSize }}>you arrive at williams with an interest in becoming a CS major</div>
-      </div>
-      <div onClick={() => setCurrent(1)} style={{ borderStyle: current == 1 ? 'solid' : 'none', flexGrow: 1, flexShrink: 1 }}>
-        <div>🤩</div>
-        <div>discovery</div>
-        <div style={{ fontSize: smallFontSize }}>during your first year, you become interested in majoring in CS</div>
-      </div>
-      <div onClick={() => setCurrent(2)} style={{ borderStyle: current == 2 ? 'solid' : 'none', flexGrow: 1, flexShrink: 1 }}>
-        <div>🚀</div>
-        <div>accelerated</div>
-        <div style={{ fontSize: smallFontSize }}>you want to major in CS and you have prior experience</div>
-      </div>
+      {[...Array(paths.length).keys()].map((i) => renderPathDescription(i))}
     </div>
   </>)
 }
 
 function Year({ number, style, largeFontSize, smallFontSize }) {
-
-
 
   return (
     <div className="title" style={{
@@ -101,10 +93,8 @@ function Course(props) {
           flexGrow: 1,
           flexShrink: 1,
         }}>
-
           <div className="plan-your-major-dept" style={{ fontSize: props.largeFontSize }}>{dept}</div>
           <div className="plan-your-major-course-number" style={{ fontSize: props.largeFontSize }}>{number}</div>
-
         </div>
       </div>
     </div>
@@ -145,19 +135,35 @@ const Semester = (props) => {
   )
 }
 
-const InfoBox = ({ info, warning, fontSize, backgroundColor }) => (
+const InfoBox = ({ info, warning, error, fontSize }) => {
 
-  <div className={warning ? "plan-your-major-infobox-warning" : "plan-your-major-infobox"} style={{    
-    fontSize: fontSize
-  }}>
-    <div className="centered">
-      {info} {warning ? 
-      <span style={{fontWeight: 'normal', color: 'crimson'}}>{warning}
-      </span> : null}
+  const boxClass = (
+    error ? "plan-your-major-infobox-error" :
+      (warning ? "plan-your-major-infobox-warning" : "plan-your-major-infobox")
+  )
+
+  const renderWarning = () => (
+    warning ?
+      <span style={{ fontWeight: 'normal', color: 'gold' }}>{warning}
+      </span> : null
+  )
+
+  const renderError = () => (
+    error ?
+      <span style={{ fontWeight: 'normal', color: 'crimson' }}>{error}
+      </span> : null
+  )
+
+  return (
+    <div className={boxClass} style={{
+      fontSize: fontSize
+    }}>
+      <div className="centered">
+        {info} {renderWarning()} {renderError()}
+      </div>
     </div>
-  </div>
-
-)
+  )
+}
 
 
 
@@ -166,28 +172,22 @@ const Schedule = (props) => {
 
   const [schedule, setSchedule] = useState([])
   const [violations, setViolations] = useState([])
+  const [warnings, setWarnings] = useState([])
   const [highlight, setHighlight] = useState(null)
 
   const containerRef = useRef()
 
-  const prebakedSchedules = DbServices.getSchedules()
+  const prebakedSchedules = DbServices.getMajorPaths()
 
   useEffect(() => {
-    setSchedule(prebakedSchedules.dayone);
+    setSchedule(prebakedSchedules[0].path);
   }, [])
 
 
   const handleScheduleChange = (current) => {
-    let schedule = prebakedSchedules.dayone
-    if (current == 0) {
-      schedule = prebakedSchedules.dayone
-    } else if (current == 1) {
-      schedule = prebakedSchedules.discovery
-    } else if (current == 2) {
-      schedule = prebakedSchedules.accelerated
-    }
+    let schedule = prebakedSchedules[current].path
     setSchedule(schedule)
-    setViolations(auditSchedule(schedule));
+    auditSchedule(schedule);
     setHighlight(null)
   }
 
@@ -205,16 +205,23 @@ const Schedule = (props) => {
     }
   }
 
-  function handleDragEnd(event) {
-    const { over } = event;
-
-  }
-
   const courseBackgroundColor = (courseId) => {
     if (highlight === courseId) {
-      return violations.includes(courseId) ? "crimson" : "chartreuse"
+      if (violations.includes(courseId)) {
+        return "crimson"
+      } else if (warnings.includes(courseId)) {
+        return "yellow"
+      } else {
+        return "chartreuse"
+      }
     } else {
-      return violations.includes(courseId) ? "pink" : "whitesmoke"
+      if (violations.includes(courseId)) {
+        return "pink"
+      } else if (warnings.includes(courseId)) {
+        return "goldenrod"
+      } else {
+        return "whitesmoke"
+      }
     }
   }
 
@@ -238,24 +245,37 @@ const Schedule = (props) => {
   }
 
   const checkPrereqs = (courseId, taken) => {
-    let course = DbServices.getCourse(courseId)
-    return course.prereqs.reduce((acc, curr) => acc && taken.has(curr), true)
+    let course = DbServices.getMajorRequirement(courseId)
+    return !course.prereqs ? true : course.prereqs.reduce((acc, curr) => acc && taken.has(curr), true)
+  }
+
+  const checkRecommendations = (courseId, taken) => {
+    let course = DbServices.getMajorRequirement(courseId)
+    if (!course.recommended) {
+      return true
+    } else {
+      return course.recommended.reduce((acc, curr) => acc || taken.has(curr), false)
+    }
   }
 
   const auditSchedule = (schedule) => {
     let taken = new Set();
-    let result = [];
+    let errors = [];
+    let warnings = [];
     for (let i = 0; i < schedule.length; i++) {
       schedule[i].courses.forEach(course => {
         if (!checkPrereqs(course, taken)) {
-          result.push(course)
+          errors.push(course)
+        } else if (!checkRecommendations(course, taken)) {
+          warnings.push(course)
         }
       })
       schedule[i].courses.forEach(course =>
         taken.add(course)
       )
     }
-    return [...result];
+    setWarnings([...warnings])
+    setViolations([...errors])
   }
 
   const moveCourse = (courseId, newSemester) => {
@@ -267,7 +287,7 @@ const Schedule = (props) => {
     // TODO: experiment to get rid of drag flicker
     //setMoving(true)
     setSchedule(revised);
-    setViolations(auditSchedule(revised));
+    auditSchedule(revised);
     //setTimeout(() => {
     //  setMoving(false)
     //}, 0)
@@ -307,7 +327,7 @@ const Schedule = (props) => {
 
   const getInfo = () => {
     if (highlight) {
-      let course = DbServices.getCourse(highlight)      
+      let course = DbServices.getMajorRequirement(highlight)
       return course.info
     } else {
       return defaultInfo
@@ -315,22 +335,18 @@ const Schedule = (props) => {
   }
 
   const getWarning = () => {
-    if (highlight) {
-      let course = DbServices.getCourse(highlight)
-      if (violations.includes(highlight)) {
-        return course.warning 
-      }
-      return null
+    if (highlight && warnings.includes(highlight) && DbServices.getMajorRequirement(highlight).warning) {
+      return DbServices.getMajorRequirement(highlight).warning
     } else {
       return null
     }
   }
 
-  const getInfoColor = () => {
-    if (highlight) {
-      return violations.includes(highlight) ? 'pink' : 'lightgray'
+  const getError = () => {
+    if (highlight && violations.includes(highlight) && DbServices.getMajorRequirement(highlight).error) {
+      return DbServices.getMajorRequirement(highlight).error
     } else {
-      return 'lightgray'
+      return null
     }
   }
 
@@ -363,15 +379,13 @@ const Schedule = (props) => {
 
   return (
     <div ref={containerRef} style={props.style}>
-      
+
       <ScheduleChooser largeFontSize={largeFontSize} smallFontSize={smallFontSize} onClick={handleScheduleChange} />
-      <InfoBox fontSize={largeFontSize} info={getInfo()} warning={getWarning()} backgroundColor={getInfoColor()} />
+      <InfoBox fontSize={largeFontSize} info={getInfo()} warning={getWarning()} error={getError()} />
 
       {schedule.length > 0 ? (
-
-        <DndContext onDragOver={handleDragMove} onDragEnd={handleDragEnd}>
+        <DndContext onDragOver={handleDragMove}>
           <div className="title" style={seasonStyle}>
-
             <div style={academicYearStyle}>
               {renderYear(1)}
               {renderSemester(schedule[0])}
@@ -392,11 +406,8 @@ const Schedule = (props) => {
               {renderSemester(schedule[6])}
               {renderSemester(schedule[7])}
             </div>
-
-
           </div>
         </DndContext>
-
       ) : null}
     </div>
   )

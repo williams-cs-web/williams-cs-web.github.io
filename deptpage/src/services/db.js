@@ -1,4 +1,4 @@
-import major from '../../data/major.json'
+import majorData from '../../data/major.json'
 import people from '../../data/people.json'
 import courses from '../../data/courses.json'
 import colloquiumData from '../../data/colloquium.json'
@@ -44,16 +44,13 @@ const getCourseById = courseId => {
   return courses.catalog.find(course => course.id === courseId)
 }
 
-const getAllCourses = () => { //todo: change function name
-  return major.courses
+
+const getMajorRequirement = courseId => { 
+  return majorData.requirements.find((datum) => datum.id === courseId)
 }
 
-const getCourse = courseId => { //todo: change function name
-  return major.courses.find((datum) => datum.id === courseId)
-}
-
-const getSchedules = () => {
-  return major.schedules
+const getMajorPaths = () => {
+  return majorData.paths
 }
 
 const getLastName = (name) => {
@@ -97,9 +94,8 @@ const getNewsItems = () => {
 
 
 export default {
-  getAllCourses,
-  getCourse,
-  getSchedules,
+  getMajorRequirement,
+  getMajorPaths,
   getPeople,
   getPeopleByRole,
   getCatalog,

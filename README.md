@@ -61,7 +61,7 @@ If there is no icon (Iris made all the original icons), then just create some ar
 
 ### Adding an event to the Colloquium page:
 
-1. Put a square photo (any format, but typically JPG or PNG) of the speaker (or some other image representing the event) in the `deptpage/images/colloquium/` directory.
+1. Put a **square** photo (any format, but typically JPG or PNG) of the speaker (or some other image representing the event) in the `deptpage/images/colloquium/` directory.
 
 2. Add a new item to the `events` field of `deptpage/data/colloquium.json`. Here is an example:
 
@@ -71,12 +71,14 @@ If there is no icon (Iris made all the original icons), then just create some ar
     "speaker": "Melanie Subbiah",
     "affiliation": "Columbia University",
     "title": "How did we get here? The Rise of Large Language Models and the Problem of Evaluation",
+    "location": "Bronfman Auditorium",
+    "time": "1pm",
     "photo": "images/colloquium/subbiah.jpeg",
     "abstract": "Large Language Models (LLMs) have permeated almost every field..."
 }
 ```
 
-All fields are mandatory. The `date` field needs to be automatically parsed, so make sure there are no typos.  The path to the `photo` file is relative to the `deptpage` directory.
+The `location` and `time` fields are optional (if not provided, the default values are `TCL 123` and `2:35pm`). All other fields are mandatory. The `date` field needs to be automatically parsed, so make sure there are no typos.  The path to the `photo` file is relative to the `deptpage` directory.
 
 ### Adding an article to the News page:
 
@@ -156,4 +158,102 @@ All fields are mandatory. The `cs_equiv` field should have one of the following 
 * the Williams CSCI course number (e.g. `"256"` in the above example) that corresponds to the study away course.
 
 The `math_equiv` should be either `1` (if the course satisfies the Math elective requirement of the CS major) or `0` (if not).
+
+### Modifying the Major Planning Assistant on the Plan Your Major page:
+
+1. Each major requirement is specified using the following format under the `requirements` field in `deptpage/data/major.json`:
+
+```
+{
+    "id": "CSCI 3xx(1)",
+    "title": "Computer Science Elective 1",
+    "info": "A course chosen from 300- or 400-level courses in Computer Science.",
+    "prereqs": [
+        "CSCI 136"
+    ],
+    "error": "All electives have 136 as a prerequisite.",
+    "recommended": [
+        "CSCI 237",
+        "CSCI 256"
+    ],
+    "warning": "Most electives have either 237 or 256 as a prerequisite."   
+}
+```
+
+* The `id` field should be a unique identifier for the major requirement and the `title` field is a human-friendly summary of the requirement. Both fields are mandatory.
+
+* The `info` field is a description of the major requirement that will be displayed to the student if they click on that requirement. This field is mandatory.
+
+* The `prereqs` field is a list of the `id`s of the prerequisites. They must exactly match (including case) the `id` field of the prerequisite requirement. The list is treated as a conjunction, i.e. the student must have taken **all** the courses prior to enrolling in the major requirement. If not, then the text in `error` field will be displayed to the student. Both the `prereqs` and `error` fields are optional.
+
+* The `recommended` field is a list of the `id`s of recommended previous courses. It is treated as a disjunction, i.e. the student is recommended to have taken **at least one** of these courses prior to enrolling in the major requirement. If not, then the text in `warning` field will be displayed to the student. Both the `recommended` and `warning` fields are optional.
+
+2. Each of the example paths through the major is specified using the following format under the `paths` field in `deptpage/data/major.json`:
+
+```
+{
+    "id": "day one",
+    "icon": "🏫",
+    "description": "you arrive at williams with an interest in becoming a CS major",
+    "path": [
+        {
+            "semester": "1a",
+            "courses": [
+                "CSCI 134"
+            ]
+        },
+        {
+            "semester": "1b",
+            "courses": [
+                "CSCI 136",
+                "MATH 200"
+            ]
+        },
+        {
+            "semester": "2a",
+            "courses": [
+                "CSCI 237",
+                "MATH 2xx"
+            ]
+        },
+        {
+            "semester": "2b",
+            "courses": [
+                "CSCI 256"
+            ]
+        },
+        {
+            "semester": "3a",
+            "courses": [
+                "CSCI 334/361"
+            ]
+        },
+        {
+            "semester": "3b",
+            "courses": [
+                "CSCI 3xx(1)"
+            ]
+        },
+        {
+            "semester": "4a",
+            "courses": [
+                "CSCI 3xx(2)"
+            ]
+        },
+        {
+            "semester": "4b",
+            "courses": [
+                "CSCI 3xx(3)"
+            ]
+        }
+    ]
+}
+```
+
+* The `id` field should be a human-friendly name for the major path.
+* The `icon` field should be a single emoji that visually represents the major path.
+* The `description` field should be a short description of the major path.
+* The `path` field is a list of 8 semesters and the major requirements taken during each of them. The requirements should be specified using the value of the requirement's `id` field.
+
+All fields are mandatory.
 

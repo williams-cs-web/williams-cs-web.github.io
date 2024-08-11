@@ -463,6 +463,19 @@ h1,
   margin: 5px;
   margin-top: 10px;
   padding: 10px;
+  border: solid 2px gold;
+  font-family: Eph Octic;
+  font-weight: lighter;
+  background-color: black;
+  color: white;
+  height: 200px;
+  cursor: default;
+}
+
+.plan-your-major-infobox-error {
+  margin: 5px;
+  margin-top: 10px;
+  padding: 10px;
   border: solid 2px crimson;
   font-family: Eph Octic;
   font-weight: lighter;
