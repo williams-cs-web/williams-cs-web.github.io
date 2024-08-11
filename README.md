@@ -146,6 +146,21 @@ The path to the photo is relative to the `deptpage` directory.
 
 The `id`s of all research opportunities should be unique. The `photo` can be omitted. All other fields are mandatory. All paths are relative to the `deptpage` directory.
 
+### Adding content to the Plan Your Major page:
+
+1. Create a Markdown file in the `deptpage/articles/` directory that contains the text of the new content (see `deptpage/articles/major-requirements.md` for an example). 
+
+2. Add a new item to the `content` field of `deptpage/data/major.json`. Here is an example:
+
+```
+{
+    "title": "major requirements",
+    "article": "articles/major-requirements.md"
+} 
+```
+
+The `title` field is optional. The content will appear on the page in the order it appears in the `content` field.
+
 ### Adding pre-approved study away courses to the Plan Your Major page:
 
 1. Add a new item to the `equivalents` field of `deptpage/data/studyaway.json`. Here is an example:

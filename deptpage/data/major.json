@@ -1,9 +1,37 @@
 {
+    "content": [
+        {
+            "title": "major requirements",
+            "article": "articles/major-requirements.md"
+        },
+        {
+            "title": "major planning assistant",
+            "component": "MajorPlanningAssistant"
+        },
+        {
+            "title": "advanced placement",
+            "article": "articles/advanced-placement.md"
+        },
+        {
+            "title": "declaring the major",
+            "article": "articles/declaring-the-major.md"
+        },
+        {
+            "title": "study away",
+            "article": "articles/study-away-prologue.md"
+        },
+        {
+            "component": "StudyAway"
+        },
+        {           
+            "article": "articles/study-away-epilogue.md"
+        }
+    ],
     "requirements": [
         {
             "id": "CSCI 134",
             "title": "Introduction to Computer Science",
-            "info": "CSCI 134 (Introduction to Computer Science) is traditionally the first course taken for the CS major. It is for students with little or no experience with computer science."            
+            "info": "CSCI 134 (Introduction to Computer Science) is traditionally the first course taken for the CS major. It is for students with little or no experience with computer science."
         },
         {
             "id": "CSCI 136",

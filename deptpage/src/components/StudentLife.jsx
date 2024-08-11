@@ -113,7 +113,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
   }
 
   const renderGalleryRow = (photos, width) => (
-    <div style={{
+    <div key={`gallery-row-${photos.join('-')}`} style={{
       display: 'flex',
       flexFlow: 'row nowrap',
       alignItems: 'flex-start'

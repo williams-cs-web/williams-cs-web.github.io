@@ -59,6 +59,10 @@ const getMajorPaths = () => {
   return majorData.paths
 }
 
+const getPlanYourMajorContent = () => {
+  return majorData.content
+}
+
 const getLastName = (name) => {
   const fields = name.split(' ')
   const first = fields[0]
@@ -104,6 +108,7 @@ export default {
   getFrontPageSpotlightInfo,
   getMajorRequirement,
   getMajorPaths,
+  getPlanYourMajorContent,
   getPeople,
   getPeopleByRole,
   getCatalog,
