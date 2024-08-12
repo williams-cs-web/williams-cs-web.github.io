@@ -1,108 +1,117 @@
 import DbServices from '../services/db.js'
 import { useState, useEffect } from 'react'
 import NewsTile from './NewsTile.jsx'
+import WilliamsHeader from './WilliamsHeader'
+import WilliamsFooter from './WilliamsFooter'
+import { Link } from "react-router-dom";
 
-const ColloquiumTile = ({ layout, onClick }) => {
+
+const ColloquiumTile = ({ layout, onClick, style }) => {
 
   const events = DbServices.getUpcomingColloquia()
 
   const renderColloquiumTilePortrait = (event) => (
-    <div onClick={() => onClick("colloquium")} id="colloquium" className="colloquium" style={{
-      flexGrow: 1,
-      flexShrink: 1,
-      fontSize: "20px",
-      height: '55%',
-    }}>
-      <div className="centered">
-        <div className="tile">upcoming colloquium</div>
-        <div className="plaintext" style={{
-          fontSize: "15px",
-          paddingBottom: "10px"
-        }}>{event.date.toLowerCase()}</div>
-        <div style={{
-          display: 'flex',
-          flexFlow: 'row nowrap',
-          justifyContent: 'center',
-          alignItems: 'center',
-          alignContent: 'center',
+    <Link to={{ pathname: `/colloquium` }}>
+      <div
+        onClick={() => onClick("colloquium")}
+        id="colloquium"
+        className="frontpage-colloquium"
+        style={{
+          ...style,
+          fontSize: "20px"
         }}>
+        <div className="centered">
+          <div className="tile">upcoming colloquium</div>
+          <div className="plaintext" style={{
+            fontSize: "15px",
+            paddingBottom: "10px"
+          }}>{event.date.toLowerCase()}</div>
           <div style={{
-            width: '50%',
-            margin: '5px',
-            flexGrow: 1,
-            flexShrink: 1
+            display: 'flex',
+            flexFlow: 'row nowrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+            alignContent: 'center',
           }}>
-            <img width="100%" src={event.photo} alt="Speaker Photo" />
-          </div>
-          <div style={{
-            width: '50%',
-            margin: '5px',
-          }}>
-            <div className="frontpage-colloquium-speaker" style={{ fontSize: '15px' }}>
-              {event.speaker}
+            <div style={{
+              width: '50%',
+              margin: '5px',
+              flexGrow: 1,
+              flexShrink: 1
+            }}>
+              <img width="100%" src={event.photo} alt="Speaker Photo" />
             </div>
-            <div className="frontpage-colloquium-affiliation" style={{ fontSize: '12px' }}>
-              {event.affiliation}
+            <div style={{
+              width: '50%',
+              margin: '5px',
+            }}>
+              <div className="frontpage-colloquium-speaker" style={{ fontSize: '15px' }}>
+                {event.speaker}
+              </div>
+              <div className="frontpage-colloquium-affiliation" style={{ fontSize: '12px' }}>
+                {event.affiliation}
+              </div>
             </div>
           </div>
-        </div>
-        <div className="frontpage-colloquium-title" style={{ fontSize: "14px" }}>
-          {event.title}
+          <div className="frontpage-colloquium-title" style={{ fontSize: "14px" }}>
+            {event.title}
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 
-  const renderColloquiumTileLandscape = (event, style) => (
-    <div
-      onClick={() => onClick("colloquium")}
-      id="colloquium"
-      className="colloquium"
-      style={{
-        ...style,
-        flexGrow: 1,
-        flexShrink: 1,
-      }}>
-      <div className="centered">
-        <div className="tile" style={{ paddingTop: '10px' }}>upcoming colloquium</div>
-        <div className="plaintext" style={{
-          fontSize: "15px",
-          paddingBottom: "5px"
-        }}>{event.date.toLowerCase()}</div>
-        <div style={{
-          display: 'flex',
-          flexFlow: 'row nowrap',
-          alignItems: 'center',
-          alignContent: 'center',
-        }}>
-          <div style={{
-            width: '40%',
-            margin: '10px'
-          }}>
-            <img width="100%" src={event.photo} alt="Speaker Photo" />
-          </div>
-          <div style={{
-            width: '60%'
-          }}>
-            <div className="frontpage-colloquium-speaker" style={{ fontSize: '18px' }}>
-              {event.speaker}
-            </div>
-            <div className="frontpage-colloquium-affiliation" style={{ fontSize: '12px' }}>
-              {event.affiliation}
-            </div>
-            <div style={{ height: '12px' }}></div>
-            <div className="frontpage-colloquium-title" style={{ fontWeight: "bold", fontSize: "14px" }}>
-              {event.title}
+  const renderColloquiumTileLandscape = (event, style) => {
+    return (
+      <Link to={{ pathname: `/colloquium` }}>
+        <div
+          onClick={() => onClick("colloquium")}
+          id="colloquium"
+          className="frontpage-colloquium"
+          style={style}
+        >
+          <div className="centered">
+            <div className="tile" style={{ paddingTop: '10px' }}>upcoming colloquium</div>
+            <div className="plaintext" style={{
+              fontSize: "15px",
+              paddingBottom: "5px"
+            }}>{event.date.toLowerCase()}</div>
+            <div style={{
+              display: 'flex',
+              flexFlow: 'row nowrap',
+              alignItems: 'center',
+              alignContent: 'center',
+            }}>
+              <div style={{
+                width: '40%',
+                margin: '10px'
+              }}>
+                <img width="100%" src={event.photo} alt="Speaker Photo" />
+              </div>
+              <div style={{
+                width: '60%'
+              }}>
+                <div className="frontpage-colloquium-speaker" style={{ fontSize: '18px' }}>
+                  {event.speaker}
+                </div>
+                <div className="frontpage-colloquium-affiliation" style={{ fontSize: '12px' }}>
+                  {event.affiliation}
+                </div>
+                <div style={{ height: '12px' }}></div>
+                <div className="frontpage-colloquium-title" style={{ fontWeight: "bold", fontSize: "14px" }}>
+                  {event.title}
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  )
+      </Link>
+    )
+  }
 
   const renderRecowsionTile = (layout) => (
     <div className="frontpage-recowsion" style={{
-      height: layout === "wide" ? '55%' : 'auto',
+      ...style,
       display: 'flex',
       flexFlow: 'column nowrap',
       backgroundColor: 'lightpink',
@@ -122,13 +131,11 @@ const ColloquiumTile = ({ layout, onClick }) => {
       return renderColloquiumTilePortrait(events[0])
     } else if (layout === "standard") {
       return renderColloquiumTileLandscape(events[0], {
-        width: "20%",
-        fontSize: "20px",
-        marginLeft: '3px' // TODO: maybe fix this bandage    
+        ...style
       })
     } else {
       return renderColloquiumTileLandscape(events[0], {
-        fontSize: "30px"
+        ...style
       })
     }
   }
@@ -169,18 +176,20 @@ const FrontPage = ({ onClick }) => {
   }
 
   const renderBasicTile = (style, className, key, text) => (
-    <div
-      id={className}
-      className={`tile ${className}`}
-      onClick={() => onClick(key)}
-      style={style}
-    >
-      <div className="centered">
-        <div style={{ padding: '10px 5px 5px 5px' }}>
+    <Link to={{ pathname: `/${key}` }}>
+      <div
+        id={className}
+        className={`tile ${className}`}
+        onClick={() => onClick(key)}
+        style={style}
+
+      >
+
+        <div className="centered">
           {text}
         </div>
       </div>
-    </div>
+    </Link>
   )
 
   const renderPlanYourMajorTile = (style) => (
@@ -237,11 +246,11 @@ const FrontPage = ({ onClick }) => {
     )
   )
 
-  const renderWelcomeTile = (height) => (
+  const renderWelcomeTile = (style) => (
     <div className="welcome-tile" style={{
+      ...style,
       flexGrow: 1,
-      flexShrink: 1,
-      height: height
+      flexShrink: 1
     }}
     >
       <div className="centered" style={{
@@ -254,10 +263,11 @@ const FrontPage = ({ onClick }) => {
   )
 
   const renderNewsTile = (style) => (
-    <NewsTile onClick={onClick} layout={getLayout()} style={style} />    
+    <NewsTile onClick={onClick} layout={getLayout()} style={style} />
   )
 
   const renderColloquiumTile = (style) => (
+
     <ColloquiumTile onClick={onClick} layout={getLayout()} style={style} />
   )
 
@@ -268,19 +278,15 @@ const FrontPage = ({ onClick }) => {
       backgroundColor: "white",
     }}>
       <img src={DbServices.getFrontPageSpotlightInfo().photo} width="100%" alt="spotlight photo" />
-
-
     </div>
   )
 
   const renderCaptionTile = (style) => (
-    <div className="left" style={{
+    <div style={{
       ...style,
       fontFamily: 'Eph Octic',
       fontSize: '15px',
       textAlign: 'center',
-      margin: '1px',
-      marginTop: '2px',
       backgroundColor: 'white',
       fontWeight: 'normal',
       cursor: 'default'
@@ -289,120 +295,138 @@ const FrontPage = ({ onClick }) => {
     </div>
   )
 
+  const renderWideLayout = () => {
+    const column1Width = .3 * windowSize.width;
+    const column2Width = .2 * windowSize.width;
+    const column3Width = .5 * windowSize.width;
 
+    const photoHeight = .75 * column3Width;
+    const captionHeight = 40
+    const bottomRightTileHeight = 150
+    const columnHeight = photoHeight + captionHeight + bottomRightTileHeight
 
-
-  const renderWideLayout = () => (
-    <div style={{
-      display: 'flex',
-      flexFlow: 'row nowrap',
-      width: window.innerWidth,
-      height: 0.6 * window.innerWidth,
-    }}>
+    return (
       <div style={{
-        width: '30%'
+        display: 'flex',
+        flexFlow: 'row nowrap',
+        width: window.innerWidth,
+        height: columnHeight,
       }}>
-        {renderWelcomeTile('30%')}
-        {renderPlanYourMajorTile({
-          height: '40%'
-        })}
-        {renderCurrentCourseOfferingsTile({
-          height: '30%'
-        })}
-      </div>
-      <div style={{
-        width: "20%"
-      }}>
-        {renderAboutUsTile({
-          height: '20%'
-        })}
-        {renderNewsTile({
-          height: '25%'
-        })}
-        {renderColloquiumTile()}
-
-      </div>
-      <div style={{
-        width: "50%",
-      }}>
-        {renderPhotoTile({ 'height': '62%' })}
-        {renderCaptionTile({ 'height': '5%' })}
         <div style={{
-          height: "33%",
-          display: 'flex',
-          flexFlow: 'row nowrap'
+          width: column1Width
         }}>
-          {renderStudentLifeTile({
-            width: "29%"
+          {renderWelcomeTile({
+            height: .3*columnHeight,
           })}
-          {renderResearchOpportunitiesTile({
-            width: "48%"
+          {renderPlanYourMajorTile({
+            height: .4*columnHeight,
           })}
-          {renderNonMajorsTile({
-            width: "23%"
+          {renderCurrentCourseOfferingsTile({
+            height: .3*columnHeight,
           })}
         </div>
+        <div style={{
+          width: column2Width
+        }}>
+          {renderAboutUsTile({
+            height: .2*columnHeight
+          })}
+          {renderNewsTile({
+            height: .25*columnHeight
+          })}
+          {renderColloquiumTile({
+            height: .55*columnHeight
+          })}
+
+        </div>
+        <div style={{
+          width: column3Width,
+        }}>
+          {renderPhotoTile({ 'height': photoHeight })}
+          {renderCaptionTile({ 'height': captionHeight })}
+          <div style={{
+            height: {bottomRightTileHeight},
+            display: 'flex',
+            flexFlow: 'row nowrap'
+          }}>
+            {renderStudentLifeTile({
+              height: bottomRightTileHeight, 
+              width: 0.25 * column3Width
+            })}
+            {renderResearchOpportunitiesTile({
+              height: bottomRightTileHeight, 
+              width: 0.5 * column3Width
+            })}
+            {renderNonMajorsTile({
+              height: bottomRightTileHeight, 
+              width: 0.25 * column3Width
+            })}
+          </div>
+        </div>
       </div>
+    )
+  }
+
+
+
+  const renderStandardRow1 = () => {
+    const leftColumnWidth = .3 * windowSize.width;
+    const photoWidth = .7 * windowSize.width;
+    const photoHeight = .75 * photoWidth;
+    const captionHeight = 80
+    const rowHeight = photoHeight + captionHeight;
+
+    return (
+      <div style={{
+        display: 'flex',
+        flexFlow: 'row nowrap'
+      }}>
+        <div style={{
+          width: `${leftColumnWidth}px`,
+          height: `${rowHeight}px`
+        }}>
+          {renderWelcomeTile({ height: `${0.6 * rowHeight}px` })}
+          {renderAboutUsTile({
+            width: '100%',
+            height: `${0.1 * rowHeight}px`
+          })}
+          {renderNewsTile({
+            width: '100%',
+            height: `${0.3 * rowHeight}px`
+          })}
+        </div>
+        <div style={{
+          width: `${photoWidth}px`,
+          height: `${photoHeight}px`
+        }}>
+          {renderPhotoTile({ height: `${photoHeight}px` })}
+          {renderCaptionTile({ height: `${captionHeight}px` })}
+        </div>
+      </div>
+    )
+  }
+
+  const renderStandardRow2 = () => (
+    <div style={{
+      display: 'flex',
+      flexFlow: 'row nowrap'
+    }}>
+      {renderCurrentCourseOfferingsTile({
+        height: '100px',
+        width: `${.6 * windowSize.width}px`
+      })}
+      {renderNonMajorsTile({
+        height: '100px',
+        width: `${.4 * windowSize.width}px`
+      })}
+
     </div>
   )
 
-  const renderStandardLayout = () => (
-    <div style={{
-      display: 'flex',
-      flexFlow: 'column nowrap',
-      width: window.innerWidth
-    }}>
-      <div style={{
-        display: 'flex',
-        flexFlow: 'row nowrap'
-      }}>
-        <div style={{
-          display: 'flex',
-          flexFlow: 'column nowrap',
-          justifyContent: 'center'
-        }}>
-          {renderWelcomeTile('inherit')}
-          {renderAboutUsTile({
-            height: 'inherit'
-          })}
-          {renderNewsTile({
-            height: '25%'
-          })}
-        </div>
-        <div style={{
-          display: 'flex',
-          flexFlow: 'column nowrap',
-          justifyContent: 'center'
-        }}>
-          {renderPhotoTile({})}
-          {renderCaptionTile({ padding: '10px' })}
-        </div>
-      </div>
-      <div style={{
-        display: 'flex',
-        flexFlow: 'row nowrap'
-      }}>
-        {renderPlanYourMajorTile({
-          width: "100%",
-          paddingTop: "10px",
-          paddingBottom: "10px"
-        })}
-      </div>
-      <div style={{
-        display: 'flex',
-        flexFlow: 'row nowrap'
-      }}>
-        {renderCurrentCourseOfferingsTile({
-          width: "60%",
-          paddingTop: "10px",
-          paddingBottom: "10px"
-        })}
-        {renderNonMajorsTile({
-          width: "40%",
-          paddingTop: "10px",
-          paddingBottom: "10px"
-        })}
-      </div>
+  const renderStandardRow3 = () => {
+    const height = 400;
+
+    return (
       <div style={{
         display: 'flex',
         flexFlow: 'row nowrap'
@@ -413,63 +437,78 @@ const FrontPage = ({ onClick }) => {
           flexFlow: 'column nowrap'
         }}>
           {renderResearchOpportunitiesTile({
-            width: "100%",
-            height: "50%"
+            width: "250px",
+            height: `${0.5 * height - 1}px`
           })}
           {renderStudentLifeTile({
-            width: "100%",
-            height: "50%",
+            width: "250px",
+            height: `${0.5 * height - 1}px`
           })}
         </div>
-        {renderColloquiumTile()}
+        {renderColloquiumTile({
+          height: `${height}px`
+        })}
 
       </div>
-    </div>
-  )
+    )
+  }
 
-  const renderNarrowLayout = () => (
+  const renderStandardLayout = () => (
     <div style={{
       display: 'flex',
       flexFlow: 'column nowrap',
       width: window.innerWidth
     }}>
-      <div style={{
-        display: 'flex',
-        flexFlow: 'row nowrap'
-      }}>
-        <div style={{
-          display: 'flex',
-          flexFlow: 'column nowrap',
-          justifyContent: 'center'
-        }}>
 
-          {renderWelcomeTile('inherit')}
-          {renderNewsTile({
-            height: '25%'
-          })}
-          {renderPhotoTile({ width: windowSize.width })}
-          {renderCaptionTile({ width: windowSize.width })}
-          {renderAboutUsTile({})}
-          {renderPlanYourMajorTile({})}
-          {renderCurrentCourseOfferingsTile({})}
-          {renderStudentLifeTile({})}
-          {renderResearchOpportunitiesTile({})}
-          {renderNonMajorsTile({})}
-          {renderColloquiumTile()}
-        </div>
-
-      </div>
-
+      {renderStandardRow1()}
+      {renderPlanYourMajorTile({
+        width: windowSize.width,
+        height: "100px"
+      })}
+      {renderStandardRow2()}
+      {renderStandardRow3()}
     </div>
   )
 
-  if (getLayout() === "wide") {
-    return renderWideLayout()
-  } else if (getLayout() === "standard") {
-    return renderStandardLayout()
-  } else {
-    return renderNarrowLayout()
+  const renderNarrowLayout = () => {
+    const tileHeight = '60px'
+    const photoHeight = `${.75 * windowSize.width}px`;
+    const captionHeight = `40px`
+
+    return (
+      <div >
+        {renderWelcomeTile({ width: windowSize.width, height: "100px" })}
+        {renderNewsTile({ width: windowSize.width, height: tileHeight })}
+        {renderPhotoTile({ width: windowSize.width, height: photoHeight })}
+        {renderCaptionTile({ width: windowSize.width, height: captionHeight })}
+        {renderAboutUsTile({ width: windowSize.width, height: tileHeight })}
+        {renderPlanYourMajorTile({ width: windowSize.width, height: tileHeight })}
+        {renderCurrentCourseOfferingsTile({ width: windowSize.width, height: tileHeight })}
+        {renderStudentLifeTile({ width: windowSize.width, height: tileHeight })}
+        {renderResearchOpportunitiesTile({ width: windowSize.width, height: tileHeight })}
+        {renderNonMajorsTile({ width: windowSize.width, height: tileHeight })}
+        {renderColloquiumTile({ width: windowSize.width, height: "300px" })}
+      </div>
+    )
   }
+
+  const renderBody = () => {
+    if (getLayout() === "wide") {
+      return renderWideLayout()
+    } else if (getLayout() === "standard") {
+      return renderStandardLayout()
+    } else {
+      return renderNarrowLayout()
+    }
+  }
+
+  return (
+    <div>
+      <WilliamsHeader />
+      {renderBody()}
+      <WilliamsFooter />
+    </div>
+  )
 }
 
 export default FrontPage

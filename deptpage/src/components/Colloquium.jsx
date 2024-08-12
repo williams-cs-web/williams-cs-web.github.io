@@ -1,8 +1,14 @@
 import DbServices from '../services/db.js'
 import { useState } from 'react'
 import Sidebar from './Sidebar'
+import TopMenu from './TopMenu'
+import WilliamsHeader from './WilliamsHeader'
+import WilliamsFooter from './WilliamsFooter'
+import Spacer from './Spacer'
 
 const Colloquium = ({ style, layout, onClick }) => {
+
+  const hubId = "colloquium"
 
   const [spotlight, setSpotlight] = useState(0)
 
@@ -162,7 +168,7 @@ const Colloquium = ({ style, layout, onClick }) => {
     }
   }
 
-  return (
+  const renderBody = () => (
     <div
       id="colloquium"
       style={{
@@ -187,6 +193,20 @@ const Colloquium = ({ style, layout, onClick }) => {
         </div>
       </div>
 
+    </div>
+  )
+
+  return (
+    <div>
+      <WilliamsHeader />
+      <TopMenu
+        onClick={onClick}
+        currentPage={hubId}
+        width={style.width}
+      />
+      {renderBody()}
+      <Spacer height="30px" />
+      <WilliamsFooter />
     </div>
   )
 }

@@ -1,11 +1,16 @@
 import Sidebar from './Sidebar'
+import TopMenu from './TopMenu'
+import WilliamsHeader from './WilliamsHeader'
+import WilliamsFooter from './WilliamsFooter'
 import Spacer from './Spacer'
 
 const NonMajors = ({ style, layout, onClick }) => {
 
+  const hubId = "non-majors"
+
   const showSidebar = (layout === "wide")
 
-  return (
+  const renderBody = () => (
     <div
       id="frontpage-non-majors"
       style={{
@@ -48,6 +53,20 @@ const NonMajors = ({ style, layout, onClick }) => {
         </div>
       </div>
 
+    </div>
+  )
+
+  return (
+    <div>
+      <WilliamsHeader />
+      <TopMenu
+        onClick={onClick}
+        currentPage={hubId}
+        width={style.width}
+      />
+      {renderBody()}
+      <Spacer height="30px" />
+      <WilliamsFooter />
     </div>
   )
 }

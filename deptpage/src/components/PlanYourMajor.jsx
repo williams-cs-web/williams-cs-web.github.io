@@ -1,11 +1,13 @@
 import Schedule from './Schedule'
 import Sidebar from './Sidebar'
 import StudyAway from './StudyAway'
-import Spacer from './Spacer'
 import { useState, useEffect } from 'react'
 import DbServices from '../services/db.js'
 import Markdown from 'react-markdown'
-
+import TopMenu from './TopMenu'
+import WilliamsHeader from './WilliamsHeader'
+import WilliamsFooter from './WilliamsFooter'
+import Spacer from './Spacer'
 
 const Passage = ({ title, photo, article }) => {
 
@@ -43,6 +45,8 @@ const Passage = ({ title, photo, article }) => {
 
 
 const PlanYourMajor = ({ style, layout, onClick }) => {
+
+  const hubId = "plan-your-major"
 
   const showSidebar = (layout === "wide")
 
@@ -85,7 +89,7 @@ const PlanYourMajor = ({ style, layout, onClick }) => {
     )
   }
 
-  return (
+  const renderBody = () => (
     <div
       id="frontpage-plan-your-major"
       style={{
@@ -109,6 +113,20 @@ const PlanYourMajor = ({ style, layout, onClick }) => {
         </div>
       </div>
 
+    </div>
+  )
+
+  return (
+    <div>
+      <WilliamsHeader />
+      <TopMenu
+        onClick={onClick}
+        currentPage={hubId}
+        width={style.width}
+      />
+      {renderBody()}
+      <Spacer height="30px" />
+      <WilliamsFooter />
     </div>
   )
 }

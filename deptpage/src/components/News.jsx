@@ -2,7 +2,10 @@ import Sidebar from './Sidebar'
 import { useState, useEffect } from 'react'
 import DbServices from '../services/db.js'
 import Markdown from 'react-markdown'
-
+import TopMenu from './TopMenu'
+import WilliamsHeader from './WilliamsHeader'
+import WilliamsFooter from './WilliamsFooter'
+import Spacer from './Spacer'
 
 const NewsItem = ({ date, title, photo, article }) => {
 
@@ -42,6 +45,8 @@ const NewsItem = ({ date, title, photo, article }) => {
 
 const News = ({ style, layout, howMany, date, onClick }) => {
 
+  const hubId = "news"
+
   const newsItems = (
     DbServices
       .getNewsItems()
@@ -65,7 +70,7 @@ const News = ({ style, layout, howMany, date, onClick }) => {
     </div>
   )
 
-  return (
+  const renderBody = () => (
     <div
       id="news"
       style={style}
@@ -84,6 +89,20 @@ const News = ({ style, layout, howMany, date, onClick }) => {
           {newsItems.map(opp => renderNewsItem(opp))}
         </div>
       </div>
+    </div>
+  )
+
+  return (
+    <div>
+      <WilliamsHeader />
+      <TopMenu
+        onClick={onClick}
+        currentPage={hubId}
+        width={style.width}
+      />
+      {renderBody()}
+      <Spacer height="30px" />
+      <WilliamsFooter />
     </div>
   )
 }

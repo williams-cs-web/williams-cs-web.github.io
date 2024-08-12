@@ -1,5 +1,9 @@
 import DbServices from '../services/db.js'
 import Sidebar from './Sidebar'
+import TopMenu from './TopMenu'
+import WilliamsHeader from './WilliamsHeader'
+import WilliamsFooter from './WilliamsFooter'
+import Spacer from './Spacer'
 
 
 const Person = (props) => {
@@ -33,14 +37,14 @@ const Person = (props) => {
 
   if (props.webpage && props.webpage === "special") {  // then override hyperlink
     return (
-    <div className="linkbox" style={{
-      borderStyle: 'solid',
-      textAlign: 'left',
-      flexGrow: 1,
-      width: '300px',
-    }}>
-      {content}
-    </div>
+      <div className="linkbox" style={{
+        borderStyle: 'solid',
+        textAlign: 'left',
+        flexGrow: 1,
+        width: '300px',
+      }}>
+        {content}
+      </div>
     )
   } else if (props.webpage && props.webpage.length > 0) {
     return (
@@ -71,6 +75,8 @@ const Person = (props) => {
 }
 
 const AboutUs = ({ style, showSidebar, onClick }) => {
+
+  const hubId = "about-us"
 
   const renderHeading = heading => (
     <div className="heading">{heading.toLowerCase()}</div>
@@ -103,7 +109,7 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
   )
 
 
-  return (
+  const renderBody = () => (
     <div
       id="frontpage-about-us"
       style={{
@@ -130,6 +136,20 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
         </div>
       </div>
 
+    </div>
+  )
+
+  return (
+    <div>
+      <WilliamsHeader />
+      <TopMenu
+        onClick={onClick}
+        currentPage={hubId}
+        width={style.width}
+      />
+      {renderBody()}
+      <Spacer height="30px" />
+      <WilliamsFooter />
     </div>
   )
 }

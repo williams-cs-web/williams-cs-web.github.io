@@ -1,5 +1,9 @@
 import DbServices from '../services/db.js'
 import Sidebar from './Sidebar'
+import TopMenu from './TopMenu'
+import WilliamsHeader from './WilliamsHeader'
+import WilliamsFooter from './WilliamsFooter'
+import Spacer from './Spacer'
 
 const Student = ({ name, year, photo }) => {
 
@@ -39,6 +43,7 @@ const Student = ({ name, year, photo }) => {
 
 const StudentLife = ({ style, onClick, showSidebar }) => {
 
+  const hubId = "student-id"
 
   const renderHeading = heading => (
     <div className="heading">{heading.toLowerCase()}</div>
@@ -140,7 +145,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
   const contentPct = showSidebar ? .7 : 1.0
 
 
-  return (
+  const renderBody = () => (
     <div
       id="student-life"
       style={{
@@ -166,6 +171,20 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
         </div>
       </div>
 
+    </div>
+  )
+
+  return (
+    <div>
+      <WilliamsHeader />
+      <TopMenu
+        onClick={onClick}
+        currentPage={hubId}
+        width={style.width}
+      />
+      {renderBody()}
+      <Spacer height="30px" />
+      <WilliamsFooter />
     </div>
   )
 }

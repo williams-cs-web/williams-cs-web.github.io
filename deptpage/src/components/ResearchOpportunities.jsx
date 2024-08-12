@@ -2,7 +2,10 @@ import Sidebar from './Sidebar'
 import { useState, useEffect } from 'react'
 import DbServices from '../services/db.js'
 import Markdown from 'react-markdown'
-
+import TopMenu from './TopMenu'
+import WilliamsHeader from './WilliamsHeader'
+import WilliamsFooter from './WilliamsFooter'
+import Spacer from './Spacer'
 
 const Opportunity = ({ name, photo, article }) => {
 
@@ -41,6 +44,8 @@ const Opportunity = ({ name, photo, article }) => {
 
 const ResearchOpportunities = ({ style, layout, onClick }) => {
 
+  const hubId = "research"
+
   const opportunities = DbServices.getResearchOpportunities()
 
   const renderOpportunity = opportunity => (
@@ -52,7 +57,7 @@ const ResearchOpportunities = ({ style, layout, onClick }) => {
     />
   )
 
-  return (
+  const renderBody = () => (
     <div
       id="research-opportunities"
       style={style}
@@ -71,6 +76,20 @@ const ResearchOpportunities = ({ style, layout, onClick }) => {
           {opportunities.map(opp => renderOpportunity(opp))}
         </div>
       </div>
+    </div>
+  )
+
+  return (
+    <div>
+      <WilliamsHeader />
+      <TopMenu
+        onClick={onClick}
+        currentPage={hubId}
+        width={style.width}
+      />
+      {renderBody()}
+      <Spacer height="30px" />
+      <WilliamsFooter />
     </div>
   )
 }
