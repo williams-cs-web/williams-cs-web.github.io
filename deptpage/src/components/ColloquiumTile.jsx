@@ -9,7 +9,7 @@ const ColloquiumTile = ({ onClick, style }) => {
     return (
       <Link
         to={{ pathname: `/colloquium` }}
-        onClick={() => onClick("colloquium")}
+        onClick={() => { onClick("colloquium"); window.scrollTo(0, 0); }}
         className="frontpage-colloquium"
         style={{ display: "block", boxSizing: "border-box", ...style }}
       >

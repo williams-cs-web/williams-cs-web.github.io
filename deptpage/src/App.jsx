@@ -9,7 +9,13 @@ import StudentLife from "./components/StudentLife";
 import ResearchOpportunities from "./components/ResearchOpportunities";
 import NonMajors from "./components/NonMajors";
 import News from "./components/News";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return <Outlet />;
+};
 
 function App() {
   const handleHubClick = (who) => {
@@ -52,6 +58,9 @@ function App() {
   };
 
   const router = createBrowserRouter([
+    {
+      element: <ScrollToTop />,
+      children: [
     {
       path: "/",
       element: <FrontPage onClick={handleHubClick} style={contentStyle} />,
@@ -160,6 +169,7 @@ function App() {
         />
       ),
     },
+      ]},
   ]);
 
   return <RouterProvider router={router} />;

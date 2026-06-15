@@ -23,6 +23,7 @@ const MenuItem = ({ id, text, highlight }) => {
     <Link
       className={`topmenu-link topmenu ${stateClass}`}
       to={{ pathname: `/${id}` }}
+      onClick={() => window.scrollTo(0, 0)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
       style={{

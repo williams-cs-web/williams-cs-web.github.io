@@ -1,3 +1,39 @@
+/* ============================================================
+   DESIGN TOKENS — edit these to restyle the whole site
+   ============================================================ */
+:root {
+  /* Williams brand colors */
+  --color-purple: #500082;
+  --color-gold:   #FFBE0A;
+  --color-orange: #FF7800;
+
+  /* Page / section accent colors (top menu + sidebar tiles) */
+  --color-home:          #FFBE0A;
+  --color-about-us:      rgb(230, 53, 53);
+  --color-plan-major:    #500082;
+  --color-courses:       #FF7800;
+  --color-colloquium:    rgb(202, 26, 52);
+  --color-student-life:  rgb(40, 122, 95);
+  --color-research:      blue;
+  --color-non-majors:    #B1008E;
+  --color-news:          #280050;
+  --color-news-light:    #c8a8e8;
+
+  /* Font roles */
+  --font-display: Eph Slab, Rockwell;                            /* headers, menu, section labels */
+  --font-body:    Manrope, sans-serif;                           /* body text, long-form content  */
+  --font-octic:   Eph Octic, 'Courier New', Courier, monospace;  /* terminal-style + colloq tiles */
+  --font-gothic:  Eph Gothic;                                    /* course listings, news titles  */
+  --font-accent:  Bebas Neue;                                    /* speaker / display accent      */
+
+  /* Layout */
+  --content-max-width: 1050px;
+  --header-height:     140px;
+}
+
+/* ============================================================
+   GLOBAL RESET / BASE
+   ============================================================ */
 #root {
   margin: 0 0;
   text-align: center;
@@ -5,10 +41,22 @@
   color: black;
 }
 
-.pagebody {
-  max-width: 1050px;
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
+#root > div > *:not(.header):not(.topmenu-bar) {
+  animation: page-fade-in 0.15s ease-out;
+}
+
+.pagebody {
+  max-width: var(--content-max-width);
+}
+
+/* ============================================================
+   FONT FACES
+   ============================================================ */
 @font-face {
   font-family: 'Eph Octic';
   src: url('/fonts/EphOctic-Regular.otf') format('opentype');
@@ -108,6 +156,9 @@
 }
 
 
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
 p {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -117,13 +168,12 @@ img {
   vertical-align: middle;
 }
 
-strong { 
+strong {
   font-weight: 1000;
 }
 
-
 ul {
-  font-family: Manrope, sans-serif;
+  font-family: var(--font-body);
   font-optical-sizing: auto;
   font-weight: 500;
   font-size: 18px;
@@ -131,14 +181,105 @@ ul {
   letter-spacing: -0.02em;
 }
 
+h1,
+.heading {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: normal;
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 10px 5px 5px 10px;
+  cursor: default;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  margin-bottom: 0px;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.subheading {
+  font-family: var(--font-display);
+  font-size: 14px;
+  background-color: black;
+  color: white;
+  margin-bottom: 10px;
+  padding: 10px 5px 5px 10px;
+  cursor: default;
+}
+
+.plaintext {
+  font-family: var(--font-body);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 18px;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  cursor: default;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: bold;
+}
+
+.tile {
+  font-family: var(--font-display);
+  font-weight: normal;
+  font-size: 28px;
+  margin: 1px;
+  cursor: default;
+}
+
+.tile-font-override {
+  font-family: var(--font-display);
+  font-weight: normal;
+}
+
+.semester {
+  font-size: 90px;
+  font-family: var(--font-display);
+}
+
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.centered {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* ============================================================
+   HEADER & STICKY NAV
+   ============================================================ */
 .header {
-  height: 140px;
+  height: var(--header-height);
   background-color: white;
   text-align: left;
-  font-family: Eph Slab, Rockwell;
+  font-family: var(--font-display);
   font-weight: normal;
   font-size: 64px;
-  color: #500082;
+  color: var(--color-purple);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -158,166 +299,15 @@ ul {
 
 .topmenu-bar {
   position: sticky;
-  top: 140px;
+  top: var(--header-height);
   z-index: 9;
   background-color: white;
   padding-top: 6px;
   padding-bottom: 6px;
 }
 
-.footer {
-  height: 80px;
-  background-color: #500082;
-  text-align: left;
-  font-family: Eph Slab, Rockwell;
-  font-weight: normal;
-  font-size: 30px;
-  color: white;
-}
-
-.williams-link {
-  color: white;
-  font-family: Eph Slab;  
-  font-weight: normal;
-}
-
-.williams-link:hover {
-  color: #FFBE0A;
-  font-weight: normal;
-}
-
-.williams-link-header {
-  color: #500082;
-  font-family: Eph Slab;  
-  font-weight: normal;
-}
-
-.williams-link-header:hover {
-  color: #FFBE0A;
-  font-weight: normal;
-}
-
-.link {
-  color: #500082;
-}
-
-a.nostyle:link {
-  text-decoration: inherit;
-  color: inherit;
-  cursor: auto;
-}
-
-a.nostyle:visited {
-  text-decoration: inherit;
-  color: inherit;
-  cursor: auto;
-}
-
-
-
-.link:hover {
-  color: magenta;
-}
-
-.fakelink {
-  color: #500082;
-  font-weight: normal;
-}
-
-.linkbox {
-  color: inherit;
-}
-
-.linkbox:hover {
-  background-color: #500082;
-  color: white;
-}
-
-.left {
-  text-align: left;
-}
-
-.center {
-  text-align: center;
-}
-
-.plaintext {
-  font-family: Manrope, sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-size: 18px;
-  font-style: normal;
-  letter-spacing: -0.02em;
-  cursor: default;
-}
-
-.title {
-  font-family: Eph Slab, Rockwell;
-  font-weight: bold;
-}
-
-.tile {
-  font-family: Eph Slab, Rockwell;
-  font-weight: normal;
-  font-size: 28px;
-  margin: 1px;
-  cursor: default;
-}
-
-.tile-font-override {
-  font-family: Eph Slab, Rockwell;
-  font-weight: normal;
-}
-
-.centered {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.semester {
-  font-size: 90px;
-  font-family: Eph Slab, Rockwell;
-}
-
-h1,
-.heading {
-  font-family: Eph Slab, Rockwell;
-  font-size: 20px;
-  font-weight: normal;
-  background-color: black;
-  color: white;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  padding: 10px 5px 5px 10px;
-  cursor: default;
-}
-
-h2 {
-  font-family: Eph Slab, Helvetica, sans-serif;
-  font-size: 26px;
-  margin-bottom: 0px;
-}
-
-h3 {
-  font-family: Eph Slab, Helvetica, sans-serif;
-  font-size: 20px;
-  margin-bottom: 0px;
-}
-
-.subheading {
-  font-family: Eph Slab, Rockwell;
-  font-size: 14px;
-  background-color: black;
-  color: white;
-  margin-bottom: 10px;
-  padding: 10px 5px 5px 10px;
-  cursor: default;
-}
-
 .topmenu {
-  font-family: Eph Slab, Rockwell;
+  font-family: var(--font-display);
   font-size: 16px;
   border: 2px solid black;
   border-radius: 8px;
@@ -329,7 +319,7 @@ h3 {
 }
 
 .topmenu-link {
-  font-family: Eph Slab, Rockwell;
+  font-family: var(--font-display);
   color: black;
   font-weight: normal;
 }
@@ -344,69 +334,119 @@ h3 {
   color: black;
 }
 
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  height: 80px;
+  background-color: var(--color-purple);
+  text-align: left;
+  font-family: var(--font-display);
+  font-weight: normal;
+  font-size: 30px;
+  color: white;
+}
+
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+.williams-link {
+  color: white;
+  font-family: var(--font-display);
+  font-weight: normal;
+}
+
+.williams-link:hover {
+  color: var(--color-gold);
+  font-weight: normal;
+}
+
+.williams-link-header {
+  color: var(--color-purple);
+  font-family: var(--font-display);
+  font-weight: normal;
+}
+
+.williams-link-header:hover {
+  color: var(--color-gold);
+  font-weight: normal;
+}
+
+.link {
+  color: var(--color-purple);
+}
+
+.link:hover {
+  color: magenta;
+}
+
+a.nostyle:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+a.nostyle:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+.fakelink {
+  color: var(--color-purple);
+  font-weight: normal;
+}
+
+.linkbox {
+  color: inherit;
+}
+
+.linkbox:hover {
+  background-color: var(--color-purple);
+  color: white;
+}
+
+
+/* ============================================================
+   PAGE / SECTION COLORS  (menu items, sidebar tiles)
+   ============================================================ */
 .frontpage-home {
-  background-color: #FFBE0A;
+  background-color: var(--color-home);
   color: black;
 }
 
 .frontpage-home:hover {
-  background-color: #FFBE0A;
+  background-color: var(--color-home);
   color: black;
 }
 
-.welcome-tile {
-  font-size: 22px;
-  font-family: Eph Octic, 'Courier New', Courier, monospace;
-  font-weight: lighter;
-  background-color: black;
-  color: chartreuse;
-  text-align: center;
-  margin: 1px;
-  cursor: default;
-}
-
-
-
-.sidebar-plan-your-major,
-.frontpage-plan-your-major {
-  background-color: #500082;
-  color: white;
-}
-
-.frontpage-plan-your-major:hover {
-  background-color: #500082;
-  color: white;
-}
-
-.sidebar-student-life,
-.frontpage-student-life {
-  background-color: rgb(40, 122, 95);
-  color: white;
-}
-
-.frontpage-student-life:hover {
-  background-color: rgb(40, 122, 95);
-  color: white;
-}
-
-.sidebar-about-us {
-  background-color: rgb(230, 53, 53);
-  color: white;
-}
-
+.sidebar-about-us,
 .frontpage-about-us {
-  background-color: rgb(230, 53, 53);
+  background-color: var(--color-about-us);
   color: white;
 }
 
 .frontpage-about-us:hover {
-  background-color: rgb(230, 53, 53);
+  background-color: var(--color-about-us);
+  color: white;
+}
+
+.sidebar-plan-your-major,
+.frontpage-plan-your-major {
+  background-color: var(--color-plan-major);
+  color: white;
+}
+
+.frontpage-plan-your-major:hover {
+  background-color: var(--color-plan-major);
   color: white;
 }
 
 .sidebar-course-offerings,
 .frontpage-course-offerings {
-  background-color: #FF7800;
+  background-color: var(--color-courses);
   color: black;
 }
 
@@ -415,86 +455,65 @@ h3 {
   color: white;
 }
 
+.sidebar-colloquium {
+  background-color: lightpink;
+  color: black;
+}
 
-.frontpage-research-opportunities {
-  background-color: blue;
+.frontpage-colloquium {
+  background-color: lightpink;
+  color: black;
+}
+
+.frontpage-colloquium:hover {
+  background-color: var(--color-colloquium);
+  color: white;
+}
+
+.menubar-colloquium {
+  background-color: var(--color-colloquium);
+  color: white;
+}
+
+.menubar-colloquium:hover {
+  background-color: var(--color-colloquium);
+  color: white;
+}
+
+.sidebar-student-life,
+.frontpage-student-life {
+  background-color: var(--color-student-life);
+  color: white;
+}
+
+.frontpage-student-life:hover {
+  background-color: var(--color-student-life);
+  color: white;
+}
+
+.frontpage-research-opportunities,
+.sidebar-research-opportunities {
+  background-color: var(--color-research);
   color: white;
 }
 
 .sidebar-research-opportunities {
-  background-color: blue;
-  color: white;
   font-size: 22px;
 }
 
 .frontpage-research-opportunities:hover {
-  background-color: blue;
+  background-color: var(--color-research);
   color: white;
 }
 
 .sidebar-non-majors,
 .frontpage-non-majors {
-  background-color: #B1008E;
+  background-color: var(--color-non-majors);
   color: white;
 }
 
 .frontpage-non-majors:hover {
-  background-color: #B1008E;
-  color: white;
-}
-
-.frontpage-recowsion {
-  background-color: lightpink;
-  margin: 1px;
-}
-
-.frontpage-colloquium-speaker {
-  font-family: Eph Octic;
-  font-weight: bold;
-  cursor: default;
-}
-
-.frontpage-colloquium-affiliation {
-  font-family: Eph Octic;
-  font-weight: lighter;
-  margin-top: '-3px';
-  cursor: default;
-}
-
-.frontpage-colloquium-title {
-  font-family: Eph Octic;
-  font-weight: bold;
-  cursor: default;
-}
-
-.colloquium-title {
-  font-family: Manrope, sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-size: 18px;
-  font-style: normal;
-  letter-spacing: -0.02em;
-  cursor: default;
-}
-
-.colloquium-speaker {
-  font-family: Bebas Neue;
-  font-weight: bold;
-  cursor: default;
-}
-
-.sidebar-colloquium {
-  background-color: lightpink;
-  color: black
-}
-
-.frontpage-news {
-  background-color: #280050;
-  color: white;
-}
-
-.frontpage-news:hover {
-  background-color: #280050;
+  background-color: var(--color-non-majors);
   color: white;
 }
 
@@ -504,43 +523,101 @@ h3 {
   margin: 1px;
 }
 
-.frontpage-colloquium {
-  background-color: lightpink;
+.frontpage-news {
+  background-color: var(--color-news);
+  color: white;
+}
+
+.frontpage-news:hover {
+  background-color: var(--color-news);
+  color: white;
+}
+
+/* news widget on the front page — lighter base, darkens on hover */
+.news-widget {
+  background-color: var(--color-news-light);
   color: black;
 }
 
-.frontpage-colloquium:hover {
-  background-color: rgb(202, 26, 52);
+.news-widget:hover {
+  background-color: var(--color-news);
   color: white;
 }
 
-.menubar-colloquium {
-  background-color: rgb(202, 26, 52);
-  color: white;
+.selected {
+  background-color: var(--color-orange);
 }
 
-.menubar-colloquium:hover {
-  background-color: rgb(202, 26, 52);
-  color: white;
+
+/* ============================================================
+   SPECIAL TILES
+   ============================================================ */
+.welcome-tile {
+  font-size: 22px;
+  font-family: var(--font-octic);
+  font-weight: lighter;
+  background-color: black;
+  color: chartreuse;
+  text-align: center;
+  margin: 1px;
+  cursor: default;
 }
 
+.frontpage-recowsion {
+  background-color: lightpink;
+  margin: 1px;
+}
+
+
+/* ============================================================
+   COLLOQUIUM
+   ============================================================ */
+.frontpage-colloquium-speaker {
+  font-family: var(--font-octic);
+  font-weight: bold;
+  cursor: default;
+}
+
+.frontpage-colloquium-affiliation {
+  font-family: var(--font-octic);
+  font-weight: lighter;
+  margin-top: '-3px';
+  cursor: default;
+}
+
+.frontpage-colloquium-title {
+  font-family: var(--font-octic);
+  font-weight: bold;
+  cursor: default;
+}
+
+.colloquium-title {
+  font-family: var(--font-body);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 18px;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  cursor: default;
+}
+
+.colloquium-speaker {
+  font-family: var(--font-accent);
+  font-weight: bold;
+  cursor: default;
+}
+
+
+/* ============================================================
+   COURSES
+   ============================================================ */
 .course {
-  font-family: Eph Gothic;
+  font-family: var(--font-gothic);
 }
 
 .program {
   font-size: 10pt;
-  font-family: Eph Gothic;
-}
-
-.news-article-title {
-  font-family: Eph Gothic;
-  font-size: 30pt;
-  font-weight: bold;
-}
-
-.news-article-photo {
-  border: solid 3px #FFBE0A;
+  font-family: var(--font-gothic);
 }
 
 .program:hover {
@@ -548,8 +625,26 @@ h3 {
   transition: background-color 200ms;
 }
 
+
+/* ============================================================
+   NEWS
+   ============================================================ */
+.news-article-title {
+  font-family: var(--font-gothic);
+  font-size: 30pt;
+  font-weight: bold;
+}
+
+.news-article-photo {
+  border: solid 3px var(--color-gold);
+}
+
+
+/* ============================================================
+   PLAN YOUR MAJOR
+   ============================================================ */
 .plan-your-major-choose-your-path {
-  font-family: Eph Gothic;
+  font-family: var(--font-gothic);
   font-weight: bold;
   cursor: default;
 }
@@ -559,7 +654,7 @@ h3 {
   margin-top: 10px;
   padding: 10px;
   border: solid 2px chartreuse;
-  font-family: Eph Octic;
+  font-family: var(--font-octic);
   font-weight: lighter;
   background-color: black;
   color: chartreuse;
@@ -571,8 +666,8 @@ h3 {
   margin: 5px;
   margin-top: 10px;
   padding: 10px;
-  border: solid 2px #FFBE0A;
-  font-family: Eph Octic;
+  border: solid 2px var(--color-gold);
+  font-family: var(--font-octic);
   font-weight: lighter;
   background-color: black;
   color: white;
@@ -581,17 +676,16 @@ h3 {
 }
 
 .plan-your-major-infobox-warning-text {
-  color: #FFBE0A;
+  color: var(--color-gold);
   font-weight: normal;
 }
-
 
 .plan-your-major-infobox-error {
   margin: 5px;
   margin-top: 10px;
   padding: 10px;
   border: solid 2px crimson;
-  font-family: Eph Octic;
+  font-family: var(--font-octic);
   font-weight: lighter;
   background-color: black;
   color: white;
@@ -605,13 +699,13 @@ h3 {
 }
 
 .plan-your-major-dept {
-  font-family: Eph Gothic;
+  font-family: var(--font-gothic);
   font-weight: bold;
   cursor: default;
 }
 
 .plan-your-major-course-number {
-  font-family: Eph Gothic;
+  font-family: var(--font-gothic);
   font-weight: normal;
   cursor: default;
 }
@@ -623,7 +717,7 @@ h3 {
 }
 
 .major-req-highlight-warning {
-  background-color: #FFBE0A;
+  background-color: var(--color-gold);
   border: solid 1px black;
   color: black;
 }
@@ -649,12 +743,21 @@ h3 {
 }
 
 .studyaway-heading {
-  background-color: #500082;
+  background-color: var(--color-purple);
 }
 
+
+/* ============================================================
+   RESPONSIVE OVERRIDES  (narrow screens ≤ 600px)
+   Redefining --header-height here automatically updates both
+   .header height and .topmenu-bar top via var(--header-height).
+   ============================================================ */
 @media (max-width: 600px) {
+  :root {
+    --header-height: 80px;
+  }
+
   .header {
-    height: 80px;
     font-size: 36px;
   }
 
@@ -669,7 +772,6 @@ h3 {
   }
 
   .topmenu-bar {
-    top: 80px;
     padding-top: 4px;
     padding-bottom: 4px;
   }
@@ -681,9 +783,4 @@ h3 {
     min-height: 32px;
     padding: 4px;
   }
-}
-
-
-.selected {
-  background-color: #FF7800;
 }

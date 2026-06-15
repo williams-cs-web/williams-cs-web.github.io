@@ -14,8 +14,8 @@ const NewsTile = ({ onClick, style }) => {
   return (
     <Link
       to={{ pathname: `/news` }}
-      onClick={() => onClick("news")}
-      className="frontpage-news"
+      onClick={() => { onClick("news"); window.scrollTo(0, 0); }}
+      className="news-widget"
       style={{ display: "block", boxSizing: "border-box", ...style }}
     >
       <div
