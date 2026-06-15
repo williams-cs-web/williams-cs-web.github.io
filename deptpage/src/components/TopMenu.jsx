@@ -1,30 +1,44 @@
-import { useState } from 'react'
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const MenuItem = ({ id, text, highlight, width, height }) => {
-  const [hovering, setHovering] = useState(false)
+const pageColorClasses = {
+  home: "frontpage-home",
+  "about-us": "frontpage-about-us",
+  "plan-your-major": "frontpage-plan-your-major",
+  courses: "frontpage-course-offerings",
+  colloquium: "menubar-colloquium",
+  "student-life": "frontpage-student-life",
+  research: "frontpage-research-opportunities",
+  "non-majors": "frontpage-non-majors",
+  news: "frontpage-news",
+};
+
+const MenuItem = ({ id, text, highlight }) => {
+  const [hovering, setHovering] = useState(false);
+
+  const stateClass =
+    highlight || hovering ? pageColorClasses[id] : "topmenu-nohighlight";
+
   return (
-    <Link className="topmenu-link" to={{ pathname: `/${id}` }} >
-
-      <div
-        className={highlight ? "topmenu topmenu-highlight" :
-          (hovering ? "topmenu topmenu-hover" : "topmenu topmenu-nohighlight")}
-        onMouseEnter={() => setHovering(true)}
-        onMouseLeave={() => setHovering(false)}
-        style={{
-          height: height,
-          width: width,
-          
-        }}>
-        <div className="centered">{text}</div>
-
-      </div>
+    <Link
+      className={`topmenu-link topmenu ${stateClass}`}
+      to={{ pathname: `/${id}` }}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        boxSizing: "border-box",
+      }}
+    >
+      {text}
     </Link>
-  )
-}
+  );
+};
 
-const TopMenu = ({ onClick, currentPage, width }) => {
-
+const TopMenu = ({ currentPage }) => {
   const pages = [
     "home",
     "about-us",
@@ -34,43 +48,39 @@ const TopMenu = ({ onClick, currentPage, width }) => {
     "student-life",
     "research",
     "non-majors",
-    "news"
-  ]
-
-  const menuItemsPerLine = () => {
-    if (width >= 910) {
-      return 9
-    } else if (width >= 600) {
-      return 3
-    } else {
-      return 3
-    }
-  }
-
-  const computeMenuItemWidth = () => {
-    return Math.floor((width - menuItemsPerLine() * 2) / menuItemsPerLine())
-  }
+    "news",
+  ];
 
   return (
     <div
+      className="pagebody topmenu-bar"
       style={{
-        display: 'flex',
-        flexFlow: 'row wrap',
-        justifyContent: 'space-evenly',
-      }}>
-      {pages.map(page => (
-        <MenuItem
-          key={page}
-          id={page}
-          width={`${computeMenuItemWidth()}px`}
-          height={menuItemsPerLine() > 3 ? '50px' : '30px'}
-          text={page.replaceAll('-', ' ')}
-          onClick={onClick}
-          highlight={page === currentPage}
-        />
-      ))}
+        display: "flex",
+        flexFlow: "row nowrap",
+        paddingRight: "40px",
+      }}
+    >
+      <div style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          flexFlow: "row wrap",
+          justifyContent: "center",
+          gap: "6px",
+        }}
+      >
+        {pages.map((page) => (
+          <MenuItem
+            key={page}
+            id={page}
+            text={page.replaceAll("-", " ")}
+            highlight={page === currentPage}
+          />
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default TopMenu;

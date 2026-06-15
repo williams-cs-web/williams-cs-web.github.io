@@ -9,13 +9,17 @@ import newsData from '../../data/news.json'
 import frontPageData from '../../data/frontpage.json'
 
 
-const sixMonthsAgo = Date.parse("Feb 20, 2024")
+const sixMonthsAgo = Date.now() - 6 * 30 * 24 * 60 * 60 * 1000
 const maxColloquiaToShow = 3;
 
 
 
 const getFrontPageSpotlightInfo = () => {
   return frontPageData.spotlight
+}
+
+const getFrontPageContent = () => {
+  return frontPageData.content
 }
 
 const getCatalog = () => {
@@ -35,9 +39,9 @@ const getUpcomingColloquia = () => {
 
 
 const fetchExternalTextFile = filename => {
-  return fetch(filename).then(
+  return fetch(`/${filename}`).then(
     response => response.text()
-  )      
+  )
 }
 
 
@@ -106,6 +110,7 @@ const getNewsItems = () => {
 
 export default {
   getFrontPageSpotlightInfo,
+  getFrontPageContent,
   getMajorRequirement,
   getMajorPaths,
   getPlanYourMajorContent,

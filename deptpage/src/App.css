@@ -1,6 +1,12 @@
 #root {
   margin: 0 0;
   text-align: center;
+  background-color: white;
+  color: black;
+}
+
+.pagebody {
+  max-width: 1050px;
 }
 
 @font-face {
@@ -111,25 +117,52 @@ img {
   vertical-align: middle;
 }
 
-strong {
-  font-family: Eph Octic;
-  font-weight: bold;
+strong { 
+  font-weight: 1000;
 }
 
 
 ul {
-  font-family: Eph Octic;
-  font-weight: lighter;
+  font-family: Manrope, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 18px;
+  font-style: normal;
+  letter-spacing: -0.02em;
 }
 
 .header {
-  height: 180px;
-  background-color: #500082;
+  height: 140px;
+  background-color: white;
   text-align: left;
   font-family: Eph Slab, Rockwell;
   font-weight: normal;
   font-size: 64px;
-  color: white;
+  color: #500082;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.williams-title {
+  margin: 0px;
+  padding: 30px 0px 0px 0px;
+}
+
+.williams-subtitle {
+  margin-top: -20px;
+  padding: 0px 0px 0px 14px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.topmenu-bar {
+  position: sticky;
+  top: 140px;
+  z-index: 9;
+  background-color: white;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .footer {
@@ -149,6 +182,17 @@ ul {
 }
 
 .williams-link:hover {
+  color: #FFBE0A;
+  font-weight: normal;
+}
+
+.williams-link-header {
+  color: #500082;
+  font-family: Eph Slab;  
+  font-weight: normal;
+}
+
+.williams-link-header:hover {
   color: #FFBE0A;
   font-weight: normal;
 }
@@ -198,9 +242,12 @@ a.nostyle:visited {
 }
 
 .plaintext {
-  font-family: Eph Gothic, Avenir;
-  font-size: 20px;
-  font-weight: lighter;
+  font-family: Manrope, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 18px;
+  font-style: normal;
+  letter-spacing: -0.02em;
   cursor: default;
 }
 
@@ -271,9 +318,14 @@ h3 {
 
 .topmenu {
   font-family: Eph Slab, Rockwell;
-  border: solid 1px whitesmoke;
-  padding-top: 3px;
+  font-size: 16px;
+  border: 2px solid black;
+  border-radius: 8px;
   cursor: default;
+  flex: 1 1 100px;
+  max-width: 160px;
+  min-height: 44px;
+  padding: 6px;
 }
 
 .topmenu-link {
@@ -287,18 +339,18 @@ h3 {
   font-weight: normal;
 }
 
-.topmenu-highlight {
+.topmenu-nohighlight {
+  background-color: lightgray;
+  color: black;
+}
+
+.frontpage-home {
   background-color: #FFBE0A;
   color: black;
 }
 
-.topmenu-hover {
-  background-color: gold;
-  color: black;
-}
-
-.topmenu-nohighlight {
-  background-color: lightgray;
+.frontpage-home:hover {
+  background-color: #FFBE0A;
   color: black;
 }
 
@@ -322,30 +374,34 @@ h3 {
 }
 
 .frontpage-plan-your-major:hover {
-  background-color: orchid;
-  color: black;
+  background-color: #500082;
+  color: white;
 }
 
 .sidebar-student-life,
 .frontpage-student-life {
-  background-color: #C86914;
+  background-color: rgb(40, 122, 95);
   color: white;
 }
 
 .frontpage-student-life:hover {
+  background-color: rgb(40, 122, 95);
+  color: white;
+}
+
+.sidebar-about-us {
   background-color: rgb(230, 53, 53);
   color: white;
 }
 
-.sidebar-about-us,
 .frontpage-about-us {
-  background-color: #FFBE0A;
-  color: black;
+  background-color: rgb(230, 53, 53);
+  color: white;
 }
 
 .frontpage-about-us:hover {
-  background-color: goldenrod;
-  color: white
+  background-color: rgb(230, 53, 53);
+  color: white;
 }
 
 .sidebar-course-offerings,
@@ -361,12 +417,12 @@ h3 {
 
 
 .frontpage-research-opportunities {
-  background-color: #280050;
+  background-color: blue;
   color: white;
 }
 
 .sidebar-research-opportunities {
-  background-color: #280050;
+  background-color: blue;
   color: white;
   font-size: 22px;
 }
@@ -383,8 +439,8 @@ h3 {
 }
 
 .frontpage-non-majors:hover {
-  background-color: magenta;
-  color: black;
+  background-color: #B1008E;
+  color: white;
 }
 
 .frontpage-recowsion {
@@ -412,13 +468,17 @@ h3 {
 }
 
 .colloquium-title {
-  font-family: Eph Octic;
-  font-weight: lighter;
+  font-family: Manrope, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 18px;
+  font-style: normal;
+  letter-spacing: -0.02em;
   cursor: default;
 }
 
 .colloquium-speaker {
-  font-family: Eph Octic;
+  font-family: Bebas Neue;
   font-weight: bold;
   cursor: default;
 }
@@ -429,11 +489,8 @@ h3 {
 }
 
 .frontpage-news {
-  background-color: whitesmoke;
-  color: black;
-  margin: 1px;
-  font-family: Eph Octic;
-  font-size: 13px;
+  background-color: #280050;
+  color: white;
 }
 
 .frontpage-news:hover {
@@ -450,12 +507,21 @@ h3 {
 .frontpage-colloquium {
   background-color: lightpink;
   color: black;
-  margin: 1px;
 }
 
 .frontpage-colloquium:hover {
-  background-color: #cd5c5c;
-  color: white
+  background-color: rgb(202, 26, 52);
+  color: white;
+}
+
+.menubar-colloquium {
+  background-color: rgb(202, 26, 52);
+  color: white;
+}
+
+.menubar-colloquium:hover {
+  background-color: rgb(202, 26, 52);
+  color: white;
 }
 
 .course {
@@ -584,6 +650,37 @@ h3 {
 
 .studyaway-heading {
   background-color: #500082;
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: 80px;
+    font-size: 36px;
+  }
+
+  .williams-title {
+    padding: 10px 0px 0px 0px;
+  }
+
+  .williams-subtitle {
+    margin-top: -10px;
+    padding: 0px 0px 0px 10px;
+    font-size: 14px;
+  }
+
+  .topmenu-bar {
+    top: 80px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .topmenu {
+    font-size: 12px;
+    flex: 1 1 70px;
+    max-width: 110px;
+    min-height: 32px;
+    padding: 4px;
+  }
 }
 
 

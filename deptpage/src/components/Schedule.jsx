@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect, useRef } from 'react'
 import { DndContext } from '@dnd-kit/core';
 import { useDroppable } from '@dnd-kit/core';
@@ -19,7 +18,7 @@ const ScheduleChooser = ({ onClick, largeFontSize, smallFontSize }) => {
   }, [current])
 
   const renderPathDescription = (pathIndex) => (
-    <div key={`major-path-${pathIndex}`} onClick={() => setCurrent(pathIndex)} style={{ borderStyle: current == pathIndex ? 'solid' : 'none', flexGrow: 1, flexShrink: 1 }}>
+    <div key={`major-path-${pathIndex}`} onClick={() => setCurrent(pathIndex)} style={{ borderStyle: current === pathIndex ? 'solid' : 'none', flexGrow: 1, flexShrink: 1 }}>
       <div>{paths[pathIndex].icon}</div>
       <div>{paths[pathIndex].id}</div>
       <div style={{ fontSize: smallFontSize }}>{paths[pathIndex].description}</div>
@@ -193,8 +192,8 @@ const Schedule = (props) => {
   const computeFontSize = (maxSize) => {
     return Math.min(maxSize, (props.style.width / 600) * maxSize)
   }
-  const largeFontSize = `${computeFontSize(24, containerRef.current ? containerRef.current.offsetWidth : 0)}px`
-  const smallFontSize = `${computeFontSize(16, containerRef.current ? containerRef.current.offsetWidth : 0)}px`
+  const largeFontSize = `${computeFontSize(24)}px`
+  const smallFontSize = `${computeFontSize(16)}px`
 
 
   function handleDragMove(event) {
@@ -231,7 +230,7 @@ const Schedule = (props) => {
   }
 
   const removeMajorRequirement = (sem, courseId) => {
-    let result = { ...sem, courses: sem.courses.filter(course => course != courseId) }
+    let result = { ...sem, courses: sem.courses.filter(course => course !== courseId) }
     return result
   }
 
@@ -275,13 +274,8 @@ const Schedule = (props) => {
         .map(sem =>
           sem.semester === newSemester ? addMajorRequirement(sem, courseId) : removeMajorRequirement(sem, courseId)
         )
-    // TODO: experiment to get rid of drag flicker
-    //setMoving(true)
     setSchedule(revised);
     auditSchedule(revised);
-    //setTimeout(() => {
-    //  setMoving(false)
-    //}, 0)
   }
 
   const defaultInfo = "Click on any course for more information. Drag courses from one semester to another to experiment with alternatives."

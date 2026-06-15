@@ -1,12 +1,12 @@
 {
     "content": [
         {
-            "title": "major requirements",
-            "article": "articles/major-requirements.md"
-        },
-        {
             "title": "major planning assistant",
             "component": "MajorPlanningAssistant"
+        },
+        {
+            "title": "major requirements",
+            "article": "articles/major-requirements.md"
         },
         {
             "title": "declaring the major",
@@ -23,7 +23,7 @@
         {
             "component": "StudyAway"
         },
-        {           
+        {
             "article": "articles/study-away-epilogue.md"
         }
     ],

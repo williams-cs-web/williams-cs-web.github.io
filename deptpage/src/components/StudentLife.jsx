@@ -43,7 +43,9 @@ const Student = ({ name, year, photo }) => {
 
 const StudentLife = ({ style, onClick, showSidebar }) => {
 
-  const hubId = "student-id"
+  const hubId = "student-life"
+
+  const pageWidth = Math.min(style.width, 1050)
 
   const renderHeading = heading => (
     <div className="heading">{heading.toLowerCase()}</div>
@@ -132,7 +134,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
   )
 
   const renderGallery = (photos, width) => {
-    let evens = [...Array(photos.length).keys()].filter(x => x % 2 == 0)
+    let evens = [...Array(photos.length).keys()].filter(x => x % 2 === 0)
     return (
       <div>
         {evens.map(index => (
@@ -153,19 +155,19 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
         fontSize: "40px"
       }}
     >
-      <div style={{
+      <div className="pagebody" style={{
         display: 'flex',
         flexFlow: 'row nowrap',
         paddingRight: '40px'
       }}>
-        {showSidebar ? <Sidebar onClick={onClick} title="student life" className="sidebar-student-life" /> : <div style={{ flexGrow: 0, flexShrink: 0, width: '40px' }} />}
+        {showSidebar ? <Sidebar onClick={onClick} title="student life" className="sidebar-student-life" /> : <div style={{ flexGrow: 0, flexShrink: 0, width: '80px' }} />}
 
         <div style={{
           width: `${contentPct * 100}%`,
           paddingTop: '30px',
           textAlign: 'left'
         }}>
-          {groups.map(group => renderGroup(group, contentPct * style.width - 80))}
+          {groups.map(group => renderGroup(group, contentPct * pageWidth - 120))}
 
 
         </div>

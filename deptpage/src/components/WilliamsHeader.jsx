@@ -1,21 +1,24 @@
 const WilliamsHeader = () => (
   <div className="header">
-    <div style={{
-      margin: '0px',
-      padding: '30px 0px 0px 32px',
-    }}>
-      <a className="williams-link" href="https://williams.edu">Williams</a>
+    <div
+      className="pagebody"
+      style={{
+        display: "flex",
+        flexFlow: "row nowrap",
+        paddingRight: "40px",
+      }}
+    >
+      <div style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
+      <div style={{ width: "100%" }}>
+        <div className="williams-title">
+          <a className="williams-link-header" href="https://williams.edu">
+            Williams
+          </a>
+        </div>
+        <div className="williams-subtitle">Computer Science</div>
+      </div>
     </div>
-    <div style={{
-      marginTop: '-20px',
-      padding: '0px 0px 0px 46px',
-      fontSize: '20px',
-      fontWeight: 'bold'
-    }}>
-      Computer Science
-    </div>
-
   </div>
-)
+);
 
 export default WilliamsHeader;
