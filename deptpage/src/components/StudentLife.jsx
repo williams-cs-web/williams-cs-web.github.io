@@ -46,8 +46,6 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
 
   const hubId = "student-life"
 
-  const pageWidth = Math.min(style.width, 1050)
-  const isMobile = style.width <= 600
 
   const renderHeading = heading => (
     <div className="heading">{heading.toLowerCase()}</div>
@@ -97,7 +95,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
 
   const groups = DbServices.getStudentGroups()
 
-  const renderGroup = (group, width) => {
+  const renderGroup = (group) => {
     return (
       <div key={group.name}>
         <div style={{
@@ -111,7 +109,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
           }}>
             {renderHeading(group.abbreviation)}
             {renderGroupInfo(group)}
-            {group.gallery ? renderGallery(group.gallery, width) : null}
+            {group.gallery ? renderGallery(group.gallery) : null}
           </div>
         </div>
         <div style={{
@@ -121,26 +119,26 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
     )
   }
 
-  const renderGalleryRow = (photos, width) => (
+  const renderGalleryRow = (photos) => (
     <div key={`gallery-row-${photos.join('-')}`} style={{
       display: 'flex',
       flexFlow: 'row nowrap',
-      alignItems: 'flex-start'
+      gap: '2px',
     }}>
       {photos.map(photo =>
-        <div key={photo}>
-          <img style={{ 'margin': '1px' }} width={(width / photos.length) - 2} src={photo}></img>
+        <div key={photo} style={{ flex: 1 }}>
+          <img style={{ width: '100%', display: 'block' }} src={photo} alt="" />
         </div>
       )}
     </div>
   )
 
-  const renderGallery = (photos, width) => {
+  const renderGallery = (photos) => {
     let evens = [...Array(photos.length).keys()].filter(x => x % 2 === 0)
     return (
       <div>
         {evens.map(index => (
-          renderGalleryRow(photos.slice(index, index+2), width)
+          renderGalleryRow(photos.slice(index, index+2))
         ))}
       </div>
     )
@@ -169,7 +167,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
           paddingTop: '30px',
           textAlign: 'left'
         }}>
-          {groups.map(group => renderGroup(group, isMobile ? style.width - 12 : contentPct * pageWidth - 120))}
+          {groups.map(group => renderGroup(group))}
 
 
         </div>
