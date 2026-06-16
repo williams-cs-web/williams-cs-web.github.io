@@ -765,8 +765,8 @@ a.nostyle:visited {
   }
 
   .pagebody {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 6px;
+    padding-right: 6px;
   }
 
   .header {
