@@ -12,8 +12,6 @@ import Passage from "./Passage";
 const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
   const hubId = "plan-your-major";
 
-  const pageWidth = Math.min(style.width, 1050);
-  const isMobile = style.width <= 600;
 
   const renderContent = () => {
     return DbServices.getPlanYourMajorContent().map((item, i) => {
@@ -29,11 +27,7 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
             >
               major planning assistant
             </div>
-            <Schedule
-              style={{
-                width: showSidebar ? 0.7 * pageWidth - 40 : isMobile ? style.width - 12 : pageWidth - 120,
-              }}
-            />
+            <Schedule />
           </Fragment>
         );
       } else if (item.component && item.component === "StudyAway") {
@@ -79,7 +73,7 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
         ) : (
           <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
         )}
-        <div>
+        <div style={{ flexGrow: 1, minWidth: 0 }}>
           <div>
             <Spacer height="10px" />
             {renderContent()}

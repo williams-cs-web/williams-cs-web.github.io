@@ -165,13 +165,13 @@ const InfoBox = ({ info, warning, error, fontSize }) => {
 
 
 
-const Schedule = (props) => {
+const Schedule = () => {
 
   const [schedule, setSchedule] = useState([])
   const [violations, setViolations] = useState([])
   const [warnings, setWarnings] = useState([])
   const [highlight, setHighlight] = useState(null)
-
+  const [containerWidth, setContainerWidth] = useState(600)
 
   const containerRef = useRef()
 
@@ -181,6 +181,14 @@ const Schedule = (props) => {
     setSchedule(prebakedSchedules[0].path);
   }, [])
 
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const ro = new ResizeObserver(([entry]) => {
+      setContainerWidth(entry.contentRect.width);
+    });
+    ro.observe(containerRef.current);
+    return () => ro.disconnect();
+  }, [])
 
   const handleScheduleChange = (current) => {
     let schedule = prebakedSchedules[current].path
@@ -190,7 +198,7 @@ const Schedule = (props) => {
   }
 
   const computeFontSize = (maxSize) => {
-    return Math.min(maxSize, (props.style.width / 600) * maxSize)
+    return Math.min(maxSize, (containerWidth / 600) * maxSize)
   }
   const largeFontSize = `${computeFontSize(24)}px`
   const smallFontSize = `${computeFontSize(16)}px`
@@ -289,7 +297,7 @@ const Schedule = (props) => {
       title={sem.semester}
       titleAlt={sem.semester}
       style={{
-        width: 0.4 * props.style.width,
+        width: 0.4 * containerWidth,
         flexGrow: 1,
         flexShrink: 1,
       }}>
@@ -357,12 +365,12 @@ const Schedule = (props) => {
       number={number}
       largeFontSize={largeFontSize}
       smallFontSize={smallFontSize}
-      style={{ width: .1 * props.style.width }}
+      style={{ width: .1 * containerWidth }}
     />
   )
 
   return (
-    <div ref={containerRef} style={props.style}>
+    <div ref={containerRef} style={{ width: '100%' }}>
 
       <ScheduleChooser largeFontSize={largeFontSize} smallFontSize={smallFontSize} onClick={handleScheduleChange} />
       <InfoBox fontSize={largeFontSize} info={getInfo()} warning={getWarning()} error={getError()} />
