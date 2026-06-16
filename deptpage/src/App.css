@@ -52,6 +52,7 @@
 
 .pagebody {
   max-width: var(--content-max-width);
+  padding-right: 40px;
 }
 
 /* ============================================================
@@ -763,9 +764,10 @@ a.nostyle:visited {
     display: none;
   }
 
-  /* small left breathing room now that the spacer is gone */
+  /* small breathing room now that the 80px spacer is gone */
   .pagebody {
     padding-left: 8px;
+    padding-right: 8px;
   }
 
   .header {

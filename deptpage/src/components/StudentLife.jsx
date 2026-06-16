@@ -158,7 +158,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
       <div className="pagebody" style={{
         display: 'flex',
         flexFlow: 'row nowrap',
-        paddingRight: '40px'
+        
       }}>
         {showSidebar ? <Sidebar onClick={onClick} title="student life" className="sidebar-student-life" /> : <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: '80px' }} />}
 

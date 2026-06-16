@@ -5,7 +5,7 @@ const WilliamsHeader = () => (
       style={{
         display: "flex",
         flexFlow: "row nowrap",
-        paddingRight: "40px",
+        
       }}
     >
       <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />

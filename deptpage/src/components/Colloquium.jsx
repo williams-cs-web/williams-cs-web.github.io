@@ -247,7 +247,7 @@ const Colloquium = ({ style, layout, showSidebar, onClick }) => {
         style={{
           display: "flex",
           flexFlow: "row nowrap",
-          paddingRight: "40px",
+          
         }}
       >
         {showSidebar ? (

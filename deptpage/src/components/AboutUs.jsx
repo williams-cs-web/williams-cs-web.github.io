@@ -150,7 +150,7 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
         style={{
           display: "flex",
           flexFlow: "row nowrap",
-          paddingRight: "40px",
+          
         }}
       >
         {showSidebar ? (

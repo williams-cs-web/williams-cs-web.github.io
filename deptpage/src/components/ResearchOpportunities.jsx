@@ -65,7 +65,7 @@ const ResearchOpportunities = ({ style, layout, onClick, showSidebar }) => {
         style={{
           display: "flex",
           flexFlow: "row nowrap",
-          paddingRight: "40px",
+          
         }}
       >
         {showSidebar ? (
