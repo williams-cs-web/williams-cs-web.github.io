@@ -8,7 +8,7 @@ const WilliamsHeader = () => (
         paddingRight: "40px",
       }}
     >
-      <div style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
+      <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
       <div style={{ width: "100%" }}>
         <div className="williams-title">
           <a className="williams-link-header" href="https://williams.edu">

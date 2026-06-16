@@ -76,7 +76,7 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
             onClick={onClick}
           />
         ) : (
-          <div style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
+          <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
         )}
         <div>
           <div>

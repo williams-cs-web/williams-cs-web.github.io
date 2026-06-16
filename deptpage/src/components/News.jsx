@@ -80,7 +80,7 @@ const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
         {showSidebar ? (
           <Sidebar title="news" className="sidebar-news" onClick={onClick} />
         ) : (
-          <div style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
+          <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
         )}
         <div
           style={{

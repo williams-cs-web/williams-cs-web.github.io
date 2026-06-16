@@ -160,7 +160,7 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
             className="sidebar-about-us"
           />
         ) : (
-          <div style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
+          <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
         )}
         <div
           style={{

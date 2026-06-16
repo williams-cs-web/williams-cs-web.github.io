@@ -758,6 +758,16 @@ a.nostyle:visited {
     --header-height: 80px;
   }
 
+  /* hide the 80px left spacer everywhere so layout is full-width on mobile */
+  .left-spacer {
+    display: none;
+  }
+
+  /* small left breathing room now that the spacer is gone */
+  .pagebody {
+    padding-left: 8px;
+  }
+
   .header {
     font-size: 36px;
   }
@@ -770,10 +780,6 @@ a.nostyle:visited {
     margin-top: -10px;
     padding: 0px 0px 0px 10px;
     font-size: 14px;
-  }
-
-  .topmenu-left-spacer {
-    display: none;
   }
 
   .topmenu-bar {

@@ -76,7 +76,7 @@ const FrontPage = ({ onClick, style }) => {
           paddingRight: "40px",
         }}
       >
-        <div style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
+        <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
         <div style={{ width: "100%", paddingTop: "30px", textAlign: "left" }}>
           <img width="100%" src={spotlight.photo} alt={spotlight.caption} />
           {renderContent()}
