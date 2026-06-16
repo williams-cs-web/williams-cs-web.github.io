@@ -790,8 +790,8 @@ a.nostyle:visited {
 
   .topmenu {
     font-size: 12px;
-    flex: 1 1 70px;
-    max-width: 110px;
+    flex: 1 1 60px;
+    max-width: 100px;
     min-height: 32px;
     padding: 4px;
   }
