@@ -165,7 +165,7 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
         <div
           style={{
             width: "100%",
-            paddingTop: "16px",
+            
             textAlign: "left",
           }}
         >

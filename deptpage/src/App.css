@@ -304,7 +304,7 @@ h3 {
   z-index: 9;
   background-color: white;
   padding-top: 6px;
-  padding-bottom: 6px;
+  padding-bottom: 16px;
   padding-right: 40px;
 }
 
@@ -786,7 +786,7 @@ a.nostyle:visited {
 
   .topmenu-bar {
     padding-top: 4px;
-    padding-bottom: 4px;
+    padding-bottom: 16px;
   }
 
   .topmenu {

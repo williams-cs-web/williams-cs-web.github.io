@@ -80,7 +80,7 @@ const ResearchOpportunities = ({ style, layout, onClick, showSidebar }) => {
         <div
           style={{
             width: layout === "wide" ? "100%" : "100%",
-            paddingTop: "16px",
+            
             textAlign: "left",
           }}
         >

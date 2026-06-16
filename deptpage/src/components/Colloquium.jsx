@@ -262,7 +262,7 @@ const Colloquium = ({ style, layout, showSidebar, onClick }) => {
         <div
           style={{
             width: "95%",
-            paddingTop: "16px",
+            
             textAlign: "left",
           }}
         >

@@ -85,7 +85,7 @@ const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
         <div
           style={{
             width: "100%", //layout === "wide" ? "70%" : "100%",
-            paddingTop: "16px",
+            
             textAlign: "left",
           }}
         >

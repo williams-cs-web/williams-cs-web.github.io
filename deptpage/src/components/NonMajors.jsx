@@ -36,7 +36,6 @@ const NonMajors = ({ style, layout, onClick, showSidebar }) => {
         )}
         <div>
           <div>
-            <Spacer height="16px" />
             <div
               className="heading"
               style={{
