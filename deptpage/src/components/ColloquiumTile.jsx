@@ -53,7 +53,7 @@ const ColloquiumTile = ({ onClick, style }) => {
         style={{ objectFit: "cover", flexGrow: 0, flexShrink: 0 }}
         alt={`photo of ${event.speaker}`}
       />
-      <div style={{ overflow: "hidden" }}>
+      <div style={{ overflow: "hidden", minWidth: 0 }}>
         <div
           className="plaintext"
           style={{ fontSize: "14px", fontWeight: "bold" }}
