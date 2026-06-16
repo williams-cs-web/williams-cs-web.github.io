@@ -539,6 +539,7 @@ a.nostyle:visited {
 .news-widget {
   background-color: var(--color-news-light);
   color: black;
+  font-family: var(--font-body);
 }
 
 .news-widget:hover {
