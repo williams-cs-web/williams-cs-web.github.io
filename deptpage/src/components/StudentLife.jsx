@@ -11,7 +11,8 @@ const Student = ({ name, year, photo }) => {
     <div style={{
       borderStyle: 'solid',
       textAlign: 'left',
-      width: '240px',
+      flexGrow: 1,
+      flexBasis: '280px',
       backgroundColor: 'whitesmoke'
     }}>
       <div style={{
