@@ -178,7 +178,7 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
           ref={headingRef}
           style={{
             width: "95%",
-            paddingTop: "35px",
+            paddingTop: "16px",
             textAlign: "left",
           }}
         >

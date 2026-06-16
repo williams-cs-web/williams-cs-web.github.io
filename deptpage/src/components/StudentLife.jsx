@@ -164,7 +164,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
 
         <div style={{
           width: `${contentPct * 100}%`,
-          paddingTop: '30px',
+          paddingTop: '16px',
           textAlign: 'left'
         }}>
           {groups.map(group => renderGroup(group))}

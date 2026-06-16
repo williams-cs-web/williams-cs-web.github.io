@@ -15,10 +15,11 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
 
   const renderContent = () => {
     return DbServices.getPlanYourMajorContent().map((item, i) => {
+      const gap = i === 0 ? null : <Spacer height="20px" />;
       if (item.component && item.component === "MajorPlanningAssistant") {
         return (
           <Fragment key={item.component}>
-            <Spacer height="20px" />
+            {gap}
             <div
               className="heading"
               style={{
@@ -33,14 +34,14 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
       } else if (item.component && item.component === "StudyAway") {
         return (
           <Fragment key={item.component}>
-            <Spacer height="20px" />
+            {gap}
             <StudyAway layout="narrow" />
           </Fragment>
         );
       } else {
         return (
           <Fragment key={item.title ?? i}>
-            <Spacer height="20px" />
+            {gap}
             <Passage title={item.title} article={item.article} />
           </Fragment>
         );
@@ -73,9 +74,8 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
         ) : (
           <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
         )}
-        <div style={{ flexGrow: 1, minWidth: 0 }}>
+        <div style={{ flexGrow: 1, minWidth: 0, paddingTop: "16px" }}>
           <div>
-            <Spacer height="10px" />
             {renderContent()}
           </div>
         </div>
