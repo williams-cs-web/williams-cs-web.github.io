@@ -47,7 +47,7 @@
 }
 
 #root > div > *:not(.header):not(.topmenu-bar) {
-  animation: page-fade-in 0.15s ease-out;
+  animation: page-fade-in 0.4s ease-out;
 }
 
 .pagebody {
