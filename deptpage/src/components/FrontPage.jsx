@@ -18,7 +18,7 @@ const FrontPage = ({ onClick, style }) => {
       style={{
         display: "flex",
         flexFlow: "row wrap",
-        gap: "10px",
+        gap: "16px",
       }}
     >
       <NewsTile
@@ -51,7 +51,7 @@ const FrontPage = ({ onClick, style }) => {
       if (item.component === "FromTheDepartment") {
         return (
           <Fragment key={item.component}>
-            <Spacer height="20px" />
+            <Spacer height="16px" />
             {renderFromTheDepartment()}
           </Fragment>
         );
@@ -77,7 +77,7 @@ const FrontPage = ({ onClick, style }) => {
         }}
       >
         <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
-        <div style={{ width: "100%", paddingTop: "30px", textAlign: "left" }}>
+        <div style={{ width: "100%", paddingTop: "16px", textAlign: "left" }}>
           <img width="100%" src={spotlight.photo} alt={spotlight.caption} />
           {renderContent()}
           <Spacer height="20px" />
