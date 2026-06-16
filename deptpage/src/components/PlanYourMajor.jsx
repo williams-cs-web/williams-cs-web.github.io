@@ -13,6 +13,7 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
   const hubId = "plan-your-major";
 
   const pageWidth = Math.min(style.width, 1050);
+  const isMobile = style.width <= 600;
 
   const renderContent = () => {
     return DbServices.getPlanYourMajorContent().map((item, i) => {
@@ -30,7 +31,7 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
             </div>
             <Schedule
               style={{
-                width: showSidebar ? 0.7 * pageWidth - 40 : pageWidth - 120,
+                width: showSidebar ? 0.7 * pageWidth - 40 : isMobile ? style.width - 12 : pageWidth - 120,
               }}
             />
           </Fragment>
