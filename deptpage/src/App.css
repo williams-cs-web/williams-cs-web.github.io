@@ -304,6 +304,7 @@ h3 {
   background-color: white;
   padding-top: 6px;
   padding-bottom: 6px;
+  padding-right: 40px;
 }
 
 .topmenu {
@@ -771,9 +772,14 @@ a.nostyle:visited {
     font-size: 14px;
   }
 
+  .topmenu-left-spacer {
+    display: none;
+  }
+
   .topmenu-bar {
     padding-top: 4px;
     padding-bottom: 4px;
+    padding-right: 8px;
   }
 
   .topmenu {
