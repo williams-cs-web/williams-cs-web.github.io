@@ -47,6 +47,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
   const hubId = "student-life"
 
   const pageWidth = Math.min(style.width, 1050)
+  const isMobile = style.width <= 600
 
   const renderHeading = heading => (
     <div className="heading">{heading.toLowerCase()}</div>
@@ -168,7 +169,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
           paddingTop: '30px',
           textAlign: 'left'
         }}>
-          {groups.map(group => renderGroup(group, contentPct * pageWidth - 120))}
+          {groups.map(group => renderGroup(group, isMobile ? style.width - 12 : contentPct * pageWidth - 120))}
 
 
         </div>
