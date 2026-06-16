@@ -215,7 +215,7 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
       <WilliamsHeader />
       <TopMenu onClick={onClick} currentPage={hubId} width={style.width} />
       {renderBody()}
-      <Spacer height="30px" />
+      <Spacer height="10px" />
       <WilliamsFooter />
     </div>
   );

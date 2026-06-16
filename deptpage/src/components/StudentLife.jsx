@@ -185,7 +185,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
         width={style.width}
       />
       {renderBody()}
-      <Spacer height="30px" />
+      <Spacer height="10px" />
       <WilliamsFooter />
     </div>
   )

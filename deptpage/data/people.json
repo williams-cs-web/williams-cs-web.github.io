@@ -14,15 +14,15 @@
             "role": "faculty",
             "title": "Associate Professor",
             "webpage": "http://cs.williams.edu/~dbarowy/",
-            "interests": "End-user programming, crowdsourcing, program synthesis, debugging techniques, nonparametric statistical methods."  
+            "interests": "End-user programming, crowdsourcing, program synthesis, debugging techniques, nonparametric statistical methods."
         },
         {
             "id": "James Bern",
             "photo": "images/people/jim.jpg",
             "role": "faculty",
             "title": "Assistant Professor",
-            "webpage": "",
-            "interests": "Soft and rigid robotics, computational design, numerical simulation, computer graphics, toys & games, robotic art."  
+            "webpage": "https://james-bern.github.io/",
+            "interests": "Soft and rigid robotics, computational design, numerical simulation, computer graphics, toys & games, robotic art."
         },
         {
             "id": "Rohit Bhattacharya",
@@ -30,7 +30,7 @@
             "role": "faculty",
             "title": "Assistant Professor",
             "webpage": "https://rohit-bhattacharya.com/",
-            "interests": "Causal inference, graphical models, missing data, oncogenomics."  
+            "interests": "Causal inference, graphical models, missing data, oncogenomics."
         },
         {
             "id": "Stephen N. Freund",
@@ -38,15 +38,15 @@
             "role": "faculty",
             "title": "A. Barton Hepburn Professor of Computer Science",
             "webpage": "http://cs.williams.edu/~freund/",
-            "interests": "Design and implementation of programming languages and virtual machines, type based program analysis, verification of multithreaded programs, programming environments and tools."  
+            "interests": "Design and implementation of programming languages and virtual machines, type based program analysis, verification of multithreaded programs, programming environments and tools."
         },
         {
             "id": "Mark Hopkins",
             "photo": "images/people/mark.jpg",
             "role": "faculty",
-            "title": "Assistant Professor",
+            "title": "Associate Professor",
             "webpage": "https://markandrewhopkins.com/",
-            "interests": "Machine learning, machine translation, low-resource natural language processing"  
+            "interests": "Machine learning, machine translation, low-resource natural language processing"
         },
         {
             "id": "Iris Howley",
@@ -54,7 +54,7 @@
             "role": "faculty",
             "title": "Assistant Professor",
             "webpage": "http://cs.williams.edu/~iris/",
-            "interests": "Human-Computer Interaction, technology enhanced learning environments, computer-supported collaborative learning, information visualization, automated linguistic analysis for education."  
+            "interests": "Human-Computer Interaction, technology enhanced learning environments, computer-supported collaborative learning, information visualization, automated linguistic analysis for education."
         },
         {
             "id": "William Jannen",
@@ -62,7 +62,7 @@
             "role": "faculty",
             "title": "Associate Professor",
             "webpage": "https://www.cs.williams.edu/~jannen/",
-            "interests": "File system design and analysis, media-specific storage optimizations, data structures, write optimization."  
+            "interests": "File system design and analysis, media-specific storage optimizations, data structures, write optimization."
         },
         {
             "id": "Katie Keith",
@@ -70,15 +70,15 @@
             "role": "faculty",
             "title": "Assistant Professor",
             "webpage": "https://kakeith.github.io/",
-            "interests": "Natural language processing, computational social science, machine learning, data science, causal inference."  
+            "interests": "Natural language processing, computational social science, machine learning, data science, causal inference."
         },
         {
             "id": "Samuel McCauley",
             "photo": "images/people/sam.jpg",
             "role": "faculty",
-            "title": "Assistant Professor",
+            "title": "Associate Professor",
             "webpage": "http://dept.cs.williams.edu/~sam/",
-            "interests": "Algorithms and data structures, hashing and randomization, similarity search, I/O-efficient algorithms, and scheduling."  
+            "interests": "Algorithms and data structures, hashing and randomization, similarity search, I/O-efficient algorithms, and scheduling."
         },
         {
             "id": "Kelly Shaw",
@@ -86,15 +86,15 @@
             "role": "faculty",
             "title": "Professor",
             "webpage": "http://cs.williams.edu/~kshaw/",
-            "interests": "Parallel architectures, including heterogeneous architectures, Internet of Things, particularly with respect to data consistency correctness, memory systems, workload characterization of emerging applications."  
+            "interests": "Parallel architectures, including heterogeneous architectures, Internet of Things, particularly with respect to data consistency correctness, memory systems, workload characterization of emerging applications."
         },
         {
             "id": "Shikha Singh",
             "photo": "images/people/shikha.jpg",
             "role": "faculty",
-            "title": "Assistant Professor",
+            "title": "Associate Professor",
             "webpage": "",
-            "interests": "Algorithmic game theory, algorithms & data structures, combinatorial optimization, complexity theory."  
+            "interests": "Algorithmic game theory, algorithms & data structures, combinatorial optimization, complexity theory."
         },
         {
             "id": "Aaron Williams",
@@ -102,7 +102,7 @@
             "role": "faculty",
             "title": "Associate Professor",
             "webpage": "https://sites.google.com/williams.edu/aaron",
-            "interests": "Algorithms, combinatorics, computational complexity, puzzles and games, history of video games."  
+            "interests": "Algorithms, combinatorics, computational complexity, puzzles and games, history of video games."
         },
         {
             "id": "Lida Doret",
@@ -142,7 +142,7 @@
             "role": "emeriti",
             "title": "Professor Emerita",
             "webpage": "/danyluk-in-memorium",
-            "interests": "Machine learning applications, systematic data error and its effects on inductive learning, cost-sensitive learning, evaluation and comparison of learning algorithms, theory revision."   
+            "interests": "Machine learning applications, systematic data error and its effects on inductive learning, cost-sensitive learning, evaluation and comparison of learning algorithms, theory revision."
         },
         {
             "id": "William Lenhart",
@@ -150,7 +150,7 @@
             "role": "emeriti",
             "title": "Professor Emeritus",
             "webpage": "http://dept.cs.williams.edu/~lenhart/",
-            "interests": "Graph theory, graph drawing, computational geometry, graph and combinatorial algorithms."   
+            "interests": "Graph theory, graph drawing, computational geometry, graph and combinatorial algorithms."
         },
         {
             "id": "Tom Murtagh",
@@ -158,7 +158,7 @@
             "role": "emeriti",
             "title": "Professor Emeritus",
             "webpage": "",
-            "interests": "Programming language implementations, communications networks."   
+            "interests": "Programming language implementations, communications networks."
         },
         {
             "id": "Laura South",
@@ -166,7 +166,7 @@
             "role": "faculty",
             "title": "Visiting Assistant Professor",
             "webpage": "",
-            "interests": "Human-computer interaction, human-centered design, accessibility."  
+            "interests": "Human-computer interaction, human-centered design, accessibility."
         }
-    ]    
+    ]
 }
