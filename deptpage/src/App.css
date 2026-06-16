@@ -446,8 +446,8 @@ a.nostyle:visited {
 
 .sidebar-course-offerings,
 .frontpage-course-offerings {
-  background-color: var(--color-courses);
-  color: black;
+  background-color: orangered;
+  color: white;
 }
 
 .frontpage-course-offerings:hover {

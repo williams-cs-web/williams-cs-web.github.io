@@ -10,7 +10,7 @@ import frontPageData from '../../data/frontpage.json'
 
 
 const sixMonthsAgo = Date.now() - 6 * 30 * 24 * 60 * 60 * 1000
-const maxColloquiaToShow = 3;
+const maxColloquiaToShow = 5;
 
 
 

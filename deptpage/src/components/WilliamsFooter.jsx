@@ -4,11 +4,11 @@ const WilliamsFooter = () => (
     <div style={{ height: '10px', backgroundColor: '#FFBE0A' }} />
     <div style={{ height: '10px', backgroundColor: '#280050' }} />
     <div className="footer">
-      <div style={{
-        margin: '0px',
-        padding: '20px 0px 0px 20px',
-      }}>
-        <a className="williams-link" href="https://williams.edu">Williams College</a>
+      <div className="pagebody" style={{ display: 'flex', flexFlow: 'row nowrap', paddingRight: '40px' }}>
+        <div style={{ flexGrow: 0, flexShrink: 0, width: '80px' }} />
+        <div style={{ paddingTop: '20px' }}>
+          <a className="williams-link" href="https://williams.edu">Williams College</a>
+        </div>
       </div>
     </div>
   </div>
