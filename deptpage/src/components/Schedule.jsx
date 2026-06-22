@@ -204,7 +204,7 @@ const Schedule = () => {
   const smallFontSize = `${computeFontSize(16)}px`
 
 
-  function handleDragMove(event) {
+  function handleDragEnd(event) {
     const { active, over } = event;
     if (over) {
       moveMajorRequirement(active.id, over.id)
@@ -368,7 +368,7 @@ const Schedule = () => {
       <InfoBox fontSize={largeFontSize} info={getInfo()} warning={getWarning()} error={getError()} />
 
       {schedule.length > 0 ? (
-        <DndContext onDragOver={handleDragMove}>
+        <DndContext onDragEnd={handleDragEnd}>
           <div className="title" style={seasonStyle}>
             <div style={academicYearStyle}>
               {renderYear(1)}
