@@ -244,16 +244,14 @@ const Schedule = () => {
 
   const checkPrereqs = (courseId, taken) => {
     let course = DbServices.getMajorRequirement(courseId)
+    if (!course) return true
     return !course.prereqs ? true : course.prereqs.reduce((acc, curr) => acc && taken.has(curr), true)
   }
 
   const checkRecommendations = (courseId, taken) => {
     let course = DbServices.getMajorRequirement(courseId)
-    if (!course.recommended) {
-      return true
-    } else {
-      return course.recommended.reduce((acc, curr) => acc || taken.has(curr), false)
-    }
+    if (!course || !course.recommended) return true
+    return course.recommended.reduce((acc, curr) => acc || taken.has(curr), false)
   }
 
   const auditSchedule = (schedule) => {
@@ -320,26 +318,20 @@ const Schedule = () => {
   const getInfo = () => {
     if (highlight) {
       let course = DbServices.getMajorRequirement(highlight)
-      return course.info
+      return course?.info ?? defaultInfo
     } else {
       return defaultInfo
     }
   }
 
   const getWarning = () => {
-    if (highlight && warnings.includes(highlight) && DbServices.getMajorRequirement(highlight).warning) {
-      return DbServices.getMajorRequirement(highlight).warning
-    } else {
-      return null
-    }
+    const course = highlight ? DbServices.getMajorRequirement(highlight) : null
+    return (course && warnings.includes(highlight) && course.warning) ? course.warning : null
   }
 
   const getError = () => {
-    if (highlight && violations.includes(highlight) && DbServices.getMajorRequirement(highlight).error) {
-      return DbServices.getMajorRequirement(highlight).error
-    } else {
-      return null
-    }
+    const course = highlight ? DbServices.getMajorRequirement(highlight) : null
+    return (course && violations.includes(highlight) && course.error) ? course.error : null
   }
 
   const academicYearStyle = {
