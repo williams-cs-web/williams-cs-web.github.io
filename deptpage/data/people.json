@@ -49,12 +49,12 @@
             "interests": "Machine learning, machine translation, low-resource natural language processing"
         },
         {
-            "id": "Iris Howley",
-            "photo": "images/people/iris.jpg",
+            "id": "Lucas Rosenblatt",
+            "photo": "images/people/lucas.jpg",
             "role": "faculty",
             "title": "Assistant Professor",
-            "webpage": "http://cs.williams.edu/~iris/",
-            "interests": "Human-Computer Interaction, technology enhanced learning environments, computer-supported collaborative learning, information visualization, automated linguistic analysis for education."
+            "webpage": "",
+            "interests": "Responsible AI."
         },
         {
             "id": "William Jannen",

@@ -1,15 +1,14 @@
 {
-    "spotlight":
-        {
-            "photo": "images/misc/mounthope.png",
-            "caption": "Graduation event at Mount Hope, May 29 2024"
-        },
+    "spotlight": {
+        "photo": "images/misc/babydeer.png",
+        "caption": "Graduation event at Mount Hope, May 29 2024"
+    },
     "content": [
         {
             "component": "FromTheDepartment"
         },
         {
-            "title": "welcome to computer science at williams!",
+            "title": "hello from computer science at williams!",
             "article": "articles/welcome.md"
         }
     ]

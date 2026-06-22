@@ -69,18 +69,23 @@
             "error": "CSCI 256 has both CSCI 136 and CSCI 200 as prerequisites."
         },
         {
-            "id": "CSCI 334/361",
-            "title": "Principles of Programming Languages/Theory of Computation",
+            "id": "CSCI 270",
+            "title": "Algorithm Design and Analysis",
             "prereqs": [
-                "MATH 200",
-                "CSCI 136"
+                "CSCI 136",
+                "MATH 200"
             ],
-            "recommended": [
-                "CSCI 256"
+            "info": "CSCI 270 (Foundations of Artificial Intelligence) is a core course. Majors are encouraged to complete all core courses by the end of their junior year in order to ensure that they have the appropriate prerequisites for the electives.",
+            "error": "CSCI 270 has both CSCI 136 and CSCI 200 as prerequisites."
+        },
+        {
+            "id": "CSCI 320-349",
+            "title": "Systems Elective",
+            "prereqs": [
+                "CSCI 237"
             ],
-            "info": "You must take at least one of CSCI 334 (Principles of Programming Languages) or CSCI 361 (Theory of Computation).",
-            "warning": "Note: CSCI 361 has CSCI 256 as a prerequisite.",
-            "error": "Both courses have CSCI 136 and MATH 200 as prerequisites."
+            "info": "You must take at least one systems elective.",
+            "error": "Systems electives typically have CSCI 237 as a prerequisite."
         },
         {
             "id": "MATH 2xx",
@@ -90,18 +95,22 @@
             "error": ""
         },
         {
-            "id": "CSCI 3xx(1)",
-            "title": "Computer Science Elective 1",
+            "id": "CSCI 350-369",
+            "title": "Theory Elective",
             "prereqs": [
-                "CSCI 136"
-            ],
-            "recommended": [
-                "CSCI 237",
                 "CSCI 256"
             ],
-            "info": "A course chosen from 300- or 400-level courses in Computer Science. Important note: Computer Science courses with 9 as the middle digit (reading, research, and thesis courses) normally cannot be used to satisfy the elective requirements.",
-            "warning": "Most electives have either 237 or 256 as a prerequisite.",
-            "error": "All electives have 136 as a prerequisite."
+            "info": "You must take at least one theory elective.",
+            "error": "Theory electives typically have CSCI 256 as a prerequisite."
+        },
+        {
+            "id": "CSCI 370-389",
+            "title": "Artificial Intelligence Elective",
+            "prereqs": [
+                "CSCI 270"
+            ],
+            "info": "You must take at least one theory elective.",
+            "error": "Artificial Intelligence electives typically have CSCI 270 as a prerequisite."
         },
         {
             "id": "CSCI 3xx(2)",
@@ -173,7 +182,7 @@
                     "semester": "2a",
                     "courses": [
                         "CSCI 237",
-                        "MATH 2xx"
+                        "CSCI 270"
                     ]
                 },
                 {
@@ -185,19 +194,19 @@
                 {
                     "semester": "3a",
                     "courses": [
-                        "CSCI 334/361"
+                        "CSCI 320-349"
                     ]
                 },
                 {
                     "semester": "3b",
                     "courses": [
-                        "CSCI 3xx(1)"
+                        "CSCI 350-369"
                     ]
                 },
                 {
                     "semester": "4a",
                     "courses": [
-                        "CSCI 3xx(2)"
+                        "CSCI 370-389"
                     ]
                 },
                 {

@@ -21,7 +21,7 @@
             "bio": "Christine Bassem is the Anchor Point Assistant Professor of Computer Science at Wellesley College. Her broad research interests are in mechanism and algorithm design in dynamic distributed systems, including mobile crowd, ad-hoc, and transport networks.  Her current research is on the optimization of incentive-compatible mechanisms for coordinating the mobility of crowds in spatio-temporal networks, such as those found in mobile crowdsensing and ride sharing platforms, with a focus on incentives, quality-of-work, reliability, and privacy."
         },
         {
-            "date": "March 1, 2027",
+            "date": "March 1, 2024",
             "speaker": "Alexa VanHattum",
             "affiliation": "Wellesley College",
             "title": "Lightweight, Modular Verification for Systems Compilers",
