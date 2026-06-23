@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { DndContext } from '@dnd-kit/core';
 import { useDroppable } from '@dnd-kit/core';
 import { useDraggable } from '@dnd-kit/core';
@@ -111,22 +111,15 @@ const Semester = (props) => {
       flexGrow: 1,
       flexShrink: 1,
       padding: "10px",
+      minHeight: '60px',
+      backgroundColor: isOver ? '#f0f4ff' : undefined,
     }}>
       <div style={{
         display: 'flex',
-        flexFlow: 'row nowrap',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-        alignContent: 'center',
+        flexFlow: 'column nowrap',
+        gap: '4px',
       }}>
-        {props.children.map((child) => (
-          <div key={child.key} style={{
-            flexGrow: 0,
-            flexShrink: 0,
-          }}>
-            {child}
-          </div>
-        ))}
+        {props.children}
       </div>
     </div>
   )
@@ -174,6 +167,8 @@ const Schedule = () => {
   const [containerWidth, setContainerWidth] = useState(600)
 
   const containerRef = useRef()
+  const fallRowRef = useRef()
+  const springRowRef = useRef()
 
   const prebakedSchedules = DbServices.getMajorPaths()
 
@@ -189,6 +184,18 @@ const Schedule = () => {
     ro.observe(containerRef.current);
     return () => ro.disconnect();
   }, [])
+
+  useLayoutEffect(() => {
+    if (!fallRowRef.current || !springRowRef.current) return
+    fallRowRef.current.style.height = ''
+    springRowRef.current.style.height = ''
+    const h = Math.max(
+      fallRowRef.current.scrollHeight,
+      springRowRef.current.scrollHeight
+    )
+    fallRowRef.current.style.height = `${h}px`
+    springRowRef.current.style.height = `${h}px`
+  }, [schedule, containerWidth])
 
   const handleScheduleChange = (current) => {
     let schedule = prebakedSchedules[current].path
@@ -288,32 +295,37 @@ const Schedule = () => {
 
 
 
-  const renderSemester = (sem) => (
-    <Semester
-      key={sem.semester}
-      id={sem.semester}
-      title={sem.semester}
-      titleAlt={sem.semester}
-      style={{
-        width: 0.4 * containerWidth,
-        flexGrow: 1,
-        flexShrink: 1,
-      }}>
-      {sem.courses.map(course => (
-        <div key={course}>
-          <MajorRequirement
-            key={course}
-            id={course}
-            largeFontSize={largeFontSize}
-            smallFontSize={smallFontSize}
-            className={getRequirementClassName(course)}
-            issue={violations.includes(course)}
-            onClick={courseId => setHighlight(courseId)}
-          />
-        </div>
-      ))}
-    </Semester>
-  )
+  const renderSemester = (sem, widthFraction = 0.2) => {
+    const sizeFactor = Math.min(1, 3 / Math.max(sem.courses.length, 1))
+    const semLargeFontSize = `${computeFontSize(24 * sizeFactor)}px`
+    const semSmallFontSize = `${computeFontSize(16 * sizeFactor)}px`
+    return (
+      <Semester
+        key={sem.semester}
+        id={sem.semester}
+        title={sem.semester}
+        titleAlt={sem.semester}
+        style={{
+          width: widthFraction * containerWidth,
+          flexGrow: 1,
+          flexShrink: 1,
+        }}>
+        {sem.courses.map(course => (
+          <div key={course}>
+            <MajorRequirement
+              key={course}
+              id={course}
+              largeFontSize={semLargeFontSize}
+              smallFontSize={semSmallFontSize}
+              className={getRequirementClassName(course)}
+              issue={violations.includes(course)}
+              onClick={courseId => setHighlight(courseId)}
+            />
+          </div>
+        ))}
+      </Semester>
+    )
+  }
 
   const getInfo = () => {
     if (highlight) {
@@ -334,31 +346,25 @@ const Schedule = () => {
     return (course && violations.includes(highlight) && course.error) ? course.error : null
   }
 
-  const academicYearStyle = {
+  const rowStyle = {
     display: 'flex',
     flexFlow: 'row nowrap',
     borderTopStyle: 'solid',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    alignContent: 'flex-start'
   }
 
-  const seasonStyle = {
-    padding: '10px',
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignContent: 'center'
-  }
+  const labelWidth = 0.08 * containerWidth
 
-  const renderYear = (number) => (
-    <Year
-      number={number}
-      largeFontSize={largeFontSize}
-      smallFontSize={smallFontSize}
-      style={{ width: .1 * containerWidth }}
-    />
+  const renderSeasonLabel = (name) => (
+    <div className="title" style={{
+      width: labelWidth,
+      flexShrink: 0,
+      textAlign: 'center',
+      alignSelf: 'center',
+      fontSize: largeFontSize,
+      padding: '4px',
+    }}>
+      {name}
+    </div>
   )
 
   return (
@@ -369,25 +375,30 @@ const Schedule = () => {
 
       {schedule.length > 0 ? (
         <DndContext onDragEnd={handleDragEnd}>
-          <div className="title" style={seasonStyle}>
-            <div style={academicYearStyle}>
-              {renderYear(1)}
+          <div className="title" style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+            {/* Year header row */}
+            <div style={{ display: 'flex', flexFlow: 'row nowrap', paddingLeft: `${labelWidth}px` }}>
+              {[1, 2, 3, 4].map(n => (
+                <div key={n} style={{ flexGrow: 1, flexShrink: 1, flexBasis: `${0.2 * containerWidth}px`, textAlign: 'center' }}>
+                  <div style={{ fontSize: smallFontSize }}>year</div>
+                  <div style={{ fontSize: largeFontSize }}>{n}</div>
+                </div>
+              ))}
+            </div>
+            {/* Fall row */}
+            <div ref={fallRowRef} style={rowStyle}>
+              {renderSeasonLabel('fall')}
               {renderSemester(schedule[1])}
-              {renderSemester(schedule[2])}
-            </div>
-            <div style={academicYearStyle}>
-              {renderYear(2)}
               {renderSemester(schedule[3])}
-              {renderSemester(schedule[4])}
-            </div>
-            <div style={academicYearStyle}>
-              {renderYear(3)}
               {renderSemester(schedule[5])}
-              {renderSemester(schedule[6])}
-            </div>
-            <div style={academicYearStyle}>
-              {renderYear(4)}
               {renderSemester(schedule[7])}
+            </div>
+            {/* Spring row */}
+            <div ref={springRowRef} style={rowStyle}>
+              {renderSeasonLabel('spr')}
+              {renderSemester(schedule[2])}
+              {renderSemester(schedule[4])}
+              {renderSemester(schedule[6])}
               {renderSemester(schedule[8])}
             </div>
           </div>
