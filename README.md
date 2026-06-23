@@ -9,15 +9,15 @@ To make the webpage easier to update and maintain, much of the content is separa
 
 ### Modifying the spotlight photo on the front page:
 
-1. Put a **landscape photo with a 4:3 aspect ratio** in the `deptpage/images/misc/` directory.
+1. Put a **landscape photo** in the `deptpage/images/misc/` directory.
 
-2. Update the `photo` field in `deptpage/data/frontpage.json` to point to the file. The path should be relative to the `deptpage` directory.
+2. Update the `photo` field in `deptpage/data/frontpage.json` to point to the file. The path should be relative to the `deptpage` directory, e.g. if the photo is called `photo.png`, then the path would be `images/misc/photo.png`.
 
 3. Update the `caption` field in `deptpage/data/frontpage.json` with an appropriate caption.
 
 ### Adding a person to the About Us page:
 
-1. Put a square photo (any format, but typically JPG or PNG) of the person in the `deptpage/images/people/` directory.
+1. Put a square photo (most formats are supported, but certainly JPG or PNG will work) of the person in the `deptpage/images/people/` directory.
 
 2. Add a new item to the `people` field of `deptpage/data/people.json`. Here is an example:
 
