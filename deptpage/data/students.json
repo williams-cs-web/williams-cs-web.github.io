@@ -3,53 +3,38 @@
         {
             "abbreviation": "CoSSAC",
             "name": "Computer Science Student Activities/Advisory Committee",
-            "description": "CoSSAC (Computer Science Student Activities/Advisory Committee) organizes activities, brings issues of importance to students to the department, and provides student input to the department on hiring and other issues.  CoSSAC organizes and hosts the Monday night snacks, as well as other social (e.g. departmental T-shirt design) and educational activities (e.g. mini-tutorials for students during WSP on technology-related topics).  During years when the department is hiring, CoSSAC meets with candidates and provides student input to the department about candidates.  CoSSAC is limited only by their own imaginations (and available department funds!).",
+            "description": "CoSSAC (Computer Science Student Activities/Advisory Committee) organizes activities, brings issues of importance to students to the department, and provides student input to the department on hiring and other issues.  CoSSAC organizes and hosts the Monday night snacks, as well as other social (e.g. departmental T-shirt design) and educational activities (e.g. mini-tutorials for students during WSP on technology-related topics).  During years when the department is hiring, CoSSAC meets with candidates and provides student input to the department about candidates.  CoSSAC is limited only by their own imaginations (and available department funds!). For more information, visit the official CoSSAC website: https://sites.google.com/williams.edu/cossac/home.",
             "webpage": "https://sites.google.com/williams.edu/cossac/home",
             "leadership": [
                 {
-                    "name": "Ye Shu",
-                    "year": "2024",
-                    "photo": "/images/students/shu.jpeg"
-                },
-                {
-                    "name": "Emma Caruso",
-                    "year": "2024",
-                    "photo": "/images/students/caruso.jpeg"
-                },
-                {
-                    "name": "Aiden Pham",
-                    "year": "2024",
-                    "photo": "/images/students/pham.jpeg"
-                },
-                {
-                    "name": "Maddy Anderson",
-                    "year": "2025",
-                    "photo": "/images/students/anderson.jpeg"
-                },
-                {
-                    "name": "Himal Pandey",
-                    "year": "2025",
-                    "photo": "/images/students/pandey.jpeg"
-                },
-                {
-                    "name": "Jess Hu",
-                    "year": "2025",
-                    "photo": "/images/students/hu.jpeg"
-                },
-                {
-                    "name": "Timothy Kim",
+                    "name": "Tashrique Ahmed",
                     "year": "2026",
-                    "photo": "/images/students/kim.jpeg"
+                    "photo": "/images/students/tashrique.jpg"
                 },
                 {
-                    "name": "Tanatswa Manyakara",
-                    "year": "2026",
-                    "photo": "/images/students/manyakara.jpeg"
+                    "name": "Emmanuel Ekpenyong",
+                    "year": "2028",
+                    "photo": "/images/students/ekpenyong.jpg"
                 },
                 {
-                    "name": "Sam Wexler",
+                    "name": "Nathaniel Flores",
+                    "year": "2027",
+                    "photo": "/images/students/flores.jpg"
+                },
+                {
+                    "name": "Marcus Lee",
                     "year": "2026",
-                    "photo": "/images/students/wexler.jpeg"
+                    "photo": "/images/students/marcuslee.jpg"
+                },
+                {
+                    "name": "Fajr Rauf",
+                    "year": "2028",
+                    "photo": "/images/students/rauf.jpg"
+                },
+                {
+                    "name": "Denis Sotnichenko",
+                    "year": "2027",
+                    "photo": "/images/students/sotnichenko.jpg"
                 }
             ]
         },
