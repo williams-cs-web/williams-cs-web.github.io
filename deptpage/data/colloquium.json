@@ -27,6 +27,44 @@
             "bio": ""
         },
         {
+            "date": "October 2, 2026",
+            "speaker": "CS Students",
+            "affiliation": "Williams College",
+            "photo": "/images/colloquium/chambers-lee-ssr-poster-session.jpg",
+            "title": "What I Did Last Summer (Research Edition)",
+            "abstract": "Short presentations by your fellow CS students about their summer research experiences. CS Colloquium credit awarded for attendance.",
+            "bio": ""
+        },
+        {
+            "date": "October 9, 2026",
+            "speaker": "CS Students",
+            "affiliation": "Williams College",
+            "photo": "/images/colloquium/code.png",
+            "title": "What I Did Last Summer (Industry Edition)",
+            "abstract": "Short presentations by your fellow CS students about internship experiences in industry. CS Colloquium credit awarded for attendance.",
+            "bio": ""
+        },
+        {
+            "date": "October 23, 2026",
+            "speaker": "CS Faculty",
+            "affiliation": "Williams College",
+            "photo": "/images/colloquium/fish.png",
+            "title": "Preregistration Infosession",
+            "abstract": "Learn about computer science classes that will be offered in Spring 2027 and meet the professors. Colloquium credit awarded for attendance.",
+            "bio": ""
+        },
+        {
+            "date": "October 29, 2026",
+            "speaker": "Anna Plantinga",
+            "affiliation": "Statistics Department, Williams College",
+            "photo": "/images/colloquium/plantinga.jpg",
+            "time": "1pm",
+            "location": "Bronfman Auditorium",
+            "title": "",
+            "abstract": "",
+            "bio": ""
+        },
+        {
             "date": "November 12, 2026",
             "time": "7pm",
             "location": "Bronfman Auditorium",
