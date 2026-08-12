@@ -11,24 +11,23 @@
             "id": "article-laura-south",
             "date": "August 5, 2024",
             "title": "Faculty Spotlight: Laura South",
-            "photo": "images/people/laura.jpg",
+            "photo": "/images/people/laura.jpg",
             "article": "articles/laura-south-spotlight.md"
         },
         {
             "id": "article-purdue-data",
             "date": "December 5, 2023",
             "title": "Williams CS Majors Place 3rd in Purdue Data 4 Good Competition",
-            "photo": "images/misc/purdue-data.jpg",
+            "photo": "/images/misc/purdue-data.jpg",
             "article": "articles/purdue-data.md",
-            "teaser": "Williams CS Majors get third place in a data science competition held at Purdue University"            
+            "teaser": "Williams CS Majors get third place in a data science competition held at Purdue University"
         },
         {
             "id": "article-andrea-memorial-minute",
             "date": "April 13, 2022",
             "title": "A Memorial Minute for Andrea P. Danyluk",
-            "photo": "images/misc/danyluk-memorial.png",
+            "photo": "/images/misc/danyluk-memorial.jpg",
             "article": "articles/andrea-memorial-minute.md"
         }
-        
     ]
 }

@@ -8,36 +8,85 @@ import DbServices from '../services/db.js'
 
 
 
-const ScheduleChooser = ({ onClick, largeFontSize, smallFontSize }) => {
+const ScheduleChooser = ({ current, onSelect, largeFontSize, smallFontSize, stacked, matchHeight }) => {
 
-  const [current, setCurrent] = useState(0)
   const paths = DbServices.getMajorPaths()
 
+  const boxRef = useRef()
+  const contentRef = useRef()
+  const [fontScale, setFontScale] = useState(1)
+
+  const capHeight = !stacked && matchHeight > 0
+
   useEffect(() => {
-    onClick(current)
-  }, [current])
+    setFontScale(1)
+  }, [capHeight, matchHeight, largeFontSize, smallFontSize, paths.length])
+
+  useLayoutEffect(() => {
+    if (!capHeight) return
+    const box = boxRef.current
+    const content = contentRef.current
+    if (!box || !content) return
+
+    const available = box.clientHeight
+    const natural = content.scrollHeight
+    if (available > 0 && natural > available) {
+      setFontScale(prev => Math.max(0.5, prev * (available / natural) * 0.97))
+    }
+  })
+
+  const CHOOSER_FONT_BOOST = 1.4
+  const chooserLargeFontSize = `${parseFloat(largeFontSize) * CHOOSER_FONT_BOOST * fontScale}px`
+  const chooserSmallFontSize = `${parseFloat(smallFontSize) * CHOOSER_FONT_BOOST * fontScale}px`
 
   const renderPathDescription = (pathIndex) => (
-    <div key={`major-path-${pathIndex}`} onClick={() => setCurrent(pathIndex)} style={{ borderStyle: current === pathIndex ? 'solid' : 'none', flexGrow: 1, flexShrink: 1 }}>
+    <div
+      key={`major-path-${pathIndex}`}
+      onClick={() => onSelect(pathIndex)}
+      style={{
+        borderStyle: current === pathIndex ? 'solid' : 'none',
+        padding: '5px',
+        flexGrow: stacked ? 1 : 0,
+        flexShrink: stacked ? 1 : 0,
+      }}>
       <div>{paths[pathIndex].icon}</div>
       <div>{paths[pathIndex].id}</div>
-      <div style={{ fontSize: smallFontSize }}>{paths[pathIndex].description}</div>
+      <div style={{ fontSize: chooserSmallFontSize }}>{paths[pathIndex].description}</div>
     </div>
   )
 
-  return (<>
-    <div className="plaintext" style={{
-      display: 'flex',
-      fontSize: largeFontSize,
-      gap: '10px',
-      padding: '5px',
-    }}>
-      <div className="plan-your-major-choose-your-path" style={{ flexShrink: 1, alignSelf: 'center', width: '25%' }}>
-        choose your path:
+  return (
+    <div
+      ref={boxRef}
+      className="plaintext"
+      style={{
+        fontSize: chooserLargeFontSize,
+        padding: '5px',
+        paddingLeft: '0px',
+        boxSizing: 'border-box',
+        flexBasis: stacked ? 'auto' : '21%',
+        flexGrow: 0,
+        flexShrink: 0,
+        width: stacked ? '100%' : undefined,
+        minWidth: stacked ? 0 : '160px',
+        maxWidth: stacked ? 'none' : '230px',
+        height: capHeight ? `${matchHeight}px` : undefined,
+        overflow: capHeight ? 'hidden' : undefined,
+      }}>
+      <div
+        ref={contentRef}
+        style={{
+          display: 'flex',
+          flexFlow: stacked ? 'row nowrap' : 'column nowrap',
+          gap: '10px',
+        }}>
+        <div className="plan-your-major-choose-your-path" style={{ alignSelf: stacked ? 'center' : undefined }}>
+          choose your path:
+        </div>
+        {[...Array(paths.length).keys()].map((i) => renderPathDescription(i))}
       </div>
-      {[...Array(paths.length).keys()].map((i) => renderPathDescription(i))}
     </div>
-  </>)
+  )
 }
 
 function Year({ number, style, largeFontSize, smallFontSize }) {
@@ -60,14 +109,37 @@ function MajorRequirement(props) {
   const number = props.id.split(' ')[1].split('(')[0]
 
   const containerRef = useRef()
+  const labelRef = useRef()
+  const [labelScale, setLabelScale] = useState(1)
 
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: props.id,
   });
 
+  useLayoutEffect(() => {
+    const el = labelRef.current
+    if (!el || !el.parentElement) return
+
+    const measure = () => {
+      const available = el.parentElement.clientWidth
+      const natural = el.scrollWidth
+      if (available > 0 && natural > 0) {
+        setLabelScale(Math.min(1, (available / natural) * 0.96))
+      }
+    }
+
+    measure()
+
+    const ro = new ResizeObserver(measure)
+    ro.observe(el.parentElement)
+    return () => ro.disconnect()
+  }, [props.largeFontSize, props.id])
+
   const basicStyle = {
     width: '100%',
+    boxSizing: 'border-box',
     borderStyle: 'solid',
+    borderWidth: '1px',
     display: 'flex',
     flexFlow: 'row nowrap',
     justifyContent: 'flex-start',
@@ -86,10 +158,21 @@ function MajorRequirement(props) {
   return (
     <div ref={containerRef}>
       <div className={props.className} ref={setNodeRef} style={style} {...listeners} {...attributes}>
-        <div onMouseDown={() => props.onClick(props.id)} style={{
-          flexGrow: 1,
-          flexShrink: 1,
-        }}>
+        <div
+          ref={labelRef}
+          onMouseDown={() => props.onClick(props.id)}
+          style={{
+            flexGrow: 1,
+            flexShrink: 1,
+            display: 'flex',
+            flexFlow: 'row nowrap',
+            justifyContent: 'center',
+            alignItems: 'baseline',
+            gap: '4px',
+            whiteSpace: 'nowrap',
+            transform: `scale(${labelScale})`,
+            transformOrigin: 'left center',
+          }}>
           <div className="plan-your-major-dept" style={{ fontSize: props.largeFontSize }}>{dept}</div>
           <div className="plan-your-major-course-number" style={{ fontSize: props.largeFontSize }}>{number}</div>
         </div>
@@ -132,6 +215,28 @@ const InfoBox = ({ info, warning, error, fontSize }) => {
       (warning ? "plan-your-major-infobox-warning" : "plan-your-major-infobox")
   )
 
+  const boxRef = useRef()
+  const contentRef = useRef()
+  const [fontScale, setFontScale] = useState(1)
+
+  useEffect(() => {
+    setFontScale(1)
+  }, [info, warning, error, fontSize])
+
+  useLayoutEffect(() => {
+    const box = boxRef.current
+    const content = contentRef.current
+    if (!box || !content) return
+
+    const available = box.clientHeight
+    const natural = content.scrollHeight
+    if (available > 0 && natural > available) {
+      setFontScale(prev => Math.max(0.5, prev * (available / natural) * 0.97))
+    }
+  })
+
+  const contentFontSize = `${parseFloat(fontSize) * fontScale}px`
+
   const renderWarning = () => (
     warning ?
       <span className="plan-your-major-infobox-warning-text">{warning}
@@ -145,11 +250,14 @@ const InfoBox = ({ info, warning, error, fontSize }) => {
   )
 
   return (
-    <div className={boxClass} style={{
-      fontSize: fontSize
+    <div ref={boxRef} className={boxClass} style={{
+      fontSize: contentFontSize,
+      overflow: 'hidden',
     }}>
       <div className="centered">
-        {info} {renderWarning()} {renderError()}
+        <div ref={contentRef}>
+          {info} {renderWarning()} {renderError()}
+        </div>
       </div>
     </div>
   )
@@ -164,22 +272,42 @@ const Schedule = () => {
   const [violations, setViolations] = useState([])
   const [warnings, setWarnings] = useState([])
   const [highlight, setHighlight] = useState(null)
+  const [currentPath, setCurrentPath] = useState(0)
   const [containerWidth, setContainerWidth] = useState(600)
+  const [contentHeight, setContentHeight] = useState(0)
+  const [outerWidth, setOuterWidth] = useState(900)
 
+  const outerRef = useRef()
   const containerRef = useRef()
   const fallRowRef = useRef()
   const springRowRef = useRef()
 
   const prebakedSchedules = DbServices.getMajorPaths()
 
+  const STACK_BREAKPOINT = 600
+  const stacked = outerWidth < STACK_BREAKPOINT
+
   useEffect(() => {
-    setSchedule(prebakedSchedules[0].path);
+    const schedule = prebakedSchedules[currentPath].path
+    setSchedule(schedule)
+    auditSchedule(schedule)
+    setHighlight(null)
+  }, [currentPath])
+
+  useEffect(() => {
+    if (!outerRef.current) return;
+    const ro = new ResizeObserver(([entry]) => {
+      setOuterWidth(entry.contentRect.width);
+    });
+    ro.observe(outerRef.current);
+    return () => ro.disconnect();
   }, [])
 
   useEffect(() => {
     if (!containerRef.current) return;
     const ro = new ResizeObserver(([entry]) => {
       setContainerWidth(entry.contentRect.width);
+      setContentHeight(entry.contentRect.height);
     });
     ro.observe(containerRef.current);
     return () => ro.disconnect();
@@ -196,13 +324,6 @@ const Schedule = () => {
     fallRowRef.current.style.height = `${h}px`
     springRowRef.current.style.height = `${h}px`
   }, [schedule, containerWidth])
-
-  const handleScheduleChange = (current) => {
-    let schedule = prebakedSchedules[current].path
-    setSchedule(schedule)
-    auditSchedule(schedule);
-    setHighlight(null)
-  }
 
   const computeFontSize = (maxSize) => {
     return Math.min(maxSize, (containerWidth / 600) * maxSize)
@@ -368,42 +489,52 @@ const Schedule = () => {
   )
 
   return (
-    <div ref={containerRef} style={{ width: '100%' }}>
+    <div style={{ width: '100%' }}>
+      <div ref={outerRef} style={{ width: '100%', display: 'flex', flexFlow: stacked ? 'column nowrap' : 'row nowrap', alignItems: stacked ? 'stretch' : 'flex-start' }}>
 
-      <ScheduleChooser largeFontSize={largeFontSize} smallFontSize={smallFontSize} onClick={handleScheduleChange} />
-      <InfoBox fontSize={largeFontSize} info={getInfo()} warning={getWarning()} error={getError()} />
+        {stacked ? null : (
+          <ScheduleChooser stacked={stacked} matchHeight={contentHeight} largeFontSize={largeFontSize} smallFontSize={smallFontSize} current={currentPath} onSelect={setCurrentPath} />
+        )}
 
-      {schedule.length > 0 ? (
-        <DndContext onDragEnd={handleDragEnd}>
-          <div className="title" style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-            {/* Year header row */}
-            <div style={{ display: 'flex', flexFlow: 'row nowrap', paddingLeft: `${labelWidth}px` }}>
-              {[1, 2, 3, 4].map(n => (
-                <div key={n} style={{ flexGrow: 1, flexShrink: 1, flexBasis: `${0.2 * containerWidth}px`, textAlign: 'center' }}>
-                  <div style={{ fontSize: smallFontSize }}>year</div>
-                  <div style={{ fontSize: largeFontSize }}>{n}</div>
+        <div ref={containerRef} style={{ flexGrow: 1, flexShrink: 1, minWidth: 0 }}>
+          <InfoBox fontSize={largeFontSize} info={getInfo()} warning={getWarning()} error={getError()} />
+
+          {schedule.length > 0 ? (
+            <DndContext onDragEnd={handleDragEnd}>
+              <div className="title" style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+                {/* Year header row */}
+                <div style={{ display: 'flex', flexFlow: 'row nowrap', paddingLeft: `${labelWidth}px` }}>
+                  {[1, 2, 3, 4].map(n => (
+                    <div key={n} style={{ flexGrow: 1, flexShrink: 1, flexBasis: `${0.2 * containerWidth}px`, textAlign: 'center' }}>
+                      <div style={{ fontSize: smallFontSize }}>year</div>
+                      <div style={{ fontSize: largeFontSize }}>{n}</div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            {/* Fall row */}
-            <div ref={fallRowRef} style={rowStyle}>
-              {renderSeasonLabel('fall')}
-              {renderSemester(schedule[1])}
-              {renderSemester(schedule[3])}
-              {renderSemester(schedule[5])}
-              {renderSemester(schedule[7])}
-            </div>
-            {/* Spring row */}
-            <div ref={springRowRef} style={rowStyle}>
-              {renderSeasonLabel('spr')}
-              {renderSemester(schedule[2])}
-              {renderSemester(schedule[4])}
-              {renderSemester(schedule[6])}
-              {renderSemester(schedule[8])}
-            </div>
-          </div>
-        </DndContext>
-      ) : null}
+                {/* Fall row */}
+                <div ref={fallRowRef} style={rowStyle}>
+                  {renderSeasonLabel('fall')}
+                  {renderSemester(schedule[1])}
+                  {renderSemester(schedule[3])}
+                  {renderSemester(schedule[5])}
+                  {renderSemester(schedule[7])}
+                </div>
+                {/* Spring row */}
+                <div ref={springRowRef} style={rowStyle}>
+                  {renderSeasonLabel('spr')}
+                  {renderSemester(schedule[2])}
+                  {renderSemester(schedule[4])}
+                  {renderSemester(schedule[6])}
+                  {renderSemester(schedule[8])}
+                </div>
+              </div>
+            </DndContext>
+          ) : null}
+        </div>
+      </div>
+      <div className="plaintext" style={{ fontSize: smallFontSize, padding: '5px', opacity: 0.7 }}>
+        {DbServices.getMajorPlanningDisclaimer()}
+      </div>
     </div>
   )
 

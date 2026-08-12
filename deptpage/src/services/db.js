@@ -67,6 +67,10 @@ const getPlanYourMajorContent = () => {
   return majorData.content
 }
 
+const getMajorPlanningDisclaimer = () => {
+  return majorData.disclaimer
+}
+
 const getLastName = (name) => {
   const fields = name.split(' ')
   const first = fields[0]
@@ -86,6 +90,19 @@ const getPeopleByRole = (role) => {
   return getPeople().filter(person =>
     person.role === role
   )
+}
+
+const nameEndpoints = (name) => {
+  const parts = name.trim().split(/\s+/)
+  return { first: parts[0], last: parts[parts.length - 1] }
+}
+
+const getPersonByName = (name) => {
+  const { first, last } = nameEndpoints(name)
+  return people.people.find(person => {
+    const personEndpoints = nameEndpoints(person.id)
+    return personEndpoints.first === first && personEndpoints.last === last
+  })
 }
 
 const getStudentGroups = () => {
@@ -114,8 +131,10 @@ export default {
   getMajorRequirement,
   getMajorPaths,
   getPlanYourMajorContent,
+  getMajorPlanningDisclaimer,
   getPeople,
   getPeopleByRole,
+  getPersonByName,
   getCatalog,
   getCourseSections,
   getCourseById,

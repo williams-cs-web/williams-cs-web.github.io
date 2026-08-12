@@ -1,22 +1,22 @@
 {
     "events": [
         {
-            "date": "May 3, 2027",
+            "date": "May 3, 2024",
             "speaker": "Melanie Subbiah",
             "affiliation": "Columbia University",
             "title": "How did we get here?: The Rise of Large Language Models and the Problem of Evaluation",
-            "photo": "images/colloquium/subbiah.jpeg",
+            "photo": "/images/colloquium/subbiah.jpeg",
             "abstract": "Large Language Models (LLMs) have permeated almost every field, but given their rapid rise and the breadth of their applications, we are still figuring out how to evaluate how good they really are at nuanced language tasks like summarization. In the first half of the talk, we will walk through the evolution of LLMs, focusing on an intuitive understanding of what makes them different, how they work, and why they work so well. Then, we will close with more recent work on evaluating LLMs in conjunction with domain experts in creative writing and psychology to determine what problems remain.",
             "bio": "Melanie Subbiah '17 is a 4th year Computer Science PhD student, advised in Natural Language Processing by Kathleen McKeown at Columbia University. Her research is focused on narrative understanding and summarization using Large Language Models. Prior to starting graduate school, she worked at OpenAI on ChatGPT’s predecessor, GPT-3. She is one of the first authors on the GPT-3 paper, which won a Best Paper award at NeurIPS 2020 and has been cited over 20,000 times. Melanie found her interest in language models by looking for ways to combine her love of reading and writing fiction with her love of computer science (something she first explored in her undergraduate thesis at Williams College!)."
         },
         {
-            "date": "April 12, 2027",
+            "date": "April 12, 2024",
             "speaker": "Christine Bassem",
             "affiliation": "Wellesley College",
             "location": "Bronfman Auditorium",
             "time": "1pm",
             "title": "Towards Mobility Coordination in Participatory Crowdsensing Platforms",
-            "photo": "images/colloquium/bassem.png",
+            "photo": "/images/colloquium/bassem.png",
             "abstract": "With the recent advances in mobile crowdsensing, participating self-motivated crowds already roaming in a mobility field can assist in the collection of sensing data. One of the main challenging aspects of participatory crowdsensing is that crowd participation is voluntary and unpredictable. In our work, we aim to develop solutions that coordinate the participation of crowds in such platforms; in terms of their mobility, reliability, and privacy, with an objective of incentivizing crowds to reliably participate in the sensing process. Thus, leveraging their collective efforts to optimize the performance of the system as a whole. In this talk, I will present an overview of the solutions developed, in the CrowdNets lab, towards mobility coordination and the evaluation of participatory crowdsensing mechanisms.",
             "bio": "Christine Bassem is the Anchor Point Assistant Professor of Computer Science at Wellesley College. Her broad research interests are in mechanism and algorithm design in dynamic distributed systems, including mobile crowd, ad-hoc, and transport networks.  Her current research is on the optimization of incentive-compatible mechanisms for coordinating the mobility of crowds in spatio-temporal networks, such as those found in mobile crowdsensing and ride sharing platforms, with a focus on incentives, quality-of-work, reliability, and privacy."
         },
@@ -25,9 +25,56 @@
             "speaker": "Alexa VanHattum",
             "affiliation": "Wellesley College",
             "title": "Lightweight, Modular Verification for Systems Compilers",
-            "photo": "images/colloquium/vanhattum.png",
+            "photo": "/images/colloquium/vanhattum.png",
             "abstract": "Language-level system guarantees—like runtime isolation for WebAssembly modules—are only as strong as the compiler that produces a native-machine-specific executable. Subtle wrong-code bugs in the compiler can introduce serious security flaws. In this talk, I’ll describe Crocus, our system for lightweight, modular verification of instruction-lowering rules in Cranelift, an industry WebAssembly compiler. Crocus reproduces known bugs (including a 9.9/10 severity security bug) and identifies previously-unknown bugs and underspecified compiler invariants. More broadly, I’ll discuss how integrating lightweight formal methods can free systems engineers from having to choose between prioritizing efficiency and correctness.",
             "bio": "Alexa VanHattum is an Assistant Professor of Computer Science at Wellesley College. Her research sits at the intersection of programming languages and systems, with a focus on applying lightweight formal methods to the compiler stack. She recently received her PhD from Cornell University, where she was an NSF Graduate Research Fellow. She holds a BS from Brown University and has previously worked on Rust verification at AWS and health software at Apple."
+        },
+        {
+            "date": "September 18, 2026",
+            "speaker": "Quanquan Liu",
+            "affiliation": "Yale University",
+            "photo": "/images/colloquium/quanquanliu.jpg",
+            "title": "",
+            "abstract": "",
+            "bio": "Quanquan Liu is an Assistant Professor of Computer Science at Yale University. Her research focuses on the theory and practice of algorithms for large-scale data, including dynamic, distributed, and parallel graph algorithms, high-performance computing, differential privacy, and Byzantine-resilient algorithms. Before joining Yale, Liu was an Apple Research Fellow at the Simons Institute at UC Berkeley and held postdoctoral positions at Northwestern University and MIT. She received her Ph.D. in Computer Science from MIT, where she was advised by Erik Demaine and Julian Shun, as well as her B.S. in Computer Science and Mathematics and M.Eng. in Computer Science from MIT. Her research experience also includes work with Google's Discrete Algorithms Group and the MIT Digital Currency Initiative."
+        },
+        {
+            "date": "September 25, 2026",
+            "speaker": "Kosuke Imai",
+            "affiliation": "Harvard University",
+            "photo": "/images/colloquium/imai.jpg",
+            "title": "",
+            "abstract": "",
+            "bio": ""
+        },
+        {
+            "date": "November 12, 2026",
+            "time": "7pm",
+            "location": "Bronfman Auditorium",
+            "speaker": "Cynthia Anne Phillips",
+            "affiliation": "Scandia National Laboratories",
+            "photo": "/images/colloquium/phillips.jpg",
+            "title": "",
+            "abstract": "",
+            "bio": ""
+        },
+        {
+            "date": "November 13, 2026",
+            "speaker": "Cynthia Anne Phillips",
+            "affiliation": "Scandia National Laboratories",
+            "photo": "/images/colloquium/phillips.jpg",
+            "title": "",
+            "abstract": "",
+            "bio": ""
+        },
+        {
+            "date": "November 20, 2026",
+            "speaker": "Lucas Estrada '19",
+            "affiliation": "Harvard University",
+            "photo": "/images/colloquium/estrada.jpg",
+            "title": "",
+            "abstract": "",
+            "bio": ""
         }
     ]
 }

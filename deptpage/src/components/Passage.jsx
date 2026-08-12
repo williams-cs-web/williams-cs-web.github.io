@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import DbServices from "../services/db.js";
 
 const Passage = ({ title, photo, article }) => {
@@ -34,7 +35,7 @@ const Passage = ({ title, photo, article }) => {
           />{" "}
         </div>
       ) : null}
-      <Markdown>{content}</Markdown>
+      <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
     </div>
   );
 };

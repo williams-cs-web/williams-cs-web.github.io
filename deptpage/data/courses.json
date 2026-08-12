@@ -1,415 +1,502 @@
 {
-
     "sections": [
         {
-            "id": "f24-csci104-1",
+            "id": "f26-csci104-1",
             "course": "CSCI 104",
-            "semester": "Fall 2024",
-            "instructors": [
-                "Stephen Freund"
-            ],
-            "lecture": "MWF 10-1050am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1251&cn=104&crsid=022117"
-        },
-        {
-            "id": "f24-csci104-2",
-            "course": "CSCI 104",
-            "semester": "Fall 2024",
+            "semester": "Fall 2026",
             "instructors": [
                 "Stephen Freund"
             ],
             "lecture": "MWF 11-1150am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1251&cn=104&crsid=022117"
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=104&crsid=022117&req_year=0"
         },
         {
-            "id": "f24-csci134-1",
+            "id": "f26-csci134-1",
             "course": "CSCI 134",
-            "semester": "Fall 2024",
+            "semester": "Fall 2026",
             "instructors": [
-                "Bill Jannen"
+                "Rohit Bhattacharya"
             ],
             "lecture": "MWF 9-950am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=134&crsid=010801"
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=134&crsid=010801&req_year=0"
         },
         {
-            "id": "f24-csci134-2",
+            "id": "f26-csci134-2",
             "course": "CSCI 134",
-            "semester": "Fall 2024",
+            "semester": "Fall 2026",
             "instructors": [
-                "Iris Howley"
+                "Rohit Bhattacharya"
             ],
             "lecture": "MWF 10-1050am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=134&crsid=010801"
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=134&crsid=010801&req_year=0"
         },
         {
-            "id": "f24-csci134-3",
-            "course": "CSCI 134",
-            "semester": "Fall 2024",
-            "instructors": [
-                "Iris Howley"
-            ],
-            "lecture": "MWF 11-1150am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=134&crsid=010801"
-        },
-        {
-            "id": "f24-csci136-1",
+            "id": "f26-csci136-1",
             "course": "CSCI 136",
-            "semester": "Fall 2024",
+            "semester": "Fall 2026",
             "instructors": [
                 "James Bern"
             ],
             "lecture": "MWF 9-950am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=136&crsid=010803"
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=136&crsid=010803&req_year=0"
         },
         {
-            "id": "f24-csci136-2",
+            "id": "f26-csci136-2",
             "course": "CSCI 136",
-            "semester": "Fall 2024",
+            "semester": "Fall 2026",
             "instructors": [
                 "James Bern"
             ],
             "lecture": "MWF 10-1050am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=136&crsid=010803"
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=136&crsid=010803&req_year=0"
         },
         {
-            "id": "f24-csci237-1",
+            "id": "f26-csci237-1",
             "course": "CSCI 237",
-            "semester": "Fall 2024",
+            "semester": "Fall 2026",
             "instructors": [
                 "Kelly Shaw"
             ],
-            "lecture": "MWF 10-1050am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=237&crsid=010805"
+            "lecture": "MWF 11-1150am",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=237&crsid=010805&req_year=0"
         },
         {
-            "id": "f24-csci256-1",
+            "id": "f26-csci237-2",
+            "course": "CSCI 237",
+            "semester": "Fall 2026",
+            "instructors": [
+                "Kelly Shaw"
+            ],
+            "lecture": "MWF 12-1250pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=237&crsid=010805&req_year=0"
+        },
+        {
+            "id": "f26-csci256-1",
             "course": "CSCI 256",
-            "semester": "Fall 2024",
+            "semester": "Fall 2026",
+            "instructors": [
+                "Shikha Singh"
+            ],
+            "lecture": "MWF 11-1150pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=256&crsid=010806&req_year=0"
+        },
+        {
+            "id": "f26-csci256-2",
+            "course": "CSCI 256",
+            "semester": "Fall 2026",
+            "instructors": [
+                "Shikha Singh"
+            ],
+            "lecture": "MWF 12-1250pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=256&crsid=010806&req_year=0"
+        },
+        {
+            "id": "f26-csci270-1",
+            "course": "CSCI 270",
+            "semester": "Fall 2026",
+            "instructors": [
+                "Mark Hopkins"
+            ],
+            "lecture": "TuTh 955-1110am",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=270&crsid=023017&req_year=0"
+        },
+        {
+            "id": "f26-csci333-1",
+            "course": "CSCI 333",
+            "semester": "Fall 2026",
+            "instructors": [
+                "William Jannen"
+            ],
+            "lecture": "TuTh 235-350pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=333&crsid=020968&req_year=0"
+        },
+        {
+            "id": "f26-csci334-1",
+            "course": "CSCI 334",
+            "semester": "Fall 2026",
+            "instructors": [
+                "Daniel Barowy"
+            ],
+            "lecture": "TuTh 955-1110pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=334&crsid=010808&req_year=0"
+        },
+        {
+            "id": "f26-csci339-1",
+            "course": "CSCI 339",
+            "semester": "Fall 2026",
+            "instructors": [
+                "Jeannie Albrecht"
+            ],
+            "lecture": "MTh 110-225pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=339&crsid=018184&req_year=0"
+        },
+        {
+            "id": "f26-csci375-1",
+            "course": "CSCI 375",
+            "semester": "Fall 2026",
+            "instructors": [
+                "Nate Chambers"
+            ],
+            "lecture": "TuF 110-225pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=375&crsid=020558&req_year=0"
+        },
+        {
+            "id": "f26-csci382-1",
+            "course": "CSCI 382",
+            "semester": "Fall 2026",
+            "instructors": [
+                "Lucas Rosenblatt"
+            ],
+            "lecture": "MTh 110-225pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=382&crsid=023336&req_year=0"
+        },
+        {
+            "id": "f26-csci434-1",
+            "course": "CSCI 434",
+            "semester": "Fall 2026",
+            "instructors": [
+                "Stephen Freund"
+            ],
+            "lecture": "F 100-230pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=434&crsid=010822&req_year=0"
+        },
+        {
+            "id": "s27-csci102-1",
+            "course": "CSCI 102",
+            "semester": "Spring 2027",
+            "instructors": [
+                "William Jannen"
+            ],
+            "lecture": "TBA",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=102&crsid=019459&req_year=0"
+        },
+        {
+            "id": "s27-csci104-1",
+            "course": "CSCI 104",
+            "semester": "Spring 2027",
+            "instructors": [
+                "Stephen Freund"
+            ],
+            "lecture": "MWF 11-1150am",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=104&crsid=022117&req_year=0"
+        },
+        {
+            "id": "s27-csci134-1",
+            "course": "CSCI 134",
+            "semester": "Spring 2027",
+            "instructors": [
+                "Jeannie Albrecht",
+                "Lucas Rosenblatt"
+            ],
+            "lecture": "MWF 10-1050am",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=134&crsid=010801&req_year=0"
+        },
+        {
+            "id": "s27-csci134-2",
+            "course": "CSCI 134",
+            "semester": "Spring 2027",
+            "instructors": [
+                "Lucas Rosenblatt",
+                "Jeannie Albrecht"
+            ],
+            "lecture": "MWF 11-1150am",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=134&crsid=010801&req_year=0"
+        },
+        {
+            "id": "s27-csci136-1",
+            "course": "CSCI 136",
+            "semester": "Spring 2027",
+            "instructors": [
+                "Daniel Barowy"
+            ],
+            "lecture": "MWF 9-950am",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=136&crsid=010803&req_year=0"
+        },
+        {
+            "id": "s27-csci136-2",
+            "course": "CSCI 136",
+            "semester": "Spring 2027",
+            "instructors": [
+                "Daniel Barowy"
+            ],
+            "lecture": "MWF 10-1050am",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=136&crsid=010803&req_year=0"
+        },
+        {
+            "id": "s27-csci237-1",
+            "course": "CSCI 237",
+            "semester": "Spring 2027",
+            "instructors": [
+                "William Jannen"
+            ],
+            "lecture": "MWF 9-950am",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=237&crsid=010805&req_year=0"
+        },
+        {
+            "id": "s27-csci256-1",
+            "course": "CSCI 256",
+            "semester": "Spring 2027",
             "instructors": [
                 "Aaron Williams"
             ],
-            "lecture": "MWF 12-1250pm",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=256&crsid=010806"
+            "lecture": "MWF 11-1215pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=256&crsid=010806&req_year=0"
         },
         {
-            "id": "f24-csci315-1",
+            "id": "s27-csci270-1",
+            "course": "CSCI 270",
+            "semester": "Spring 2027",
+            "instructors": [
+                "Nate Chambers"
+            ],
+            "lecture": "MTh 110-225pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=270&crsid=023017&req_year=0"
+        },
+        {
+            "id": "s27-csci270-2",
+            "course": "CSCI 270",
+            "semester": "Spring 2027",
+            "instructors": [
+                "Nate Chambers"
+            ],
+            "lecture": "MTh 235-350pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=270&crsid=023017&req_year=0"
+        },
+        {
+            "id": "s27-csci315-1",
             "course": "CSCI 315",
-            "semester": "Fall 2024",
+            "semester": "Spring 2027",
             "instructors": [
                 "Daniel Aalberts"
             ],
-            "lecture": "MTh 235-350pm",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1251&cn=315&crsid=016952"
-        },
-        {
-            "id": "f24-csci339-1",
-            "course": "CSCI 339",
-            "semester": "Fall 2024",
-            "instructors": [
-                "Jeannie Albrecht"
-            ],
             "lecture": "MTh 110-225pm",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1251&cn=339&crsid=018184"
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=315&crsid=016952&req_year=0"
         },
         {
-            "id": "f24-csci358-1",
-            "course": "CSCI 358",
-            "semester": "Fall 2024",
-            "instructors": [
-                "Samuel McCauley"
-            ],
-            "lecture": "TF 110-225pm",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1251&cn=358&crsid=021450"
-        },
-        {
-            "id": "f24-csci361-1",
-            "course": "CSCI 361",
-            "semester": "Fall 2024",
-            "instructors": [
-                "Shikha Singh"
-            ],
-            "lecture": "TuTh 830-945am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1251&cn=361&crsid=010814"
-        },
-        {
-            "id": "f24-csci361-2",
-            "course": "CSCI 361",
-            "semester": "Fall 2024",
-            "instructors": [
-                "Shikha Singh"
-            ],
-            "lecture": "TuTh 955-1110am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1251&cn=361&crsid=010814"
-        },
-        {
-            "id": "f24-csci375-1",
-            "course": "CSCI 375",
-            "semester": "Fall 2024",
-            "instructors": [
-                "Katie Keith"
-            ],
-            "lecture": "TuTh 955-1110am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1251&cn=375&crsid=020558"
-        },
-        {
-            "id": "f24-csci376-1",
-            "course": "CSCI 376",
-            "semester": "Fall 2024",
-            "instructors": [
-                "Laura South"
-            ],
-            "lecture": "MTh 235-350pm",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=376&crsid=020806"
-        },
-        {
-            "id": "f24-csci381-1",
-            "course": "CSCI 381",
-            "semester": "Fall 2024",
-            "instructors": [
-                "Mark Hopkins"
-            ],
-            "lecture": "MWF 9-950am",
-            "webpage": "https://mhrmm.github.io/"
-        },
-        {
-            "id": "s25-csci134-1",
-            "course": "CSCI 134",
-            "semester": "Spring 2025",
-            "instructors": [
-                "Laura South"
-            ],
-            "lecture": "MWF 9-950am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=134&crsid=010801"
-        },
-        {
-            "id": "s25-csci134-2",
-            "course": "CSCI 134",
-            "semester": "Spring 2025",
-            "instructors": [
-                "Mark Hopkins"
-            ],
-            "lecture": "MWF 10-1050am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=134&crsid=010801"
-        },
-        {
-            "id": "s25-csci134-3",
-            "course": "CSCI 134",
-            "semester": "Spring 2025",
-            "instructors": [
-                "Mark Hopkins"
-            ],
-            "lecture": "MWF 10-1050am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=134&crsid=010801"
-        },
-        {
-            "id": "s25-csci136-1",
-            "course": "CSCI 136",
-            "semester": "Spring 2025",
-            "instructors": [
-                "Katie Keith"
-            ],
-            "lecture": "MWF 9-950am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=136&crsid=010803"
-        },
-        {
-            "id": "s25-csci136-2",
-            "course": "CSCI 136",
-            "semester": "Spring 2025",
-            "instructors": [
-                "Katie Keith"
-            ],
-            "lecture": "MWF 10-1050am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=136&crsid=010803"
-        },
-        {
-            "id": "s25-csci237-1",
-            "course": "CSCI 237",
-            "semester": "Spring 2025",
-            "instructors": [
-                "Jeannie Albrecht"
-            ],
-            "lecture": "MWF 11-1150am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=237&crsid=010805"
-        },
-        {
-            "id": "s25-csci256-1",
-            "course": "CSCI 256",
-            "semester": "Spring 2025",
-            "instructors": [
-                "Samuel McCauley"
-            ],
-            "lecture": "MTh 1-225pm",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=256&crsid=010806"
-        },
-        {
-            "id": "s25-csci256-2",
-            "course": "CSCI 256",
-            "semester": "Spring 2025",
-            "instructors": [
-                "Samuel McCauley"
-            ],
-            "lecture": "MTh 235-350pm",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=256&crsid=010806"
-        },
-        {
-            "id": "s25-csci334-1",
-            "course": "CSCI 334",
-            "semester": "Spring 2025",
-            "instructors": [
-                "Daniel Barowy"
-            ],
-            "lecture": "MTh 110-225pm",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=334&crsid=010808"
-        },
-        {
-            "id": "s25-csci334-2",
-            "course": "CSCI 334",
-            "semester": "Spring 2025",
-            "instructors": [
-                "Daniel Barowy"
-            ],
-            "lecture": "MTh 235-350pm",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=334&crsid=010808"
-        },
-        {
-            "id": "s25-csci338-1",
-            "course": "CSCI 338",
-            "semester": "Spring 2025",
+            "id": "s27-csci337-1",
+            "course": "CSCI 337",
+            "semester": "Spring 2027",
             "instructors": [
                 "Kelly Shaw"
             ],
-            "lecture": "TuTh 955-1110am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=338&crsid=010811"
+            "lecture": "Th 230-4pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=337&crsid=010810&req_year=0"
         },
         {
-            "id": "s25-csci345-1",
-            "course": "CSCI 345",
-            "semester": "Spring 2025",
+            "id": "s27-csci341-1",
+            "course": "CSCI 341",
+            "semester": "Spring 2027",
             "instructors": [
                 "James Bern"
             ],
-            "lecture": "TuTh 955-1110am",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=345&crsid=022328"
+            "lecture": "W 7-940pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=341&crsid=010816&req_year=0"
         },
         {
-            "id": "s25-csci357-1",
+            "id": "s27-csci357-1",
             "course": "CSCI 357",
-            "semester": "Spring 2025",
+            "semester": "Spring 2027",
             "instructors": [
                 "Shikha Singh"
             ],
-            "lecture": "TuF 110-225pm",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=357&crsid=021606"
+            "lecture": "TuF 110-235pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=357&crsid=021606&req_year=0"
         },
         {
-            "id": "s25-csci376-1",
-            "course": "CSCI 376",
-            "semester": "Spring 2025",
+            "id": "s27-csci361-1",
+            "course": "CSCI 361",
+            "semester": "Spring 2027",
             "instructors": [
-                "Laura South"
+                "Samuel McCauley"
             ],
-            "lecture": "MW 11-1215pm",
-            "webpage": "https://catalog.williams.edu/CSCI/detail/?strm=1253&cn=376&crsid=020806"
+            "lecture": "TuTh 955-1110am",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=361&crsid=010814&req_year=0"
+        },
+        {
+            "id": "s27-csci375-1",
+            "course": "CSCI 375",
+            "semester": "Spring 2027",
+            "instructors": [
+                "Katie Keith"
+            ],
+            "lecture": "TuTh 830-945am",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=375&crsid=020558&req_year=0"
+        },
+        {
+            "id": "s27-csci379-1",
+            "course": "CSCI 379",
+            "semester": "Spring 2027",
+            "instructors": [
+                "Rohit Bhattacharya"
+            ],
+            "lecture": "MTh 235-350pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=379&crsid=021861&req_year=0"
+        },
+        {
+            "id": "s27-csci381-1",
+            "course": "CSCI 381",
+            "semester": "Spring 2027",
+            "instructors": [
+                "Mark Hopkins"
+            ],
+            "lecture": "MTh 1-225pm",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=381&crsid=022329&req_year=0"
+        },
+        {
+            "id": "s27-csci382-1",
+            "course": "CSCI 382",
+            "semester": "Spring 2027",
+            "instructors": [
+                "Lucas Rosenblatt"
+            ],
+            "lecture": "ThTh 955-1110am",
+            "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=382&crsid=023336&req_year=0"
         }
-        
-
     ],
     "catalog": [
         {
+            "id": "CSCI 102",
+            "title": "The Socio-Techno Web",
+            "icon": "/images/courseicons/icon-cs102.png",
+            "description": "This course introduces many fundamental concepts in computer science by examining the social aspects of computing. As more and more people use the technologies and services available via the Internet, online environments like Facebook, Instagram, Amazon, Google, Twitter (or X), YouTube, and blogs are flourishing. However, several of the problems related to security, privacy, and trust that exist in the real world transfer and become amplified in the virtual world created by the ubiquity and pervasiveness of the Internet. In this course, we will investigate how the social, technological, and natural worlds are connected, and how the study of networks sheds light on these connections. Topics include the structure of the Social Web and networks in general; issues such as virtual identity, personal and group privacy, trust evaluation and propagation, and online security; and the technology, economics, and politics of Web information and online communities. No background in computer science or programming is required or expected."
+        },
+        {
             "id": "CSCI 104",
             "title": "Data Science and Computing for All",
-            "icon": "images/courseicons/icon-cs104.png",
+            "icon": "/images/courseicons/icon-cs104.png",
             "description": "Many of the world's greatest discoveries and most consequential decisions are enabled or informed by the analysis of data from a myriad of sources. Indeed, the ability to wrangle, visualize, and draw conclusions from data is now a critical tool in the sciences, business, medicine, politics, other academic disciplines, and society as a whole. This course lays the foundations for quantifying relationships in data by exploring complementary computational, statistical, and visualization concepts. These concepts will be reinforced by lab experiences designed to teach programming and statistics skills while analyzing real-world data sets. This course will also examine the broader context and social issues surrounding data analysis, including privacy and ethics."
         },
         {
             "id": "CSCI 134",
             "title": "Introduction to Computer Science",
-            "icon": "images/courseicons/icon-cs134.png",
+            "icon": "/images/courseicons/icon-cs134.png",
             "description": "This course introduces students to the science of computation by exploring the representation and manipulation of data and algorithms. We organize and transform information in order to solve problems using algorithms written in a modern object-oriented language. Topics include organization of data using objects and classes, and the description of processes using conditional control, iteration, methods and classes. We also begin the study of abstraction, self-reference, reuse, and performance analysis. While the choice of programming language and application area will vary in different offerings, the skills students develop will transfer equally well to more advanced study in many areas. In particular, this course is designed to provide the programming skills needed for further study in computer science and is expected to satisfy introductory programming requirements in other departments."
         },
         {
             "id": "CSCI 136",
             "title": "Data Structures and Advanced Programming",
-            "icon": "images/courseicons/icon-cs136.png",
+            "icon": "/images/courseicons/icon-cs136.png",
             "description": "This course builds on the programming skills acquired in Computer Science 134. It couples work on program design, analysis, and verification with an introduction to the study of data structures. Data structures capture common ways in which to store and manipulate data, and they are important in the construction of sophisticated computer programs. Students are introduced to some of the most important and frequently used data structures: lists, stacks, queues, trees, hash tables, graphs, and files. Students will be expected to write several programs, ranging from very short programs to more elaborate systems. Emphasis will be placed on the development of clear, modular programs that are easy to read, debug, verify, analyze, and modify."
         },
         {
             "id": "CSCI 237",
             "title": "Computer Organization",
-            "icon": "images/courseicons/icon-cs237.png",
+            "icon": "/images/courseicons/icon-cs237.png",
             "description": "This course studies the basic instruction set architecture and organization of a modern computer. It provides a programmer's view of how computer systems execute programs, store information, and communicate. Over the semester the student learns the fundamentals of translating higher level languages into assembly language, and the interpretation of machine languages by hardware. At the same time, a model of computer hardware organization is developed from the gate level upward."
         },
         {
             "id": "CSCI 256",
             "title": "Algorithm Design and Analysis",
-            "icon": "images/courseicons/icon-cs256.png",
+            "icon": "/images/courseicons/icon-cs256.png",
             "description": "This course investigates methods for designing efficient and reliable algorithms. By carefully analyzing the structure of a problem within a mathematical framework, it is often possible to dramatically decrease the computational resources needed to find a solution. In addition, analysis provides a method for verifying the correctness of an algorithm and accurately estimating its running time and space requirements. We will study several algorithm design strategies that build on data structures and programming techniques introduced in Computer Science 136. These include greedy, divide-and-conquer, dynamic programming, and network flow algorithms. Additional topics of study include algorithms on graphs and strategies for handling potentially intractable problems."
+        },
+        {
+            "id": "CSCI 270",
+            "title": "Foundations of Artificial Intelligence",
+            "icon": "/images/courseicons/icon-cs256.png",
+            "description": "Computer science has increasingly set its sights on problems with no obvious prescriptive solution, such as image classification, natural language understanding, and game playing. As it is infeasible to prescriptively identify a cat from a set of pixels, or a winning move from the state of a chess board, tools from the traditional computer science canon of algorithms and system building are often insufficient. Artificial intelligence (AI) techniques have increasingly been leveraged to fill this gap. Rather than explicitly specifying how to solve a task, AI techniques typically take an indirect approach: first describing the task using a standardized representation (e.g., labeled data for supervised machine learning and state spaces for heuristic search), and then employing general-purpose algorithms that operate on the task description. The goal of this course is to introduce the theoretical and practical foundations that will enable students to add AI methodologies to their computational toolbox. It provides the fundamentals for more advanced study of artificial intelligence and machine learning."
         },
         {
             "id": "CSCI 315",
             "title": "Computational Biology",
-            "icon": "images/courseicons/icon-cs315.png",
+            "icon": "/images/courseicons/icon-cs315.png",
             "description": "This course will provide an overview of Computational Biology, the application of computational, mathematical, statistical, and physical problem-solving techniques to interpret the rapidly expanding amount of biological data. Topics covered will include database searching, DNA sequence alignment, clustering, RNA structure prediction, protein structural alignment, methods of analyzing gene expression, networks, and genome assembly using techniques such as string matching, dynamic programming, hidden Markov models, and statistics."
+        },
+        {
+            "id": "CSCI 333",
+            "title": "Storage Systems",
+            "icon": "/images/courseicons/icon-cs333.png",
+            "description": "This course will examine topics in the design, implementation, and evaluation of storage systems. Topics include the memory hierarchy; ways that data is organized (both logically and physically); storage hardware and its influence on storage software designs; data structures; performance models; and system measurement/evaluation. Textbook readings will be supplemented by readings from recent technical literature. An emphasis will be placed on identifying and evaluating design trade-offs."
         },
         {
             "id": "CSCI 334",
             "title": "Principles of Programming Languages",
-            "icon": "images/courseicons/icon-cs334.png",
+            "icon": "/images/courseicons/icon-cs334.png",
             "description": "This course examines the concepts and structures governing the design and implementation of programming languages. It presents an introduction to the concepts behind compilers and run-time representations of programming languages; features of programming languages supporting abstraction and polymorphism; and the procedural, functional, object-oriented, and concurrent programming paradigms. Programs will be required in languages illustrating each of these paradigms."
+        },
+        {
+            "id": "CSCI 337",
+            "title": "Advanced Computer Architecture",
+            "icon": "/images/courseicons/icon-cs337.png",
+            "description": "This tutorial course considers topics in the low-level design of modern computer architectures. Course meetings will review problems in the design, analysis, and optimization of high-performance computer systems, moving beyond basic principles to explore modern processor, memory, and parallel systems. Topics may include Reduced Instruction Set Computer (RISC) principles, pipelining, cache optimization, branch prediction, multicore systems, and accelerators."
         },
         {
             "id": "CSCI 338",
             "title": "Parallel Processing",
-            "icon": "images/courseicons/icon-cs338.png",
+            "icon": "/images/courseicons/icon-cs338.png",
             "description": "This course explores different parallel programming paradigms used for writing applications on today's parallel computer systems. The course will introduce concurrency (i.e. multiple simultaneous computations) and the synchronization primitives that allow for the creation of correct concurrent applications. It will examine how a variety of systems organize parallel processing resources and enable users to write parallel programs for these systems. Covered programming paradigms will include multiprogramming with processes, message passing, threading in shared memory multiprocessors, vector processing, graphics processor programming, transactions, MapReduce, and other forms of programming for the cloud. Class discussion is based on assigned readings. Assignments provide students the opportunity to develop proficiency in writing software using different parallel programming paradigms."
         },
         {
             "id": "CSCI 339",
             "title": "Distributed Systems",
-            "icon": "images/courseicons/icon-cs339.png",
+            "icon": "/images/courseicons/icon-cs339.png",
             "description": "This course studies the key design principles of distributed systems, which are collections of independent networked computers that function as single coherent systems. Covered topics include communication protocols, processes and threads, naming, synchronization, consistency and replication, fault tolerance, and security. Students also examine some specific real-world distributed systems case studies, including Google and Amazon. Class discussion is based on readings from the textbook and research papers. The goals of this course are to understand how large-scale computational systems are built, and to provide students with the tools necessary to evaluate new technologies after the course ends."
+        },
+        {
+            "id": "CSCI 341",
+            "title": "Computer Graphics",
+            "icon": "/images/courseicons/icon-cs341.png",
+            "description": "This course explores the mathematical and algorithmic foundations of computer graphics, with an emphasis on prototyping graphical applications from scratch in C and OpenGL. Possible topics include rasterization, ray tracing, forward and inverse kinematics (FK/IK), physics-based animation, and immediate-mode graphical user interface (IMGUI). Examples will be drawn from video games, animated movies, and robotics."
         },
         {
             "id": "CSCI 345",
             "title": "Robotics and Digital Fabrication",
-            "icon": "images/courseicons/icon-cs345.png",
+            "icon": "/images/courseicons/icon-cs345.png",
             "description": "This course is a hands-on exploration of topics in robotics and digital fabrication. We will experience firsthand how ideas and methods from computer science can be applied to make physical objects, including robots and other machines. The emphasis will be on creative, hands-on experimentation. Along the way, students will learn the basics of embedded systems programming (Arduino), breadboarding, soldering, printed circuit board (PCB) design, mechanical computer-aided design (CAD)--both conventional (OnShape) and programmatic (OpenSCAD)--as well digital fabrication (3D-printing, laser cutting). Students will learn both how to build their own prototypes and how to send out designs to have parts machined professionally. Students will work in teams throughout. The course will culminate in a team robotic design competition testing both functionality and creativity."
         },
         {
             "id": "CSCI 357",
             "title": "Algorithmic Game Theory",
-            "icon": "images/courseicons/icon-cs357.png",
+            "icon": "/images/courseicons/icon-cs357.png",
             "description": "This course focuses on topics in game theory and mechanism design from a computational perspective. We will explore questions such as: how to design algorithms that incentivize truthful behavior, that is, where the participants have no incentive to cheat? Should we let drivers selfishly minimize their commute time or let a central algorithm direct traffic? Does Arrow's impossibility result mean that all voting protocols are doomed? The overarching goal of these questions is to understand and analyze selfish behavior and whether it can or should influence system design. Students will learn how to model and reason about incentives in computational systems both theoretically and empirically. Topics include types of equilibria, efficiency of equilibria, auction design and mechanism design with money, two-sided markets and mechanism design without money, incentives in computational applications such as P2P systems, and computational social choice."
         },
         {
             "id": "CSCI 358",
             "title": "Applied Algorithms",
-            "icon": "images/courseicons/icon-cs358.png",
+            "icon": "/images/courseicons/icon-cs358.png",
             "description": "This course is about bridging the gap between theoretical running time and writing fast code in practice. The course is divided into two basic topics. The first is algorithmic: we will discuss some of the most useful tools in a coder's toolkit. This includes topics like randomization (hashing, filters, approximate counters), linear and convex programming, similarity search, and cache-efficient algorithms. Our goal is to talk about why these efficient algorithms make seemingly difficult problems solvable in practice. The second topic is applications: we will discuss how to implement algorithms in an efficient way that takes advantage of modern hardware. Specific topics covered will include blocking, loop unrolling, pipelining, as well as strategies for performance analysis. Projects and assessments will include both basic theoretical aspects (understanding why the algorithms we discuss actually work), and practical aspects (implementing the algorithms we discuss to solve important problems, and optimizing the code so it runs as quickly as possible)."
         },
         {
             "id": "CSCI 361",
             "title": "Theory of Computation",
-            "icon": "images/courseicons/icon-cs361.png",
+            "icon": "/images/courseicons/icon-cs361.png",
             "description": "This course introduces a formal framework for investigating both the computability and complexity of problems. We study several models of computation including finite automata, regular languages, context-free grammars, and Turing machines. These models provide a mathematical basis for the study of computability theory--the examination of what problems can be solved and what problems cannot be solved--and the study of complexity theory--the examination of how efficiently problems can be solved. Topics include the halting problem and the P versus NP problem."
         },
         {
             "id": "CSCI 375",
             "title": "Natural Language Processing",
-            "icon": "images/courseicons/icon-cs375.png",
+            "icon": "/images/courseicons/icon-cs375.png",
             "description": "Natural language processing (NLP) is a set of methods for making human language accessible to computers. NLP underlies many technologies we use on a daily basis including automatic machine translation, search engines, email spam detection, and automated personalized assistants. These methods draw from a combination of algorithms, linguistics and statistics. This course will provide a foundation in building NLP models to classify, generate, and learn from text data."
         },
         {
             "id": "CSCI 376",
             "title": "Human-Computer Interaction",
-            "icon": "images/courseicons/icon-cs376.png",
+            "icon": "/images/courseicons/icon-cs376.png",
             "description": "Human-Computer Interaction (HCI) principles are practiced in the design and evaluation of most software, greatly impacting the lives of anyone who uses interactive technology and other products. There are many ways to design and build applications for people, so what methods can increase the likelihood that our design is the most useful, intuitive, and enjoyable? This course provides an introduction to the field of human-computer interaction, through a user-centered approach to designing and evaluating interactive systems. HCI draws on methods from computer science, the social and cognitive sciences, and interaction design. In this course we will use these methods to: ideate and propose design problems, study existing systems and challenges, explore design opportunities and tradeoffs, evaluate and improve designs, and communicate design problems and solutions to varying audiences."
+        },
+        {
+            "id": "CSCI 379",
+            "title": "Causal Inference",
+            "icon": "/images/courseicons/icon-cs379.png",
+            "description": "Does X cause Y? If so, how? And what is the strength of this causal relation? Seeking answers to such causal (as opposed to associational) questions is a fundamental human endeavor; the answers we find can be used to support decision-making in various settings such as healthcare and public policy. But how does one tease apart causation from association–early in our statistical education we are taught that “correlation does not imply causation.” In this course, we will re-examine this phrase and learn how to reason with confidence about the validity of causal conclusions drawn from messy real-world data. We will cover core topics in causal inference including causal graphical models, unsupervised learning of the structure of these models, expression of causal quantities as functions of observed data, and robust/efficient estimation of these quantities using statistical and machine learning methods. Concepts in the course will be contextualized via regular case studies."
         },
         {
             "id": "CSCI 381",
             "title": "Deep Learning",
-            "icon": "images/courseicons/icon-cs381.png",
+            "icon": "/images/courseicons/icon-cs381.png",
             "description": "This course is an introduction to deep neural networks and how to train them. Beginning with the fundamentals of regression and optimization, the course then surveys a variety of neural network architectures, which may include multilayer feedforward neural networks, convolutional neural networks, recurrent neural networks, and transformer networks. Students will also learn how to use deep learning software such as PyTorch or Tensorflow."
+        },
+        {
+            "id": "CSCI 382",
+            "title": "Responsible Artificial Intelligence",
+            "icon": "/images/courseicons/icon-cs382.png",
+            "description": "Responsible Machine Learning/Artificial Intelligence is the science and practice of designing algorithms and deploying AI systems in ways that are socially sustainable. This course introduces students to core technical and socio-technical objectives in responsible AI, with an emphasis on algorithmic fairness, transparency and interpretability, (differential) data privacy, and bias/risk factors for LLMs. This course is socio-technically grounded. We study how and why machine learning systems can produce harmful or inequitable outcomes, and how different stakeholders (e.g., impacted communities, developers, institutions, regulators) define “responsible” in different, sometimes conflicting, ways. Students learn to evaluate these trade-offs, implement mitigation techniques, and communicate technical results clearly. The course will include both conceptual frameworks (ethics, governance, legal and policy constraints) and technical/algorithmic solutions (models with fairness/privacy constraints, explainability toolkits, etc.). Students work in Python to analyze datasets and models, apply bias mitigation methods, generate explanations for model decisions, and explore privacy-preserving data releases. Students will also be asked to work through a limited number of problems that require light proofs and pre-requisite knowledge of probability/statistics to deepen their understanding. Students will also be assessed on their ability to present their work coherently and demonstrate understanding of the material."
+        },
+        {
+            "id": "CSCI 434",
+            "title": "Compiler Design",
+            "icon": "/images/courseicons/icon-cs434.png",
+            "description": "This tutorial covers the principles and practices for the design and implementation of compilers and interpreters. Topics include all stages of the compilation and execution process: lexical analysis; parsing; symbol tables; type systems; scope; semantic analysis; intermediate representations; run-time environments and interpreters; code generation; program analysis and optimization; and garbage collection. The course covers both the theoretical and practical implications of these topics. Students will construct a full compiler for a simple object-oriented language."
         }
     ]
 }

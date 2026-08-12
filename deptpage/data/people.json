@@ -1,16 +1,24 @@
 {
     "people": [
         {
+            "id": "Daniel Aalberts",
+            "photo": "/images/people/daniel-aalberts.jpg",
+            "role": "affiliate",
+            "title": "Kennedy P. Richardson '71 Professor of Physics",
+            "webpage": "https://hub.williams.edu/physics/profile/daalbert/",
+            "interests": "Computational biology, biophysics."
+        },
+        {
             "id": "Jeannie Albrecht",
-            "photo": "images/people/jeannie.jpg",
+            "photo": "/images/people/jeannie.jpg",
             "role": "faculty",
-            "title": "Professor and Chair",
+            "title": "Robert G. Scott '68 Professor of Computer Science",
             "webpage": "http://cs.williams.edu/~jeannie/",
             "interests": "Distributed systems and computer networks, particularly focusing on reliability, scalability, and extensibility achieved over the wide-area, sensor networks, operating systems."
         },
         {
             "id": "Daniel Barowy",
-            "photo": "images/people/dan.jpg",
+            "photo": "/images/people/dan.jpg",
             "role": "faculty",
             "title": "Associate Professor",
             "webpage": "http://cs.williams.edu/~dbarowy/",
@@ -18,7 +26,7 @@
         },
         {
             "id": "James Bern",
-            "photo": "images/people/jim.jpg",
+            "photo": "/images/people/jim.jpg",
             "role": "faculty",
             "title": "Assistant Professor",
             "webpage": "https://james-bern.github.io/",
@@ -26,15 +34,23 @@
         },
         {
             "id": "Rohit Bhattacharya",
-            "photo": "images/people/rohit.jpg",
+            "photo": "/images/people/rohit.jpg",
             "role": "faculty",
             "title": "Assistant Professor",
             "webpage": "https://rohit-bhattacharya.com/",
             "interests": "Causal inference, graphical models, missing data, oncogenomics."
         },
         {
+            "id": "Nate Chambers",
+            "photo": "/images/people/nate.jpg",
+            "role": "faculty",
+            "title": "Associate Professor",
+            "webpage": "https://www.usna.edu/Users/cs/nchamber/",
+            "interests": "Natural language processing, large language models, commonsense reasoning."
+        },
+        {
             "id": "Stephen N. Freund",
-            "photo": "images/people/steve.jpg",
+            "photo": "/images/people/steve.jpg",
             "role": "faculty",
             "title": "A. Barton Hepburn Professor of Computer Science",
             "webpage": "http://cs.williams.edu/~freund/",
@@ -42,23 +58,23 @@
         },
         {
             "id": "Mark Hopkins",
-            "photo": "images/people/mark.jpg",
+            "photo": "/images/people/mark.jpg",
             "role": "faculty",
-            "title": "Associate Professor",
+            "title": "Chair and Associate Professor",
             "webpage": "https://markandrewhopkins.com/",
-            "interests": "Machine learning, machine translation, low-resource natural language processing"
+            "interests": "Machine learning, machine translation, low-resource natural language processing."
         },
         {
             "id": "Lucas Rosenblatt",
-            "photo": "images/people/lucas.jpg",
+            "photo": "/images/people/lucas.jpg",
             "role": "faculty",
             "title": "Assistant Professor",
-            "webpage": "",
-            "interests": "Responsible AI."
+            "webpage": "https://lucasrosenblatt.com/",
+            "interests": "Trustworthy AI and algorithms, differential privacy, privacy and security for large language models."
         },
         {
             "id": "William Jannen",
-            "photo": "images/people/bill.jpg",
+            "photo": "/images/people/bill.jpg",
             "role": "faculty",
             "title": "Associate Professor",
             "webpage": "https://www.cs.williams.edu/~jannen/",
@@ -66,7 +82,7 @@
         },
         {
             "id": "Katie Keith",
-            "photo": "images/people/katie.jpg",
+            "photo": "/images/people/katie.jpg",
             "role": "faculty",
             "title": "Assistant Professor",
             "webpage": "https://kakeith.github.io/",
@@ -74,7 +90,7 @@
         },
         {
             "id": "Samuel McCauley",
-            "photo": "images/people/sam.jpg",
+            "photo": "/images/people/sam.jpg",
             "role": "faculty",
             "title": "Associate Professor",
             "webpage": "http://dept.cs.williams.edu/~sam/",
@@ -82,7 +98,7 @@
         },
         {
             "id": "Kelly Shaw",
-            "photo": "images/people/kelly.jpg",
+            "photo": "/images/people/kelly.jpg",
             "role": "faculty",
             "title": "Professor",
             "webpage": "http://cs.williams.edu/~kshaw/",
@@ -90,15 +106,15 @@
         },
         {
             "id": "Shikha Singh",
-            "photo": "images/people/shikha.jpg",
+            "photo": "/images/people/shikha.jpg",
             "role": "faculty",
             "title": "Associate Professor",
-            "webpage": "",
+            "webpage": "https://www.cs.williams.edu/~shikha/",
             "interests": "Algorithmic game theory, algorithms & data structures, combinatorial optimization, complexity theory."
         },
         {
             "id": "Aaron Williams",
-            "photo": "images/people/aaron.jpg",
+            "photo": "/images/people/aaron.jpg",
             "role": "faculty",
             "title": "Associate Professor",
             "webpage": "https://sites.google.com/williams.edu/aaron",
@@ -106,7 +122,7 @@
         },
         {
             "id": "Lida Doret",
-            "photo": "images/people/lida.jpg",
+            "photo": "/images/people/lida.jpg",
             "role": "staff",
             "title": "Administrative and Instructional Support Specialist",
             "webpage": "",
@@ -114,15 +130,15 @@
         },
         {
             "id": "Kelsey Gura",
-            "photo": "images/people/kelsey.jpg",
+            "photo": "/images/people/kelsey.jpg",
             "role": "staff",
             "title": "Systems Administrator",
             "webpage": "",
             "interests": ""
         },
         {
-            "id": "Lauren Vining-Barsotti",
-            "photo": "images/people/lauren.jpg",
+            "id": "Lizzy Halberstadt",
+            "photo": "/images/people/lizzy.jpg",
             "role": "staff",
             "title": "Administrative Coordinator",
             "webpage": "",
@@ -130,7 +146,7 @@
         },
         {
             "id": "Duane Bailey",
-            "photo": "images/people/duane.jpg",
+            "photo": "/images/people/duane.jpg",
             "role": "emeriti",
             "title": "Professor Emeritus",
             "webpage": "https://anyblueidea.org/duane/",
@@ -138,7 +154,7 @@
         },
         {
             "id": "Andrea Danyluk",
-            "photo": "images/people/andrea.jpg",
+            "photo": "/images/people/andrea.jpg",
             "role": "emeriti",
             "title": "Professor Emerita",
             "webpage": "/danyluk-in-memorium",
@@ -146,7 +162,7 @@
         },
         {
             "id": "William Lenhart",
-            "photo": "images/people/lenhart.gif",
+            "photo": "/images/people/lenhart.gif",
             "role": "emeriti",
             "title": "Professor Emeritus",
             "webpage": "http://dept.cs.williams.edu/~lenhart/",
@@ -154,19 +170,11 @@
         },
         {
             "id": "Tom Murtagh",
-            "photo": "images/people/tom.jpg",
+            "photo": "/images/people/tom.jpg",
             "role": "emeriti",
             "title": "Professor Emeritus",
             "webpage": "",
             "interests": "Programming language implementations, communications networks."
-        },
-        {
-            "id": "Laura South",
-            "photo": "images/people/laura.jpg",
-            "role": "faculty",
-            "title": "Visiting Assistant Professor",
-            "webpage": "",
-            "interests": "Human-computer interaction, human-centered design, accessibility."
         }
     ]
 }

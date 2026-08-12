@@ -20,6 +20,7 @@ const CourseOffering = ({ course, instructors, lecture, webpage, width }) => {
   };
 
   const courseObj = DbServices.getCourseById(course);
+  const firstInstructor = DbServices.getPersonByName(instructors[0]);
 
   const taughtByMessage = () => {
     return `${instructors.join(" and ")}`;
@@ -40,8 +41,13 @@ const CourseOffering = ({ course, instructors, lecture, webpage, width }) => {
         <img
           width="60"
           height="60"
-          src={courseObj.icon}
-          alt={`Icon for ${course}`}
+          style={{ objectFit: "cover" }}
+          src={firstInstructor ? firstInstructor.photo : courseObj.icon}
+          alt={
+            firstInstructor
+              ? `Photo of ${firstInstructor.id}`
+              : `Icon for ${course}`
+          }
         />
       </div>
       <div
@@ -162,7 +168,6 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
         style={{
           display: "flex",
           flexFlow: "row nowrap",
-          
         }}
       >
         {showSidebar ? (
@@ -172,38 +177,22 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
             onClick={onClick}
           />
         ) : (
-          <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
+          <div
+            className="left-spacer"
+            style={{ flexGrow: 0, flexShrink: 0, width: "80px" }}
+          />
         )}
         <div
           ref={headingRef}
           style={{
             width: "95%",
-            
+
             textAlign: "left",
           }}
         >
-          <div className="plaintext left">
-            Below you will find information about current and upcoming computer
-            science course offerings at Williams College. Because of the
-            popularity of our courses, the department advises students to enroll
-            in any desired course during pre-registration. Keep in mind: even if
-            you enroll during pre-registration, you may not secure a spot in
-            your desired course (this is particularly true for CSCI 134, CSCI
-            136, and certain electives). If you are dropped from a course that
-            you pre-registered for, please fill out this{" "}
-            <a
-              className="link"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeHEYivlxlexfitNguVDI4VIunRcQU5XZOIzVMmDcr6DjgkQg/viewform"
-              target="_blank"
-            >
-              form
-            </a>{" "}
-            to gain priority enrollment for future offerings of that course.
-          </div>
+          {renderSemester("Fall 2026")}
           <div style={{ height: "40px" }}></div>
-          {renderSemester("Fall 2024")}
-          <div style={{ height: "40px" }}></div>
-          {renderSemester("Spring 2025")}
+          {renderSemester("Spring 2027")}
           <div style={{ height: "40px" }}></div>
         </div>
       </div>

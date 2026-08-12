@@ -62,7 +62,7 @@ const NonMajors = ({ style, layout, onClick, showSidebar }) => {
               grounding and provide important skills in computing.
             </div>
             <Spacer height="20px" />
-            <img width="100%" src="images/misc/firstcourse.png" />
+            <img width="100%" src="/images/misc/firstcourse.png" />
             <Spacer height="10px" />
           </div>
         </div>

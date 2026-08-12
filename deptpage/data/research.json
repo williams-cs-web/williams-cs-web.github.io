@@ -3,7 +3,7 @@
         {
             "id": "opportunity-ssr",
             "name": "Summer Science Research",
-            "photo": "images/misc/kayaking.jpg",
+            "photo": "/images/misc/kayaking.png",
             "article": "articles/ssr.md"
         },
         {

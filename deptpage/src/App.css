@@ -227,6 +227,24 @@ h3 {
   cursor: default;
 }
 
+.plaintext table {
+  border-collapse: collapse;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.plaintext th,
+.plaintext td {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.plaintext th {
+  background-color: #f2f2f2;
+}
+
 .title {
   font-family: var(--font-display);
   font-weight: bold;
@@ -661,7 +679,8 @@ a.nostyle:visited {
   font-weight: lighter;
   background-color: black;
   color: chartreuse;
-  height: 200px;
+  height: 100px;
+  box-sizing: border-box;
   cursor: default;
 }
 
@@ -674,7 +693,8 @@ a.nostyle:visited {
   font-weight: lighter;
   background-color: black;
   color: white;
-  height: 200px;
+  height: 100px;
+  box-sizing: border-box;
   cursor: default;
 }
 
@@ -692,7 +712,8 @@ a.nostyle:visited {
   font-weight: lighter;
   background-color: black;
   color: white;
-  height: 200px;
+  height: 100px;
+  box-sizing: border-box;
   cursor: default;
 }
 
