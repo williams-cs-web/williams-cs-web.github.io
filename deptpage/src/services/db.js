@@ -1,4 +1,5 @@
 import majorData from '../../data/major.json'
+import nonMajorsData from '../../data/nonmajors.json'
 import people from '../../data/people.json'
 import courses from '../../data/courses.json'
 import colloquiumData from '../../data/colloquium.json'
@@ -71,6 +72,10 @@ const getMajorPlanningDisclaimer = () => {
   return majorData.disclaimer
 }
 
+const getNonMajorsContent = () => {
+  return nonMajorsData.content
+}
+
 const getLastName = (name) => {
   const fields = name.split(' ')
   const first = fields[0]
@@ -132,6 +137,7 @@ export default {
   getMajorPaths,
   getPlanYourMajorContent,
   getMajorPlanningDisclaimer,
+  getNonMajorsContent,
   getPeople,
   getPeopleByRole,
   getPersonByName,

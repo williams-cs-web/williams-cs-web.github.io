@@ -19,6 +19,11 @@ a {
   font-weight: bold;
   font-family: Eph Octic;
   text-decoration: inherit;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: #7A1FB5;
 }
 
 
@@ -54,9 +59,6 @@ button:focus-visible {
 }
 
 @media (prefers-color-scheme: light) {
-  a:hover {
-    color: #B1008E;
-  }
   button {
     background-color: #f9f9f9;
   }

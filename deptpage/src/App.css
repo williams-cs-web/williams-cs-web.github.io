@@ -227,6 +227,11 @@ h3 {
   cursor: default;
 }
 
+.plaintext img {
+  max-width: 100%;
+  height: auto;
+}
+
 .plaintext table {
   border-collapse: collapse;
   margin: 10px 0;
