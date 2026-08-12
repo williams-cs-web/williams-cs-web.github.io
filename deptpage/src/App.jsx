@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import FrontPage from "./components/FrontPage";
 import AboutUs from "./components/AboutUs";
 import PlanYourMajor from "./components/PlanYourMajor";
@@ -16,6 +16,12 @@ const ScrollToTop = () => {
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
   return <Outlet />;
 };
+
+// Local content-editing UI, backed by a dev-only Vite API (see
+// vite-plugins/admin-api-plugin.js). import.meta.env.DEV is a compile-time
+// constant, so Rollup drops this entire route (and the AdminApp chunk it
+// pulls in) from the production GitHub Pages build.
+const AdminApp = import.meta.env.DEV ? lazy(() => import("./admin/AdminApp.jsx")) : null;
 
 function App() {
   const handleHubClick = (who) => {
@@ -169,6 +175,14 @@ function App() {
         />
       ),
     },
+      ...(import.meta.env.DEV ? [{
+        path: "admin/*",
+        element: (
+          <Suspense fallback={null}>
+            <AdminApp />
+          </Suspense>
+        ),
+      }] : []),
       ]},
   ]);
 

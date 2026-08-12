@@ -45,56 +45,9 @@
             "webpage": "https://wso.williams.edu/mailman/listinfo/unics_wso.williams.edu",
             "details": [
                 "Underrepresented Identities in Computer Science (UnICS) seeks to create a safe, reliable, and productive environment within Williams College’s Computer Science department for all current and prospective majors, but especially for underrepresented identities. UnICS recognizes that everyone’s experiences are unique. For this reason, UnICS provides a comfortable environment for students to freely discuss their concerns about the department with each other. Moreover, through dinners, talks, and campus events, UnICS seeks to raise awareness of the problems that currently face minorities in the field of Computer Science and encourages discussion and action to solve them.",
-                "UnICS has embarked on various initiatives to accomplish this goal. Many students have participated in, attended, and/or helped organize UnICS programming. UnICS launched a mentoring program called C-blings, in order to guide and encourage prospective majors to study Computer Science. By joining the program, mentors agree to facilitate their mentee’s introduction to the department, to give them advice on classes, and to provide their peers with a place to talk about their experiences.",
-                "UnICS also holds weekly dinners (open to everyone) to talk critically about the experiences of underrepresented identities in the major and department. The focus of these dinners is to understand the challenges students face, and pursue tangible solutions to improve students’ experiences."
+                "UnICS has embarked on various initiatives to accomplish this goal. Many students have participated in, attended, and/or helped organize UnICS programming. UnICS launched a mentoring program called C-blings, in order to guide and encourage prospective majors to study Computer Science. By joining the program, mentors agree to facilitate their mentee’s introduction to the department, to give them advice on classes, and to provide their peers with a place to talk about their experiences."
             ],
-            "leadership": [
-                {
-                    "name": "Minh Phan",
-                    "year": "2023",
-                    "photo": "/images/students/phan.jpeg"
-                },
-                {
-                    "name": "Kary Chen",
-                    "year": "2023",
-                    "photo": "/images/students/chen.jpg"
-                },
-                {
-                    "name": "Emma Neil",
-                    "year": "2023",
-                    "photo": "/images/students/neil.jpeg"
-                },
-                {
-                    "name": "Joanna Tan",
-                    "year": "2023",
-                    "photo": "/images/students/tan.jpeg"
-                },
-                {
-                    "name": "Kelly McCarthy",
-                    "year": "2023",
-                    "photo": "/images/students/mccarthy.jpeg"
-                },
-                {
-                    "name": "Alisha Naidu",
-                    "year": "2024",
-                    "photo": "/images/students/naidu.jpeg"
-                },
-                {
-                    "name": "Soren Campbell",
-                    "year": "2024",
-                    "photo": "/images/students/campbell.jpeg"
-                },
-                {
-                    "name": "Angela Gui",
-                    "year": "2024",
-                    "photo": "/images/students/gui.jpeg"
-                },
-                {
-                    "name": "Alessa Somer",
-                    "year": "2025",
-                    "photo": "/images/students/somer.jpeg"
-                }
-            ]
+            "leadership": []
         },
         {
             "abbreviation": "WiCS",
