@@ -1,18 +1,20 @@
 {
     "articles": [
         {
-            "id": "article-job-opening-fall-2024",
-            "date": "August 8, 2024",
-            "title": "Assistant Professor and Open-Rank Positions in Computer Science",
-            "article": "articles/job-opening-fall-2024.md",
-            "teaser": "We are hiring! Two tenure-track faculty positions are available, starting in Summer 2025."
+            "id": "article-rosenblatt-chambers-spotlight",
+            "date": "August 12, 2026",
+            "title": "Faculty Spotlight: Lucas Rosenblatt and Nate Chambers",
+            "photo": "/images/misc/rosenblatt-chambers.png",
+            "article": "articles/rosenblatt-chambers-spotlight.md",
+            "teaser": "The department welcomes two new faculty members!"
         },
         {
-            "id": "article-laura-south",
-            "date": "August 5, 2024",
-            "title": "Faculty Spotlight: Laura South",
-            "photo": "/images/people/laura.jpg",
-            "article": "articles/laura-south-spotlight.md"
+            "id": "article-freund-chatdbg",
+            "date": "September 15, 2025",
+            "title": "Professor Stephen Freund Wins Distinguished Artifact Award for ChatDBG work",
+            "photo": "/images/misc/freund-chatdbg.png",
+            "article": "articles/freund-chatdbg.md",
+            "teaser": "Professor Stephen Freund Wins Distinguished Artifact Award for ChatDBG work"
         },
         {
             "id": "article-purdue-data",
