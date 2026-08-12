@@ -22,7 +22,6 @@ const NonMajors = ({ style, layout, onClick, showSidebar }) => {
         style={{
           display: "flex",
           flexFlow: "row nowrap",
-          
         }}
       >
         {showSidebar ? (
@@ -32,7 +31,10 @@ const NonMajors = ({ style, layout, onClick, showSidebar }) => {
             onClick={onClick}
           />
         ) : (
-          <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
+          <div
+            className="left-spacer"
+            style={{ flexGrow: 0, flexShrink: 0, width: "80px" }}
+          />
         )}
         <div>
           <div>
@@ -47,11 +49,11 @@ const NonMajors = ({ style, layout, onClick, showSidebar }) => {
             <div className="plaintext left">
               If you’d like a brief introduction to computer science with a
               focus on a particular application area, you may wish to take one
-              of our CSCI 10x offerings (e.g. CSCI 102, CSCI 103, and CSCI 104).
-              These courses provide a solid foundation in computer science
-              concepts that are broadly applicable to many domains. They are
-              specifically intended for non-majors and do not satisfy any CS
-              major requirements.
+              of our CSCI 10x offerings (e.g. CSCI 102 and CSCI 104). These
+              courses provide a solid foundation in computer science concepts
+              that are broadly applicable to many domains. They are specifically
+              intended for non-majors and do not satisfy any CS major
+              requirements.
             </div>
             <Spacer height="10px" />
 
