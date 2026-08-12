@@ -3,7 +3,7 @@
         {
             "id": "article-rosenblatt-chambers-spotlight",
             "date": "August 12, 2026",
-            "title": "Faculty Spotlight: Lucas Rosenblatt and Nate Chambers",
+            "title": "New Faculty Spotlight: Lucas Rosenblatt and Nate Chambers",
             "photo": "/images/misc/rosenblatt-chambers.png",
             "article": "articles/rosenblatt-chambers-spotlight.md",
             "teaser": "The department welcomes two new faculty members, Lucas Rosenblatt and Nate Chambers!"
@@ -20,7 +20,7 @@
             "id": "article-purdue-data",
             "date": "December 5, 2023",
             "title": "Williams CS Majors Place 3rd in Purdue Data 4 Good Competition",
-            "photo": "/images/misc/purdue-data.jpg",
+            "photo": "/images/misc/purdue-data.png",
             "article": "articles/purdue-data.md",
             "teaser": "Williams CS Majors get third place in a data science competition held at Purdue University"
         },
