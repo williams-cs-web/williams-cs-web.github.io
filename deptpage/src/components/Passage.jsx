@@ -31,7 +31,7 @@ const Passage = ({ title, photo, article }) => {
           <img
             width="100%"
             src={photo}
-            alt={`photo associated with passage`}
+            alt={title ? `Photo for ${title}` : "Article photo"}
           />{" "}
         </div>
       ) : null}

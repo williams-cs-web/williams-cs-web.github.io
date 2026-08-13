@@ -19,7 +19,13 @@ const Student = ({ name, year, photo }) => {
         display: 'flex',
         flexFlow: 'row nowrap'
       }}>
-        <img width="80" height="80" src={photo} alt={`Photo of ${name}`} />
+        <img
+          width="80"
+          height="80"
+          style={{ alignSelf: 'flex-start', objectFit: 'cover' }}
+          src={photo}
+          alt={`Photo of ${name}`}
+        />
         <div style={{
           padding: '5px'
         }}>

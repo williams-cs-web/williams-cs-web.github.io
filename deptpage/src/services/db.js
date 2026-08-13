@@ -40,9 +40,17 @@ const getUpcomingColloquia = () => {
 
 
 const fetchExternalTextFile = filename => {
-  return fetch(`/${filename}`).then(
-    response => response.text()
-  )
+  return fetch(`/${filename}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch ${filename}: ${response.status}`)
+      }
+      return response.text()
+    })
+    .catch(error => {
+      console.error(error)
+      return ''
+    })
 }
 
 
