@@ -11,8 +11,20 @@ const parseErrorBody = async (res) => {
   }
 }
 
+// Session cookies expire (or the server restarted); either way, the admin
+// API middleware returns 401 rather than any real data, so send the user
+// back to the login page instead of surfacing it as a generic error.
+const apiFetch = async (url, options) => {
+  const res = await fetch(url, options)
+  if (res.status === 401) {
+    window.location.href = '/login'
+    throw new Error('not authenticated')
+  }
+  return res
+}
+
 export const getData = async (file) => {
-  const res = await fetch(`${BASE}/data/${file}`)
+  const res = await apiFetch(`${BASE}/data/${file}`)
   if (!res.ok) throw new Error(await parseErrorBody(res))
   etags.set(file, res.headers.get('ETag'))
   return res.json()
@@ -22,7 +34,7 @@ export const saveData = async (file, data) => {
   const headers = { 'Content-Type': 'application/json' }
   const etag = etags.get(file)
   if (etag) headers['If-Match'] = etag
-  const res = await fetch(`${BASE}/data/${file}`, {
+  const res = await apiFetch(`${BASE}/data/${file}`, {
     method: 'PUT',
     headers,
     body: JSON.stringify(data),
@@ -34,14 +46,14 @@ export const saveData = async (file, data) => {
 // path is the value stored in JSON, e.g. "articles/welcome.md"
 export const getArticle = async (path) => {
   if (!path) return ''
-  const res = await fetch(`${BASE}/article?path=${encodeURIComponent(path)}`)
+  const res = await apiFetch(`${BASE}/article?path=${encodeURIComponent(path)}`)
   if (res.status === 404) return ''
   if (!res.ok) throw new Error(await parseErrorBody(res))
   return res.text()
 }
 
 export const saveArticle = async (path, content) => {
-  const res = await fetch(`${BASE}/article?path=${encodeURIComponent(path)}`, {
+  const res = await apiFetch(`${BASE}/article?path=${encodeURIComponent(path)}`, {
     method: 'PUT',
     body: content,
   })
@@ -50,7 +62,7 @@ export const saveArticle = async (path, content) => {
 }
 
 export const uploadImage = async (subfolder, file) => {
-  const res = await fetch(`${BASE}/images/${subfolder}?filename=${encodeURIComponent(file.name)}`, {
+  const res = await apiFetch(`${BASE}/images/${subfolder}?filename=${encodeURIComponent(file.name)}`, {
     method: 'POST',
     body: file,
   })
@@ -60,8 +72,22 @@ export const uploadImage = async (subfolder, file) => {
 }
 
 export const listImages = async (subfolder) => {
-  const res = await fetch(`${BASE}/images/${subfolder}`)
+  const res = await apiFetch(`${BASE}/images/${subfolder}`)
   if (!res.ok) throw new Error(await parseErrorBody(res))
   const { files } = await res.json()
   return files
+}
+
+// Rebuilds the site and updates the live files on this server. See
+// vite-plugins/admin-api-plugin.js for what this actually runs.
+export const publish = async () => {
+  const res = await apiFetch(`${BASE}/publish`, { method: 'POST' })
+  const body = await res.json().catch(() => ({}))
+  if (!res.ok) throw Object.assign(new Error(body.error || res.statusText), { log: body.log })
+  return body
+}
+
+export const logout = async () => {
+  await fetch('/logout', { method: 'POST' })
+  window.location.href = '/login'
 }

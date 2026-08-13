@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 import crypto from 'crypto'
+import { spawn } from 'child_process'
 import { fileURLToPath } from 'url'
 import { resolveSafe, isSafeSegment, atomicWrite } from './fsGuard.js'
 
@@ -11,6 +12,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const DATA_DIR = path.resolve(__dirname, '../data')
 const ARTICLES_DIR = path.resolve(__dirname, '../articles')
 const IMAGES_DIR = path.resolve(__dirname, '../images')
+const DEPTPAGE_DIR = path.resolve(__dirname, '..')
+const REPO_ROOT = path.resolve(DEPTPAGE_DIR, '..')
 
 const DATA_FILES = new Set([
   'frontpage.json',
@@ -175,6 +178,57 @@ const handleListImages = async (req, res, subfolder) => {
   sendJson(res, 200, { files })
 }
 
+// Publishing: most content (everything under data/*.json) is statically
+// imported into the JS bundle at build time, so writing the files alone
+// doesn't change what visitors see. Publish stages+commits the content
+// changes locally (no push -- see admin-server docs) then reruns the same
+// build the deploy script uses, so a bad edit can't leave the live site
+// half-updated: if the build fails, nothing after the commit step touches
+// the served files.
+let publishInProgress = false
+
+const runCommand = (cmd, args, cwd) => new Promise((resolve, reject) => {
+  const child = spawn(cmd, args, { cwd })
+  let output = ''
+  child.stdout.on('data', (chunk) => { output += chunk })
+  child.stderr.on('data', (chunk) => { output += chunk })
+  child.on('error', reject)
+  child.on('close', (code) => {
+    if (code === 0) resolve(output)
+    else reject(Object.assign(new Error(`${cmd} ${args.join(' ')} exited with code ${code}`), { output }))
+  })
+})
+
+const hasStagedChanges = async () => {
+  try {
+    await runCommand('git', ['diff', '--cached', '--quiet'], REPO_ROOT)
+    return false
+  } catch {
+    return true
+  }
+}
+
+const handlePublish = async (req, res) => {
+  if (publishInProgress) return sendError(res, 409, 'a publish is already in progress')
+  publishInProgress = true
+  const log = []
+  try {
+    log.push(await runCommand('git', ['add', 'deptpage/data', 'articles', 'images'], REPO_ROOT))
+    if (await hasStagedChanges()) {
+      log.push(await runCommand('git', ['commit', '-m', `Admin panel edit ${new Date().toISOString()}`], REPO_ROOT))
+    } else {
+      log.push('(no content changes to commit)')
+    }
+    log.push(await runCommand('npm', ['run', 'build:ephs'], DEPTPAGE_DIR))
+    sendJson(res, 200, { ok: true, log: log.join('\n---\n') })
+  } catch (err) {
+    log.push(err.output || err.message)
+    sendJson(res, 500, { ok: false, log: log.join('\n---\n'), error: err.message })
+  } finally {
+    publishInProgress = false
+  }
+}
+
 export default function adminApiPlugin() {
   return {
     name: 'admin-api-plugin',
@@ -199,6 +253,10 @@ export default function adminApiPlugin() {
           if (segments[0] === 'images' && segments.length === 2) {
             if (req.method === 'POST') return await handleUploadImage(req, res, segments[1], url.searchParams.get('filename'))
             if (req.method === 'GET') return await handleListImages(req, res, segments[1])
+          }
+
+          if (segments[0] === 'publish' && segments.length === 1) {
+            if (req.method === 'POST') return await handlePublish(req, res)
           }
 
           return sendError(res, 404, 'no such admin API route')

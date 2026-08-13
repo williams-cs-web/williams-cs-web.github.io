@@ -18,6 +18,43 @@
   border-radius: 3px;
 }
 
+.admin-banner-row {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-banner-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.admin-logout {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.admin-publish-ok {
+  margin-top: 8px;
+  color: #b6f2c1;
+  font-size: 13px;
+}
+
+.admin-publish-log {
+  margin-top: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  color: #ffb3b3;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
 .admin-layout {
   display: flex;
   flex-flow: row nowrap;

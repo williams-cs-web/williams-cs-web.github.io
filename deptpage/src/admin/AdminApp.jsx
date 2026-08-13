@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { NavLink, Routes, Route } from 'react-router-dom'
+import { publish, logout } from './adminApi'
 import CollectionListPage from './components/CollectionListPage'
 import newsSchema from './schemas/news'
 import colloquiumSchema from './schemas/colloquium'
@@ -30,12 +32,46 @@ const AdminHome = () => (
   </div>
 )
 
+const PublishBar = () => {
+  const [status, setStatus] = useState('idle') // idle | running | success | error
+  const [log, setLog] = useState('')
+
+  const handlePublish = async () => {
+    setStatus('running')
+    setLog('')
+    try {
+      const result = await publish()
+      setStatus('success')
+      setLog(result.log || '')
+    } catch (err) {
+      setStatus('error')
+      setLog(err.log || err.message)
+    }
+  }
+
+  return (
+    <div className="admin-banner">
+      <div className="admin-banner-row">
+        <span>
+          Changes here save to files on this server. Click <strong>Publish</strong> to rebuild
+          and update the live site.
+        </span>
+        <div className="admin-banner-actions">
+          <button type="button" className="admin-button" onClick={handlePublish} disabled={status === 'running'}>
+            {status === 'running' ? 'Publishing…' : 'Publish to live site'}
+          </button>
+          <button type="button" className="admin-button admin-logout" onClick={logout}>Log out</button>
+        </div>
+      </div>
+      {status === 'success' && <div className="admin-publish-ok">Published successfully.</div>}
+      {status === 'error' && <pre className="admin-publish-log">{log}</pre>}
+    </div>
+  )
+}
+
 const AdminApp = () => (
   <div className="admin-app">
-    <div className="admin-banner">
-      Changes here save to your local files only. To publish them to the live site, someone still
-      needs to commit, push, and run <code>npm run deploy</code>.
-    </div>
+    <PublishBar />
     <div className="admin-layout">
       <nav className="admin-nav">
         <NavLink to="/admin" end>Overview</NavLink>

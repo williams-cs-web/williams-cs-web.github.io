@@ -18,6 +18,9 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
+
+# Per-deployment admin server credentials, never checked in
+server/credentials.json
 *.suo
 *.ntvs*
 *.njsproj
