@@ -118,14 +118,12 @@
   margin-bottom: 16px;
 }
 
+/* Covers every button in the admin app, not just specific contexts --
+   index.css's global `button` rule sets a near-black background, which
+   otherwise collides with .admin-app's near-black text on any button that
+   isn't explicitly restyled here. */
 .admin-button,
-.admin-form-actions button,
-.admin-content-block-add button,
-.admin-string-list button,
-.admin-repeatable-group button,
-.admin-content-block-controls button,
-.admin-article-toolbar button,
-.admin-image-actions button {
+.admin-app button {
   background: #3a3a63;
   color: #fff;
   border: none;
