@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import DbServices from "../services/db.js";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { markdownImageComponent } from "../utils/markdownImageComponent.jsx";
 import TopMenu from "./TopMenu";
 import WilliamsHeader from "./WilliamsHeader";
 import WilliamsFooter from "./WilliamsFooter";
@@ -40,7 +41,7 @@ const Opportunity = ({ name, photo, article }) => {
           />{" "}
         </div>
       ) : null}
-      <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
+      <Markdown remarkPlugins={[remarkGfm]} components={markdownImageComponent}>{content}</Markdown>
     </div>
   );
 };

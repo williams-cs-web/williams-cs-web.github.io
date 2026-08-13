@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import DbServices from "../services/db.js";
+import { markdownImageComponent } from "../utils/markdownImageComponent.jsx";
 
 const Passage = ({ title, photo, article }) => {
   const [content, setContent] = useState("");
@@ -35,7 +36,7 @@ const Passage = ({ title, photo, article }) => {
           />{" "}
         </div>
       ) : null}
-      <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
+      <Markdown remarkPlugins={[remarkGfm]} components={markdownImageComponent}>{content}</Markdown>
     </div>
   );
 };

@@ -8,23 +8,30 @@ import studyAwayData from '../../data/studyaway.json'
 import researchData from '../../data/research.json'
 import newsData from '../../data/news.json'
 import frontPageData from '../../data/frontpage.json'
+import { withBase } from '../utils/withBase.js'
 
 
 const sixMonthsAgo = Date.now() - 6 * 30 * 24 * 60 * 60 * 1000
 const maxColloquiaToShow = 5;
 
-// Data files hardcode image paths as site-root-absolute (e.g. "/images/...")
+// Data files hardcode asset paths as site-root-absolute (e.g. "/images/...")
 // so that they resolve the same from any route depth. That assumption breaks
-// when the app is served from a subpath (e.g. /~hopkins/) instead of the
+// when the app is served from a subpath (e.g. /~ephs/) instead of the
 // domain root, so rewrite them here, once, to be relative to Vite's BASE_URL.
-const withBase = (path) => import.meta.env.BASE_URL + path.replace(/^\//, "")
-
+// This is value-based (not key-based) so it also catches array fields like
+// "gallery", not just single-image "photo"/"icon" fields.
 const rewriteAssetPaths = (value) => {
   if (Array.isArray(value)) {
-    value.forEach(rewriteAssetPaths)
+    value.forEach((item, i) => {
+      if (typeof item === "string" && item.startsWith("/images/")) {
+        value[i] = withBase(item)
+      } else {
+        rewriteAssetPaths(item)
+      }
+    })
   } else if (value && typeof value === "object") {
     for (const [key, val] of Object.entries(value)) {
-      if ((key === "photo" || key === "icon") && typeof val === "string" && val.startsWith("/")) {
+      if (typeof val === "string" && val.startsWith("/images/")) {
         value[key] = withBase(val)
       } else {
         rewriteAssetPaths(val)
