@@ -13,7 +13,28 @@ import frontPageData from '../../data/frontpage.json'
 const sixMonthsAgo = Date.now() - 6 * 30 * 24 * 60 * 60 * 1000
 const maxColloquiaToShow = 5;
 
+// Data files hardcode image paths as site-root-absolute (e.g. "/images/...")
+// so that they resolve the same from any route depth. That assumption breaks
+// when the app is served from a subpath (e.g. /~hopkins/) instead of the
+// domain root, so rewrite them here, once, to be relative to Vite's BASE_URL.
+const withBase = (path) => import.meta.env.BASE_URL + path.replace(/^\//, "")
 
+const rewriteAssetPaths = (value) => {
+  if (Array.isArray(value)) {
+    value.forEach(rewriteAssetPaths)
+  } else if (value && typeof value === "object") {
+    for (const [key, val] of Object.entries(value)) {
+      if ((key === "photo" || key === "icon") && typeof val === "string" && val.startsWith("/")) {
+        value[key] = withBase(val)
+      } else {
+        rewriteAssetPaths(val)
+      }
+    }
+  }
+}
+
+;[majorData, nonMajorsData, people, courses, colloquiumData, studentData, studyAwayData, researchData, newsData, frontPageData]
+  .forEach(rewriteAssetPaths)
 
 const getFrontPageSpotlightInfo = () => {
   return frontPageData.spotlight
@@ -40,7 +61,7 @@ const getUpcomingColloquia = () => {
 
 
 const fetchExternalTextFile = filename => {
-  return fetch(`/${filename}`)
+  return fetch(withBase(`/${filename}`))
     .then(response => {
       if (!response.ok) {
         throw new Error(`Failed to fetch ${filename}: ${response.status}`)

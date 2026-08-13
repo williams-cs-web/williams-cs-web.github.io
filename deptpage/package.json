@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:hopkins": "vite build --base=/~hopkins/",
     "deploy": "vite build; cp dist/index.html ../index.html; rm -R ../assets; mv dist/assets ../; chmod -R o+rX ../index.html ../assets",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"

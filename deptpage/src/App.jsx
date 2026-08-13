@@ -184,7 +184,7 @@ function App() {
         ),
       }] : []),
       ]},
-  ]);
+  ], { basename: import.meta.env.BASE_URL.replace(/\/$/, "") || "/" });
 
   return <RouterProvider router={router} />;
 }
