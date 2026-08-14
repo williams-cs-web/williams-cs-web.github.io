@@ -14,7 +14,7 @@
   --color-courses:       #FF7800;
   --color-colloquium:    rgb(202, 26, 52);
   --color-student-life:  rgb(40, 122, 95);
-  --color-research:      blue;
+  --color-research:      #2C5FA8;
   --color-non-majors:    #B1008E;
   --color-news:          #280050;
   --color-news-light:    #c8a8e8;
@@ -197,13 +197,13 @@ h1,
 
 h2 {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 18px;
   margin-bottom: 0px;
 }
 
 h3 {
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 0px;
 }
 
@@ -404,7 +404,7 @@ h3 {
 }
 
 .link:hover {
-  color: magenta;
+  color: var(--color-gold);
 }
 
 a.nostyle:link {
@@ -471,23 +471,23 @@ a.nostyle:visited {
 
 .sidebar-course-offerings,
 .frontpage-course-offerings {
-  background-color: orangered;
+  background-color: var(--color-courses);
   color: white;
 }
 
 .frontpage-course-offerings:hover {
-  background-color: orangered;
+  background-color: var(--color-courses);
   color: white;
 }
 
 .sidebar-colloquium {
-  background-color: lightpink;
-  color: black;
+  background-color: var(--color-colloquium);
+  color: white;
 }
 
 .frontpage-colloquium {
-  background-color: lightpink;
-  color: black;
+  background-color: var(--color-colloquium);
+  color: white;
 }
 
 .frontpage-colloquium:hover {
@@ -543,8 +543,8 @@ a.nostyle:visited {
 }
 
 .sidebar-news {
-  background-color: darkgray;
-  color: black;
+  background-color: var(--color-news);
+  color: white;
   margin: 1px;
 }
 
@@ -587,11 +587,6 @@ a.nostyle:visited {
   text-align: center;
   margin: 1px;
   cursor: default;
-}
-
-.frontpage-recowsion {
-  background-color: lightpink;
-  margin: 1px;
 }
 
 
@@ -753,18 +748,21 @@ a.nostyle:visited {
 }
 
 .major-req-error {
-  background-color: pink;
-  color: black;
+  background-color: black;
+  border: solid 1px crimson;
+  color: crimson;
 }
 
 .major-req-warning {
-  background-color: palegoldenrod;
-  color: black;
+  background-color: black;
+  border: solid 1px var(--color-gold);
+  color: var(--color-gold);
 }
 
 .major-req {
-  background-color: whitesmoke;
-  color: black;
+  background-color: black;
+  border: solid 1px #444;
+  color: #ddd;
 }
 
 .studyaway-heading {
