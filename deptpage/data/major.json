@@ -65,7 +65,7 @@
         },
         {
             "id": "CSCI 270",
-            "title": "Algorithm Design and Analysis",
+            "title": "Foundations of Artificial Intelligence",
             "prereqs": [
                 "CSCI 136",
                 "MATH 200"
