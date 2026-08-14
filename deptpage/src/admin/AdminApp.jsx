@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { NavLink, Routes, Route } from 'react-router-dom'
+import { NavLink, Routes, Route, Navigate } from 'react-router-dom'
 import { publish, logout } from './adminApi'
+import { SaveProvider, useSaveContext } from './SaveContext'
 import CollectionListPage from './components/CollectionListPage'
 import newsSchema from './schemas/news'
 import colloquiumSchema from './schemas/colloquium'
@@ -25,63 +26,64 @@ const SECTIONS = [
   { path: 'nonmajors', label: 'Non-Majors' },
 ]
 
-const AdminHome = () => (
-  <div>
-    <h2>Site Content Admin</h2>
-    <p>Pick a section on the left to add, edit, or remove its content.</p>
-  </div>
-)
-
-const PublishBar = () => {
-  const [status, setStatus] = useState('idle') // idle | running | success | error
-  const [log, setLog] = useState('')
+const TopBar = () => {
+  const { doSave, dirty, saving, status, canSave } = useSaveContext()
+  const [publishStatus, setPublishStatus] = useState('idle') // idle | running | success | error
+  const [publishLog, setPublishLog] = useState('')
 
   const handlePublish = async () => {
-    setStatus('running')
-    setLog('')
+    setPublishStatus('running')
+    setPublishLog('')
     try {
       const result = await publish()
-      setStatus('success')
-      setLog(result.log || '')
+      setPublishStatus('success')
+      setPublishLog(result.log || '')
     } catch (err) {
-      setStatus('error')
-      setLog(err.log || err.message)
+      setPublishStatus('error')
+      setPublishLog(err.log || err.message)
     }
   }
 
   return (
-    <div className="admin-banner">
-      <div className="admin-banner-row">
-        <span>
-          Changes here save to files on this server. Click <strong>Publish</strong> to rebuild
-          and update the live site.
-        </span>
-        <div className="admin-banner-actions">
-          <button type="button" className="admin-button" onClick={handlePublish} disabled={status === 'running'}>
-            {status === 'running' ? 'Publishing…' : 'Publish to live site'}
+    <nav className="admin-topbar">
+      <div className="admin-topbar-row">
+        <div className="admin-topbar-links">
+          {SECTIONS.map((s) => (
+            <NavLink key={s.path} to={`/admin/${s.path}`} className="admin-topbar-link">{s.label}</NavLink>
+          ))}
+        </div>
+        <div className="admin-topbar-actions">
+          <button
+            type="button"
+            className={`admin-button${status === 'saved' && !dirty ? ' admin-button-success' : ''}`}
+            onClick={doSave}
+            disabled={!canSave || !dirty || saving}
+          >
+            {saving ? 'Saving…' : status === 'saved' && !dirty ? 'Saved' : 'Save'}
           </button>
-          <button type="button" className="admin-button admin-logout" onClick={logout}>Log out</button>
+          <button type="button" className="admin-button" onClick={handlePublish} disabled={publishStatus === 'running'}>
+            {publishStatus === 'running' ? 'Publishing…' : 'Publish to live site'}
+          </button>
+          <button type="button" className="admin-button" onClick={logout}>Log out</button>
         </div>
       </div>
-      {status === 'success' && <div className="admin-publish-ok">Published successfully.</div>}
-      {status === 'error' && <pre className="admin-publish-log">{log}</pre>}
-    </div>
+      {status && status !== 'saved' ? (
+        <div className="admin-publish-log">{status}</div>
+      ) : null}
+      {publishStatus === 'success' && <div className="admin-publish-ok">Published successfully.</div>}
+      {publishStatus === 'error' && <pre className="admin-publish-log">{publishLog}</pre>}
+    </nav>
   )
 }
 
 const AdminApp = () => (
-  <div className="admin-app">
-    <PublishBar />
-    <div className="admin-layout">
-      <nav className="admin-nav">
-        <NavLink to="/admin" end>Overview</NavLink>
-        {SECTIONS.map((s) => (
-          <NavLink key={s.path} to={`/admin/${s.path}`}>{s.label}</NavLink>
-        ))}
-      </nav>
+  <SaveProvider>
+    <div className="admin-app">
+      <div className="admin-title-bar">ADMIN PANEL</div>
+      <TopBar />
       <div className="admin-content">
         <Routes>
-          <Route index element={<AdminHome />} />
+          <Route index element={<Navigate to="frontpage" replace />} />
           <Route path="frontpage" element={<FrontPageEditor />} />
           <Route path="news/*" element={<CollectionListPage schema={newsSchema} />} />
           <Route path="colloquium/*" element={<CollectionListPage schema={colloquiumSchema} />} />
@@ -94,7 +96,7 @@ const AdminApp = () => (
         </Routes>
       </div>
     </div>
-  </div>
+  </SaveProvider>
 )
 
 export default AdminApp

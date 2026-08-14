@@ -3,13 +3,14 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import FieldShell from './FieldShell'
 import { getArticle } from '../../adminApi'
-import { suggestArticlePath } from '../../utils/slugify'
 
 // Used within RecordFormPage, which owns the actual save-to-disk timing
 // (article file written before the parent JSON on form submit) via the
 // articleContent/onArticleContentChange props it passes to every field.
-const ArticleField = ({ field, value, onChange, error, record, articleContent, onArticleContentChange }) => {
-  const [preview, setPreview] = useState(false)
+// The backing file path (`value`) is never shown or edited here -- for new
+// records RecordFormPage derives one from the title at save time, once
+// there's content to save.
+const ArticleField = ({ field, value, error, articleContent, onArticleContentChange }) => {
   const [loadedFor, setLoadedFor] = useState(null)
 
   useEffect(() => {
@@ -21,47 +22,22 @@ const ArticleField = ({ field, value, onChange, error, record, articleContent, o
     }
   }, [value])
 
-  const useSuggestedPath = () => {
-    const titleKey = field.titleKey || 'title'
-    onChange(suggestArticlePath(record[titleKey] || 'untitled'))
-  }
-
   return (
     <FieldShell field={field} error={error}>
-      <div className="admin-article-path-row">
-        <input
-          type="text"
-          value={value || ''}
-          placeholder="articles/example.md"
-          onChange={(e) => onChange(e.target.value)}
+      <div className="admin-article-editor">
+        <textarea
+          className="admin-article-textarea"
+          value={articleContent || ''}
+          onChange={(e) => onArticleContentChange(e.target.value)}
         />
-        {!value ? (
-          <button type="button" onClick={useSuggestedPath}>
-            suggest from title
-          </button>
-        ) : null}
-      </div>
-      {value ? (
-        <>
-          <div className="admin-article-toolbar">
-            <button type="button" onClick={() => setPreview((p) => !p)}>
-              {preview ? 'edit markdown' : 'preview'}
-            </button>
-          </div>
-          {preview ? (
-            <div className="admin-article-preview">
-              <Markdown remarkPlugins={[remarkGfm]}>{articleContent || ''}</Markdown>
-            </div>
+        <div className="admin-article-preview">
+          {articleContent ? (
+            <Markdown remarkPlugins={[remarkGfm]}>{articleContent}</Markdown>
           ) : (
-            <textarea
-              rows={12}
-              className="admin-article-textarea"
-              value={articleContent || ''}
-              onChange={(e) => onArticleContentChange(e.target.value)}
-            />
+            <div className="admin-article-preview-empty">Start typing markdown on the left to see a preview here.</div>
           )}
-        </>
-      ) : null}
+        </div>
+      </div>
     </FieldShell>
   )
 }

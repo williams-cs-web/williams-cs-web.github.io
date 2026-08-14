@@ -36,3 +36,10 @@ export const fromISODate = (isoDate) => {
   if (!y || !m || !d) return ''
   return `${MONTHS[m - 1]} ${d}, ${y}`
 }
+
+// "Month D, YYYY" for right now, in local time (for date fields that default
+// to today on create).
+export const today = () => {
+  const d = new Date()
+  return `${MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
+}

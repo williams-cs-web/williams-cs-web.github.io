@@ -5,6 +5,15 @@ import RecordFormPage from './RecordFormPage'
 
 const routeKeyFor = (schema, item, index) => (schema.idField ? item[schema.idField] : index)
 
+// listColumns entries are raw field keys (camelCase where the field itself
+// is, e.g. "sectionNumber"), which doesn't read well as a table header --
+// use the field's columnLabel if it declares one, else fall back to the key
+// as before.
+const columnLabel = (schema, col) => {
+  const field = schema.fields.find((f) => f.key === col)
+  return field?.columnLabel || col
+}
+
 const compareValues = (a, b, type) => {
   if (type === 'date') return Date.parse(a) - Date.parse(b)
   if (a < b) return -1
@@ -39,16 +48,16 @@ const ListView = ({ schema }) => {
   return (
     <div className="admin-collection-list">
       <div className="admin-collection-header">
-        <h2>{schema.label} ({list.length})</h2>
-        <Link to="new" className="admin-button">+ add {schema.label}</Link>
+        <h2>{schema.pluralLabel || schema.label} ({list.length})</h2>
+        <Link to="new" className="admin-button">+ Add {schema.label}</Link>
       </div>
       {list.length === 0 ? (
-        <div>no {schema.label.toLowerCase()} entries yet.</div>
+        <div>no {(schema.pluralLabel || schema.label).toLowerCase()} entries yet.</div>
       ) : (
         <table className="admin-table">
           <thead>
             <tr>
-              {columns.map((col) => <th key={col}>{col}</th>)}
+              {columns.map((col) => <th key={col}>{columnLabel(schema, col)}</th>)}
               <th />
             </tr>
           </thead>

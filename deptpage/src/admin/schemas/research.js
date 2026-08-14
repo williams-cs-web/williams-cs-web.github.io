@@ -3,6 +3,7 @@ export default {
   arrayPath: 'opportunities',
   idField: 'id',
   label: 'Research Opportunity',
+  pluralLabel: 'Research Opportunities',
   fields: [
     { key: 'id', type: 'text', label: 'id', required: true, unique: true },
     { key: 'name', type: 'text', label: 'name', required: true },
