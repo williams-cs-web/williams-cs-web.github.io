@@ -1,13 +1,17 @@
 import FieldShell from './FieldShell'
 import ArticleField from './ArticleField'
+import ImagePickerField from './ImagePickerField'
 import { saveArticle } from '../../adminApi'
 import { suggestArticlePath } from '../../utils/slugify'
 import { generateUniqueArticlePath } from '../../utils/validation'
 
-// frontpage.json / major.json / nonmajors.json all have a `content` array
-// that mixes {component: "SomeReactComponent"} markers with {title, article}
-// blocks. Component blocks are read-only chips picked from a fixed enum (a
-// new component name needs an actual code change anyway).
+// frontpage.json / major.json / nonmajors.json / research.json all have a
+// `content` array that mixes {component: "SomeReactComponent"} markers with
+// {title, photo, article} blocks. Component blocks are read-only chips
+// picked from a fixed enum (a new component name needs an actual code
+// change anyway). photo is optional and renders below the title -- keeping
+// it a real field instead of relying on admins to hand-write markdown image
+// syntax.
 //
 // Article blocks hold their in-progress markdown as a transient `_articleContent`
 // field directly on the block object -- not a separate index-keyed map --
@@ -27,6 +31,11 @@ const BlockEditor = ({ block, onChange }) => (
         onChange={(e) => onChange({ ...block, title: e.target.value })}
       />
     </div>
+    <ImagePickerField
+      field={{ key: 'photo', label: 'photo (optional, shown below the title)', imageDir: 'misc' }}
+      value={block.photo}
+      onChange={(v) => onChange({ ...block, photo: v })}
+    />
     <ArticleField
       field={{ key: 'article', label: 'article body (markdown)' }}
       value={block.article}

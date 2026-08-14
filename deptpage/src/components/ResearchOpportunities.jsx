@@ -12,7 +12,7 @@ const ResearchOpportunities = ({ style, layout, onClick, showSidebar }) => {
   const content = DbServices.getResearchContent();
 
   const renderOpportunity = (item, i) => (
-    <Passage key={item.title ?? i} title={item.title} article={item.article} />
+    <Passage key={item.title ?? i} title={item.title} photo={item.photo} article={item.article} />
   );
 
   const renderBody = () => (
