@@ -2,43 +2,52 @@ import { useState, useEffect } from 'react'
 import { NavLink, Routes, Route } from 'react-router-dom'
 import { getData, saveData } from '../adminApi'
 import TextField from '../components/fields/TextField'
-import ContentBlockListField from '../components/fields/ContentBlockListField'
+import ContentBlockListField, { saveBlockArticles } from '../components/fields/ContentBlockListField'
 import CollectionListPage from '../components/CollectionListPage'
 import { requirementsSchema, pathsSchema, majorComponentOptions } from '../schemas/major'
+import { useRegisterSave, useSaveContext } from '../SaveContext'
 
 const MajorContentEditor = () => {
   const [doc, setDoc] = useState(null)
-  const [status, setStatus] = useState('')
+  const { markDirty } = useSaveContext()
 
   useEffect(() => { getData('major.json').then(setDoc) }, [])
-  if (!doc) return <div>loading...</div>
 
-  const save = async () => {
-    setStatus('saving...')
-    try {
-      await saveData('major.json', doc)
-      setStatus('saved')
-    } catch (err) {
-      setStatus(`save failed: ${err.message}`)
-    }
+  // Functional update: several content blocks can each finish loading their
+  // article text around the same time, and a plain setDoc(newDoc) built
+  // from a stale render's `doc` would clobber whichever one resolved first.
+  const change = (updater) => {
+    setDoc((prev) => (typeof updater === 'function' ? updater(prev) : updater))
+    markDirty()
   }
+
+  useRegisterSave(async () => {
+    const content = await saveBlockArticles(doc.content)
+    await saveData('major.json', { ...doc, content })
+  })
+
+  if (!doc) return <div>loading...</div>
 
   return (
     <div className="admin-record-form">
       <TextField
         field={{ key: 'disclaimer', label: 'disclaimer', multiline: true }}
         value={doc.disclaimer}
-        onChange={(v) => setDoc({ ...doc, disclaimer: v })}
+        onChange={(v) => change((prev) => ({ ...prev, disclaimer: v }))}
       />
       <ContentBlockListField
-        field={{ key: 'content', label: 'page content', componentOptions: majorComponentOptions }}
+        field={{
+          key: 'content',
+          label: 'page content',
+          componentOptions: majorComponentOptions,
+          // Structural, not editable content -- keep it out of the list
+          // entirely rather than just hiding its remove button, since
+          // there's nothing about it a content editor should be changing.
+          isHidden: (block) => block.component === 'MajorPlanningAssistant',
+        }}
         value={doc.content}
-        onChange={(v) => setDoc({ ...doc, content: v })}
+        onChange={(blocksUpdater) => change((prev) => ({ ...prev, content: blocksUpdater(prev.content) }))}
       />
-      <div className="admin-form-actions">
-        <button type="button" onClick={save}>save</button>
-        <span className="admin-status">{status}</span>
-      </div>
     </div>
   )
 }

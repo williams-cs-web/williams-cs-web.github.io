@@ -4,6 +4,7 @@
             "id": "f26-csci104-1",
             "course": "CSCI 104",
             "semester": "Fall 2026",
+            "sectionNumber": "1",
             "instructors": [
                 "Stephen Freund"
             ],
@@ -14,6 +15,7 @@
             "id": "f26-csci134-1",
             "course": "CSCI 134",
             "semester": "Fall 2026",
+            "sectionNumber": "1",
             "instructors": [
                 "Rohit Bhattacharya"
             ],
@@ -24,6 +26,7 @@
             "id": "f26-csci134-2",
             "course": "CSCI 134",
             "semester": "Fall 2026",
+            "sectionNumber": "2",
             "instructors": [
                 "Rohit Bhattacharya"
             ],
@@ -34,6 +37,7 @@
             "id": "f26-csci136-1",
             "course": "CSCI 136",
             "semester": "Fall 2026",
+            "sectionNumber": "1",
             "instructors": [
                 "James Bern"
             ],
@@ -44,6 +48,7 @@
             "id": "f26-csci136-2",
             "course": "CSCI 136",
             "semester": "Fall 2026",
+            "sectionNumber": "2",
             "instructors": [
                 "James Bern"
             ],
@@ -54,6 +59,7 @@
             "id": "f26-csci237-1",
             "course": "CSCI 237",
             "semester": "Fall 2026",
+            "sectionNumber": "1",
             "instructors": [
                 "Kelly Shaw"
             ],
@@ -64,6 +70,7 @@
             "id": "f26-csci237-2",
             "course": "CSCI 237",
             "semester": "Fall 2026",
+            "sectionNumber": "2",
             "instructors": [
                 "Kelly Shaw"
             ],
@@ -74,6 +81,7 @@
             "id": "f26-csci256-1",
             "course": "CSCI 256",
             "semester": "Fall 2026",
+            "sectionNumber": "1",
             "instructors": [
                 "Shikha Singh"
             ],
@@ -84,6 +92,7 @@
             "id": "f26-csci256-2",
             "course": "CSCI 256",
             "semester": "Fall 2026",
+            "sectionNumber": "2",
             "instructors": [
                 "Shikha Singh"
             ],
@@ -94,6 +103,7 @@
             "id": "f26-csci270-1",
             "course": "CSCI 270",
             "semester": "Fall 2026",
+            "sectionNumber": "1",
             "instructors": [
                 "Mark Hopkins"
             ],
@@ -104,6 +114,7 @@
             "id": "f26-csci333-1",
             "course": "CSCI 333",
             "semester": "Fall 2026",
+            "sectionNumber": "1",
             "instructors": [
                 "William Jannen"
             ],
@@ -114,6 +125,7 @@
             "id": "f26-csci334-1",
             "course": "CSCI 334",
             "semester": "Fall 2026",
+            "sectionNumber": "1",
             "instructors": [
                 "Daniel Barowy"
             ],
@@ -124,6 +136,7 @@
             "id": "f26-csci339-1",
             "course": "CSCI 339",
             "semester": "Fall 2026",
+            "sectionNumber": "1",
             "instructors": [
                 "Jeannie Albrecht"
             ],
@@ -134,6 +147,7 @@
             "id": "f26-csci375-1",
             "course": "CSCI 375",
             "semester": "Fall 2026",
+            "sectionNumber": "1",
             "instructors": [
                 "Nate Chambers"
             ],
@@ -144,6 +158,7 @@
             "id": "f26-csci382-1",
             "course": "CSCI 382",
             "semester": "Fall 2026",
+            "sectionNumber": "1",
             "instructors": [
                 "Lucas Rosenblatt"
             ],
@@ -154,6 +169,7 @@
             "id": "f26-csci434-1",
             "course": "CSCI 434",
             "semester": "Fall 2026",
+            "sectionNumber": "1",
             "instructors": [
                 "Stephen Freund"
             ],
@@ -164,6 +180,7 @@
             "id": "s27-csci102-1",
             "course": "CSCI 102",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "William Jannen"
             ],
@@ -174,6 +191,7 @@
             "id": "s27-csci104-1",
             "course": "CSCI 104",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Stephen Freund"
             ],
@@ -184,6 +202,7 @@
             "id": "s27-csci134-1",
             "course": "CSCI 134",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Jeannie Albrecht",
                 "Lucas Rosenblatt"
@@ -195,6 +214,7 @@
             "id": "s27-csci134-2",
             "course": "CSCI 134",
             "semester": "Spring 2027",
+            "sectionNumber": "2",
             "instructors": [
                 "Lucas Rosenblatt",
                 "Jeannie Albrecht"
@@ -206,6 +226,7 @@
             "id": "s27-csci136-1",
             "course": "CSCI 136",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Daniel Barowy"
             ],
@@ -216,6 +237,7 @@
             "id": "s27-csci136-2",
             "course": "CSCI 136",
             "semester": "Spring 2027",
+            "sectionNumber": "2",
             "instructors": [
                 "Daniel Barowy"
             ],
@@ -226,6 +248,7 @@
             "id": "s27-csci237-1",
             "course": "CSCI 237",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "William Jannen"
             ],
@@ -236,6 +259,7 @@
             "id": "s27-csci256-1",
             "course": "CSCI 256",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Aaron Williams"
             ],
@@ -246,6 +270,7 @@
             "id": "s27-csci270-1",
             "course": "CSCI 270",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Nate Chambers"
             ],
@@ -256,6 +281,7 @@
             "id": "s27-csci270-2",
             "course": "CSCI 270",
             "semester": "Spring 2027",
+            "sectionNumber": "2",
             "instructors": [
                 "Nate Chambers"
             ],
@@ -266,6 +292,7 @@
             "id": "s27-csci315-1",
             "course": "CSCI 315",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Daniel Aalberts"
             ],
@@ -276,6 +303,7 @@
             "id": "s27-csci337-1",
             "course": "CSCI 337",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Kelly Shaw"
             ],
@@ -286,6 +314,7 @@
             "id": "s27-csci341-1",
             "course": "CSCI 341",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "James Bern"
             ],
@@ -296,6 +325,7 @@
             "id": "s27-csci357-1",
             "course": "CSCI 357",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Shikha Singh"
             ],
@@ -306,6 +336,7 @@
             "id": "s27-csci361-1",
             "course": "CSCI 361",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Samuel McCauley"
             ],
@@ -316,6 +347,7 @@
             "id": "s27-csci375-1",
             "course": "CSCI 375",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Katie Keith"
             ],
@@ -326,6 +358,7 @@
             "id": "s27-csci379-1",
             "course": "CSCI 379",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Rohit Bhattacharya"
             ],
@@ -336,6 +369,7 @@
             "id": "s27-csci381-1",
             "course": "CSCI 381",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Mark Hopkins"
             ],
@@ -346,6 +380,7 @@
             "id": "s27-csci382-1",
             "course": "CSCI 382",
             "semester": "Spring 2027",
+            "sectionNumber": "1",
             "instructors": [
                 "Lucas Rosenblatt"
             ],

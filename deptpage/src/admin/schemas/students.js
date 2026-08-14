@@ -3,6 +3,7 @@ export default {
   arrayPath: 'groups',
   idField: 'abbreviation',
   label: 'Student Group',
+  pluralLabel: 'Student Groups',
   fields: [
     { key: 'abbreviation', type: 'text', label: 'abbreviation', required: true, unique: true },
     { key: 'name', type: 'text', label: 'full name', required: true },

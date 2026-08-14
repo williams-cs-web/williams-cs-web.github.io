@@ -6,7 +6,7 @@ const CoursesAdmin = () => (
   <div>
     <h2>Courses</h2>
     <nav className="admin-tabs">
-      <NavLink to="sections">sections (this semester&apos;s offerings)</NavLink>
+      <NavLink to="sections">sections</NavLink>
       <NavLink to="catalog">course catalog</NavLink>
     </nav>
     <Routes>
