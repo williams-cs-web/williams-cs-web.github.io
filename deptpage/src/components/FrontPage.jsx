@@ -59,7 +59,7 @@ const FrontPage = ({ onClick, style }) => {
         return (
           <Fragment key={item.title ?? i}>
             <Spacer height="20px" />
-            <Passage title={item.title} article={item.article} />
+            <Passage title={item.title} photo={item.photo} article={item.article} />
           </Fragment>
         );
       }

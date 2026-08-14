@@ -42,7 +42,7 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
         return (
           <Fragment key={item.title ?? i}>
             {gap}
-            <Passage title={item.title} article={item.article} />
+            <Passage title={item.title} photo={item.photo} article={item.article} />
           </Fragment>
         );
       }

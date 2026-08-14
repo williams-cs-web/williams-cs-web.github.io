@@ -22,10 +22,10 @@ It is also a substantial commitment. The thesis occupies two courses, and Winter
 
 Here are this year's deadlines:
 
-| Date                                       | Milestone                                                                                                                                             |
-| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Date  | Milestone |                                                                                                                                     
+| ----- | ----- |
 | **Monday, November 2, 2026**               | One-page description of thesis project due to the department                                                                                          |
-| **Friday, December 11, 2026**              | Written problem statement and background of thesis work due to advisor; preliminary department decision on continuing with honors                     |
+| **Friday, December 11, 2026**              | Written problem statement and background of thesis work due to advisor; preliminary department decision on continuing with honoxxwrs                     |
 | **Friday, January 29, 2027**               | Winter Study ends; original research and/or software development should be largely complete; chapter on thesis goals due to advisor and second reader |
 | **Friday, February 19 & 26, 2027**         | Proposal talks during department colloquia; final decision on admission to Honors candidacy occurs around this time                                   |
 | **Monday, March 1, 2027**                  | Thesis outline due to both readers                                                                                                                    |
