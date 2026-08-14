@@ -14,16 +14,19 @@ import NonMajorsEditor from './pages/NonMajorsEditor'
 import ResearchEditor from './pages/ResearchEditor'
 import './admin.css'
 
+// Ordered to match the public site's own nav (see TopMenu.jsx's `pages`):
+// home, about-us, plan-your-major, courses, colloquium, student-life,
+// research, non-majors, news.
 const SECTIONS = [
   { path: 'frontpage', label: 'Front Page' },
-  { path: 'news', label: 'News' },
-  { path: 'colloquium', label: 'Colloquium' },
   { path: 'people', label: 'People' },
+  { path: 'major', label: 'Plan Your Major' },
   { path: 'courses', label: 'Courses' },
+  { path: 'colloquium', label: 'Colloquium' },
   { path: 'students', label: 'Student Life' },
   { path: 'research', label: 'Research Opportunities' },
-  { path: 'major', label: 'Plan Your Major' },
   { path: 'nonmajors', label: 'Non-Majors' },
+  { path: 'news', label: 'News' },
 ]
 
 const TopBar = () => {
