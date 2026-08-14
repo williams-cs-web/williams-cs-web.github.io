@@ -486,8 +486,8 @@ a.nostyle:visited {
 }
 
 .frontpage-colloquium {
-  background-color: var(--color-colloquium);
-  color: white;
+  background-color: lightpink;
+  color: black;
 }
 
 .frontpage-colloquium:hover {
