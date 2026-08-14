@@ -1,63 +1,18 @@
 import Sidebar from "./Sidebar";
-import { useState, useEffect } from "react";
 import DbServices from "../services/db.js";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { markdownImageComponent } from "../utils/markdownImageComponent.jsx";
 import TopMenu from "./TopMenu";
 import WilliamsHeader from "./WilliamsHeader";
 import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
-
-const Opportunity = ({ name, photo, article }) => {
-  const [content, setContent] = useState("");
-
-  const renderHeading = (heading) => (
-    <div className="heading">{heading.toLowerCase()}</div>
-  );
-
-  useEffect(() => {
-    DbServices.fetchExternalTextFile(article).then((response) => {
-      setContent(response);
-    });
-  }, []);
-
-  return (
-    <div
-      className="plaintext"
-      style={{
-        display: "flex",
-        flexFlow: "column nowrap",
-        gap: "0px",
-      }}
-    >
-      {renderHeading(name)}
-      {photo ? (
-        <div className="news-article-photo">
-          <img
-            width="100%"
-            src={photo}
-            alt={`photo associated with news article`}
-          />{" "}
-        </div>
-      ) : null}
-      <Markdown remarkPlugins={[remarkGfm]} components={markdownImageComponent}>{content}</Markdown>
-    </div>
-  );
-};
+import Passage from "./Passage";
 
 const ResearchOpportunities = ({ style, layout, onClick, showSidebar }) => {
   const hubId = "research";
 
-  const opportunities = DbServices.getResearchOpportunities();
+  const content = DbServices.getResearchContent();
 
-  const renderOpportunity = (opportunity) => (
-    <Opportunity
-      key={opportunity.name}
-      name={opportunity.name}
-      photo={opportunity.photo}
-      article={opportunity.article}
-    />
+  const renderOpportunity = (item, i) => (
+    <Passage key={item.title ?? i} title={item.title} article={item.article} />
   );
 
   const renderBody = () => (
@@ -86,7 +41,7 @@ const ResearchOpportunities = ({ style, layout, onClick, showSidebar }) => {
             textAlign: "left",
           }}
         >
-          {opportunities.map((opp) => renderOpportunity(opp))}
+          {content.map((item, i) => renderOpportunity(item, i))}
         </div>
       </div>
     </div>

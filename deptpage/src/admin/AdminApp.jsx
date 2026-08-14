@@ -6,12 +6,12 @@ import CollectionListPage from './components/CollectionListPage'
 import newsSchema from './schemas/news'
 import colloquiumSchema from './schemas/colloquium'
 import peopleSchema from './schemas/people'
-import researchSchema from './schemas/research'
 import studentsSchema from './schemas/students'
 import CoursesAdmin from './pages/CoursesAdmin'
 import MajorAdmin from './pages/MajorAdmin'
 import FrontPageEditor from './pages/FrontPageEditor'
 import NonMajorsEditor from './pages/NonMajorsEditor'
+import ResearchEditor from './pages/ResearchEditor'
 import './admin.css'
 
 const SECTIONS = [
@@ -90,7 +90,7 @@ const AdminApp = () => (
           <Route path="people/*" element={<CollectionListPage schema={peopleSchema} />} />
           <Route path="courses/*" element={<CoursesAdmin />} />
           <Route path="students/*" element={<CollectionListPage schema={studentsSchema} />} />
-          <Route path="research/*" element={<CollectionListPage schema={researchSchema} />} />
+          <Route path="research" element={<ResearchEditor />} />
           <Route path="major/*" element={<MajorAdmin />} />
           <Route path="nonmajors" element={<NonMajorsEditor />} />
         </Routes>

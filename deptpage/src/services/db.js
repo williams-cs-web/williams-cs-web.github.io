@@ -155,8 +155,8 @@ const getStudyAwayEquivalents = () => {
   return studyAwayData.equivalents
 }
 
-const getResearchOpportunities = () => {
-  return researchData.opportunities
+const getResearchContent = () => {
+  return researchData.content
 }
 
 
@@ -183,7 +183,7 @@ export default {
   getUpcomingColloquia,
   getStudentGroups,
   getStudyAwayEquivalents,
-  getResearchOpportunities,
+  getResearchContent,
   getNewsItems,
   fetchExternalTextFile
 }

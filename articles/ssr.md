@@ -1,1 +1,3 @@
+![Summer Science Research](/images/misc/kayaking.png)
+
 Through the Summer Science Research Program, Williams provides financial support for students to assist computer science faculty in their research during the summer. The student research assistants are provided with a stipend, and can obtain reduced rates for room and board at the college. 

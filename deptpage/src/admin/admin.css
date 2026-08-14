@@ -418,6 +418,11 @@
   background: #fff;
 }
 
+.admin-article-preview img {
+  max-width: 100%;
+  height: auto;
+}
+
 .admin-article-preview-empty {
   color: #999;
   font-size: 13px;
