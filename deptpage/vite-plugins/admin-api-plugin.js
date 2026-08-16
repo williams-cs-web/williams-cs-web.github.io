@@ -3,6 +3,7 @@ import path from 'path'
 import crypto from 'crypto'
 import { spawn } from 'child_process'
 import { fileURLToPath } from 'url'
+import sharp from 'sharp'
 import { resolveSafe, isSafeSegment, atomicWrite } from './fsGuard.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -137,6 +138,42 @@ const handlePutArticle = async (req, res, articlePath) => {
   sendJson(res, 200, { ok: true, path: `articles/${segments.join('/')}` })
 }
 
+// Any admin can upload arbitrary photos straight off a phone, so this
+// applies the same treatment repo images got compressed to by hand
+// (see the "Compress the site's images" commit): capped at 2000px on
+// the long edge -- comfortably more than the 1050px max content width
+// needs even at retina density -- and re-encoded, which also strips
+// embedded EXIF/GPS metadata. Vector and animated formats have no safe
+// raster re-encode (SVG has no pixels to resize; re-encoding an
+// animated GIF would collapse it to one frame), so those pass through
+// untouched.
+const MAX_IMAGE_EDGE = 2000
+const JPEG_QUALITY = 82
+
+const compressImage = async (buffer, ext) => {
+  if (ext === '.svg') return { buffer, ext }
+
+  const probe = sharp(buffer, { animated: true })
+  const meta = await probe.metadata()
+  if (ext === '.gif' && meta.pages > 1) return { buffer, ext }
+
+  const pipeline = sharp(buffer).rotate().resize({
+    width: MAX_IMAGE_EDGE,
+    height: MAX_IMAGE_EDGE,
+    fit: 'inside',
+    withoutEnlargement: true,
+  })
+
+  // A transparent PNG (a logo, an icon) needs to stay a PNG; a photo
+  // exported with an unused alpha channel (common from phone camera
+  // apps) doesn't, and compresses far better as JPEG.
+  const needsAlpha = meta.hasAlpha && (await pipeline.clone().stats()).channels.at(-1).min < 255
+  if (needsAlpha) {
+    return { buffer: await pipeline.png({ compressionLevel: 9, adaptiveFiltering: true }).toBuffer(), ext: '.png' }
+  }
+  return { buffer: await pipeline.jpeg({ quality: JPEG_QUALITY, mozjpeg: true }).toBuffer(), ext: '.jpg' }
+}
+
 const uniqueImagePath = async (dir, baseName, ext) => {
   let candidate = `${baseName}${ext}`
   let n = 2
@@ -162,8 +199,9 @@ const handleUploadImage = async (req, res, subfolder, filename) => {
 
   const dir = path.join(await fs.realpath(IMAGES_DIR), subfolder)
   const body = await readBody(req, MAX_UPLOAD_BYTES)
-  const finalName = await uniqueImagePath(dir, baseName, ext)
-  await atomicWrite(path.join(dir, finalName), body)
+  const { buffer, ext: outExt } = await compressImage(body, ext)
+  const finalName = await uniqueImagePath(dir, baseName, outExt)
+  await atomicWrite(path.join(dir, finalName), buffer)
   sendJson(res, 200, { path: `/images/${subfolder}/${finalName}` })
 }
 

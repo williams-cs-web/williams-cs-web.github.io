@@ -216,7 +216,7 @@ const Colloquium = ({ style, layout, showSidebar, onClick }) => {
               marginBottom: "10px",
             }}
           >
-            <img src={`${import.meta.env.BASE_URL}images/misc/hiatus.png`} width="100%" />
+            <img src={`${import.meta.env.BASE_URL}images/misc/hiatus.jpg`} width="100%" />
           </div>
           <div
             className="plaintext"
