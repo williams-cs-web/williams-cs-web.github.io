@@ -4,7 +4,7 @@
             "date": "September 11, 2026",
             "speaker": "CS Faculty",
             "affiliation": "Williams College",
-            "photo": "/images/misc/welcome.png",
+            "photo": "/images/misc/welcome.jpg",
             "title": "Welcome Back Colloquium",
             "abstract": "Find out what's in store for this semester, learn about CS student clubs, begin the election process for CoSSAC members, and get introduced to CS faculty and staff. Receive colloquium credit for attending."
         },
@@ -48,7 +48,7 @@
             "date": "October 23, 2026",
             "speaker": "CS Faculty",
             "affiliation": "Williams College",
-            "photo": "/images/colloquium/fish.png",
+            "photo": "/images/colloquium/fish.jpg",
             "title": "Preregistration Infosession",
             "abstract": "Learn about computer science classes that will be offered in Spring 2027 and meet the professors. Colloquium credit awarded for attendance.",
             "bio": ""
