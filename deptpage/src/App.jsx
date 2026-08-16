@@ -9,6 +9,8 @@ import StudentLife from "./components/StudentLife";
 import ResearchOpportunities from "./components/ResearchOpportunities";
 import NonMajors from "./components/NonMajors";
 import News from "./components/News";
+import DbServices from "./services/db.js";
+import { prefetchImages } from "./utils/prefetchImages.js";
 import { createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
@@ -56,6 +58,12 @@ function App() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+  }, []);
+
+  // Warm the image cache for every other tab once the current page is done
+  // loading, so switching tabs feels instant instead of popping in images.
+  useEffect(() => {
+    prefetchImages(DbServices.getAllImagePaths());
   }, []);
 
   const showSidebar = false; //(getLayout() === "wide")
