@@ -7,11 +7,12 @@ import { generateUniqueArticlePath } from '../../utils/validation'
 
 // frontpage.json / major.json / nonmajors.json / research.json all have a
 // `content` array that mixes {component: "SomeReactComponent"} markers with
-// {title, photo, article} blocks. Component blocks are read-only chips
-// picked from a fixed enum (a new component name needs an actual code
-// change anyway). photo is optional and renders below the title -- keeping
-// it a real field instead of relying on admins to hand-write markdown image
-// syntax.
+// {title, photo, article} blocks. Component blocks are baked into each
+// page's structure by whoever wires up componentOptions/isHidden in the
+// page editor -- there's no "add component block" button, since a new one
+// needs an actual code change anyway. photo is optional and renders below
+// the title -- keeping it a real field instead of relying on admins to
+// hand-write markdown image syntax.
 //
 // Article blocks hold their in-progress markdown as a transient `_articleContent`
 // field directly on the block object -- not a separate index-keyed map --
@@ -93,7 +94,6 @@ const ContentBlockListField = ({ field, value, onChange, error }) => {
     return next
   })
   const addTextBlock = () => onChange((prev) => [...prev, { title: '', article: '' }])
-  const addComponentBlock = () => onChange((prev) => [...prev, { component: componentOptions[0] }])
 
   return (
     <FieldShell field={field} error={error}>
@@ -130,9 +130,6 @@ const ContentBlockListField = ({ field, value, onChange, error }) => {
         })}
         <div className="admin-content-block-add">
           <button type="button" onClick={addTextBlock}>+ add text/article block</button>
-          {componentOptions.length > 0 ? (
-            <button type="button" onClick={addComponentBlock}>+ add component block</button>
-          ) : null}
         </div>
       </div>
     </FieldShell>
