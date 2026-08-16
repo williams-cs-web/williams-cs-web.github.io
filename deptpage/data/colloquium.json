@@ -4,7 +4,7 @@
             "date": "September 11, 2026",
             "speaker": "CS Faculty",
             "affiliation": "Williams College",
-            "photo": "/images/misc/welcome.png",
+            "photo": "/images/colloquium/cindyphillips.png",
             "title": "Welcome Back Colloquium",
             "abstract": "Find out what's in store for this semester, learn about CS student clubs, begin the election process for CoSSAC members, and get introduced to CS faculty and staff. Receive colloquium credit for attending!"
         },
@@ -70,7 +70,7 @@
             "location": "Bronfman Auditorium",
             "speaker": "Cynthia Anne Phillips",
             "affiliation": "Scandia National Laboratories",
-            "photo": "/images/colloquium/phillips.jpg",
+            "photo": "/images/colloquium/cindyphillips.png",
             "title": "",
             "abstract": "",
             "bio": ""
