@@ -40,8 +40,28 @@ const rewriteAssetPaths = (value) => {
   }
 }
 
-;[majorData, nonMajorsData, people, courses, colloquiumData, studentData, studyAwayData, researchData, newsData, frontPageData]
-  .forEach(rewriteAssetPaths)
+const allData = [majorData, nonMajorsData, people, courses, colloquiumData, studentData, studyAwayData, researchData, newsData, frontPageData]
+allData.forEach(rewriteAssetPaths)
+
+// Walks the same data every page component reads its images from and
+// collects every asset path already rewritten by rewriteAssetPaths above,
+// so callers can warm the browser's image cache for pages the visitor
+// hasn't navigated to yet without hardcoding a separate image list.
+const collectImagePaths = (value, out) => {
+  if (Array.isArray(value)) {
+    value.forEach((item) => collectImagePaths(item, out))
+  } else if (value && typeof value === "object") {
+    Object.values(value).forEach((val) => collectImagePaths(val, out))
+  } else if (typeof value === "string" && value.includes("/images/")) {
+    out.add(value)
+  }
+}
+
+const getAllImagePaths = () => {
+  const paths = new Set()
+  allData.forEach((data) => collectImagePaths(data, paths))
+  return [...paths]
+}
 
 const getFrontPageSpotlightInfo = () => {
   return frontPageData.spotlight
@@ -185,5 +205,6 @@ export default {
   getStudyAwayEquivalents,
   getResearchContent,
   getNewsItems,
-  fetchExternalTextFile
+  fetchExternalTextFile,
+  getAllImagePaths
 }
