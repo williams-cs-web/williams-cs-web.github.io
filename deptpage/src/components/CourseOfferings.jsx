@@ -41,6 +41,7 @@ const CourseOffering = ({ course, instructors, lecture, webpage, width }) => {
         <img
           width="60"
           height="60"
+          loading="lazy"
           style={{ objectFit: "cover" }}
           src={firstInstructor ? firstInstructor.photo : courseObj.icon}
           alt={

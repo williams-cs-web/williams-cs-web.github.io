@@ -53,6 +53,7 @@ const Colloquium = ({ style, layout, showSidebar, onClick }) => {
             <img
               height="300"
               width="300"
+              loading="lazy"
               src={event.photo}
               alt={`photo of ${event.speaker}`}
             />
@@ -117,6 +118,7 @@ const Colloquium = ({ style, layout, showSidebar, onClick }) => {
               <img
                 height="300"
                 width="300"
+                loading="lazy"
                 src={event.photo}
                 alt={`photo of ${event.speaker}`}
               />
@@ -148,6 +150,7 @@ const Colloquium = ({ style, layout, showSidebar, onClick }) => {
         <img
           height="80"
           width="80"
+          loading="lazy"
           src={event.photo}
           alt={`photo of ${event.speaker}`}
         />

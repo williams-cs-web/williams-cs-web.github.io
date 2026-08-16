@@ -22,6 +22,7 @@ const Student = ({ name, year, photo }) => {
         <img
           width="80"
           height="80"
+          loading="lazy"
           style={{ alignSelf: 'flex-start', objectFit: 'cover' }}
           src={photo}
           alt={`Photo of ${name}`}
@@ -133,7 +134,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
     }}>
       {photos.map(photo =>
         <div key={photo} style={{ flex: 1 }}>
-          <img style={{ width: '100%', display: 'block' }} src={photo} alt="" />
+          <img style={{ width: '100%', display: 'block' }} loading="lazy" src={photo} alt="" />
         </div>
       )}
     </div>
