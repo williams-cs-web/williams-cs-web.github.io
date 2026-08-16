@@ -31,6 +31,7 @@ const Passage = ({ title, photo, article }) => {
         <div className="news-article-photo">
           <img
             width="100%"
+            loading="lazy"
             src={photo}
             alt={title ? `Photo for ${title}` : "Article photo"}
           />{" "}

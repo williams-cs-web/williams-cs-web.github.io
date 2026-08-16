@@ -17,6 +17,7 @@ const Person = (props) => {
       <img
         width="80"
         height="80"
+        loading="lazy"
         src={props.photo}
         alt={`Photo of ${props.id}`}
       />

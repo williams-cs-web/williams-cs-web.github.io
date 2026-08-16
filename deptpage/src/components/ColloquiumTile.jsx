@@ -50,6 +50,7 @@ const ColloquiumTile = ({ onClick, style }) => {
         src={event.photo}
         width="100"
         height="100"
+        loading="lazy"
         style={{ objectFit: "cover", flexGrow: 0, flexShrink: 0 }}
         alt={`photo of ${event.speaker}`}
       />
