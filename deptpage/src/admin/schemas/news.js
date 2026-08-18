@@ -12,6 +12,7 @@ export default {
     { key: 'date', type: 'date', label: 'date', required: true, default: () => today() },
     { key: 'title', type: 'text', label: 'title', required: true },
     { key: 'photo', type: 'image', label: 'photo', imageDir: 'misc' },
+    { key: 'thumbnail', type: 'image', label: 'thumbnail (optional, square; shown in the front-page news widget when this is the latest article)', imageDir: 'misc' },
     { key: 'teaser', type: 'text', label: 'teaser (shown on the front page; defaults to title if blank)', multiline: true },
     { key: 'article', type: 'article', label: 'article body', required: true },
   ],

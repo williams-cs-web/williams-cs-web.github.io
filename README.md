@@ -102,12 +102,15 @@ The `location` and `time` fields are optional (if not provided, the default valu
         "date": "December 5, 2023",
         "title": "Williams CS Majors Place 3rd in Purdue Data 4 Good Competition",
         "photo": "images/misc/purdue-data.jpg",
+        "thumbnail": "images/misc/purdue-data-thumb.jpg",
         "article": "articles/purdue-data.md",
         "teaser": "Williams CS Majors get third place in a data science competition!"            
     }
 ```
 
 The `id`s of all articles should be unique. The `teaser` is what shows up when this article is advertised on the main homepage. You can omit the `teaser` if you want to just use the `title` as the `teaser`. The `photo` can also be omitted. All other fields are mandatory. All paths are relative to the `deptpage` directory.
+
+The `thumbnail` field is optional and should be a **square** photo. When this article is the most recent one, it's used as a small preview image in the "department news" widget on the front page. If omitted, that widget just shows the teaser text, same as before this field existed.
 
 
 ### Modifying information on the Student Life page:

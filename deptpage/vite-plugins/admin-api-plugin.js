@@ -4,7 +4,7 @@ import crypto from 'crypto'
 import { spawn } from 'child_process'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-import { resolveSafe, isSafeSegment, atomicWrite } from './fsGuard.js'
+import { resolveSafe, isSafeSegment, atomicWrite, withLock } from './fsGuard.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -82,18 +82,6 @@ const handlePutData = async (req, res, filename) => {
   const filePath = path.join(DATA_DIR, filename)
 
   const ifMatch = req.headers['if-match']
-  if (ifMatch) {
-    let current
-    try {
-      current = await fs.readFile(filePath, 'utf8')
-    } catch {
-      current = null
-    }
-    if (current !== null && hashOf(Buffer.from(current)) !== ifMatch) {
-      return sendError(res, 409, 'file changed on disk since it was loaded; reload and retry')
-    }
-  }
-
   const body = await readBody(req)
   let data
   try {
@@ -102,7 +90,26 @@ const handlePutData = async (req, res, filename) => {
     return sendError(res, 400, 'request body is not valid JSON')
   }
   const serialized = `${JSON.stringify(data, null, 4)}\n`
-  await atomicWrite(filePath, serialized)
+
+  // The If-Match check and the write it gates must happen as one step --
+  // otherwise two admins who both loaded the same version can each pass the
+  // check before either has written, and the second write silently clobbers
+  // the first instead of getting the 409 the check exists to produce.
+  await withLock(`data:${filename}`, async () => {
+    if (ifMatch) {
+      let current
+      try {
+        current = await fs.readFile(filePath, 'utf8')
+      } catch {
+        current = null
+      }
+      if (current !== null && hashOf(Buffer.from(current)) !== ifMatch) {
+        throw Object.assign(new Error('file changed on disk since it was loaded; reload and retry'), { statusCode: 409 })
+      }
+    }
+    await atomicWrite(filePath, serialized)
+  })
+
   res.setHeader('ETag', hashOf(Buffer.from(serialized)))
   sendJson(res, 200, { ok: true })
 }
@@ -133,8 +140,25 @@ const handlePutArticle = async (req, res, articlePath) => {
   if (!segments.every(isSafeSegment)) return sendError(res, 400, `unsafe article path: ${articlePath}`)
   const resolved = path.resolve(await fs.realpath(ARTICLES_DIR), ...segments)
 
+  const ifMatch = req.headers['if-match']
   const body = await readBody(req, 2 * 1024 * 1024)
-  await atomicWrite(resolved, body)
+
+  await withLock(`article:${articlePath}`, async () => {
+    if (ifMatch) {
+      let current
+      try {
+        current = await fs.readFile(resolved, 'utf8')
+      } catch {
+        current = null
+      }
+      if (current !== null && hashOf(Buffer.from(current)) !== ifMatch) {
+        throw Object.assign(new Error('article changed on disk since it was loaded; reload and retry'), { statusCode: 409 })
+      }
+    }
+    await atomicWrite(resolved, body)
+  })
+
+  res.setHeader('ETag', hashOf(body))
   sendJson(res, 200, { ok: true, path: `articles/${segments.join('/')}` })
 }
 
@@ -200,8 +224,16 @@ const handleUploadImage = async (req, res, subfolder, filename) => {
   const dir = path.join(await fs.realpath(IMAGES_DIR), subfolder)
   const body = await readBody(req, MAX_UPLOAD_BYTES)
   const { buffer, ext: outExt } = await compressImage(body, ext)
-  const finalName = await uniqueImagePath(dir, baseName, outExt)
-  await atomicWrite(path.join(dir, finalName), buffer)
+
+  // Picking the free name and writing it must happen as one step -- two
+  // concurrent uploads with the same base name would otherwise both see the
+  // name as free and both write it, so the second silently overwrites the
+  // first instead of becoming "-2".
+  const finalName = await withLock(`image:${subfolder}:${baseName}`, async () => {
+    const name = await uniqueImagePath(dir, baseName, outExt)
+    await atomicWrite(path.join(dir, name), buffer)
+    return name
+  })
   sendJson(res, 200, { path: `/images/${subfolder}/${finalName}` })
 }
 
@@ -219,10 +251,13 @@ const handleListImages = async (req, res, subfolder) => {
 // Publishing: most content (everything under data/*.json) is statically
 // imported into the JS bundle at build time, so writing the files alone
 // doesn't change what visitors see. Publish stages+commits the content
-// changes locally (no push -- see admin-server docs) then reruns the same
-// build the deploy script uses, so a bad edit can't leave the live site
-// half-updated: if the build fails, nothing after the commit step touches
-// the served files.
+// changes locally, then reruns the same build the deploy script uses, so a
+// bad edit can't leave the live site half-updated: if the build fails,
+// nothing after the commit step touches the served files. It then pushes
+// the commit to GitHub as an off-machine backup -- best-effort, since the
+// live site has already been updated by the build step by that point, and a
+// flaky network or expired credential shouldn't block an editor from
+// publishing.
 let publishInProgress = false
 
 const runCommand = (cmd, args, cwd) => new Promise((resolve, reject) => {
@@ -258,6 +293,13 @@ const handlePublish = async (req, res) => {
       log.push('(no content changes to commit)')
     }
     log.push(await runCommand('npm', ['run', 'build:ephs'], DEPTPAGE_DIR))
+
+    try {
+      log.push(await runCommand('git', ['push', 'origin', 'HEAD'], REPO_ROOT))
+    } catch (err) {
+      log.push(`warning: git push to GitHub failed (changes are committed locally but not backed up yet):\n${err.output || err.message}`)
+    }
+
     sendJson(res, 200, { ok: true, log: log.join('\n---\n') })
   } catch (err) {
     log.push(err.output || err.message)
