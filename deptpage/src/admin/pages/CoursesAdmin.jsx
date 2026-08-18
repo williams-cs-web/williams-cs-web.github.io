@@ -1,4 +1,4 @@
-import { NavLink, Routes, Route } from 'react-router-dom'
+import { NavLink, Routes, Route, Navigate } from 'react-router-dom'
 import CollectionListPage from '../components/CollectionListPage'
 import { catalogSchema, sectionsSchema } from '../schemas/courses'
 
@@ -10,7 +10,7 @@ const CoursesAdmin = () => (
       <NavLink to="catalog">course catalog</NavLink>
     </nav>
     <Routes>
-      <Route index element={<CollectionListPage schema={sectionsSchema} />} />
+      <Route index element={<Navigate to="sections" replace />} />
       <Route path="sections/*" element={<CollectionListPage schema={sectionsSchema} />} />
       <Route path="catalog/*" element={<CollectionListPage schema={catalogSchema} />} />
     </Routes>

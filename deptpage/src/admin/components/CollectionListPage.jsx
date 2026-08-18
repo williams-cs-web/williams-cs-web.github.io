@@ -63,7 +63,7 @@ const ListView = ({ schema }) => {
           </thead>
           <tbody>
             {sorted.map(({ item, index }) => (
-              <tr key={routeKeyFor(schema, item, index)}>
+              <tr key={routeKeyFor(schema, item, index) ?? index}>
                 {columns.map((col) => <td key={col}>{String(item[col] ?? '')}</td>)}
                 <td>
                   <Link to={encodeURIComponent(String(routeKeyFor(schema, item, index)))}>edit</Link>
