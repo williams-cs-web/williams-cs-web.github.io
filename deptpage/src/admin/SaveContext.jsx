@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
 
 // Backs the single global Save button in the top bar. Whichever editable
 // page is currently mounted registers its own save function (a plain
@@ -47,13 +47,18 @@ export const SaveProvider = ({ children }) => {
 
 export const useSaveContext = () => useContext(SaveContext)
 
-// For editable pages: registers `saveFn` fresh on every render (so it always
-// closes over the latest local state) and unregisters on unmount, so the
-// top-bar button can't call into an unmounted page after navigating away.
+// For editable pages: registers once on mount and unregisters on unmount, so
+// the top-bar button can't call into an unmounted page after navigating away.
+// The registered wrapper reads `saveFn` through a ref that's kept current on
+// every render, so it always closes over the latest local state without
+// re-registering (and re-rendering the provider) on every render.
 export const useRegisterSave = (saveFn) => {
   const ctx = useSaveContext()
+  const saveFnRef = useRef(saveFn)
+  saveFnRef.current = saveFn
+
   useEffect(() => {
-    ctx.registerSave(saveFn)
-  })
-  useEffect(() => () => ctx.unregister(), []) // eslint-disable-line react-hooks/exhaustive-deps
+    ctx.registerSave(() => saveFnRef.current())
+    return () => ctx.unregister()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 }
