@@ -42,3 +42,21 @@ export const atomicWrite = async (filePath, contents) => {
   await fs.writeFile(tempPath, contents)
   await fs.rename(tempPath, filePath)
 }
+
+// Per-key async mutex. Two admin requests racing on the same key (e.g. the
+// same data file, or the same image base name) run `fn` one at a time
+// instead of interleaving around an `await` -- needed anywhere a check
+// (does this hash/filename still match?) and the write it gates aren't a
+// single synchronous step.
+const tails = new Map()
+
+export const withLock = (key, fn) => {
+  const tail = tails.get(key) || Promise.resolve()
+  const result = tail.then(fn, fn)
+  const nextTail = result.then(() => {}, () => {})
+  tails.set(key, nextTail)
+  nextTail.finally(() => {
+    if (tails.get(key) === nextTail) tails.delete(key)
+  })
+  return result
+}

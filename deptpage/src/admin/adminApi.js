@@ -1,6 +1,7 @@
 const BASE = '/__admin-api'
 
 const etags = new Map()
+const articleEtags = new Map()
 
 const parseErrorBody = async (res) => {
   try {
@@ -49,16 +50,23 @@ export const getArticle = async (path) => {
   const res = await apiFetch(`${BASE}/article?path=${encodeURIComponent(path)}`)
   if (res.status === 404) return ''
   if (!res.ok) throw new Error(await parseErrorBody(res))
+  articleEtags.set(path, res.headers.get('ETag'))
   return res.text()
 }
 
 export const saveArticle = async (path, content) => {
+  const headers = {}
+  const etag = articleEtags.get(path)
+  if (etag) headers['If-Match'] = etag
   const res = await apiFetch(`${BASE}/article?path=${encodeURIComponent(path)}`, {
     method: 'PUT',
+    headers,
     body: content,
   })
   if (!res.ok) throw new Error(await parseErrorBody(res))
-  return res.json()
+  const body = await res.json()
+  articleEtags.set(path, res.headers.get('ETag'))
+  return body
 }
 
 export const uploadImage = async (subfolder, file) => {
