@@ -3,17 +3,36 @@
 This repository provides code for updating and deploying the homepage for the Williams College Computer Science Department.
 
 
-## Adding content
+## Editing content: use the Admin Panel
 
-To make the webpage easier to update and maintain, much of the content is separated from the Javascript code. Here's how to add various types of content to the webpage:
+To make the webpage easier to update and maintain, much of the content is separated from the Javascript code, as plain JSON/Markdown files under `deptpage/data/` and `deptpage/articles/`. You *can* hand-edit those files directly (see the [Content data reference](#content-data-reference) below for the format of each one), but the recommended way to add or change content is the built-in admin panel, which covers every content type below plus image upload and Markdown editing, and handles rebuilding/publishing for you.
+
+There are two places to reach it:
+
+* **Locally**, for drafting or previewing changes before they go live: run `npm install` then `npm run dev` from `deptpage/`, and open `/admin` in the dev server. It's a dev-only route (stripped entirely from the production build) and requires no login on your own machine.
+* **Live**, on `jersey.cs.williams.edu`: a persistent copy of the same admin UI runs there as the `ephs` user, gated behind a login (username `webmaster`) and reachable only via SSH tunnel — it isn't exposed to the internet:
+
+  ```
+  ssh -L 8043:127.0.0.1:8043 ephs@jersey.cs.williams.edu
+  ```
+
+  then visit `http://localhost:8043/login`.
+
+In either case: edits **Save** to the local JSON/Markdown files, but that alone doesn't change what visitors see, since most content is bundled into the JS at build time. Use the **Publish to live site** button to commit, rebuild, and (best-effort) push the change — that's the step that actually makes it live.
+
+A handful of things aren't exposed in the admin forms yet (e.g. a course catalog entry's `icon`) — for those you'll still need to hand-edit the JSON as described below.
+
+## Content data reference
+
+Below, `photo`/`icon` paths are root-relative (e.g. a file at `deptpage/images/misc/photo.png` is referenced as `/images/misc/photo.png`), while `article` paths are relative to the `deptpage` directory (e.g. `articles/ssr.md`).
 
 ### Modifying the spotlight photo on the front page:
 
 1. Put a **landscape photo** in the `deptpage/images/misc/` directory.
 
-2. Update the `photo` field in `deptpage/data/frontpage.json` to point to the file. The path should be relative to the `deptpage` directory, e.g. if the photo is called `photo.png`, then the path would be `images/misc/photo.png`.
+2. Update the `photo` field of the `spotlight` object in `deptpage/data/frontpage.json` to point to the file. The path should be rooted at the `deptpage` directory, e.g. if the photo is called `photo.png`, then the path would be `/images/misc/photo.png`.
 
-3. Update the `caption` field in `deptpage/data/frontpage.json` with an appropriate caption.
+3. Update the `caption` field of the `spotlight` object in `deptpage/data/frontpage.json` with an appropriate caption.
 
 ### Adding a person to the About Us page:
 
@@ -24,7 +43,7 @@ To make the webpage easier to update and maintain, much of the content is separa
 ```
 {
     "id": "Mark Hopkins",
-    "photo": "images/people/mark.jpg",
+    "photo": "/images/people/mark.jpg",
     "role": "faculty",
     "title": "Assistant Professor",
     "webpage": "https://markandrewhopkins.com/",
@@ -32,7 +51,7 @@ To make the webpage easier to update and maintain, much of the content is separa
 }
 ```
 
-The `id` is just the person's name. The `role` should be `faculty`, `staff`, or `emeriti`. You can omit the `webpage` field or `interests` field if not applicable. All other fields are mandatory. All paths are relative to the `deptpage` directory.
+The `id` is just the person's name. The `role` should be `faculty`, `staff`, `emeriti`, or `affiliate` (for affiliated faculty from other departments who also teach CS courses). You can omit the `webpage` field or `interests` field if not applicable. All other fields are mandatory. Paths are rooted at the `deptpage` directory, e.g. a photo at `deptpage/images/people/mark.jpg` is written as `/images/people/mark.jpg`.
 
 
 ### Adding a course offering to the Courses page:
@@ -41,9 +60,10 @@ The `id` is just the person's name. The `role` should be `faculty`, `staff`, or 
 
 ```
 {
-    "id": "f24-csci136-2",
+    "id": "f26-csci136-2",
     "course": "CSCI 136",
-    "semester": "Fall 2024",
+    "semester": "Fall 2026",
+    "sectionNumber": "2",
     "instructors": [
         "James Bern"
     ],
@@ -52,7 +72,7 @@ The `id` is just the person's name. The `role` should be `faculty`, `staff`, or 
 }
 ```
 
-The ids of all articles should be unique (one way to do this is to follow the format "semester-course-section", as above). The `course` field should match one of the course ids in the `catalog` field of `deptpage/data/courses.json` (see the next step for how to add new courses). The `instructors` field is a list of the instructors for that section. All fields are mandatory, including the `webpage` field (typically this should be the official course homepage, but if that doesn't exist, then just use the Williams Catalog page for that section). All paths are relative to the `deptpage` directory.
+The `id` should be unique (the admin panel generates it automatically as `<semester-code>-<course-code>-<sectionNumber>`, e.g. `f26-csci136-2`, from the fields below it — match that format if adding one by hand). The `course` field should match one of the course ids in the `catalog` field of `deptpage/data/courses.json` (see the next step for how to add new courses). The `instructors` field is a list of the instructors for that section (matched against `id`s in `deptpage/data/people.json`). All fields are mandatory, including the `webpage` field (typically this should be the official course homepage, but if that doesn't exist, then just use the Williams Catalog page for that section).
 
 2. If the course is not yet part of the `catalog` field, then you must add it. Each course in the `catalog` field should have the following form:
 
@@ -60,12 +80,12 @@ The ids of all articles should be unique (one way to do this is to follow the fo
 {
     "id": "CSCI 104",
     "title": "Data Science and Computing for All",
-    "icon": "images/courseicons/icon-cs104.png",
+    "icon": "/images/courseicons/icon-cs104.png",
     "description": "Many of the world's greatest discoveries..."
 }
 ```
 
-If there is no icon (Iris made all the original icons), then just create some arbitrary square image, preferably a circular logo with a transparent background, then add it to the `deptpage/images/courseicons` directory.
+If there is no icon (Iris made all the original icons), then just create some arbitrary square image, preferably a circular logo with a transparent background, then add it to the `deptpage/images/courseicons` directory. (The `icon` field isn't exposed in the admin panel's course catalog form, so new/changed icons currently need to be set by hand-editing this file.)
 
 ### Adding an event to the Colloquium page:
 
@@ -81,12 +101,12 @@ If there is no icon (Iris made all the original icons), then just create some ar
     "title": "How did we get here? The Rise of Large Language Models and the Problem of Evaluation",
     "location": "Bronfman Auditorium",
     "time": "1pm",
-    "photo": "images/colloquium/subbiah.jpeg",
+    "photo": "/images/colloquium/subbiah.jpeg",
     "abstract": "Large Language Models (LLMs) have permeated almost every field..."
 }
 ```
 
-The `location` and `time` fields are optional (if not provided, the default values are `TCL 123` and `2:35pm`). All other fields are mandatory. The `date` field needs to be automatically parsed, so make sure there are no typos.  The path to the `photo` file is relative to the `deptpage` directory.
+The `location` and `time` fields are optional (if not provided, the default values are `TCL 123` and `2:35pm`). All other fields are mandatory. The `date` field needs to be automatically parsed, so make sure there are no typos.
 
 ### Adding an article to the News page:
 
@@ -101,14 +121,14 @@ The `location` and `time` fields are optional (if not provided, the default valu
         "id": "article-purdue-data",
         "date": "December 5, 2023",
         "title": "Williams CS Majors Place 3rd in Purdue Data 4 Good Competition",
-        "photo": "images/misc/purdue-data.jpg",
-        "thumbnail": "images/misc/purdue-data-thumb.jpg",
+        "photo": "/images/misc/purdue-data.jpg",
+        "thumbnail": "/images/misc/purdue-data-thumb.jpg",
         "article": "articles/purdue-data.md",
         "teaser": "Williams CS Majors get third place in a data science competition!"            
     }
 ```
 
-The `id`s of all articles should be unique. The `teaser` is what shows up when this article is advertised on the main homepage. You can omit the `teaser` if you want to just use the `title` as the `teaser`. The `photo` can also be omitted. All other fields are mandatory. All paths are relative to the `deptpage` directory.
+The `id`s of all articles should be unique. The `teaser` is what shows up when this article is advertised on the main homepage. You can omit the `teaser` if you want to just use the `title` as the `teaser`. The `photo` can also be omitted. All other fields are mandatory.
 
 The `thumbnail` field is optional and should be a **square** photo. When this article is the most recent one, it's used as a small preview image in the "department news" widget on the front page. If omitted, that widget just shows the teaser text, same as before this field existed.
 
@@ -121,48 +141,34 @@ The `thumbnail` field is optional and should be a **square** photo. When this ar
 {
     "name": "Ye Shu",
     "year": "2024",
-    "photo": "images/students/shu.jpeg"
+    "photo": "/images/students/shu.jpeg"
 }
 ```
-
-The path to the photo is relative to the `deptpage` directory.
 
 2. Other information can also be changed by modifying `deptpage/data/students.json`, like the webpage or description of a student group.
 
 
-### Adding information to the Research Opportunities page:
+### Adding a content block (Front Page, Research Opportunities, Non-Majors, Plan Your Major):
 
-1. Create a Markdown file in the `deptpage/articles/` directory that contains the main text of the research opportunity (see `deptpage/articles/ssr.md` for an example).
+`deptpage/data/frontpage.json`, `research.json`, `nonmajors.json`, and `major.json` all render their body out of a shared `content` array of "blocks", each either a piece of writing or a hardcoded React component:
 
-2. If the research opportunity has an associated photo, then put this photo in the `deptpage/images/misc/` directory.
+1. Create a Markdown file in the `deptpage/articles/` directory that contains the block's text (see `deptpage/articles/ssr.md` for an example).
 
-3. Add a new item to the `opportunities` field of `deptpage/data/research.json`. Here is an example:
+2. If the block has an associated photo, put it in the `deptpage/images/misc/` directory.
 
-```
-    {
-        "id": "opportunity-ssr",
-        "name": "Summer Science Research",
-        "photo": "images/misc/kayaking.jpg",
-        "article": "articles/ssr.md"
-    }
-```
-
-The `id`s of all research opportunities should be unique. The `photo` can be omitted. All other fields are mandatory. All paths are relative to the `deptpage` directory.
-
-### Adding content to the Plan Your Major page:
-
-1. Create a Markdown file in the `deptpage/articles/` directory that contains the text of the new content (see `deptpage/articles/major-requirements.md` for an example). 
-
-2. Add a new item to the `content` field of `deptpage/data/major.json`. Here is an example:
+3. Add a new item to the `content` field of the relevant data file. Here is an example, from `deptpage/data/research.json`:
 
 ```
 {
-    "title": "major requirements",
-    "article": "articles/major-requirements.md"
-} 
+    "title": "Summer Science Research",
+    "photo": "/images/misc/kayaking.jpg",
+    "article": "articles/ssr.md"
+}
 ```
 
-The `title` field is optional. The content will appear on the page in the order it appears in the `content` field.
+`title` and `photo` are both optional (`photo` is rendered below the title). `article` is mandatory. Blocks appear on the page in the order they appear in the `content` array.
+
+You'll also see entries shaped like `{"component": "FromTheDepartment"}` or `{"component": "MajorPlanningAssistant"}` mixed into some of these `content` arrays — those are hardcoded React widgets wired up in the corresponding page's code, not something to add or copy by hand.
 
 ### Adding pre-approved study away courses to the Plan Your Major page:
 
@@ -288,4 +294,16 @@ The `math_equiv` should be either `1` (if the course satisfies the Math elective
 * The `path` field is a list of 9 semesters and the major requirements taken during each of them. Semester 0 is not displayed to the user -- it is used to specify requirements that a student has satisfied prior to coming to Williams. The requirements should be specified using the value of the requirement's `id` field.
 
 All fields are mandatory.
+
+## Development
+
+From the `deptpage/` directory:
+
+* `npm install` — install dependencies.
+* `npm run dev` — start the Vite dev server (this is also where the local `/admin` panel lives).
+* `npm run lint`
+* `npm run build` — production build to `deptpage/dist/`.
+* `npm run preview` — locally preview a production build.
+* `npm run deploy` — builds the site, then copies the build output over the GitHub Pages files at the repo root (`../index.html`, `../assets`) and runs `scripts/prerender-routes.js`, which gives each top-level route (e.g. `/courses/`) its own copy of `index.html` so GitHub Pages serves it as a real `200` instead of relying on the `404.html` client-redirect trick. If you add or rename a top-level route in `src/App.jsx`, update the `ROUTES` list in `scripts/prerender-routes.js` to match.
+* `npm run build:ephs` — the same build, but under the `/~ephs/` base path. This is what the live admin panel's **Publish to live site** button runs on `jersey.cs.williams.edu`; you shouldn't normally need to run it yourself.
 

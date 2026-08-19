@@ -30,7 +30,7 @@ const ROUTES = [
   "research",
   "non-majors",
   "news",
-  "danyluk-in-memorium",
+  "danyluk-in-memoriam",
 ];
 
 for (const route of ROUTES) {

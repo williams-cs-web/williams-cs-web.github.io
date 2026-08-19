@@ -171,7 +171,7 @@ function App() {
       ),
     },
     {
-      path: "danyluk-in-memorium/",
+      path: "danyluk-in-memoriam/",
       element: (
         <News
           onClick={handleHubClick}
