@@ -61,17 +61,17 @@
                 "MATH 200"
             ],
             "info": "CSCI 256 (Algorithm Design and Analysis) is a core course. Majors are encouraged to complete all core courses by the end of their junior year in order to ensure that they have the appropriate prerequisites for the electives.",
-            "error": "CSCI 256 has both CSCI 136 and CSCI 200 as prerequisites."
+            "error": "CSCI 256 has both CSCI 136 and discrete math as prerequisites."
         },
         {
             "id": "CSCI 270",
-            "title": "Algorithm Design and Analysis",
+            "title": "Foundations of Artificial Intelligence",
             "prereqs": [
                 "CSCI 136",
                 "MATH 200"
             ],
             "info": "CSCI 270 (Foundations of Artificial Intelligence) is a core course. Majors are encouraged to complete all core courses by the end of their junior year in order to ensure that they have the appropriate prerequisites for the electives.",
-            "error": "CSCI 270 has both CSCI 136 and CSCI 200 as prerequisites."
+            "error": "CSCI 270 has both CSCI 136 and discrete math as prerequisites."
         },
         {
             "id": "CSCI 320-349",
