@@ -1,3 +1,3 @@
-Welcome to the Williams College Computer Science Department. We have a faculty of **14** professors, all active researchers in subfields including artificial intelligence, natural language processing, algorithms, theory, distributed systems, storage, robotics, and programming languages.
+Welcome to the Williams College Computer Science Department. We have a faculty of fourteen professors, all active researchers in subfields including artificial intelligence, natural language processing, algorithms, theory, distributed systems, storage, robotics, and programming languages.
 
 We offer a wide variety of introductory classes to students. These include not only courses designed to provide an introduction to computer programming, but also a number of courses focusing on topics such as data science. Our major provides both a solid foundation in the core concepts of our discipline and the opportunity to explore topics in-depth in our many electives.
