@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:ephs": "vite build --base=/~ephs/ --outDir dist-ephs && chmod -R o+rX dist-ephs && cp dist-ephs/index.html ../index.html && rm -R ../assets && mv dist-ephs/assets ../ && chmod -R o+rX ../index.html ../assets ../images ../articles",
-    "deploy": "vite build && cp dist/index.html ../index.html && rm -R ../assets && mv dist/assets ../ && chmod -R o+rX ../index.html ../assets",
+    "deploy": "vite build && cp dist/index.html ../index.html && rm -R ../assets && mv dist/assets ../ && chmod -R o+rX ../index.html ../assets && node scripts/prerender-routes.js",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
