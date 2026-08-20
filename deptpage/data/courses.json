@@ -85,7 +85,7 @@
             "instructors": [
                 "Shikha Singh"
             ],
-            "lecture": "MWF 11-1150pm",
+            "lecture": "MWF 11-1150am",
             "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=256&crsid=010806&req_year=0"
         },
         {
@@ -129,7 +129,7 @@
             "instructors": [
                 "Daniel Barowy"
             ],
-            "lecture": "TuTh 955-1110pm",
+            "lecture": "TuTh 955-1110am",
             "webpage": "https://catalog.williams.edu/csci/detail/?strm=1271&cn=334&crsid=010808&req_year=0"
         },
         {
@@ -384,7 +384,7 @@
             "instructors": [
                 "Lucas Rosenblatt"
             ],
-            "lecture": "ThTh 955-1110am",
+            "lecture": "TuTh 955-1110am",
             "webpage": "https://catalog.williams.edu/csci/detail/?strm=1273&cn=382&crsid=023336&req_year=0"
         }
     ],
