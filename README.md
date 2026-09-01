@@ -304,6 +304,6 @@ From the `deptpage/` directory:
 * `npm run lint`
 * `npm run build` — production build to `deptpage/dist/`.
 * `npm run preview` — locally preview a production build.
-* `npm run deploy` — builds the site, then copies the build output over the GitHub Pages files at the repo root (`../index.html`, `../assets`) and runs `scripts/prerender-routes.js`, which gives each top-level route (e.g. `/courses/`) its own copy of `index.html` so GitHub Pages serves it as a real `200` instead of relying on the `404.html` client-redirect trick. If you add or rename a top-level route in `src/App.jsx`, update the `ROUTES` list in `scripts/prerender-routes.js` to match.
+* `npm run deploy` — builds the site, then copies the build output over the GitHub Pages files at the repo root (`../index.html`, `../assets`). Interior routes (e.g. `/courses/`) rely on the `404.html` client-redirect trick rather than having their own prerendered directory — the repo root is shared with the live bull/jersey deployment, and a physical directory per route was conflicting with its `.htaccess` rewrite rules.
 * `npm run build:ephs` — the same build, but under the `/~ephs/` base path. This is what the live admin panel's **Publish to live site** button runs on `jersey.cs.williams.edu`; you shouldn't normally need to run it yourself.
 
