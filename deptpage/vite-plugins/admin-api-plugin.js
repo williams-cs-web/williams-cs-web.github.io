@@ -292,7 +292,7 @@ const handlePublish = async (req, res) => {
     } else {
       log.push('(no content changes to commit)')
     }
-    log.push(await runCommand('npm', ['run', 'build:ephs'], DEPTPAGE_DIR))
+    log.push(await runCommand('npm', ['run', 'deploy'], DEPTPAGE_DIR))
 
     try {
       log.push(await runCommand('git', ['push', 'origin', 'HEAD'], REPO_ROOT))
