@@ -1,0 +1,12 @@
+{
+    "content": [
+        {
+            "title": "our mission",
+            "article": "articles/mission-statement.md"
+        },
+        {
+            "title": "learning goals",
+            "article": "articles/learning-goals.md"
+        }
+    ]
+}

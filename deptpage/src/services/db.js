@@ -1,5 +1,6 @@
 import majorData from '../../data/major.json'
 import nonMajorsData from '../../data/nonmajors.json'
+import aboutData from '../../data/about.json'
 import people from '../../data/people.json'
 import courses from '../../data/courses.json'
 import colloquiumData from '../../data/colloquium.json'
@@ -40,7 +41,7 @@ const rewriteAssetPaths = (value) => {
   }
 }
 
-const allData = [majorData, nonMajorsData, people, courses, colloquiumData, studentData, studyAwayData, researchData, newsData, frontPageData]
+const allData = [majorData, nonMajorsData, aboutData, people, courses, colloquiumData, studentData, studyAwayData, researchData, newsData, frontPageData]
 allData.forEach(rewriteAssetPaths)
 
 // Walks the same data every page component reads its images from and
@@ -132,6 +133,10 @@ const getNonMajorsContent = () => {
   return nonMajorsData.content
 }
 
+const getAboutContent = () => {
+  return aboutData.content
+}
+
 const getLastName = (name) => {
   const fields = name.split(' ')
   const first = fields[0]
@@ -194,6 +199,7 @@ export default {
   getPlanYourMajorContent,
   getMajorPlanningDisclaimer,
   getNonMajorsContent,
+  getAboutContent,
   getPeople,
   getPeopleByRole,
   getPersonByName,

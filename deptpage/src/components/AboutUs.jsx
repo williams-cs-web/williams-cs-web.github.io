@@ -1,9 +1,11 @@
+import { Fragment } from "react";
 import DbServices from "../services/db.js";
 import Sidebar from "./Sidebar";
 import TopMenu from "./TopMenu";
 import WilliamsHeader from "./WilliamsHeader";
 import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
+import Passage from "./Passage";
 
 const Person = (props) => {
   const content = (
@@ -110,6 +112,17 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
     <div className="heading">{heading.toLowerCase()}</div>
   );
 
+  const renderIntro = () =>
+    DbServices.getAboutContent().map((item, i) => {
+      const gap = i === 0 ? null : <Spacer height="20px" />;
+      return (
+        <Fragment key={item.title ?? i}>
+          {gap}
+          <Passage title={item.title} photo={item.photo} article={item.article} />
+        </Fragment>
+      );
+    });
+
   const renderRole = (role) => (
     <div>
       {renderHeading(role)}
@@ -166,7 +179,7 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
         <div
           style={{
             width: "100%",
-            
+
             textAlign: "left",
           }}
         >
@@ -175,6 +188,8 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
           {renderRole("staff")}
           <div style={{ height: "40px" }}></div>
           {renderRole("emeriti")}
+          <div style={{ height: "40px" }}></div>
+          {renderIntro()}
         </div>
       </div>
     </div>
