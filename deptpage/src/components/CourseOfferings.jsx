@@ -119,9 +119,10 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
           />
         )}
         <div style={{ width: "95%", textAlign: "left" }}>
-          <div style={{ marginTop: "24px" }}>
-            <a href="https://williams-cs-docs.cs.williams.edu/" target="_blank" className="plaintext link" style={{ fontSize: "13px", textDecoration: "underline" }}>
-              Computing resources
+          <div style={{ marginTop: "24px", display: "flex", flexFlow: "row wrap", justifyContent: "space-between", alignItems: "baseline", gap: "8px" }}>
+            <div className="eyebrow">Course Schedule</div>
+            <a href="https://williams-cs-docs.cs.williams.edu/" target="_blank" className="plaintext link" style={{ fontSize: "13px" }}>
+              💻 Computing resources 🔗
             </a>
           </div>
 
