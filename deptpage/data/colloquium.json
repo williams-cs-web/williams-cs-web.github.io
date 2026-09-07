@@ -4,17 +4,17 @@
             "date": "September 11, 2026",
             "speaker": "CS Faculty",
             "affiliation": "Williams College",
-            "photo": "/images/misc/welcome.jpg",
+            "photo": "/images/colloquium/welcome.png",
             "title": "Welcome Back Colloquium",
-            "abstract": "Find out what's in store for this semester, learn about CS student clubs, begin the election process for CoSSAC members, and get introduced to CS faculty and staff. Receive colloquium credit for attending."
+            "abstract": "Find out what's in store for this semester, learn about CS student clubs, begin the election process for CoSSAC members, and get introduced to CS faculty and staff. Receive colloquium credit for attending!"
         },
         {
             "date": "September 18, 2026",
             "speaker": "Quanquan Liu",
             "affiliation": "Yale University",
             "photo": "/images/colloquium/quanquanliu.jpg",
-            "title": "",
-            "abstract": "",
+            "title": "Judging Proofs and Evolving Programs: Expert Feedback for Reliable LLM Systems",
+            "abstract": "Large language models are increasingly capable of producing plausible solutions, but expert domains demand more than plausibility: they require reliable mechanisms for evaluation, correction, and improvement. This talk connects two recent projects that study this challenge from complementary angles. QEDBench examines the reliability of automated evaluation by measuring the alignment gap between LLM-as-a-judge protocols and human expert assessment for university-level mathematical proofs, using dual rubrics and extensive human evaluation. ParEVO moves from evaluation to synthesis, introducing an agentic evolutionary framework for generating high-performance parallel algorithms over irregular data structures such as sparse graphs. It combines curated instruction data, specialized models, and iterative feedback from performance tests to optimize generated programs. Together, these papers argue for a shift from static benchmark performance toward expert-grounded feedback loops: systems that can be rigorously judged, corrected using domain-specific signals, and improved in settings where correctness, reasoning, and efficiency are all non-negotiable.",
             "bio": "Quanquan Liu is an Assistant Professor of Computer Science at Yale University. Her research focuses on the theory and practice of algorithms for large-scale data, including dynamic, distributed, and parallel graph algorithms, high-performance computing, differential privacy, and Byzantine-resilient algorithms. Before joining Yale, Liu was an Apple Research Fellow at the Simons Institute at UC Berkeley and held postdoctoral positions at Northwestern University and MIT. She received her Ph.D. in Computer Science from MIT, where she was advised by Erik Demaine and Julian Shun, as well as her B.S. in Computer Science and Mathematics and M.Eng. in Computer Science from MIT. Her research experience also includes work with Google's Discrete Algorithms Group and the MIT Digital Currency Initiative."
         },
         {
@@ -70,7 +70,7 @@
             "location": "Bronfman Auditorium",
             "speaker": "Cynthia Anne Phillips",
             "affiliation": "Scandia National Laboratories",
-            "photo": "/images/colloquium/phillips.jpg",
+            "photo": "/images/colloquium/cindyphillips.png",
             "title": "",
             "abstract": "",
             "bio": ""
@@ -79,7 +79,7 @@
             "date": "November 13, 2026",
             "speaker": "Cynthia Anne Phillips",
             "affiliation": "Scandia National Laboratories",
-            "photo": "/images/colloquium/phillips.jpg",
+            "photo": "/images/colloquium/cindyphillips.png",
             "title": "",
             "abstract": "",
             "bio": ""
