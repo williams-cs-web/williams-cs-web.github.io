@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import DbServices from "../services/db.js";
 import Sidebar from "./Sidebar";
 import TopMenu from "./TopMenu";
@@ -49,12 +50,20 @@ const Person = (props) => {
     </div>
   );
 
-  return props.webpage && props.webpage.length > 0 ? (
+  if (!props.webpage || props.webpage.length === 0) return card;
+
+  // A same-site path (e.g. Andrea Danyluk's memorial page) is a real SPA
+  // route -- use client-side routing rather than a full page load, since a
+  // full navigation to a deep route currently gets redirected to the
+  // homepage by the production server's Apache config.
+  return props.webpage.startsWith("/") ? (
+    <Link to={props.webpage} style={{ display: "block", color: "inherit" }}>
+      {card}
+    </Link>
+  ) : (
     <a href={props.webpage} target="_blank" style={{ display: "block", color: "inherit" }}>
       {card}
     </a>
-  ) : (
-    card
   );
 };
 
