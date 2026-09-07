@@ -9,12 +9,9 @@ import WilliamsHeader from "./WilliamsHeader";
 import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
 
-const NewsItem = ({ date, title, photo, article }) => {
+const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen }) => {
   const [content, setContent] = useState("");
-
-  const renderHeading = (heading) => (
-    <div className="heading">{heading.toLowerCase()}</div>
-  );
+  const [open, setOpen] = useState(forceOpen);
 
   useEffect(() => {
     DbServices.fetchExternalTextFile(article).then((response) => {
@@ -22,28 +19,57 @@ const NewsItem = ({ date, title, photo, article }) => {
     });
   }, []);
 
+  const teaserText = teaser ? teaser : title;
+
   return (
-    <div
-      className="plaintext"
-      style={{
-        display: "flex",
-        flexFlow: "column nowrap",
-        gap: "0px",
-      }}
-    >
-      {renderHeading(date)}
-      <div className="news-article-title">{title}</div>
-      {photo ? (
-        <div className="news-article-photo">
-          <img
-            width="100%"
-            loading="lazy"
-            src={photo}
-            alt={title ? `Photo for ${title}` : "Article photo"}
-          />{" "}
+    <div className="soft-card">
+      <div
+        className="disclosure-head"
+        style={{ cursor: forceOpen ? "default" : "pointer" }}
+        onClick={() => {
+          if (!forceOpen) setOpen(!open);
+        }}
+      >
+        <img
+          width="136"
+          height="96"
+          loading="lazy"
+          style={{ objectFit: "cover", borderRadius: "10px", flexShrink: 0 }}
+          src={thumbnail ? thumbnail : photo}
+          alt={`Photo for ${title}`}
+        />
+        <div style={{ flexGrow: 1, flexShrink: 1, minWidth: 0 }}>
+          <div className="news-tag" style={{ color: "var(--color-news)" }}>News &middot; {date}</div>
+          <div className="title" style={{ fontSize: "17px", marginTop: "2px" }}>{title}</div>
+          <div className="plaintext" style={{ fontSize: "13px", color: "#666666", marginTop: "4px" }}>
+            {teaserText}
+          </div>
+        </div>
+        {forceOpen ? null : (
+          <svg
+            className="disclosure-chevron"
+            style={{ transform: open ? "rotate(90deg)" : "rotate(0deg)", flexShrink: 0 }}
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--color-purple)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+        )}
+      </div>
+      {open ? (
+        <div style={{ padding: "0 16px 20px 16px" }}>
+          <img width="100%" loading="lazy" style={{ borderRadius: "10px", marginBottom: "14px", display: "block" }} src={photo} alt={`Photo for ${title}`} />
+          <div className="plaintext article-body">
+            <Markdown remarkPlugins={[remarkGfm]} components={markdownImageComponent}>{content}</Markdown>
+          </div>
         </div>
       ) : null}
-      <Markdown remarkPlugins={[remarkGfm]} components={markdownImageComponent}>{content}</Markdown>
     </div>
   );
 };
@@ -58,15 +84,20 @@ const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
     )
     .slice(0, howMany);
 
+  const forceOpen = newsItems.length === 1;
+
   const renderNewsItem = (item) => (
     <div key={item.id}>
       <NewsItem
         date={item.date}
         title={item.title}
         photo={item.photo}
+        thumbnail={item.thumbnail}
         article={item.article}
+        teaser={item.teaser}
+        forceOpen={forceOpen}
       />
-      <div style={{ height: "20px" }} />
+      <div style={{ height: "12px" }} />
     </div>
   );
 
@@ -77,7 +108,7 @@ const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
         style={{
           display: "flex",
           flexFlow: "row nowrap",
-          
+
         }}
       >
         {showSidebar ? (
@@ -87,12 +118,19 @@ const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
         )}
         <div
           style={{
-            width: "100%", //layout === "wide" ? "70%" : "100%",
-            
+            width: "100%",
             textAlign: "left",
           }}
         >
-          {newsItems.map((opp) => renderNewsItem(opp))}
+          <div style={{ marginTop: "24px", marginBottom: "20px" }}>
+            <div className="eyebrow">News</div>
+            <div className="title" style={{ fontSize: "32px", marginTop: "6px" }}>
+              Department News
+            </div>
+          </div>
+          <div style={{ maxWidth: "780px" }}>
+            {newsItems.map((opp) => renderNewsItem(opp))}
+          </div>
         </div>
       </div>
     </div>

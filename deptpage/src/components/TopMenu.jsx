@@ -1,17 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
-const pageColorClasses = {
-  home: "frontpage-home",
-  "about-us": "frontpage-about-us",
-  "plan-your-major": "frontpage-plan-your-major",
-  courses: "frontpage-course-offerings",
-  colloquium: "menubar-colloquium",
-  "student-life": "frontpage-student-life",
-  research: "frontpage-research-opportunities",
-  "non-majors": "frontpage-non-majors",
-  news: "frontpage-news",
-};
+import { pageColorClasses, PAGE_IDS } from "../pageColors.js";
 
 const MenuItem = ({ id, text, highlight }) => {
   const [hovering, setHovering] = useState(false);
@@ -40,17 +29,7 @@ const MenuItem = ({ id, text, highlight }) => {
 };
 
 const TopMenu = ({ currentPage }) => {
-  const pages = [
-    "home",
-    "about-us",
-    "plan-your-major",
-    "courses",
-    "colloquium",
-    "student-life",
-    "research",
-    "non-majors",
-    "news",
-  ];
+  const pages = PAGE_IDS;
 
   return (
     <div

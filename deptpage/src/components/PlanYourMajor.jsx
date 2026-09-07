@@ -8,25 +8,24 @@ import WilliamsHeader from "./WilliamsHeader";
 import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
 import Passage from "./Passage";
+import Disclosure from "./Disclosure";
 
 const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
   const hubId = "plan-your-major";
 
 
   const renderContent = () => {
+    let printedLearnMore = false;
+
     return DbServices.getPlanYourMajorContent().map((item, i) => {
-      const gap = i === 0 ? null : <Spacer height="20px" />;
       if (item.component && item.component === "MajorPlanningAssistant") {
         return (
           <Fragment key={item.component}>
-            {gap}
-            <div
-              className="heading"
-              style={{
-                textAlign: "left",
-              }}
-            >
-              major planning assistant
+            <div style={{ textAlign: "left" }}>
+              <div className="eyebrow" style={{ marginBottom: "10px" }}>Plan Your Major</div>
+              <div className="title" style={{ fontSize: "32px", marginBottom: "20px" }}>
+                Major Planning Assistant
+              </div>
             </div>
             <Schedule />
           </Fragment>
@@ -34,15 +33,23 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
       } else if (item.component && item.component === "StudyAway") {
         return (
           <Fragment key={item.component}>
-            {gap}
+            <Spacer height="20px" />
             <StudyAway layout="narrow" />
           </Fragment>
         );
       } else {
+        const learnMoreHeading = printedLearnMore ? null : (
+          <div className="eyebrow" style={{ textAlign: "left", marginTop: "44px", marginBottom: "14px" }}>Learn More</div>
+        );
+        printedLearnMore = true;
         return (
           <Fragment key={item.title ?? i}>
-            {gap}
-            <Passage title={item.title} photo={item.photo} article={item.article} />
+            {learnMoreHeading}
+            <div style={{ maxWidth: "780px", textAlign: "left" }}>
+              <Disclosure title={item.title}>
+                <Passage title={null} photo={item.photo} article={item.article} />
+              </Disclosure>
+            </div>
           </Fragment>
         );
       }
@@ -62,7 +69,7 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
         style={{
           display: "flex",
           flexFlow: "row nowrap",
-          
+
         }}
       >
         {showSidebar ? (
@@ -75,7 +82,7 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
           <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
         )}
         <div style={{ flexGrow: 1, minWidth: 0 }}>
-          <div>
+          <div style={{ marginTop: "24px" }}>
             {renderContent()}
           </div>
         </div>
