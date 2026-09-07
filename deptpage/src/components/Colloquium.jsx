@@ -1,213 +1,61 @@
 import DbServices from "../services/db.js";
-import { useState } from "react";
 import Sidebar from "./Sidebar";
 import TopMenu from "./TopMenu";
 import WilliamsHeader from "./WilliamsHeader";
 import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
 
-const Colloquium = ({ style, layout, showSidebar, onClick }) => {
+const EventRow = ({ event }) => {
+  const location = event.location ? event.location : "TCL 123";
+  const time = event.time ? event.time : "2:35pm";
+  const hasTitle = event.title && event.title.length > 0;
+  const primary = hasTitle ? event.title : event.speaker;
+  const secondary = hasTitle ? `${event.speaker}, ${event.affiliation}` : event.affiliation;
+  const detail = (event.abstract && event.abstract.length > 0) ? event.abstract : event.bio;
+
+  return (
+    <div className="soft-card" style={{ padding: "16px" }}>
+      <div className="news-tag" style={{ color: "var(--color-colloquium)" }}>{event.date}</div>
+      <div style={{ display: "flex", flexFlow: "row nowrap", gap: "16px", marginTop: "8px" }}>
+        <img
+          width="96"
+          height="96"
+          loading="lazy"
+          style={{ objectFit: "cover", borderRadius: "10px", flexShrink: 0 }}
+          src={event.photo}
+          alt={`Photo of ${event.speaker}`}
+        />
+        <div style={{ flexGrow: 1, flexShrink: 1, minWidth: 0 }}>
+          <div className="title" style={{ fontSize: "17px" }}>{primary}</div>
+          <div className="plaintext" style={{ fontSize: "13px", color: "#666666", marginTop: "2px" }}>{secondary}</div>
+          <div className="plaintext" style={{ fontSize: "12px", color: "#999999", marginTop: "2px" }}>
+            {location} &middot; {time}
+          </div>
+          {detail ? (
+            <div className="plaintext" style={{ fontSize: "14px", color: "#444444", lineHeight: 1.5, marginTop: "8px" }}>
+              {detail}
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Colloquium = ({ style, showSidebar, onClick }) => {
   const hubId = "colloquium";
 
-  const [spotlight, setSpotlight] = useState(0);
-
-  const renderHeading = (heading) => (
-    <div
-      className="heading"
-      style={{
-        marginTop: "0px",
-      }}
-    >
-      {heading.toLowerCase()}
-    </div>
-  );
-
-  const renderSubheading = (heading) => (
-    <div className="subheading">{heading.toLowerCase()}</div>
-  );
-
   const events = DbServices.getUpcomingColloquia();
-
-  const renderSpotlightEvent = (event) => {
-    if (layout === "narrow") {
-      return renderSpotlightEventNarrow(event);
-    } else {
-      return renderSpotlightEventWide(event);
-    }
-  };
-
-  const renderSpotlightEventWide = (event) => {
-    const location = event.location ? event.location : "TCL 123";
-    const time = event.time ? event.time : "2:35pm";
-
-    return (
-      <div>
-        <div
-          style={{
-            display: "flex",
-            flexFlow: "row nowrap",
-            gap: "20px",
-          }}
-        >
-          <div>
-            <img
-              height="300"
-              width="300"
-              loading="lazy"
-              src={event.photo}
-              alt={`photo of ${event.speaker}`}
-            />
-          </div>
-          <div
-            style={{
-              flexGrow: 1,
-              flexShrink: 1,
-            }}
-          >
-            {renderHeading(`${event.date} (${location}, ${time})`)}
-            <div className="colloquium-title" style={{ fontSize: "20px" }}>
-              {event.title}
-            </div>
-            <div className="colloquium-speaker" style={{ fontSize: "24px" }}>
-              {event.speaker}, {event.affiliation}
-            </div>
-            <div className="plaintext" style={{ fontSize: "14px" }}>
-              {event.abstract}
-            </div>
-          </div>
-        </div>
-        <div style={{ height: "50px" }} />
-      </div>
-    );
-  };
-
-  const renderSpotlightEventNarrow = (event) => {
-    const location = event.location ? event.location : "TCL 123";
-    const time = event.time ? event.time : "2:35pm";
-
-    return (
-      <div>
-        <div
-          style={{
-            display: "flex",
-            flexFlow: layout === "narrow" ? "column nowrap" : "row nowrap",
-            alignItems: "stretch",
-            gap: "20px",
-          }}
-        >
-          <div
-            style={{
-              flexGrow: 1,
-              flexShrink: 1,
-            }}
-          >
-            {renderHeading(`${event.date} (${location}, ${time})`)}
-            <div className="colloquium-title" style={{ fontSize: "20px" }}>
-              {event.title}
-            </div>
-            <div className="colloquium-speaker" style={{ fontSize: "17px" }}>
-              {event.speaker}, {event.affiliation}
-            </div>
-            <div
-              style={{
-                backgroundColor: "whitesmoke",
-                padding: "10px",
-                textAlign: "center",
-              }}
-            >
-              <img
-                height="300"
-                width="300"
-                loading="lazy"
-                src={event.photo}
-                alt={`photo of ${event.speaker}`}
-              />
-            </div>
-            <div className="plaintext" style={{ fontSize: "14px" }}>
-              {event.abstract}
-            </div>
-          </div>
-        </div>
-        <div style={{ height: "50px" }} />
-      </div>
-    );
-  };
-
-  const renderPreview = (event, i) => (
-    <div
-      onClick={() => setSpotlight(i)}
-      style={{
-        display: "flex",
-        flexFlow: "row nowrap",
-        alignItems: "flex-start",
-        alignContent: "flex-start",
-        justifyContent: "space-between",
-        gap: "3px",
-        backgroundColor: i === spotlight ? "#eaeaea" : "inherit",
-      }}
-    >
-      <div>
-        <img
-          height="80"
-          width="80"
-          loading="lazy"
-          src={event.photo}
-          alt={`photo of ${event.speaker}`}
-        />
-      </div>
-      <div
-        style={{
-          flexGrow: 1,
-          flexShrink: 1,
-        }}
-      >
-        {renderSubheading(event.date)}
-        <div
-          className="colloquium-speaker"
-          style={{ marginLeft: "8px", fontSize: "15px" }}
-        >
-          {event.speaker}
-        </div>
-        <div
-          className="colloquium-title"
-          style={{ margin: "8px", fontSize: "10px" }}
-        >
-          {event.title}
-        </div>
-      </div>
-    </div>
-  );
-
-  const renderPreviews = () => (
-    <>
-      <div
-        style={{
-          display: "flex",
-          flexFlow: "row nowrap",
-          justifyContent: "space-between",
-          gap: "20px",
-        }}
-      >
-        {events.map((event, i) => (
-          <div key={`preview-${i}`} style={{ flexGrow: 1, flexShrink: 1 }}>
-            {renderPreview(event, i)}
-          </div>
-        ))}
-      </div>
-      <div style={{ height: "20px" }}></div>
-    </>
-  );
 
   const renderContent = () => {
     if (events.length > 0) {
       return (
         <div>
-          {events.length > 1 && showSidebar ? renderPreviews() : null}
-          {showSidebar
-            ? events.length > 0
-              ? renderSpotlightEvent(spotlight ? events[spotlight] : events[0])
-              : null
-            : events.map((event) => renderSpotlightEvent(event))}
+          <div style={{ display: "flex", flexFlow: "column nowrap", gap: "12px", maxWidth: "760px" }}>
+            {events.map((event, i) => (
+              <EventRow key={`event-${i}`} event={event} />
+            ))}
+          </div>
         </div>
       );
     } else {
@@ -250,7 +98,6 @@ const Colloquium = ({ style, layout, showSidebar, onClick }) => {
         style={{
           display: "flex",
           flexFlow: "row nowrap",
-          
         }}
       >
         {showSidebar ? (
@@ -262,13 +109,13 @@ const Colloquium = ({ style, layout, showSidebar, onClick }) => {
         ) : (
           <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
         )}
-        <div
-          style={{
-            width: "95%",
-            
-            textAlign: "left",
-          }}
-        >
+        <div style={{ width: "95%", textAlign: "left" }}>
+          <div style={{ marginTop: "24px", marginBottom: "20px" }}>
+            <div className="eyebrow">Schedule</div>
+            <div className="plaintext" style={{ fontSize: "15px", color: "#666666", marginTop: "8px", maxWidth: "760px" }}>
+              The Computer Science Colloquium at Williams College takes place most Fridays from 2:35pm to 3:50pm in Wege Auditorium (TCL 123), unless otherwise noted below.
+            </div>
+          </div>
           {renderContent()}
         </div>
       </div>

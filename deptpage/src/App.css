@@ -435,6 +435,79 @@ a.nostyle:visited {
 
 
 /* ============================================================
+   SOFT CARDS / EYEBROWS / DISCLOSURES / PILL TABS
+   (redesign primitives: soft-shadow cards + small tracked-caps
+   labels, used in place of hard .linkbox borders and full-width
+   .heading black bars on redesigned pages)
+   ============================================================ */
+.soft-card {
+  background: white;
+  border: 1px solid rgba(16, 24, 40, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06);
+  transition: box-shadow 150ms ease, border-color 150ms ease;
+  box-sizing: border-box;
+}
+
+.soft-card:hover {
+  box-shadow: 0 2px 6px rgba(16, 24, 40, 0.08), 0 4px 12px rgba(16, 24, 40, 0.08);
+  border-color: rgba(16, 24, 40, 0.12);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: var(--color-purple);
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.disclosure-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.disclosure-chevron {
+  flex: 0 0 16px;
+  transition: transform 150ms ease;
+}
+
+.pill-tab {
+  font-family: var(--font-display);
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 2px solid black;
+  cursor: pointer;
+  background: white;
+  color: black;
+}
+
+.pill-tab-active {
+  background: black;
+  color: white;
+}
+
+.news-tag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.article-body {
+  line-height: 1.6;
+  color: #444444;
+}
+
+
+/* ============================================================
    PAGE / SECTION COLORS  (menu items, sidebar tiles)
    ============================================================ */
 .frontpage-home {
