@@ -7,7 +7,8 @@
             "photo": "/images/misc/rosenblatt-chambers.jpg",
             "thumbnail": "/images/misc/rosenblatt-chambers-thumb.jpg",
             "article": "articles/rosenblatt-chambers-spotlight.md",
-            "teaser": "The department welcomes two new faculty members, Lucas Rosenblatt and Nate Chambers!"
+            "teaser": "The department welcomes two new faculty members, Lucas Rosenblatt and Nate Chambers!",
+            "thumbnail": "/images/misc/nate.jpg"
         },
         {
             "id": "article-freund-chatdbg",

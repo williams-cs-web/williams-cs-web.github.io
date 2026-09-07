@@ -2,6 +2,10 @@
   RewriteEngine On
   RewriteBase /
 
+# Redirect direct requests for index.html to the root
+  RewriteCond %{REQUEST_URI} ^/index\.html$
+  RewriteRule ^ / [R=301,L]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ index.html [L]
