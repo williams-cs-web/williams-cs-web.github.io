@@ -191,6 +191,16 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
             textAlign: "left",
           }}
         >
+          {renderHeading("computing resources")}
+          <div className="plaintext">
+            Information about the computing infrastructure that supports our
+            courses can be found{" "}
+            <a href="https://williams-cs-docs.cs.williams.edu/" target="_blank">
+              here
+            </a>
+            .
+          </div>
+          <div style={{ height: "40px" }}></div>
           {renderSemester("Fall 2026")}
           <div style={{ height: "40px" }}></div>
           {renderSemester("Spring 2027")}
