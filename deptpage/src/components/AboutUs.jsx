@@ -96,9 +96,7 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
         )}
         <div style={{ width: "100%", textAlign: "left" }}>
           <div style={{ marginTop: "24px" }}>
-            <div className="title" style={{ fontSize: "32px" }}>
-              The Williams College Computer Science Department
-            </div>
+            <div className="eyebrow">Department Members</div>
           </div>
 
           <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "center", gap: "12px", marginTop: "20px" }}>

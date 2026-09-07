@@ -83,7 +83,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
 
         <div style={{ width: '100%', textAlign: 'left' }}>
           <div style={{ marginTop: '24px' }}>
-            <div className="title" style={{ fontSize: '32px' }}>Student Groups</div>
+            <div className="eyebrow">Student Groups</div>
           </div>
 
           <div style={{ display: 'flex', flexFlow: 'column nowrap', gap: '16px', marginTop: '20px', maxWidth: '780px' }}>

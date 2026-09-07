@@ -22,9 +22,7 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
         return (
           <Fragment key={item.component}>
             <div style={{ textAlign: "left" }}>
-              <div className="title" style={{ fontSize: "32px", marginBottom: "20px" }}>
-                Major Planning Assistant
-              </div>
+              <div className="eyebrow" style={{ marginBottom: "16px" }}>Major Planning Assistant</div>
             </div>
             <Schedule />
           </Fragment>

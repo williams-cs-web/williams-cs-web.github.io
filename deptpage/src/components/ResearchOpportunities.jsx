@@ -14,7 +14,7 @@ const ResearchOpportunities = ({ style, layout, onClick, showSidebar }) => {
 
   const renderOpportunity = (item, i) => (
     <Fragment key={item.title ?? i}>
-      <div className="title" style={{ fontSize: "32px", marginTop: i === 0 ? "24px" : "48px" }}>{item.title}</div>
+      <div className="eyebrow" style={{ marginTop: i === 0 ? "24px" : "40px" }}>{item.title}</div>
       <div style={{ marginTop: "6px" }}>
         <Passage title={null} photo={item.photo} article={item.article} />
       </div>
