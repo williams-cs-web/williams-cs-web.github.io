@@ -36,10 +36,6 @@ const Person = (props) => {
         color: "#777777",
         lineHeight: 1.4,
         marginTop: "10px",
-        display: "-webkit-box",
-        WebkitLineClamp: 3,
-        WebkitBoxOrient: "vertical",
-        overflow: "hidden",
       }}
     >
       {props.interests}
