@@ -124,9 +124,6 @@ const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
         >
           <div style={{ marginTop: "24px", marginBottom: "20px" }}>
             <div className="eyebrow">News</div>
-            <div className="title" style={{ fontSize: "32px", marginTop: "6px" }}>
-              Department News
-            </div>
           </div>
           <div style={{ maxWidth: "780px" }}>
             {newsItems.map((opp) => renderNewsItem(opp))}
