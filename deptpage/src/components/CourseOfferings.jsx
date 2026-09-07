@@ -122,7 +122,7 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
             <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "baseline", gap: "6px" }}>
               <div className="eyebrow">Course Schedule</div>
               <div className="plaintext" style={{ fontSize: "13px", color: "#888888", textTransform: "none", letterSpacing: "normal", fontWeight: "normal" }}>
-                (<a href="https://williams-cs-docs.cs.williams.edu/" target="_blank" className="link">💻 computing resources 🔗</a>)
+                (<a href="https://williams-cs-docs.cs.williams.edu/" target="_blank" className="link">💻 computing resources</a>)
               </div>
             </div>
             <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "center", gap: "12px" }}>
