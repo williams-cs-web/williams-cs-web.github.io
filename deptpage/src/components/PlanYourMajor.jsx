@@ -22,7 +22,6 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
         return (
           <Fragment key={item.component}>
             <div style={{ textAlign: "left" }}>
-              <div className="eyebrow" style={{ marginBottom: "10px" }}>Plan Your Major</div>
               <div className="title" style={{ fontSize: "32px", marginBottom: "20px" }}>
                 Major Planning Assistant
               </div>

@@ -96,8 +96,7 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
         )}
         <div style={{ width: "100%", textAlign: "left" }}>
           <div style={{ marginTop: "24px" }}>
-            <div className="eyebrow">About Us</div>
-            <div className="title" style={{ fontSize: "32px", marginTop: "6px" }}>
+            <div className="title" style={{ fontSize: "32px" }}>
               The Williams College Computer Science Department
             </div>
           </div>

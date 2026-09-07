@@ -117,8 +117,7 @@ const Colloquium = ({ style, showSidebar, onClick }) => {
         )}
         <div style={{ width: "95%", textAlign: "left" }}>
           <div style={{ marginTop: "24px", marginBottom: "20px" }}>
-            <div className="eyebrow">Colloquium</div>
-            <div className="title" style={{ fontSize: "32px", marginTop: "6px" }}>
+            <div className="title" style={{ fontSize: "32px" }}>
               CS Colloquium at Williams
             </div>
             <div className="plaintext" style={{ fontSize: "15px", color: "#666666", marginTop: "8px", maxWidth: "640px" }}>

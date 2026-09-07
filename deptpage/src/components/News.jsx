@@ -122,10 +122,7 @@ const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
             textAlign: "left",
           }}
         >
-          <div style={{ marginTop: "24px", marginBottom: "20px" }}>
-            <div className="eyebrow">News</div>
-          </div>
-          <div style={{ maxWidth: "780px" }}>
+          <div style={{ maxWidth: "780px", marginTop: "24px" }}>
             {newsItems.map((opp) => renderNewsItem(opp))}
           </div>
         </div>
