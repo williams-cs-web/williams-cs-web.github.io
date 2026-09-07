@@ -615,6 +615,11 @@ a.nostyle:visited {
   color: white;
 }
 
+.explore-tile:hover {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
 .sidebar-news {
   background-color: var(--color-news);
   color: white;

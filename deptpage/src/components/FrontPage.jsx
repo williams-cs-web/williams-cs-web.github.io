@@ -46,7 +46,7 @@ const FrontPage = ({ onClick, style }) => {
             key={id}
             to={{ pathname: `/${id}` }}
             onClick={() => { onClick(id); window.scrollTo(0, 0); }}
-            className={pageColorClasses[id]}
+            className={`explore-tile ${pageColorClasses[id]}`}
             style={{
               borderRadius: "14px",
               display: "flex",
