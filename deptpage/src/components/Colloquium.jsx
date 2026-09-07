@@ -113,7 +113,7 @@ const Colloquium = ({ style, showSidebar, onClick }) => {
           <div style={{ marginTop: "24px", marginBottom: "20px" }}>
             <div className="eyebrow">Schedule</div>
             <div className="plaintext" style={{ fontSize: "15px", color: "#666666", marginTop: "8px", maxWidth: "760px" }}>
-              The Computer Science Colloquium at Williams College takes place most Fridays from 2:35pm to 3:50pm in Wege Auditorium (TCL 123), unless otherwise noted below.
+              {DbServices.getColloquiumDisclaimer()}
             </div>
           </div>
           {renderContent()}

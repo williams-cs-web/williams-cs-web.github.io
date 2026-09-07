@@ -76,6 +76,10 @@ const getCatalog = () => {
   return courses.catalog
 }
 
+const getColloquiumDisclaimer = () => {
+  return colloquiumData.disclaimer
+}
+
 const getUpcomingColloquia = () => {
   return (
     colloquiumData.events
@@ -207,6 +211,7 @@ export default {
   getCourseSections,
   getCourseById,
   getUpcomingColloquia,
+  getColloquiumDisclaimer,
   getStudentGroups,
   getStudyAwayEquivalents,
   getResearchContent,

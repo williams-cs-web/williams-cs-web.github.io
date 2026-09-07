@@ -4,11 +4,11 @@ import { publish, logout } from './adminApi'
 import { SaveProvider, useSaveContext } from './SaveContext'
 import CollectionListPage from './components/CollectionListPage'
 import newsSchema from './schemas/news'
-import colloquiumSchema from './schemas/colloquium'
 import studentsSchema from './schemas/students'
 import CoursesAdmin from './pages/CoursesAdmin'
 import MajorAdmin from './pages/MajorAdmin'
 import AboutUsAdmin from './pages/AboutUsEditor'
+import ColloquiumAdmin from './pages/ColloquiumAdmin'
 import FrontPageEditor from './pages/FrontPageEditor'
 import NonMajorsEditor from './pages/NonMajorsEditor'
 import ResearchEditor from './pages/ResearchEditor'
@@ -89,7 +89,7 @@ const AdminApp = () => (
           <Route index element={<Navigate to="frontpage" replace />} />
           <Route path="frontpage" element={<FrontPageEditor />} />
           <Route path="news/*" element={<CollectionListPage schema={newsSchema} />} />
-          <Route path="colloquium/*" element={<CollectionListPage schema={colloquiumSchema} />} />
+          <Route path="colloquium/*" element={<ColloquiumAdmin />} />
           <Route path="about/*" element={<AboutUsAdmin />} />
           <Route path="courses/*" element={<CoursesAdmin />} />
           <Route path="students/*" element={<CollectionListPage schema={studentsSchema} />} />
