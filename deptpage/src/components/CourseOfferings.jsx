@@ -119,7 +119,12 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
         )}
         <div style={{ width: "95%", textAlign: "left" }}>
           <div style={{ marginTop: "24px", display: "flex", flexFlow: "row wrap", justifyContent: "space-between", alignItems: "baseline", gap: "8px" }}>
-            <div className="eyebrow">Course Schedule</div>
+            <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "baseline", gap: "6px" }}>
+              <div className="eyebrow">Course Schedule</div>
+              <div className="plaintext" style={{ fontSize: "13px", color: "#888888", textTransform: "none", letterSpacing: "normal", fontWeight: "normal" }}>
+                (<a href="https://williams-cs-docs.cs.williams.edu/" target="_blank" className="link">💻 computing resources 🔗</a>)
+              </div>
+            </div>
             <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "center", gap: "12px" }}>
               {SEMESTERS.map((s) => (
                 <div
@@ -131,12 +136,6 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
                 </div>
               ))}
             </div>
-          </div>
-
-          <div style={{ marginTop: "16px" }}>
-            <a href="https://williams-cs-docs.cs.williams.edu/" target="_blank" className="plaintext link" style={{ fontSize: "13px" }}>
-              💻 Computing resources 🔗
-            </a>
           </div>
 
           <div
