@@ -14,7 +14,7 @@
             "role": "faculty",
             "title": "Robert G. Scott '68 Professor of Computer Science",
             "webpage": "http://cs.williams.edu/~jeannie/",
-            "interests": "Distributed systems and computer networks, particularly focusing on reliability, scalability, and extensibility achieved over the wide-area, sensor networks, operating systems."
+            "interests": "Distributed systems, computer networks, wide-area computing, sensor networks, operating systems, federated learning, computing education."
         },
         {
             "id": "Daniel Barowy",
@@ -58,7 +58,7 @@
         },
         {
             "id": "Mark Hopkins",
-            "photo": "/images/people/mark.jpg",
+            "photo": "/images/people/markmark.jpg",
             "role": "faculty",
             "title": "Chair and Associate Professor",
             "webpage": "https://markandrewhopkins.com/",
@@ -98,7 +98,7 @@
         },
         {
             "id": "Kelly Shaw",
-            "photo": "/images/people/kelly.jpg",
+            "photo": "/images/people/Shaw-headshot.jpg",
             "role": "faculty",
             "title": "Professor",
             "webpage": "http://cs.williams.edu/~kshaw/",
