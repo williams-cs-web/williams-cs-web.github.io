@@ -14,7 +14,7 @@ const ResearchOpportunities = ({ style, layout, onClick, showSidebar }) => {
 
   const renderOpportunity = (item, i) => (
     <Fragment key={item.title ?? i}>
-      <div className="title" style={{ fontSize: "32px", marginTop: i === 0 ? 0 : "48px" }}>{item.title}</div>
+      <div className="title" style={{ fontSize: "32px", marginTop: i === 0 ? "6px" : "48px" }}>{item.title}</div>
       <div style={{ marginTop: "6px" }}>
         <Passage title={null} photo={item.photo} article={item.article} />
       </div>
@@ -41,7 +41,7 @@ const ResearchOpportunities = ({ style, layout, onClick, showSidebar }) => {
           <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
         )}
         <div style={{ width: "100%", textAlign: "left" }}>
-          <div style={{ marginTop: "24px", marginBottom: "20px" }}>
+          <div style={{ marginTop: "24px" }}>
             <div className="eyebrow">Research</div>
           </div>
           {content.map((item, i) => renderOpportunity(item, i))}
