@@ -5,10 +5,10 @@ import { SaveProvider, useSaveContext } from './SaveContext'
 import CollectionListPage from './components/CollectionListPage'
 import newsSchema from './schemas/news'
 import colloquiumSchema from './schemas/colloquium'
-import peopleSchema from './schemas/people'
 import studentsSchema from './schemas/students'
 import CoursesAdmin from './pages/CoursesAdmin'
 import MajorAdmin from './pages/MajorAdmin'
+import AboutUsAdmin from './pages/AboutUsEditor'
 import FrontPageEditor from './pages/FrontPageEditor'
 import NonMajorsEditor from './pages/NonMajorsEditor'
 import ResearchEditor from './pages/ResearchEditor'
@@ -19,7 +19,7 @@ import './admin.css'
 // research, non-majors, news.
 const SECTIONS = [
   { path: 'frontpage', label: 'Front Page' },
-  { path: 'people', label: 'People' },
+  { path: 'about', label: 'About Us' },
   { path: 'major', label: 'Plan Your Major' },
   { path: 'courses', label: 'Courses' },
   { path: 'colloquium', label: 'Colloquium' },
@@ -90,7 +90,7 @@ const AdminApp = () => (
           <Route path="frontpage" element={<FrontPageEditor />} />
           <Route path="news/*" element={<CollectionListPage schema={newsSchema} />} />
           <Route path="colloquium/*" element={<CollectionListPage schema={colloquiumSchema} />} />
-          <Route path="people/*" element={<CollectionListPage schema={peopleSchema} />} />
+          <Route path="about/*" element={<AboutUsAdmin />} />
           <Route path="courses/*" element={<CoursesAdmin />} />
           <Route path="students/*" element={<CollectionListPage schema={studentsSchema} />} />
           <Route path="research" element={<ResearchEditor />} />

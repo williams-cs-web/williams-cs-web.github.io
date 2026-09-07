@@ -56,9 +56,9 @@ const MajorAdmin = () => (
   <div>
     <h2>Plan Your Major</h2>
     <nav className="admin-tabs">
-      <NavLink to="." end>page content</NavLink>
-      <NavLink to="requirements">requirements</NavLink>
-      <NavLink to="paths">example paths</NavLink>
+      <NavLink to="/admin/major" end>page content</NavLink>
+      <NavLink to="/admin/major/requirements">requirements</NavLink>
+      <NavLink to="/admin/major/paths">example paths</NavLink>
     </nav>
     <Routes>
       <Route index element={<MajorContentEditor />} />

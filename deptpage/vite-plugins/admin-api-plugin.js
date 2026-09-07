@@ -27,6 +27,7 @@ const DATA_FILES = new Set([
   'studyaway.json',
   'major.json',
   'nonmajors.json',
+  'about.json',
 ])
 
 const IMAGE_SUBFOLDERS = new Set([

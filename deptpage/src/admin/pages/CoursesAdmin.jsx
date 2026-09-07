@@ -6,8 +6,8 @@ const CoursesAdmin = () => (
   <div>
     <h2>Courses</h2>
     <nav className="admin-tabs">
-      <NavLink to="sections">sections</NavLink>
-      <NavLink to="catalog">course catalog</NavLink>
+      <NavLink to="/admin/courses/sections">sections</NavLink>
+      <NavLink to="/admin/courses/catalog">course catalog</NavLink>
     </nav>
     <Routes>
       <Route index element={<Navigate to="sections" replace />} />
