@@ -91,7 +91,7 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
           <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
         )}
         <div style={{ width: "100%", textAlign: "left" }}>
-          <div style={{ marginTop: "24px", display: "flex", flexFlow: "row wrap", justifyContent: "space-between", alignItems: "baseline", gap: "8px" }}>
+          <div style={{ marginTop: "24px", display: "flex", flexFlow: "row wrap", justifyContent: "space-between", alignItems: "flex-start", gap: "8px" }}>
             <div className="eyebrow">Department Members</div>
             <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "center", gap: "12px" }}>
               {ROLES.map((r) => (
