@@ -95,22 +95,18 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
           <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: "80px" }} />
         )}
         <div style={{ width: "100%", textAlign: "left" }}>
-          <div style={{ marginTop: "24px" }}>
+          <div style={{ marginTop: "24px", display: "flex", flexFlow: "row wrap", justifyContent: "space-between", alignItems: "baseline", gap: "8px" }}>
             <div className="eyebrow">Department Members</div>
-          </div>
-
-          <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "center", gap: "12px", marginTop: "20px" }}>
-            {ROLES.map((r) => (
-              <div
-                key={r}
-                className={`pill-tab ${r === role ? "pill-tab-active" : ""}`}
-                onClick={() => setRole(r)}
-              >
-                {r}
-              </div>
-            ))}
-            <div className="plaintext" style={{ fontSize: "13px", color: "#888888", marginLeft: "4px" }}>
-              {people.length} {role}
+            <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "center", gap: "12px" }}>
+              {ROLES.map((r) => (
+                <div
+                  key={r}
+                  className={`pill-tab ${r === role ? "pill-tab-active" : ""}`}
+                  onClick={() => setRole(r)}
+                >
+                  {r}
+                </div>
+              ))}
             </div>
           </div>
 
