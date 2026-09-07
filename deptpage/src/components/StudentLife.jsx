@@ -5,154 +5,67 @@ import WilliamsHeader from './WilliamsHeader'
 import WilliamsFooter from './WilliamsFooter'
 import Spacer from './Spacer'
 
-const Student = ({ name, year, photo }) => {
+const Student = ({ name, year, photo }) => (
+  <div style={{ display: 'flex', flexFlow: 'row nowrap', alignItems: 'center', gap: '10px' }}>
+    <img
+      width="40"
+      height="40"
+      loading="lazy"
+      style={{ objectFit: 'cover', borderRadius: '50%', flexShrink: 0 }}
+      src={photo}
+      alt={`Photo of ${name}`}
+    />
+    <div>
+      <div className="title" style={{ fontSize: '14px' }}>{name}</div>
+      <div className="plaintext" style={{ fontSize: '12px', color: '#888888' }}>{`class of ${year}`}</div>
+    </div>
+  </div>
+)
+
+const GalleryGrid = ({ photos }) => (
+  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px', marginTop: '16px' }}>
+    {photos.map((photo) => (
+      <img key={photo} style={{ width: '100%', borderRadius: '10px', display: 'block', objectFit: 'cover' }} loading="lazy" src={photo} alt="" />
+    ))}
+  </div>
+)
+
+const GroupCard = ({ group }) => {
+  const nameContent = <div className="title" style={{ fontSize: '22px' }}>{group.name}</div>
 
   return (
-    <div style={{
-      borderStyle: 'solid',
-      textAlign: 'left',
-      flexGrow: 1,
-      flexBasis: '280px',
-      backgroundColor: 'whitesmoke'
-    }}>
-      <div style={{
-        display: 'flex',
-        flexFlow: 'row nowrap'
-      }}>
-        <img
-          width="80"
-          height="80"
-          loading="lazy"
-          style={{ alignSelf: 'flex-start', objectFit: 'cover' }}
-          src={photo}
-          alt={`Photo of ${name}`}
-        />
-        <div style={{
-          padding: '5px'
-        }}>
-          <div className="title" style={{            
-            fontSize: '22px',
-            fontWeight: 'bold'
-          }}>
-            {name}
+    <div className="soft-card" style={{ padding: '20px' }}>
+      <div className="news-tag" style={{ color: 'var(--color-student-life)' }}>{group.abbreviation}</div>
+      <div style={{ marginTop: '4px' }}>
+        {group.webpage ? (
+          <a href={group.webpage} target="_blank">{nameContent}</a>
+        ) : nameContent}
+      </div>
+      <div className="plaintext" style={{ marginTop: '10px', color: '#444444' }}>{group.description}</div>
+      {group.details ? group.details.map((detail, i) => (
+        <div key={i} className="plaintext" style={{ marginTop: '10px', color: '#444444' }}>{detail}</div>
+      )) : null}
+      {group.leadership && group.leadership.length > 0 ? (
+        <div style={{ marginTop: '18px' }}>
+          <div className="title" style={{ fontSize: '13px', letterSpacing: '0.04em', textTransform: 'uppercase', color: '#999999', marginBottom: '12px' }}>
+            Board Members
           </div>
-          <div className="plaintext" style={{
-            fontSize: '16px'
-          }}>
-            {`class of ${year}`}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '14px' }}>
+            {group.leadership.map((person) => (
+              <Student key={person.name} name={person.name} year={person.year} photo={person.photo} />
+            ))}
           </div>
         </div>
-      </div>
+      ) : null}
+      {group.gallery ? <GalleryGrid photos={group.gallery} /> : null}
     </div>
   )
 }
 
-
-
 const StudentLife = ({ style, onClick, showSidebar }) => {
-
   const hubId = "student-life"
 
-
-  const renderHeading = heading => (
-    <div className="heading">{heading.toLowerCase()}</div>
-  )
-
-
-  const renderGroupLeadership = (members) => (
-    <>
-      <div className="title" style={{ fontSize: '22px' }}>board members:</div>
-
-      <div style={{
-        display: 'flex',
-        flexFlow: 'row wrap',
-        gap: '20px'
-      }}>
-        {members.map(person => (
-          <Student
-            key={person.name}
-            name={person.name}
-            year={person.year}
-            photo={person.photo}
-          />)
-        )}
-      </div>
-    </>
-  )
-
-  const renderGroupInfo = (group) => {
-    let groupName = <div style={{ fontSize: '20px' }}>{group.name}</div>
-    return (
-      <div className="plaintext">
-        {group.webpage ? <a className="link" href={group.webpage} target="_blank">
-          {<div className="title">{groupName}</div> }
-        </a> : <div className="fakelink title">{groupName}</div>}
-        <div>{group.description}</div>
-        {
-          group.details ? group.details.map((detail, i) =>
-            <div key={i} style={{ paddingTop: '10px' }}>{detail}</div>
-          ) : null
-        }
-        <div style={{ height: '20px' }}></div>
-
-        {group.leadership && group.leadership.length > 0 ? renderGroupLeadership(group.leadership) : null}
-      </div>
-    )
-  }
-
   const groups = DbServices.getStudentGroups()
-
-  const renderGroup = (group) => {
-    return (
-      <div key={group.name}>
-        <div style={{
-          display: 'flex',
-          flexFlow: 'row nowrap',
-          gap: '20px'
-        }}>
-          <div style={{
-            flexGrow: 1,
-            flexShrink: 1
-          }}>
-            {renderHeading(group.abbreviation)}
-            {renderGroupInfo(group)}
-            {group.gallery ? renderGallery(group.gallery) : null}
-          </div>
-        </div>
-        <div style={{
-          height: '20px'
-        }} />
-      </div>
-    )
-  }
-
-  const renderGalleryRow = (photos) => (
-    <div key={`gallery-row-${photos.join('-')}`} style={{
-      display: 'flex',
-      flexFlow: 'row nowrap',
-      gap: '2px',
-    }}>
-      {photos.map(photo =>
-        <div key={photo} style={{ flex: 1 }}>
-          <img style={{ width: '100%', display: 'block' }} loading="lazy" src={photo} alt="" />
-        </div>
-      )}
-    </div>
-  )
-
-  const renderGallery = (photos) => {
-    let evens = [...Array(photos.length).keys()].filter(x => x % 2 === 0)
-    return (
-      <div>
-        {evens.map(index => (
-          renderGalleryRow(photos.slice(index, index+2))
-        ))}
-      </div>
-    )
-  }
-
-  const contentPct = showSidebar ? .7 : 1.0
-
 
   const renderBody = () => (
     <div
@@ -165,21 +78,22 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
       <div className="pagebody" style={{
         display: 'flex',
         flexFlow: 'row nowrap',
-        
       }}>
         {showSidebar ? <Sidebar onClick={onClick} title="student life" className="sidebar-student-life" /> : <div className="left-spacer" style={{ flexGrow: 0, flexShrink: 0, width: '80px' }} />}
 
-        <div style={{
-          width: `${contentPct * 100}%`,
-          
-          textAlign: 'left'
-        }}>
-          {groups.map(group => renderGroup(group))}
+        <div style={{ width: '100%', textAlign: 'left' }}>
+          <div style={{ marginTop: '24px' }}>
+            <div className="eyebrow">Student Life</div>
+            <div className="title" style={{ fontSize: '32px', marginTop: '6px' }}>Student Groups</div>
+          </div>
 
-
+          <div style={{ display: 'flex', flexFlow: 'column nowrap', gap: '16px', marginTop: '20px', maxWidth: '780px' }}>
+            {groups.map((group) => (
+              <GroupCard key={group.name} group={group} />
+            ))}
+          </div>
         </div>
       </div>
-
     </div>
   )
 

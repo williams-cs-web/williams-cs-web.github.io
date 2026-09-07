@@ -10,18 +10,15 @@ import DbServices from "../services/db.js";
 const NonMajors = ({ style, layout, onClick, showSidebar }) => {
   const hubId = "non-majors";
 
-  //const showSidebar = layout === "wide";
-
   const renderContent = () => {
-    return DbServices.getNonMajorsContent().map((item, i) => {
-      const gap = i === 0 ? null : <Spacer height="20px" />;
-      return (
-        <Fragment key={item.title ?? i}>
-          {gap}
-          <Passage title={item.title} photo={item.photo} article={item.article} />
-        </Fragment>
-      );
-    });
+    return DbServices.getNonMajorsContent().map((item, i) => (
+      <Fragment key={item.title ?? i}>
+        <div className="eyebrow" style={{ marginTop: i === 0 ? 0 : "36px" }}>{item.title}</div>
+        <div style={{ marginTop: "6px" }}>
+          <Passage title={null} photo={item.photo} article={item.article} />
+        </div>
+      </Fragment>
+    ));
   };
 
   const renderBody = () => (
@@ -51,7 +48,9 @@ const NonMajors = ({ style, layout, onClick, showSidebar }) => {
             style={{ flexGrow: 0, flexShrink: 0, width: "80px" }}
           />
         )}
-        <div style={{ flexGrow: 1, minWidth: 0 }}>{renderContent()}</div>
+        <div style={{ flexGrow: 1, minWidth: 0, textAlign: "left", marginTop: "24px" }}>
+          {renderContent()}
+        </div>
       </div>
     </div>
   );
