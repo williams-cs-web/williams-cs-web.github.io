@@ -13,7 +13,7 @@ const NewsTile = ({ onClick, style }) => {
 
   return (
     <Link
-      to={{ pathname: `/news` }}
+      to={{ pathname: `/news`, hash: "#latest" }}
       onClick={() => { onClick("news"); window.scrollTo(0, 0); }}
       className="soft-card"
       style={{

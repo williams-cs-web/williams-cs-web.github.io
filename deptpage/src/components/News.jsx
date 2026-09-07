@@ -1,5 +1,6 @@
 import Sidebar from "./Sidebar";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import DbServices from "../services/db.js";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -9,9 +10,9 @@ import WilliamsHeader from "./WilliamsHeader";
 import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
 
-const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen }) => {
+const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, startOpen }) => {
   const [content, setContent] = useState("");
-  const [open, setOpen] = useState(forceOpen);
+  const [open, setOpen] = useState(forceOpen || startOpen);
 
   useEffect(() => {
     DbServices.fetchExternalTextFile(article).then((response) => {
@@ -30,20 +31,24 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen })
           if (!forceOpen) setOpen(!open);
         }}
       >
-        <img
-          width="136"
-          height="96"
-          loading="lazy"
-          style={{ objectFit: "cover", borderRadius: "10px", flexShrink: 0 }}
-          src={thumbnail ? thumbnail : photo}
-          alt={`Photo for ${title}`}
-        />
+        {open ? null : (
+          <img
+            width="136"
+            height="96"
+            loading="lazy"
+            style={{ objectFit: "cover", borderRadius: "10px", flexShrink: 0 }}
+            src={thumbnail ? thumbnail : photo}
+            alt={`Photo for ${title}`}
+          />
+        )}
         <div style={{ flexGrow: 1, flexShrink: 1, minWidth: 0 }}>
           <div className="news-tag" style={{ color: "var(--color-news)" }}>News &middot; {date}</div>
           <div className="title" style={{ fontSize: "17px", marginTop: "2px" }}>{title}</div>
-          <div className="plaintext" style={{ fontSize: "13px", color: "#666666", marginTop: "4px" }}>
-            {teaserText}
-          </div>
+          {open ? null : (
+            <div className="plaintext" style={{ fontSize: "13px", color: "#666666", marginTop: "4px" }}>
+              {teaserText}
+            </div>
+          )}
         </div>
         {forceOpen ? null : (
           <svg
@@ -76,6 +81,7 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen })
 
 const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
   const hubId = "news";
+  const location = useLocation();
 
   const newsItems = DbServices.getNewsItems()
     .filter((article) => Date.parse(article.date) <= date)
@@ -85,8 +91,9 @@ const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
     .slice(0, howMany);
 
   const forceOpen = newsItems.length === 1;
+  const startLatestOpen = location.hash === "#latest";
 
-  const renderNewsItem = (item) => (
+  const renderNewsItem = (item, i) => (
     <div key={item.id}>
       <NewsItem
         date={item.date}
@@ -96,6 +103,7 @@ const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
         article={item.article}
         teaser={item.teaser}
         forceOpen={forceOpen}
+        startOpen={i === 0 && startLatestOpen}
       />
       <div style={{ height: "12px" }} />
     </div>
@@ -123,7 +131,7 @@ const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
           }}
         >
           <div style={{ maxWidth: "780px", marginTop: "24px" }}>
-            {newsItems.map((opp) => renderNewsItem(opp))}
+            {newsItems.map((opp, i) => renderNewsItem(opp, i))}
           </div>
         </div>
       </div>
