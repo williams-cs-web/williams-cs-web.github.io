@@ -1014,4 +1014,10 @@ a.nostyle:visited {
   .explore-tile:hover {
     font-size: 11px !important;
   }
+
+  /* "colloquium" still slightly overflows its own pill at 13px this
+     narrow, even after moving it to the wider second row. */
+  .topmenu {
+    font-size: 11px;
+  }
 }
