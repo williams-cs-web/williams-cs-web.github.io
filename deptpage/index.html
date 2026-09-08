@@ -30,23 +30,24 @@
     <!--
       The rest of this page is a client-rendered React app, so the raw
       HTML a non-JS fetcher sees is otherwise just the empty div above.
-      This noscript block exists purely to give crawlers a real link
-      graph to the site's top-level routes; JS-enabled browsers never
-      render it. Keep this in sync with the route list in src/App.jsx.
+      This nav exists purely to give crawlers a real link graph to the
+      site's top-level routes -- some crawlers don't extract links from
+      <noscript> blocks (tried that first), so these are real anchors,
+      just visually hidden for JS-enabled browsers via inline styles
+      (not display:none/visibility:hidden, which some crawlers treat as
+      a signal to ignore the content). Keep in sync with src/App.jsx.
     -->
-    <noscript>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about-us/">About Us</a>
-        <a href="/plan-your-major/">Plan Your Major</a>
-        <a href="/courses/">Courses</a>
-        <a href="/colloquium/">Colloquium</a>
-        <a href="/student-life/">Student Life</a>
-        <a href="/research/">Research Opportunities</a>
-        <a href="/non-majors/">Non-Majors</a>
-        <a href="/news/">News</a>
-      </nav>
-    </noscript>
+    <nav style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;">
+      <a href="/">Home</a>
+      <a href="/about-us/">About Us</a>
+      <a href="/plan-your-major/">Plan Your Major</a>
+      <a href="/courses/">Courses</a>
+      <a href="/colloquium/">Colloquium</a>
+      <a href="/student-life/">Student Life</a>
+      <a href="/research/">Research Opportunities</a>
+      <a href="/non-majors/">Non-Majors</a>
+      <a href="/news/">News</a>
+    </nav>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
