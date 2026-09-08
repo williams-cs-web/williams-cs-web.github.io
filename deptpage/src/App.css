@@ -951,8 +951,8 @@ a.nostyle:visited {
   .news-disclosure-head .news-thumbnail {
     order: 1;
     align-self: center;
-    width: 160px !important;
-    height: 114px !important;
+    width: 110px !important;
+    height: 78px !important;
     margin-top: 10px;
   }
 
