@@ -889,9 +889,33 @@ a.nostyle:visited {
 
   .topmenu {
     font-size: 12px;
-    flex: 1 1 60px;
-    max-width: 100px;
+    flex: 0 1 calc(20% - 4.8px);
+    max-width: calc(20% - 4.8px);
     min-height: 32px;
     padding: 4px;
+  }
+}
+
+/* Between roughly 601-1076px, force the 9-item top menu into a clean
+   5-then-4 wrap (instead of the organic 8-1/7-2/6-3/4-4-1 progression
+   flex-wrap produces on its own as it shrinks) by fixing each item's
+   basis to exactly a fifth of the row. Below 600px this is layered with
+   the smaller size set above. 1076px is where the unforced layout's own
+   9-in-a-row naturally breaks, so this picks up right where that ends. */
+@media (max-width: 1076px) {
+  .topmenu {
+    flex: 0 1 calc(20% - 4.8px);
+    max-width: calc(20% - 4.8px);
+  }
+}
+
+/* At 4-per-row, "colloquium" and "research" overflow their tile at the
+   base 18px size once the tile gets this narrow -- shrink it here, and
+   keep the experimental hover font bump from making that worse. Covers
+   the 600px phone breakpoint too, since 760 > 600. */
+@media (max-width: 760px) {
+  .explore-tile,
+  .explore-tile:hover {
+    font-size: 13px !important;
   }
 }
