@@ -47,15 +47,20 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, s
             alt={`Photo for ${title}`}
           />
         )}
-        <div style={{ flexGrow: 1, flexShrink: 1, minWidth: 0 }}>
+        <div className="news-disclosure-headline" style={{ flexGrow: 1, flexShrink: 1, minWidth: 0 }}>
           <div className="news-tag" style={{ color: "var(--color-news)" }}>News &middot; {date}</div>
           <div className="title" style={{ fontSize: "19px", marginTop: "2px" }}>{title}</div>
           {open ? null : (
-            <div className="plaintext" style={{ fontSize: "15px", color: "#666666", marginTop: "4px" }}>
+            <div className="plaintext news-teaser-desktop" style={{ fontSize: "15px", color: "#666666", marginTop: "4px" }}>
               {teaserText}
             </div>
           )}
         </div>
+        {open ? null : (
+          <div className="plaintext news-teaser-mobile" style={{ fontSize: "15px", color: "#666666" }}>
+            {teaserText}
+          </div>
+        )}
         {forceOpen ? null : (
           <svg
             className="disclosure-chevron"
