@@ -12,27 +12,28 @@ const EventRow = ({ event }) => {
   const primary = hasTitle ? event.title : event.speaker;
   const secondary = hasTitle ? `${event.speaker}, ${event.affiliation}` : event.affiliation;
   const detail = (event.abstract && event.abstract.length > 0) ? event.abstract : event.bio;
+  const photoSize = detail ? 140 : 100;
 
   return (
-    <div className="soft-card" style={{ padding: "16px" }}>
+    <div className="soft-card" style={{ padding: "20px" }}>
       <div className="news-tag" style={{ color: "var(--color-colloquium)" }}>{event.date}</div>
-      <div style={{ display: "flex", flexFlow: "row nowrap", gap: "16px", marginTop: "8px" }}>
+      <div style={{ display: "flex", flexFlow: "row nowrap", gap: "20px", marginTop: "10px", alignItems: detail ? "stretch" : "center" }}>
         <img
-          width="96"
-          height="96"
+          width={photoSize}
+          height={photoSize}
           loading="lazy"
-          style={{ objectFit: "cover", borderRadius: "10px", flexShrink: 0 }}
+          style={{ objectFit: "cover", borderRadius: "12px", flexShrink: 0 }}
           src={event.photo}
           alt={`Photo of ${event.speaker}`}
         />
         <div style={{ flexGrow: 1, flexShrink: 1, minWidth: 0 }}>
-          <div className="title" style={{ fontSize: "17px" }}>{primary}</div>
-          <div className="plaintext" style={{ fontSize: "13px", color: "#666666", marginTop: "2px" }}>{secondary}</div>
-          <div className="plaintext" style={{ fontSize: "12px", color: "#999999", marginTop: "2px" }}>
+          <div className="title" style={{ fontSize: "20px" }}>{primary}</div>
+          <div className="plaintext" style={{ fontSize: "15px", color: "#666666", marginTop: "3px" }}>{secondary}</div>
+          <div className="plaintext" style={{ fontSize: "13px", color: "#999999", marginTop: "3px" }}>
             {location} &middot; {time}
           </div>
           {detail ? (
-            <div className="plaintext" style={{ fontSize: "14px", color: "#444444", lineHeight: 1.5, marginTop: "8px" }}>
+            <div className="plaintext" style={{ fontSize: "16px", color: "#444444", lineHeight: 1.5, marginTop: "10px" }}>
               {detail}
             </div>
           ) : null}
