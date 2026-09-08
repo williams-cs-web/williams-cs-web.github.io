@@ -52,7 +52,7 @@ const Colloquium = ({ style, showSidebar, onClick }) => {
     if (events.length > 0) {
       return (
         <div>
-          <div style={{ display: "flex", flexFlow: "column nowrap", gap: "12px", maxWidth: "760px" }}>
+          <div style={{ display: "flex", flexFlow: "column nowrap", gap: "12px" }}>
             {events.map((event, i) => (
               <EventRow key={`event-${i}`} event={event} />
             ))}
@@ -113,7 +113,7 @@ const Colloquium = ({ style, showSidebar, onClick }) => {
         <div style={{ width: "95%", textAlign: "left" }}>
           <div style={{ marginTop: "24px", marginBottom: "20px" }}>
             <div className="eyebrow">Schedule</div>
-            <div className="plaintext" style={{ fontSize: "15px", color: "#666666", marginTop: "8px", maxWidth: "760px" }}>
+            <div className="plaintext" style={{ fontSize: "15px", color: "#666666", marginTop: "8px" }}>
               {DbServices.getColloquiumDisclaimer()}
             </div>
           </div>
