@@ -15,7 +15,7 @@ import { withBase } from '../utils/withBase.js'
 // A talk from earlier today (or yesterday) shouldn't vanish from the list
 // the moment its start time passes -- let it linger for one day.
 const colloquiumGracePeriod = 24 * 60 * 60 * 1000
-const maxColloquiaToShow = 5;
+const maxColloquiaToShow = 10;
 
 // Data files hardcode asset paths as site-root-absolute (e.g. "/images/...")
 // so that they resolve the same from any route depth. That assumption breaks
