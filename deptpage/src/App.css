@@ -901,7 +901,7 @@ a.nostyle:visited {
   }
 
   .topmenu {
-    font-size: 12px;
+    font-size: 13px;
     flex: 0 1 calc(20% - 4.8px);
     max-width: calc(20% - 4.8px);
     min-height: 44px;

@@ -4,7 +4,7 @@ const Disclosure = ({ title, defaultOpen = false, children }) => {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="soft-card" style={{ marginBottom: "12px" }}>
+    <div className="soft-card" style={{ marginBottom: open ? "24px" : "12px" }}>
       <button type="button" className="disclosure-head" aria-expanded={open} onClick={() => setOpen(!open)}>
         <svg
           className="disclosure-chevron"
