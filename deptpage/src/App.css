@@ -465,6 +465,14 @@ a.nostyle:visited {
 }
 
 .disclosure-head {
+  appearance: none;
+  width: 100%;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  text-align: left;
+  color: inherit;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -478,6 +486,8 @@ a.nostyle:visited {
 }
 
 .pill-tab {
+  appearance: none;
+  margin: 0;
   font-family: var(--font-display);
   font-size: 14px;
   padding: 8px 20px;
@@ -893,7 +903,7 @@ a.nostyle:visited {
     font-size: 12px;
     flex: 0 1 calc(20% - 4.8px);
     max-width: calc(20% - 4.8px);
-    min-height: 32px;
+    min-height: 44px;
     padding: 4px;
   }
 }

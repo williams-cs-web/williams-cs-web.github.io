@@ -110,13 +110,15 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
             <div className="eyebrow">Department Members</div>
             <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "center", gap: "12px" }}>
               {ROLES.map((r) => (
-                <div
+                <button
                   key={r}
+                  type="button"
+                  aria-pressed={r === role}
                   className={`pill-tab ${r === role ? "pill-tab-active" : ""}`}
                   onClick={() => setRole(r)}
                 >
                   {r}
-                </div>
+                </button>
               ))}
             </div>
           </div>

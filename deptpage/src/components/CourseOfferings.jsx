@@ -7,8 +7,6 @@ import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
 import { usePageMeta } from "../hooks/usePageMeta";
 
-const SEMESTERS = ["Fall 2026", "Spring 2027"];
-
 const groupSectionsByCourse = (sections) => {
   const order = [];
   const byCourse = {};
@@ -92,7 +90,8 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
     description: "Course offerings and schedules for the Williams College Computer Science Department.",
   });
 
-  const [semester, setSemester] = useState(SEMESTERS[0]);
+  const semesters = DbServices.getSemesters();
+  const [semester, setSemester] = useState(semesters[0]);
 
   const groups = groupSectionsByCourse(DbServices.getCourseSections(semester));
 
@@ -132,14 +131,16 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
               </div>
             </div>
             <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "center", gap: "12px" }}>
-              {SEMESTERS.map((s) => (
-                <div
+              {semesters.map((s) => (
+                <button
                   key={s}
+                  type="button"
+                  aria-pressed={s === semester}
                   className={`pill-tab ${s === semester ? "pill-tab-active" : ""}`}
                   onClick={() => setSemester(s)}
                 >
                   {s.toLowerCase()}
-                </div>
+                </button>
               ))}
             </div>
           </div>

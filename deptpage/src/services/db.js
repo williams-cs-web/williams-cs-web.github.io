@@ -12,7 +12,9 @@ import frontPageData from '../../data/frontpage.json'
 import { withBase } from '../utils/withBase.js'
 
 
-const sixMonthsAgo = Date.now() - 6 * 30 * 24 * 60 * 60 * 1000
+// A talk from earlier today (or yesterday) shouldn't vanish from the list
+// the moment its start time passes -- let it linger for one day.
+const colloquiumGracePeriod = 24 * 60 * 60 * 1000
 const maxColloquiaToShow = 5;
 
 // Data files hardcode asset paths as site-root-absolute (e.g. "/images/...")
@@ -81,10 +83,11 @@ const getColloquiumDisclaimer = () => {
 }
 
 const getUpcomingColloquia = () => {
+  const cutoff = Date.now() - colloquiumGracePeriod
   return (
     colloquiumData.events
       .filter(event => (
-        Date.parse(event.date) > sixMonthsAgo
+        Date.parse(event.date) >= cutoff
       )).toSorted((event1, event2) => (
         Date.parse(event1.date) - Date.parse(event2.date)
       )).slice(0, maxColloquiaToShow)
@@ -110,6 +113,21 @@ const fetchExternalTextFile = filename => {
 
 const getCourseSections = (semester) => {
   return courses.sections.filter(course => course.semester === semester)
+}
+
+const SEASON_ORDER = { "Winter": 0, "Spring": 1, "Summer": 2, "Fall": 3 }
+
+// Derives the semesters to show as tabs directly from the section data,
+// so adding a new semester's sections is all it takes -- no separate
+// constant to remember to update.
+const getSemesters = () => {
+  const semesters = [...new Set(courses.sections.map(section => section.semester))]
+  return semesters.toSorted((a, b) => {
+    const [seasonA, yearA] = a.split(" ")
+    const [seasonB, yearB] = b.split(" ")
+    if (yearA !== yearB) return Number(yearA) - Number(yearB)
+    return SEASON_ORDER[seasonA] - SEASON_ORDER[seasonB]
+  })
 }
 
 const getCourseById = courseId => {
@@ -209,6 +227,7 @@ export default {
   getPersonByName,
   getCatalog,
   getCourseSections,
+  getSemesters,
   getCourseById,
   getUpcomingColloquia,
   getColloquiumDisclaimer,

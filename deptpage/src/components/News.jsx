@@ -23,9 +23,13 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, s
 
   const teaserText = teaser ? teaser : title;
 
+  const HeadTag = forceOpen ? "div" : "button";
+
   return (
     <div className="soft-card">
-      <div
+      <HeadTag
+        type={forceOpen ? undefined : "button"}
+        aria-expanded={forceOpen ? undefined : open}
         className="disclosure-head"
         style={{ cursor: forceOpen ? "default" : "pointer" }}
         onClick={() => {
@@ -67,7 +71,7 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, s
             <polyline points="9 6 15 12 9 18"></polyline>
           </svg>
         )}
-      </div>
+      </HeadTag>
       {open ? (
         <div style={{ padding: "0 16px 20px 16px" }}>
           <img width="100%" loading="lazy" style={{ borderRadius: "10px", marginBottom: "14px", display: "block" }} src={photo} alt={`Photo for ${title}`} />
