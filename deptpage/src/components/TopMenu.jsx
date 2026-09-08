@@ -11,7 +11,7 @@ const MenuItem = ({ id, text, highlight }) => {
   return (
     <Link
       className={`topmenu-link topmenu ${stateClass}`}
-      to={{ pathname: `/${id}` }}
+      to={{ pathname: id === "home" ? "/" : `/${id}` }}
       onClick={() => window.scrollTo(0, 0)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}

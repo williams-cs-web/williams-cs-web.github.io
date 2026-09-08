@@ -80,10 +80,6 @@ function App() {
       element: <FrontPage onClick={handleHubClick} style={contentStyle} />,
     },
     {
-      path: "home/",
-      element: <FrontPage onClick={handleHubClick} style={contentStyle} />,
-    },
-    {
       path: "about-us/",
       element: (
         <AboutUs
