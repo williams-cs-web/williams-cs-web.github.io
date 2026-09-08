@@ -70,7 +70,7 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, s
       {open ? (
         <div style={{ padding: "0 16px 20px 16px" }}>
           <img width="100%" loading="lazy" style={{ borderRadius: "10px", marginBottom: "14px", display: "block" }} src={photo} alt={`Photo for ${title}`} />
-          <div className="plaintext article-body" style={{ maxWidth: "760px" }}>
+          <div className="plaintext article-body">
             <Markdown remarkPlugins={[remarkGfm]} components={markdownImageComponent}>{content}</Markdown>
           </div>
         </div>
