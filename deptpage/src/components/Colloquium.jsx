@@ -18,8 +18,9 @@ const EventRow = ({ event }) => {
   return (
     <div className="soft-card" style={{ padding: "20px" }}>
       <div className="news-tag" style={{ color: "var(--color-colloquium)" }}>{event.date}</div>
-      <div style={{ display: "flex", flexFlow: "row nowrap", gap: "20px", marginTop: "10px", alignItems: detail ? "stretch" : "center" }}>
+      <div className="colloquium-event-row" style={{ display: "flex", flexFlow: "row nowrap", gap: "20px", marginTop: "10px", alignItems: detail ? "stretch" : "center" }}>
         <img
+          className="colloquium-event-photo"
           width={photoSize}
           height={photoSize}
           loading="lazy"

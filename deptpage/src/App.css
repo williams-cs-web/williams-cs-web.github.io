@@ -972,6 +972,21 @@ a.nostyle:visited {
     align-self: center;
     margin-top: 6px;
   }
+
+  /* The event photo's fixed 100-140px width otherwise squeezes the
+     title/abstract text into a narrow column on phones -- stack the
+     photo above the text at full width instead. */
+  .colloquium-event-row {
+    flex-flow: column nowrap !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+  }
+
+  .colloquium-event-photo {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 220px !important;
+  }
 }
 
 /* Between roughly 601-1076px, force the 9-item top menu into a clean
