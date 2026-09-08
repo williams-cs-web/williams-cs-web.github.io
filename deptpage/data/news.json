@@ -16,7 +16,7 @@
             "photo": "/images/misc/freund-chatdbg.jpg",
             "thumbnail": "/images/misc/freund-chatdbg-thumb.jpg",
             "article": "articles/freund-chatdbg.md",
-            "teaser": "Professor Stephen Freund Wins Distinguished Artifact Award for ChatDBG work"
+            "teaser": "Freund and collaborators were recognized at FSE 2025 for ChatDBG, their LLM-powered debugging tool."
         },
         {
             "id": "article-purdue-data",
@@ -25,7 +25,7 @@
             "photo": "/images/misc/purdue-data.jpg",
             "thumbnail": "/images/misc/purdue-data-thumb.jpg",
             "article": "articles/purdue-data.md",
-            "teaser": "Williams CS Majors get third place in a data science competition held at Purdue University"
+            "teaser": "Three Williams students built a tool to extract structured medical data from patient conversations, earning a $4,000 prize."
         },
         {
             "id": "article-andrea-memorial-minute",
