@@ -41,7 +41,7 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, s
             width="180"
             height="128"
             loading="lazy"
-            className="news-thumbnail"
+            className="news-thumbnail news-thumbnail-desktop"
             style={{ objectFit: "cover", borderRadius: "10px", flexShrink: 0 }}
             src={thumbnail ? thumbnail : photo}
             alt={`Photo for ${title}`}
@@ -56,6 +56,15 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, s
             </div>
           )}
         </div>
+        {open ? null : (
+          <img
+            loading="lazy"
+            className="news-thumbnail-mobile"
+            style={{ borderRadius: "10px", width: "100%" }}
+            src={photo}
+            alt={`Photo for ${title}`}
+          />
+        )}
         {open ? null : (
           <div className="plaintext news-teaser-mobile" style={{ fontSize: "15px", color: "#666666" }}>
             {teaserText}

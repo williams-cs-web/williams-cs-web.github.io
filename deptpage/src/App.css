@@ -532,6 +532,14 @@ a.nostyle:visited {
   display: none;
 }
 
+/* Same idea for the photo: desktop gets the small, deliberately-cropped
+   thumbnail (correct for a fixed square-ish box); phone gets a second
+   <img> using the full, uncropped photo at its natural aspect ratio, so
+   a wide multi-panel photo is never force-cropped into a mismatched box. */
+.news-thumbnail-mobile {
+  display: none;
+}
+
 
 /* ============================================================
    PAGE / SECTION COLORS  (menu items, sidebar tiles)
@@ -923,13 +931,6 @@ a.nostyle:visited {
     padding: 4px;
   }
 
-  /* The 180x128 collapsed-card thumbnail doesn't leave enough room next
-     to the title/teaser text at phone width -- shrink it here. */
-  .news-thumbnail {
-    width: 110px !important;
-    height: 78px !important;
-  }
-
   /* Side-by-side, the thumbnail reads as out of proportion to a tall
      multi-line headline (align-items: center stacks it against the
      middle of the whole text block, not the headline itself). Stack
@@ -948,11 +949,13 @@ a.nostyle:visited {
     order: 0;
   }
 
-  .news-disclosure-head .news-thumbnail {
+  .news-disclosure-head .news-thumbnail-desktop {
+    display: none;
+  }
+
+  .news-disclosure-head .news-thumbnail-mobile {
+    display: block;
     order: 1;
-    align-self: center;
-    width: 110px !important;
-    height: 78px !important;
     margin-top: 10px;
   }
 
