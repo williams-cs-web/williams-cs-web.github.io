@@ -50,6 +50,13 @@
   animation: page-fade-in 0.4s ease-out;
 }
 
+/* .pagebody is the site's ONE width authority: every page's content sits
+   inside it and should fill it. Don't add a narrower maxWidth in a
+   component to "improve readability" -- that's a per-file decision that
+   silently drifts from every other page and has had to be undone
+   piecemeal (News, Colloquium, Student Life, About Us, Plan Your Major
+   all had one at various points). If a real long-form-reading-width case
+   ever comes up, change --content-max-width, not a component. */
 .pagebody {
   max-width: var(--content-max-width);
   padding-right: 40px;

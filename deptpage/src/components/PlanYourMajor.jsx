@@ -48,7 +48,7 @@ const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
         return (
           <Fragment key={item.title ?? i}>
             {learnMoreHeading}
-            <div style={{ maxWidth: "780px", textAlign: "left" }}>
+            <div style={{ textAlign: "left" }}>
               <Disclosure title={item.title}>
                 <Passage title={null} photo={item.photo} article={item.article} />
               </Disclosure>

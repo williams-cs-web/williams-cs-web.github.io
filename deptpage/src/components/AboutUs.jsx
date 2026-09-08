@@ -148,7 +148,7 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
 
           <div style={{ marginTop: "40px" }}>
             <div className="eyebrow">Learn More</div>
-            <div style={{ marginTop: "14px", maxWidth: "780px" }}>
+            <div style={{ marginTop: "14px" }}>
               {renderIntro()}
             </div>
           </div>
