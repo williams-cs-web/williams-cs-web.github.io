@@ -8,6 +8,7 @@ import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
 import Passage from "./Passage";
 import Disclosure from "./Disclosure";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const ROLES = ["faculty", "staff", "emeriti"];
 
@@ -69,6 +70,11 @@ const Person = (props) => {
 
 const AboutUs = ({ style, showSidebar, onClick }) => {
   const hubId = "about-us";
+
+  usePageMeta({
+    title: "About Us",
+    description: "Meet the faculty, staff, and emeriti of the Williams College Computer Science Department.",
+  });
 
   const [role, setRole] = useState(ROLES[0]);
 

@@ -4,6 +4,7 @@ import TopMenu from "./TopMenu";
 import WilliamsHeader from "./WilliamsHeader";
 import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const EventRow = ({ event }) => {
   const location = event.location ? event.location : "TCL 123";
@@ -45,6 +46,11 @@ const EventRow = ({ event }) => {
 
 const Colloquium = ({ style, showSidebar, onClick }) => {
   const hubId = "colloquium";
+
+  usePageMeta({
+    title: "Colloquium",
+    description: "Upcoming talks in the Williams College Computer Science Colloquium series.",
+  });
 
   const events = DbServices.getUpcomingColloquia();
 

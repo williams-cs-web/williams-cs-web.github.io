@@ -6,9 +6,15 @@ import WilliamsHeader from "./WilliamsHeader";
 import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
 import Passage from "./Passage";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const ResearchOpportunities = ({ style, layout, onClick, showSidebar }) => {
   const hubId = "research";
+
+  usePageMeta({
+    title: "Research Opportunities",
+    description: "Summer research and honors thesis opportunities in the Williams College Computer Science Department.",
+  });
 
   const content = DbServices.getResearchContent();
 

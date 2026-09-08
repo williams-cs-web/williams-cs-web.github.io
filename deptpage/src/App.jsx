@@ -9,6 +9,7 @@ import StudentLife from "./components/StudentLife";
 import ResearchOpportunities from "./components/ResearchOpportunities";
 import NonMajors from "./components/NonMajors";
 import News from "./components/News";
+import NotFound from "./components/NotFound";
 import DbServices from "./services/db.js";
 import { prefetchImages } from "./utils/prefetchImages.js";
 import { createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
@@ -74,6 +75,7 @@ function App() {
   const router = createBrowserRouter([
     {
       element: <ScrollToTop />,
+      errorElement: <NotFound />,
       children: [
     {
       path: "/",

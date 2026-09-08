@@ -9,6 +9,7 @@ import TopMenu from "./TopMenu";
 import WilliamsHeader from "./WilliamsHeader";
 import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, startOpen }) => {
   const [content, setContent] = useState("");
@@ -92,6 +93,17 @@ const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
 
   const forceOpen = newsItems.length === 1;
   const startLatestOpen = location.hash === "#latest";
+
+  // A single-item mount (e.g. the danyluk-in-memoriam permalink) is really
+  // its own page, not "the news listing" -- title/describe it by that one
+  // article rather than hardcoding a name for every such permalink.
+  const singleItem = forceOpen ? newsItems[0] : null;
+  usePageMeta({
+    title: singleItem ? singleItem.title : "News",
+    description: singleItem
+      ? (singleItem.teaser || singleItem.title)
+      : "News and updates from the Williams College Computer Science Department.",
+  });
 
   const renderNewsItem = (item, i) => (
     <div key={item.id}>

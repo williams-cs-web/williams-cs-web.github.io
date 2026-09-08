@@ -6,9 +6,15 @@ import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
 import Passage from "./Passage";
 import DbServices from "../services/db.js";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const NonMajors = ({ style, layout, onClick, showSidebar }) => {
   const hubId = "non-majors";
+
+  usePageMeta({
+    title: "Non-Majors",
+    description: "Advice for non-majors interested in computer science courses at Williams College.",
+  });
 
   const renderContent = () => {
     return DbServices.getNonMajorsContent().map((item, i) => (

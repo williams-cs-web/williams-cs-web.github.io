@@ -4,6 +4,7 @@ import TopMenu from './TopMenu'
 import WilliamsHeader from './WilliamsHeader'
 import WilliamsFooter from './WilliamsFooter'
 import Spacer from './Spacer'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const Student = ({ name, year, photo }) => (
   <div style={{ display: 'flex', flexFlow: 'row nowrap', alignItems: 'center', gap: '10px' }}>
@@ -64,6 +65,11 @@ const GroupCard = ({ group }) => {
 
 const StudentLife = ({ style, onClick, showSidebar }) => {
   const hubId = "student-life"
+
+  usePageMeta({
+    title: "Student Life",
+    description: "Student groups and activities in the Williams College Computer Science Department.",
+  })
 
   const groups = DbServices.getStudentGroups()
 

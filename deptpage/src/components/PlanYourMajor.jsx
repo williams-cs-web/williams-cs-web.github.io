@@ -9,9 +9,15 @@ import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
 import Passage from "./Passage";
 import Disclosure from "./Disclosure";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const PlanYourMajor = ({ style, layout, onClick, showSidebar }) => {
   const hubId = "plan-your-major";
+
+  usePageMeta({
+    title: "Plan Your Major",
+    description: "Requirements, example paths, and an interactive planning tool for the Williams College Computer Science major.",
+  });
 
 
   const renderContent = () => {

@@ -5,6 +5,7 @@ import TopMenu from "./TopMenu";
 import WilliamsHeader from "./WilliamsHeader";
 import WilliamsFooter from "./WilliamsFooter";
 import Spacer from "./Spacer";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const SEMESTERS = ["Fall 2026", "Spring 2027"];
 
@@ -85,6 +86,11 @@ const CourseCard = ({ course, sections }) => {
 
 const CourseOfferings = ({ style, showSidebar, onClick }) => {
   const hubId = "courses";
+
+  usePageMeta({
+    title: "Courses",
+    description: "Course offerings and schedules for the Williams College Computer Science Department.",
+  });
 
   const [semester, setSemester] = useState(SEMESTERS[0]);
 
