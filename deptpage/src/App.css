@@ -921,6 +921,33 @@ a.nostyle:visited {
     width: 110px !important;
     height: 78px !important;
   }
+
+  /* Side-by-side, the thumbnail reads as out of proportion to a tall
+     multi-line headline (align-items: center stacks it against the
+     middle of the whole text block, not the headline itself). Stack
+     the card instead: headline/teaser first, then a larger centered
+     photo, so the photo reads as illustrating the headline rather
+     than floating next to it. Scoped to .news-disclosure-head so the
+     shared .disclosure-head layout (About Us, Plan Your Major, and
+     News' own non-interactive memorial-permalink case) is untouched. */
+  .news-disclosure-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .news-disclosure-head .news-thumbnail {
+    order: 1;
+    align-self: center;
+    width: 160px !important;
+    height: 114px !important;
+    margin-top: 10px;
+  }
+
+  .news-disclosure-head .disclosure-chevron {
+    order: 2;
+    align-self: center;
+    margin-top: 6px;
+  }
 }
 
 /* Between roughly 601-1076px, force the 9-item top menu into a clean

@@ -30,7 +30,7 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, s
       <HeadTag
         type={forceOpen ? undefined : "button"}
         aria-expanded={forceOpen ? undefined : open}
-        className="disclosure-head"
+        className="disclosure-head news-disclosure-head"
         style={{ cursor: forceOpen ? "default" : "pointer" }}
         onClick={() => {
           if (!forceOpen) setOpen(!open);
