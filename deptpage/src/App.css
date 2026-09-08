@@ -225,6 +225,7 @@ h3 {
   font-style: normal;
   letter-spacing: -0.02em;
   cursor: default;
+  overflow-wrap: break-word;
 }
 
 .plaintext img {
@@ -876,8 +877,8 @@ a.nostyle:visited {
   }
 
   .pagebody {
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .header {
@@ -905,6 +906,13 @@ a.nostyle:visited {
     max-width: calc(20% - 4.8px);
     min-height: 44px;
     padding: 4px;
+  }
+
+  /* The 180x128 collapsed-card thumbnail doesn't leave enough room next
+     to the title/teaser text at phone width -- shrink it here. */
+  .news-thumbnail {
+    width: 110px !important;
+    height: 78px !important;
   }
 }
 
@@ -937,5 +945,13 @@ a.nostyle:visited {
   .explore-tile,
   .explore-tile:hover {
     font-size: 13px !important;
+  }
+}
+
+/* Even 13px overflows "colloquium" once the column itself gets this
+   narrow (a side-effect of the wider phone page gutters). */
+@media (max-width: 360px) {
+  .explore-tile:hover {
+    font-size: 11px !important;
   }
 }

@@ -41,6 +41,7 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, s
             width="180"
             height="128"
             loading="lazy"
+            className="news-thumbnail"
             style={{ objectFit: "cover", borderRadius: "10px", flexShrink: 0 }}
             src={thumbnail ? thumbnail : photo}
             alt={`Photo for ${title}`}
