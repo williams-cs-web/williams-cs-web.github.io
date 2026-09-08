@@ -650,8 +650,6 @@ a.nostyle:visited {
 }
 
 .explore-tile:hover {
-  outline: 3px solid var(--color-gold);
-  outline-offset: 2px;
   font-family: 'Luckiest Guy', var(--font-display) !important;
   font-size: 24px !important;
 }
