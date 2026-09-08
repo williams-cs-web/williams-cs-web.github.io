@@ -14,12 +14,6 @@ const EventRow = ({ event }) => {
   const secondary = hasTitle ? `${event.speaker}, ${event.affiliation}` : event.affiliation;
   const detail = (event.abstract && event.abstract.length > 0) ? event.abstract : event.bio;
   const photoSize = detail ? 140 : 100;
-  // Group photos where the subjects are spread across the full width (rather
-  // than centered, like a headshot) lose someone off the edge under a square
-  // crop -- widen the box and bias the crop toward the top of the frame so
-  // it grabs everyone's face and drops the dead space below instead.
-  const isWideGroupPhoto = event.photoFocus === "top";
-  const photoWidth = isWideGroupPhoto ? Math.round(photoSize * 1.7) : photoSize;
 
   return (
     <div className="soft-card" style={{ padding: "20px" }}>
@@ -27,15 +21,10 @@ const EventRow = ({ event }) => {
       <div className="colloquium-event-row" style={{ display: "flex", flexFlow: "row nowrap", gap: "20px", marginTop: "10px", alignItems: detail ? "stretch" : "center" }}>
         <img
           className="colloquium-event-photo"
-          width={photoWidth}
+          width={photoSize}
           height={photoSize}
           loading="lazy"
-          style={{
-            objectFit: "cover",
-            objectPosition: isWideGroupPhoto ? "50% 10%" : "50% 50%",
-            borderRadius: "12px",
-            flexShrink: 0,
-          }}
+          style={{ objectFit: "cover", borderRadius: "12px", flexShrink: 0 }}
           src={event.photo}
           alt={`Photo of ${event.speaker}`}
         />
