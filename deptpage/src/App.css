@@ -907,6 +907,14 @@ a.nostyle:visited {
     flex: 0 1 calc(20% - 4.8px);
     max-width: calc(20% - 4.8px);
   }
+
+  /* The last 4 (6th-9th) items are the second row -- stretch them across
+     the full width instead of sitting at the same fifth-width as the
+     first row's 5, which would leave them centered with gaps to spare. */
+  .topmenu:nth-child(n+6) {
+    flex: 0 1 calc(25% - 4.5px);
+    max-width: calc(25% - 4.5px);
+  }
 }
 
 /* At 4-per-row, "colloquium" and "research" overflow their tile at the
