@@ -41,9 +41,9 @@ const GroupCard = ({ group }) => {
           <a href={group.webpage} target="_blank">{nameContent}</a>
         ) : nameContent}
       </div>
-      <div className="plaintext" style={{ marginTop: '10px', color: '#444444' }}>{group.description}</div>
+      <div className="plaintext" style={{ marginTop: '10px', color: '#444444', maxWidth: '700px' }}>{group.description}</div>
       {group.details ? group.details.map((detail, i) => (
-        <div key={i} className="plaintext" style={{ marginTop: '10px', color: '#444444' }}>{detail}</div>
+        <div key={i} className="plaintext" style={{ marginTop: '10px', color: '#444444', maxWidth: '700px' }}>{detail}</div>
       )) : null}
       {group.leadership && group.leadership.length > 0 ? (
         <div style={{ marginTop: '18px' }}>
@@ -86,7 +86,7 @@ const StudentLife = ({ style, onClick, showSidebar }) => {
             <div className="eyebrow">Student Groups</div>
           </div>
 
-          <div style={{ display: 'flex', flexFlow: 'column nowrap', gap: '16px', marginTop: '20px', maxWidth: '780px' }}>
+          <div style={{ display: 'flex', flexFlow: 'column nowrap', gap: '16px', marginTop: '20px' }}>
             {groups.map((group) => (
               <GroupCard key={group.name} group={group} />
             ))}
