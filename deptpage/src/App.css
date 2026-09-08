@@ -1000,17 +1000,32 @@ a.nostyle:visited {
    keep the experimental hover font bump from making that worse. Covers
    the 600px phone breakpoint too, since 760 > 600. */
 @media (max-width: 760px) {
-  .explore-tile,
-  .explore-tile:hover {
+  .explore-tile {
     font-size: 13px !important;
+  }
+
+  .explore-tile:hover {
+    font-size: 17px !important;
   }
 }
 
-/* Even 13px overflows "colloquium" once the column itself gets this
-   narrow (a side-effect of the wider phone page gutters). */
+/* Colloquium is always the leftmost tile of the grid's second row
+   (fixed 4-column grid, doesn't reflow), and the left-spacer that
+   otherwise cushions the page's left edge disappears at <=600px --
+   so its hover text has the least room to bleed left of any tile,
+   right in this range. Confirmed via high-DPI screenshots (not just
+   scrollWidth, which isn't a reliable clipping signal here) that 17px
+   clips "COLLOQUIUM"'s leading C in the 400-600px sub-range even
+   though it's safe from 700-760px. */
+@media (max-width: 600px) {
+  .explore-tile:hover {
+    font-size: 14px !important;
+  }
+}
+
 @media (max-width: 360px) {
   .explore-tile:hover {
-    font-size: 11px !important;
+    font-size: 12px !important;
   }
 
   /* "colloquium" still slightly overflows its own pill at 13px this
