@@ -124,7 +124,7 @@ function MajorRequirement(props) {
       const available = el.parentElement.clientWidth
       const natural = el.scrollWidth
       if (available > 0 && natural > 0) {
-        setLabelScale(Math.min(1, (available / natural) * 0.96))
+        setLabelScale(Math.min(1, (available / natural) * 0.85))
       }
     }
 
@@ -164,6 +164,7 @@ function MajorRequirement(props) {
           style={{
             flexGrow: 1,
             flexShrink: 1,
+            minWidth: 0,
             display: 'flex',
             flexFlow: 'row nowrap',
             justifyContent: 'center',
@@ -171,7 +172,7 @@ function MajorRequirement(props) {
             gap: '4px',
             whiteSpace: 'nowrap',
             transform: `scale(${labelScale})`,
-            transformOrigin: 'left center',
+            transformOrigin: 'center center',
           }}>
           <div className="plan-your-major-dept" style={{ fontSize: props.largeFontSize }}>{dept}</div>
           <div className="plan-your-major-course-number" style={{ fontSize: props.largeFontSize }}>{number}</div>
@@ -191,8 +192,10 @@ const Semester = (props) => {
   return (
     <div ref={setNodeRef} style={{
       width: props.style.width,
+      boxSizing: 'border-box',
       flexGrow: 1,
       flexShrink: 1,
+      minWidth: 0,
       padding: "10px",
       minHeight: '60px',
       backgroundColor: isOver ? '#f0f4ff' : undefined,
@@ -201,6 +204,7 @@ const Semester = (props) => {
         display: 'flex',
         flexFlow: 'column nowrap',
         gap: '4px',
+        minWidth: 0,
       }}>
         {props.children}
       </div>
@@ -432,7 +436,7 @@ const Schedule = () => {
           flexShrink: 1,
         }}>
         {sem.courses.map(course => (
-          <div key={course}>
+          <div key={course} style={{ minWidth: 0 }}>
             <MajorRequirement
               key={course}
               id={course}
