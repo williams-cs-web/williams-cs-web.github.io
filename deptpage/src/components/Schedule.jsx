@@ -35,7 +35,10 @@ const ScheduleChooser = ({ current, onSelect, largeFontSize, smallFontSize, stac
     }
   })
 
-  const CHOOSER_FONT_BOOST = 1.4
+  // The boost was tuned for the narrow (~21%-width) sidebar layout; in
+  // stacked mode each item already gets a much wider column (outerWidth/3),
+  // so the same boost is oversized and forces ugly mid-word wraps.
+  const CHOOSER_FONT_BOOST = stacked ? 1.0 : 1.4
   const chooserLargeFontSize = `${parseFloat(largeFontSize) * CHOOSER_FONT_BOOST * fontScale}px`
   const chooserSmallFontSize = `${parseFloat(smallFontSize) * CHOOSER_FONT_BOOST * fontScale}px`
 
@@ -48,6 +51,7 @@ const ScheduleChooser = ({ current, onSelect, largeFontSize, smallFontSize, stac
         padding: '5px',
         flexGrow: stacked ? 1 : 0,
         flexShrink: stacked ? 1 : 0,
+        minWidth: stacked ? 0 : undefined,
       }}>
       <div>{paths[pathIndex].icon}</div>
       <div>{paths[pathIndex].id}</div>
@@ -496,9 +500,7 @@ const Schedule = () => {
     <div style={{ width: '100%' }}>
       <div ref={outerRef} style={{ width: '100%', display: 'flex', flexFlow: stacked ? 'column nowrap' : 'row nowrap', alignItems: stacked ? 'stretch' : 'flex-start' }}>
 
-        {stacked ? null : (
-          <ScheduleChooser stacked={stacked} matchHeight={contentHeight} largeFontSize={largeFontSize} smallFontSize={smallFontSize} current={currentPath} onSelect={setCurrentPath} />
-        )}
+        <ScheduleChooser stacked={stacked} matchHeight={contentHeight} largeFontSize={largeFontSize} smallFontSize={smallFontSize} current={currentPath} onSelect={setCurrentPath} />
 
         <div ref={containerRef} style={{ flexGrow: 1, flexShrink: 1, minWidth: 0 }}>
           <InfoBox fontSize={largeFontSize} info={getInfo()} warning={getWarning()} error={getError()} />
