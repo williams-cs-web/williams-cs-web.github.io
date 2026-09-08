@@ -33,8 +33,8 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, s
       >
         {open ? null : (
           <img
-            width="136"
-            height="96"
+            width="180"
+            height="128"
             loading="lazy"
             style={{ objectFit: "cover", borderRadius: "10px", flexShrink: 0 }}
             src={thumbnail ? thumbnail : photo}
@@ -43,9 +43,9 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, s
         )}
         <div style={{ flexGrow: 1, flexShrink: 1, minWidth: 0 }}>
           <div className="news-tag" style={{ color: "var(--color-news)" }}>News &middot; {date}</div>
-          <div className="title" style={{ fontSize: "17px", marginTop: "2px" }}>{title}</div>
+          <div className="title" style={{ fontSize: "19px", marginTop: "2px" }}>{title}</div>
           {open ? null : (
-            <div className="plaintext" style={{ fontSize: "13px", color: "#666666", marginTop: "4px" }}>
+            <div className="plaintext" style={{ fontSize: "15px", color: "#666666", marginTop: "4px" }}>
               {teaserText}
             </div>
           )}
@@ -70,7 +70,7 @@ const NewsItem = ({ date, title, photo, thumbnail, article, teaser, forceOpen, s
       {open ? (
         <div style={{ padding: "0 16px 20px 16px" }}>
           <img width="100%" loading="lazy" style={{ borderRadius: "10px", marginBottom: "14px", display: "block" }} src={photo} alt={`Photo for ${title}`} />
-          <div className="plaintext article-body">
+          <div className="plaintext article-body" style={{ maxWidth: "760px" }}>
             <Markdown remarkPlugins={[remarkGfm]} components={markdownImageComponent}>{content}</Markdown>
           </div>
         </div>
@@ -130,7 +130,7 @@ const News = ({ style, layout, howMany, date, onClick, showSidebar }) => {
             textAlign: "left",
           }}
         >
-          <div style={{ maxWidth: "780px", marginTop: "24px" }}>
+          <div style={{ marginTop: "24px" }}>
             {newsItems.map((opp, i) => renderNewsItem(opp, i))}
           </div>
         </div>
