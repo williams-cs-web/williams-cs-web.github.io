@@ -4,7 +4,7 @@ The computer science major consists of 10 courses. These must include the follow
 
 * the "introductory" courses: CSCI 134 and CSCI 136
 * discrete math: Students must demonstrate proficiency in discrete mathematics by earning a grade of C- or better in Math 200, Math 220, Math 328, or Math 334. This requirement should be met by the end of the sophomore year.
-* the "core" courses: CSCI 237, CSCI 256, CSCI 270 (potential majors are strongly urged to complete all or most of the core courses by the end of their junior year in order to ensure that they have the appropriate prerequisites for the electives)
+* the "core" courses: CSCI 237, CSCI 256, CSCI 270 (prospective majors are urged to complete two of the three core courses by the end of their sophomore year, and must normally complete all three by the end of their junior year, in order to ensure that they have the appropriate prerequisites for the electives)
 * the "depth" courses: one systems elective (CSCI 320-349), one theory elective (CSCI 334 or CSCI 350-369), and one artificial intelligence elective (CSCI 370-389)
 * one additional CSCI/MATH/STAT elective: this fourth elective may be any 300- or 400-level CSCI course (not including CSCI 39x courses) or a MATH/STAT 200- or 300-level course. Students that choose to take a MATH/STAT course as their fourth elective are encouraged, but not required, to take MATH 250, MATH 334, MATH 341, STAT 201, or STAT 202. 
 

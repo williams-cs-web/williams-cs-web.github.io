@@ -111,7 +111,7 @@
                 "CSCI 256",
                 "CSCI 270"
             ],
-            "info": "A course chosen from 300- or 400-level courses in Computer Science (not including 39x courses). Alternatively, you can use a MATH 3xx, STAT 2xx, or STAT 3xx course to satisfy this requirement.",
+            "info": "A course chosen from 300- or 400-level courses in Computer Science (not including 39x courses). Alternatively, you can use a MATH/STAT 200- or 300-level course to satisfy this requirement.",
             "warning": "Most electives have either 237, 256, or 270 as a prerequisite.",
             "error": "All electives have 136 as a prerequisite."
         },
