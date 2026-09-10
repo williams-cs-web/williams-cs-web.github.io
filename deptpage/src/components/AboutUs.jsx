@@ -26,6 +26,9 @@ const Person = (props) => {
       <div style={{ minWidth: 0 }}>
         <div className="title" style={{ fontSize: "16px" }}>{props.id}</div>
         <div className="plaintext" style={{ fontSize: "12px", color: "#666666", lineHeight: 1.3 }}>{props.title}</div>
+        {props.office ? (
+          <div className="plaintext" style={{ fontSize: "12px", color: "#999999", lineHeight: 1.3 }}>{props.office}</div>
+        ) : null}
       </div>
     </div>
   );
@@ -139,6 +142,7 @@ const AboutUs = ({ style, showSidebar, onClick }) => {
                 photo={person.photo}
                 role={person.role}
                 title={person.title}
+                office={person.office}
                 webpage={person.webpage}
                 interests={person.interests}
                 onClick={onClick}

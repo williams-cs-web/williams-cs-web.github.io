@@ -129,6 +129,9 @@ const CourseOfferings = ({ style, showSidebar, onClick }) => {
               <div className="plaintext" style={{ fontSize: "13px", color: "#888888", textTransform: "none", letterSpacing: "normal", fontWeight: "normal" }}>
                 (<a href="https://williams-cs-docs.cs.williams.edu/" target="_blank" className="link">💻 computing resources</a>)
               </div>
+              <div className="plaintext" style={{ fontSize: "13px", color: "#888888", textTransform: "none", letterSpacing: "normal", fontWeight: "normal" }}>
+                (<a href="https://docs.google.com/forms/d/e/1FAIpQLSeHEYivlxlexfitNguVDI4VIunRcQU5XZOIzVMmDcr6DjgkQg/viewform" target="_blank" className="link">📝 waitlist form</a>)
+              </div>
             </div>
             <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "center", gap: "12px" }}>
               {semesters.map((s) => (

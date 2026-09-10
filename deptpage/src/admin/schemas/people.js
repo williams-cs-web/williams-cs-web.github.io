@@ -19,9 +19,10 @@ export default {
       ],
     },
     { key: 'title', type: 'text', label: 'title', required: true },
+    { key: 'office', type: 'text', label: 'office' },
     { key: 'webpage', type: 'text', label: 'webpage' },
     { key: 'interests', type: 'text', label: 'interests', multiline: true },
   ],
-  listColumns: ['id', 'role', 'title'],
+  listColumns: ['id', 'role', 'title', 'office'],
   sortBy: { key: 'id', direction: 'asc' },
 }
