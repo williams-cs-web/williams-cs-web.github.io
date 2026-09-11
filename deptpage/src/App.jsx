@@ -3,6 +3,7 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import FrontPage from "./components/FrontPage";
 import AboutUs from "./components/AboutUs";
 import PlanYourMajor from "./components/PlanYourMajor";
+import OldMajorRequirements from "./components/OldMajorRequirements";
 import CourseOfferings from "./components/CourseOfferings";
 import Colloquium from "./components/Colloquium";
 import StudentLife from "./components/StudentLife";
@@ -96,6 +97,16 @@ function App() {
       element: (
         <PlanYourMajor
           layout={getLayout()}
+          onClick={handleHubClick}
+          style={contentStyle}
+          showSidebar={showSidebar}
+        />
+      ),
+    },
+    {
+      path: "old-major-requirements/",
+      element: (
+        <OldMajorRequirements
           onClick={handleHubClick}
           style={contentStyle}
           showSidebar={showSidebar}

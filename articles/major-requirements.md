@@ -1,4 +1,4 @@
-Full official details of our major requirements can be found [here](https://catalog.williams.edu/pdf/csci.pdf), but the following is a gentle summary. Note: We updated our major requirements in Spring 2026. If you declared prior to Spring 2026 and are looking for our old requirements, please click [here](https://hub.williams.edu/csci/major-requirements/).
+Full official details of our major requirements can be found [here](https://catalog.williams.edu/pdf/csci.pdf), but the following is a gentle summary. Note: We updated our major requirements in Spring 2026. If you declared prior to Spring 2026 and are looking for our old requirements, please click [here](/old-major-requirements/).
 
 The computer science major consists of 10 courses. These must include the following:
 
