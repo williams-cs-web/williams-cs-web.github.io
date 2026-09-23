@@ -176,8 +176,9 @@ img {
   vertical-align: middle;
 }
 
+/* Manrope is loaded at 200-800, so 800 is its boldest weight. */
 strong {
-  font-weight: 1000;
+  font-weight: 800;
 }
 
 ul {
@@ -596,16 +597,6 @@ a.nostyle:visited {
   color: white;
 }
 
-.frontpage-colloquium {
-  background-color: lightpink;
-  color: black;
-}
-
-.frontpage-colloquium:hover {
-  background-color: var(--color-colloquium);
-  color: white;
-}
-
 .menubar-colloquium {
   background-color: var(--color-colloquium);
   color: white;
@@ -702,45 +693,6 @@ a.nostyle:visited {
   color: chartreuse;
   text-align: center;
   margin: 1px;
-  cursor: default;
-}
-
-
-/* ============================================================
-   COLLOQUIUM
-   ============================================================ */
-.frontpage-colloquium-speaker {
-  font-family: var(--font-octic);
-  font-weight: bold;
-  cursor: default;
-}
-
-.frontpage-colloquium-affiliation {
-  font-family: var(--font-octic);
-  font-weight: lighter;
-  margin-top: '-3px';
-  cursor: default;
-}
-
-.frontpage-colloquium-title {
-  font-family: var(--font-octic);
-  font-weight: bold;
-  cursor: default;
-}
-
-.colloquium-title {
-  font-family: var(--font-body);
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-size: 18px;
-  font-style: normal;
-  letter-spacing: -0.02em;
-  cursor: default;
-}
-
-.colloquium-speaker {
-  font-family: var(--font-accent);
-  font-weight: bold;
   cursor: default;
 }
 
