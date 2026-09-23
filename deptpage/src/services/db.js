@@ -159,18 +159,22 @@ const getAboutContent = () => {
   return aboutData.content
 }
 
+// Sort key for a display name like "Colin C. Adams" or "Guilford L. Spencer II":
+// the last word, skipping generational suffixes, so middle names and initials
+// don't affect the order.
+const NAME_SUFFIXES = new Set(['JR', 'JR.', 'SR', 'SR.', 'II', 'III', 'IV'])
 const getLastName = (name) => {
-  const fields = name.split(' ')
-  const first = fields[0]
-  const last = fields.slice(1, fields.length).join(' ')
-  return last.length > 0 ? last : first
+  const fields = name.trim().split(/\s+/)
+  while (fields.length > 1 && NAME_SUFFIXES.has(fields[fields.length - 1])) fields.pop()
+  return fields[fields.length - 1]
 }
 
 const getPeople = () => {
   return people.people.toSorted((a, b) => {
     const nameA = getLastName(a.id.toUpperCase())
     const nameB = getLastName(b.id.toUpperCase())
-    return nameA < nameB ? -1 : (nameA > nameB ? 1 : 0)
+    if (nameA !== nameB) return nameA < nameB ? -1 : 1
+    return a.id < b.id ? -1 : (a.id > b.id ? 1 : 0)
   });
 }
 
