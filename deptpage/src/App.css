@@ -28,7 +28,7 @@
 
   /* Layout */
   --content-max-width: 1050px;
-  --header-height:     140px;
+  --header-height:     104px;
 }
 
 /* ============================================================
@@ -310,7 +310,7 @@ h3 {
   text-align: left;
   font-family: var(--font-display);
   font-weight: normal;
-  font-size: 64px;
+  font-size: 52px;
   color: var(--color-purple);
   position: sticky;
   top: 0;
@@ -319,13 +319,13 @@ h3 {
 
 .williams-title {
   margin: 0px;
-  padding: 30px 0px 0px 0px;
+  padding: 16px 0px 0px 0px;
 }
 
 .williams-subtitle {
-  margin-top: -20px;
+  margin-top: -16px;
   padding: 0px 0px 0px 14px;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bold;
 }
 
@@ -335,20 +335,24 @@ h3 {
   z-index: 9;
   background-color: white;
   padding-top: 6px;
-  padding-bottom: 16px;
+  padding-bottom: 10px;
   padding-right: 40px;
 }
 
+/* Each button is sized to its label, kept on one line, so all nine fit
+   in one row on wide screens. Narrower widths switch to tidy grids with
+   smaller type -- see the responsive rules below. */
 .topmenu {
   font-family: var(--font-display);
   font-size: 16px;
   border: 2px solid black;
   border-radius: 8px;
   cursor: default;
-  flex: 1 1 100px;
-  max-width: 160px;
-  min-height: 44px;
-  padding: 6px;
+  flex: 1 1 auto;
+  max-width: none;
+  min-height: 34px;
+  padding: 4px 8px;
+  white-space: nowrap;
 }
 
 .topmenu-link {
@@ -921,12 +925,10 @@ a.nostyle:visited {
     padding-bottom: 16px;
   }
 
+  /* 3 + 3 + 3 grid (the column widths are set in the <=749px rule below);
+     the font shrinks with the phone so "plan your major" fits a third. */
   .topmenu {
-    font-size: 13px;
-    flex: 0 1 calc(20% - 4.8px);
-    max-width: calc(20% - 4.8px);
-    min-height: 44px;
-    padding: 4px;
+    font-size: clamp(11px, calc(((100vw - 28px) / 3 - 16px) / 8.375), 13px);
   }
 
   /* Side-by-side, the thumbnail reads as out of proportion to a tall
@@ -989,16 +991,29 @@ a.nostyle:visited {
   }
 }
 
-/* Between roughly 601-1076px, force the 9-item top menu into a clean
-   5-then-4 wrap (instead of the organic 8-1/7-2/6-3/4-4-1 progression
-   flex-wrap produces on its own as it shrinks) by fixing each item's
-   basis to exactly a fifth of the row. Below 600px this is layered with
-   the smaller size set above. 1076px is where the unforced layout's own
-   9-in-a-row naturally breaks, so this picks up right where that ends. */
-@media (max-width: 1076px) {
+/* Top menu at narrower widths. Every label stays on one line; the
+   longest, "plan your major", is ~8.4px wide per 1px of font size, which
+   sets how small the text must be to fit a given column. (Tuned to the
+   current nine labels -- revisit if a label gets longer.)
+   - 932-1076px: still one row; the font scales from 16px down to 13px
+     (the labels total ~45px of text per 1px of font size, and the row is
+     the window width minus ~120px).
+   - 750-931px:  clean 5 + 4 grid, font sized so labels fit a fifth.
+   - 601-749px:  3 + 3 + 3 grid (a fifth is too narrow here).
+   - <=600px:    3 + 3 + 3 grid (font set in the phone overrides above). */
+@media (min-width: 932px) and (max-width: 1076px) {
+  .topmenu {
+    padding: 4px 6px;
+    font-size: clamp(13px, calc((100vw - 340px) / 45.5), 16px);
+  }
+}
+
+@media (min-width: 750px) and (max-width: 931px) {
   .topmenu {
     flex: 0 1 calc(20% - 4.8px);
     max-width: calc(20% - 4.8px);
+    padding: 4px;
+    font-size: clamp(13px, calc(((100vw - 120px) / 5 - 16.8px) / 8.375), 14px);
   }
 
   /* The last 4 (6th-9th) items are the second row -- stretch them across
@@ -1007,6 +1022,20 @@ a.nostyle:visited {
   .topmenu:nth-child(n+6) {
     flex: 0 1 calc(25% - 4.5px);
     max-width: calc(25% - 4.5px);
+  }
+}
+
+@media (max-width: 749px) {
+  .topmenu {
+    flex: 0 1 calc(33.333% - 4px);
+    max-width: calc(33.333% - 4px);
+    padding: 4px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 749px) {
+  .topmenu {
+    font-size: 14px;
   }
 }
 
@@ -1043,9 +1072,12 @@ a.nostyle:visited {
     font-size: 12px !important;
   }
 
-  /* "colloquium" still slightly overflows its own pill at 13px this
-     narrow, even after moving it to the wider second row. */
+}
+
+/* Tiny phones (e.g. 320px): even 11px can't fit "plan your major" in a
+   third of the row, so let labels wrap onto two lines there. */
+@media (max-width: 340px) {
   .topmenu {
-    font-size: 11px;
+    white-space: normal;
   }
 }
